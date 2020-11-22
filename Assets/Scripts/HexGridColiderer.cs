@@ -63,6 +63,7 @@ namespace Assets.Scripts
             hits = hits.OrderBy(h => h.distance).ToList();
 
             List<Vector3> Heights = new List<Vector3>();
+            List<float> HeightsOfActualCollision = new List<float>();
 
             foreach(RaycastHit hit in hits)
             {
@@ -77,12 +78,13 @@ namespace Assets.Scripts
                 else
                 {
                     Heights.Add(HexCoords);
+                    HeightsOfActualCollision.Add(hit.point.y);
                 }
             }
 
             for(int i = 1;i< Heights.Count;i++)
             {
-                if (Heights[i].y > Heights[i - 1].y)
+                if (Heights[i].y > Heights[i - 1].y && HeightsOfActualCollision[i] < Heights[i].y) 
                 {
                     HexOutput = Heights[i];
                     Debug.Log(HexOutput);
