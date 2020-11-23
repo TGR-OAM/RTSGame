@@ -59,10 +59,20 @@ namespace Assets.Scripts
 
         public bool TryRaycastHexGrid(out Vector3 HexOutput, Ray rayToCast)
         {
-            List<RaycastHit> hits = Physics.RaycastAll(rayToCast,Mathf.Infinity).ToList();
-            hits = hits.OrderBy(h => h.distance).ToList();
+            Debug.Log("Try ray cast");
 
-            List<Vector3> Heights = new List<Vector3>();
+            List<RaycastHit> hitsDown = Physics.RaycastAll(rayToCast.origin, rayToCast.direction, Mathf.Infinity).ToList();
+            hitsDown = hitsDown.OrderBy(h => h.distance).ToList();
+
+            List<RaycastHit> hitsUp = Physics.RaycastAll(rayToCast.origin, -rayToCast.direction, Mathf.Infinity).ToList();
+            hitsUp = hitsUp.OrderByDescending(h => h.distance).ToList();
+
+            hitsUp.AddRange(hitsDown);
+            List<RaycastHit> hits = hitsUp;
+
+            Debug.Log(hits.Count);
+
+            List <Vector3> Heights = new List<Vector3>();
             List<float> HeightsOfActualCollision = new List<float>();
 
             foreach(RaycastHit hit in hits)
@@ -87,7 +97,6 @@ namespace Assets.Scripts
                 if (Heights[i].y > Heights[i - 1].y && HeightsOfActualCollision[i] < Heights[i].y) 
                 {
                     HexOutput = Heights[i];
-                    Debug.Log(HexOutput);
                     return true;
                 }
             }

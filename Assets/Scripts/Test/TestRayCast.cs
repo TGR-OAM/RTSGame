@@ -35,7 +35,7 @@ public class TestRayCast : MonoBehaviour
         {
             if (hexGrid.TryRaycastHexGrid(out Vector3 output, Camera.main.ScreenPointToRay(Input.mousePosition)))
             {
-                worldEditor.TryUpdateCellHeightInRadius(output,.5f,3);
+                worldEditor.TryUpdateCellHeightInRadius(output,.5f,20);
             }
         }
     }
