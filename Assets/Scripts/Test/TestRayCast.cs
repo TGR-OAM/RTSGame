@@ -10,11 +10,11 @@ public class TestRayCast : MonoBehaviour
 
     private void Awake()
     {
-        worldEditor = new WorldEditor(hexGrid.hexGridRenderer, hexGrid.hexGridColiderer,hexGrid.MapData);
+        worldEditor = new WorldEditor(hexGrid);
     }
     void Update()
     {
-        if (Input.GetMouseButton(0))
+        if (Input.GetKey(KeyCode.LeftShift) && Input.GetMouseButton(0))
         {
             if (hexGrid.TryRaycastHexGrid(out Vector3 output, Camera.main.ScreenPointToRay(Input.mousePosition))) 
             {
@@ -22,7 +22,7 @@ public class TestRayCast : MonoBehaviour
             }
                 
         }
-        if (Input.GetMouseButton(1))
+        if (Input.GetKey(KeyCode.LeftShift) && Input.GetMouseButton(1))
         {
             if (hexGrid.TryRaycastHexGrid(out Vector3 output, Camera.main.ScreenPointToRay(Input.mousePosition))) 
             {
@@ -31,11 +31,18 @@ public class TestRayCast : MonoBehaviour
 
         }
 
-        if(Input.GetMouseButton(2))
+        if (Input.GetKey(KeyCode.LeftControl) && Input.GetMouseButton(0))
         {
             if (hexGrid.TryRaycastHexGrid(out Vector3 output, Camera.main.ScreenPointToRay(Input.mousePosition)))
             {
-                worldEditor.TryUpdateCellHeightInRadius(output,.5f,20);
+                worldEditor.TryUpdateCellHeightInRadius(output, .5f, 5);
+            }
+        }
+        if (Input.GetKey(KeyCode.LeftControl) && Input.GetMouseButton(1))
+        {
+            if (hexGrid.TryRaycastHexGrid(out Vector3 output, Camera.main.ScreenPointToRay(Input.mousePosition)))
+            {
+                worldEditor.TryUpdateCellHeightInRadius(output, -.5f, 5);
             }
         }
     }

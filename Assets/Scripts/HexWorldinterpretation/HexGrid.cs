@@ -14,7 +14,7 @@ public class HexGrid : MonoBehaviour
 
     private void Awake()
     {
-        MapData = new HexGridData(512, 128, 4, 4, Default);
+        MapData = new HexGridData(512, 128, 1, 1, Default);
 
         InitWorld();
     }

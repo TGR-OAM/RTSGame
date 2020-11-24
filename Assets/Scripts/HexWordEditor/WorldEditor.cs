@@ -13,12 +13,12 @@ namespace Assets.Scripts
         HexGridColiderer hexGridColiderer;
         HexGridData MapData;
 
-        public WorldEditor(HexGridRenderer hexGridRenderer, HexGridColiderer hexGridColiderer, HexGridData MapData)
+        public WorldEditor(HexGrid hexGrid)
         {
-            this.hexGridColiderer = hexGridColiderer;
-            this.hexGridRenderer = hexGridRenderer;
+            this.hexGridColiderer = hexGrid.hexGridColiderer;
+            this.hexGridRenderer = hexGrid.hexGridRenderer;
 
-            this.MapData = MapData;
+            this.MapData = hexGrid.MapData;
         }
 
         public void TryUpdateCellHeight(List<Vector3> Coords, float dY)

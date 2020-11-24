@@ -8,8 +8,7 @@ using UnityEngine;
 
 public class MouseLook : MonoBehaviour
 {
-    public float mouseSensitivity = 100f;
-    public Transform playerBody;
+    public float mouseSensitivity;
 
     private void Start()
     {
@@ -25,7 +24,7 @@ public class MouseLook : MonoBehaviour
     void CameraRotation()
     {
         float mouseY = transform.localEulerAngles.y + Input.GetAxis("Mouse X") * mouseSensitivity;
-        float mouseX = Mathf.Clamp(transform.localEulerAngles.x - Input.GetAxis("Mouse Y") * mouseSensitivity, 45f, 80f);
+        float mouseX = Mathf.Clamp(transform.localEulerAngles.x - Input.GetAxis("Mouse Y") * mouseSensitivity, 0f, 360f);
         this.transform.localEulerAngles = new Vector3(mouseX, mouseY, 0f);
     }
 }
