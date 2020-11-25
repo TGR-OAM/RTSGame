@@ -12,6 +12,8 @@ public class HexGrid : MonoBehaviour
 
     public Material Default;
 
+    public HexGridMinimapCamera hexGridMinimapCamera;
+
     private void Awake()
     {
         MapData = new HexGridData(512, 128, 1, 1, Default);
@@ -42,11 +44,14 @@ public class HexGrid : MonoBehaviour
 
 public struct HexGridData
 {
-    public int width;
-    public int height;
+    public int width { get; private set; }
+    public int height { get; private set; }
 
-    public float cellSize;
-    public float padding;
+    public float widthInUnits { get; private set; }
+    public float heightInUnits { get; private set; }
+
+    public float cellSize { get; private set; }
+    public float padding { get; private set; }
 
     public float[] HeightMap;
 
@@ -63,6 +68,10 @@ public struct HexGridData
         this.HeightMap = new float[width* height];
 
         this.Default = Default;
+
+
+        this.widthInUnits = width * HexMetrics.innerRadius * 2f * cellSize + (height > 1f ? HexMetrics.innerRadius * cellSize : 0);
+        this.heightInUnits = 1.5f * (height - 1) * cellSize * HexMetrics.outerRadius + cellSize * HexMetrics.outerRadius * 2f;
     }
 
 }

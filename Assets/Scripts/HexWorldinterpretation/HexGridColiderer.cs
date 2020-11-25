@@ -13,8 +13,7 @@ namespace Assets.Scripts
         List<GameObject> Coliders;
         GameObject ColiderPart;
 
-        float widthInUnits;
-        float heightInUnits;
+        
 
         public HexGridColiderer(HexGrid hexGrid)
         {
@@ -22,9 +21,6 @@ namespace Assets.Scripts
 
             ColiderPart = new GameObject("Colider Part");
             ColiderPart.transform.parent = hexGrid.transform;
-
-            widthInUnits = MapData.width * HexMetrics.innerRadius * 2f * MapData.cellSize + (MapData.height > 1f ? HexMetrics.innerRadius * MapData.cellSize : 0);
-            heightInUnits = 1.5f * (MapData.height-1) * MapData.cellSize * HexMetrics.outerRadius + MapData.cellSize * HexMetrics.outerRadius * 2f;
 
             Coliders = new List<GameObject>();
             ReUpdateAllColiders();
@@ -46,8 +42,8 @@ namespace Assets.Scripts
                 GameObject PlaneCollider = GameObject.CreatePrimitive(PrimitiveType.Cube);
                 PlaneCollider.name = "Colider " + height;
                 PlaneCollider.transform.parent = ColiderPart.transform;
-                PlaneCollider.transform.localPosition = new Vector3(widthInUnits / 2f - MapData.cellSize * HexMetrics.innerRadius, height - .0005f, heightInUnits / 2f - MapData.cellSize * HexMetrics.outerRadius);
-                PlaneCollider.transform.localScale = new Vector3(widthInUnits, .001f, heightInUnits);
+                PlaneCollider.transform.localPosition = new Vector3(MapData.widthInUnits / 2f - MapData.cellSize * HexMetrics.innerRadius, height - .0005f, MapData.heightInUnits / 2f - MapData.cellSize * HexMetrics.outerRadius);
+                PlaneCollider.transform.localScale = new Vector3(MapData.widthInUnits, .001f, MapData.heightInUnits);
 
                 GameObject.Destroy(PlaneCollider.GetComponent<MeshFilter>());
                 GameObject.Destroy(PlaneCollider.GetComponent<MeshRenderer>());
