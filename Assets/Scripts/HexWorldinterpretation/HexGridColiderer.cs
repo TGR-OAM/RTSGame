@@ -57,7 +57,7 @@ namespace Assets.Scripts
         }
 
 
-        public bool TryRaycastHexGrid(out Vector3 HexOutput, Ray rayToCast)
+        public bool TryRaycastHexGrid(out Vector3 DefOutput, Ray rayToCast)
         {
             Debug.Log("Try ray cast");
 
@@ -82,12 +82,12 @@ namespace Assets.Scripts
                 HexCoords += new Vector3(0, MapData.HeightMap[(int)HexCoords.z * MapData.width + (int)HexCoords.x],0);
                 if (Mathf.Approximately(hit.point.y, HexCoords.y))
                 {
-                    HexOutput = HexCoords;
+                    DefOutput = hit.point;
                     return true;
                 }
                 else
                 {
-                    Heights.Add(HexCoords);
+                    Heights.Add(new Vector3(hit.point.x, HexCoords.y, hit.point.z)); ;
                     HeightsOfActualCollision.Add(hit.point.y);
                 }
             }
@@ -96,12 +96,12 @@ namespace Assets.Scripts
             {
                 if (Heights[i].y > Heights[i - 1].y && HeightsOfActualCollision[i] < Heights[i].y) 
                 {
-                    HexOutput = Heights[i];
+                    DefOutput = Heights[i];
                     return true;
                 }
             }
 
-            HexOutput = new Vector3();
+            DefOutput = new Vector3();
             return false;
 
         }

@@ -18,7 +18,7 @@ public class TestRayCast : MonoBehaviour
         {
             if (hexGrid.TryRaycastHexGrid(out Vector3 output, Camera.main.ScreenPointToRay(Input.mousePosition))) 
             {
-                worldEditor.TryUpdateCellHeight(output, .5f);
+                worldEditor.TryUpdateCellHeight(HexMetrics.CalcHexCoordXZFromDefault(output,hexGrid.MapData.cellSize), .5f);
             }
                 
         }
@@ -26,7 +26,7 @@ public class TestRayCast : MonoBehaviour
         {
             if (hexGrid.TryRaycastHexGrid(out Vector3 output, Camera.main.ScreenPointToRay(Input.mousePosition))) 
             {
-                worldEditor.TryUpdateCellHeight(output, -.5f);
+                worldEditor.TryUpdateCellHeight(HexMetrics.CalcHexCoordXZFromDefault(output, hexGrid.MapData.cellSize), -.5f);
             }
 
         }
@@ -35,14 +35,14 @@ public class TestRayCast : MonoBehaviour
         {
             if (hexGrid.TryRaycastHexGrid(out Vector3 output, Camera.main.ScreenPointToRay(Input.mousePosition)))
             {
-                worldEditor.TryUpdateCellHeightInRadius(output, .5f, 5);
+                worldEditor.TryUpdateCellHeightInRadius(HexMetrics.CalcHexCoordXZFromDefault(output, hexGrid.MapData.cellSize), .5f, 5);
             }
         }
         if (Input.GetKey(KeyCode.LeftControl) && Input.GetMouseButton(1))
         {
             if (hexGrid.TryRaycastHexGrid(out Vector3 output, Camera.main.ScreenPointToRay(Input.mousePosition)))
             {
-                worldEditor.TryUpdateCellHeightInRadius(output, -.5f, 5);
+                worldEditor.TryUpdateCellHeightInRadius(HexMetrics.CalcHexCoordXZFromDefault(output, hexGrid.MapData.cellSize), -.5f, 5);
             }
         }
     }
