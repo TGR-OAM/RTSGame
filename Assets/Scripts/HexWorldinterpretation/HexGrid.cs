@@ -12,11 +12,9 @@ public class HexGrid : MonoBehaviour
 
     public Material Default;
 
-    public HexGridMinimapCamera hexGridMinimapCamera;
-
     private void Awake()
     {
-        MapData = new HexGridData(512, 128, 1, 1, Default);
+        MapData = new HexGridData(384, 128, 1, 1, Default);
 
         InitWorld();
     }
@@ -72,6 +70,8 @@ public struct HexGridData
 
         this.widthInUnits = width * HexMetrics.innerRadius * 2f * cellSize + (height > 1f ? HexMetrics.innerRadius * cellSize : 0);
         this.heightInUnits = 1.5f * (height - 1) * cellSize * HexMetrics.outerRadius + cellSize * HexMetrics.outerRadius * 2f;
+        Debug.Log(widthInUnits);
+        Debug.Log(heightInUnits);
     }
 
 }

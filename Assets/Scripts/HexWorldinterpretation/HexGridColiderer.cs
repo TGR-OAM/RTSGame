@@ -13,8 +13,6 @@ namespace Assets.Scripts
         List<GameObject> Coliders;
         GameObject ColiderPart;
 
-        
-
         public HexGridColiderer(HexGrid hexGrid)
         {
             this.MapData = hexGrid.MapData;
