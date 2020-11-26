@@ -70,8 +70,7 @@ public struct HexGridData
 
         this.widthInUnits = width * HexMetrics.innerRadius * 2f * cellSize + (height > 1f ? HexMetrics.innerRadius * cellSize : 0);
         this.heightInUnits = 1.5f * (height - 1) * cellSize * HexMetrics.outerRadius + cellSize * HexMetrics.outerRadius * 2f;
-        Debug.Log(widthInUnits);
-        Debug.Log(heightInUnits);
+
     }
 
 }
