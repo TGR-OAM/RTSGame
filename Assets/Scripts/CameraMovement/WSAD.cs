@@ -4,17 +4,30 @@ using UnityEngine;
 
 public class WSAD : MonoBehaviour
 {       
-    float speed = 4f;
+    public float speed;
   
     void Update()
-    {        
-        float x = Input.GetAxis("Horizontal");
-        float z = Input.GetAxis("Vertical");
-        Vector3 direction=new Vector3(x,0,z);
+    {
+        InputHandler();
+    }
+
+    void InputHandler()
+    {
+        Vector3 direction = new Vector3();
+        if (Input.GetKey(KeyCode.W))
+            direction += new Vector3(0, 0, 1);
+        if (Input.GetKey(KeyCode.S))
+            direction += new Vector3(0, 0, -1);
+        if (Input.GetKey(KeyCode.A))
+            direction += new Vector3(-1, 0, 0);
+        if (Input.GetKey(KeyCode.D))
+            direction += new Vector3(1, 0, 0);
+
         direction.Normalize();
         TryMoveByDirection(direction);
     }
-    void TryMoveByDirection(Vector3 direction)
+    
+    internal void TryMoveByDirection(Vector3 direction)
     {
         if (direction.magnitude != 0)
         {
