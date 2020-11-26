@@ -24,7 +24,7 @@ public class MouseLook : MonoBehaviour
     void CameraRotation()
     {
         float mouseY = transform.localEulerAngles.y + Input.GetAxis("Mouse X") * mouseSensitivity;
-        float mouseX = Mathf.Clamp(transform.localEulerAngles.x - Input.GetAxis("Mouse Y") * mouseSensitivity, 0f, 360f);
+        float mouseX = Mathf.Clamp(transform.localEulerAngles.x - Input.GetAxis("Mouse Y") * mouseSensitivity, 60, 80);
         this.transform.localEulerAngles = new Vector3(mouseX, mouseY, 0f);
     }
 }
