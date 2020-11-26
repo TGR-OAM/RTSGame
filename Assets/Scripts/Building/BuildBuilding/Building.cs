@@ -5,8 +5,7 @@ public class Building : MonoBehaviour
     public Material Materials;
     public Renderer[] MainRenderer;
     public Vector2Int Size = Vector2Int.one;
-    
-    
+
     public void SetTransparent(bool available)
     {
         if (available)
