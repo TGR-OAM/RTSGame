@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="0f09ad32-73ad-4ab8-9cad-c2ba67c77721" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../ai/.vs/ai/v16/.suo" beforeDir="false" afterPath="$PROJECT_DIR$/../ai/.vs/ai/v16/.suo" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ai/Assembly-CSharp-Editor.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/../ai/Assembly-CSharp-Editor.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ai/Assembly-CSharp.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/../ai/Assembly-CSharp.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ai/Assets/Ai.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ai/Assets/Ai.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ai/Assets/Player.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ai/Assets/Player.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ai/Assets/Poligon.unity" beforeDir="false" afterPath="$PROJECT_DIR$/../ai/Assets/Poligon.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ai/Assets/Poligon/NavMesh.asset" beforeDir="false" afterPath="$PROJECT_DIR$/../ai/Assets/Poligon/NavMesh.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ai/Assets/Poligon/NavMesh.asset.meta" beforeDir="false" afterPath="$PROJECT_DIR$/../ai/Assets/Poligon/NavMesh.asset.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ai/Assets/ProCore/ProBuilder/Data/ProBuilderPreferences.asset" beforeDir="false" afterPath="$PROJECT_DIR$/../ai/Assets/ProCore/ProBuilder/Data/ProBuilderPreferences.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ai/Assets/ProCore/ProBuilder/Resources/Materials/FacePicker.mat" beforeDir="false" afterPath="$PROJECT_DIR$/../ai/Assets/ProCore/ProBuilder/Resources/Materials/FacePicker.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ai/Assets/ProCore/ProBuilder/Resources/Materials/VertexPicker.mat" beforeDir="false" afterPath="$PROJECT_DIR$/../ai/Assets/ProCore/ProBuilder/Resources/Materials/VertexPicker.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ai/Assets/cam.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ai/Assets/cam.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ai/Library/AnnotationManager" beforeDir="false" afterPath="$PROJECT_DIR$/../ai/Library/AnnotationManager" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ai/Library/ArtifactDB" beforeDir="false" afterPath="$PROJECT_DIR$/../ai/Library/ArtifactDB" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ai/Library/Artifacts/05/053b4c32f853102b7989867680578985" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ai/Library/Artifacts/0c/0cb3da815902e8dd3e0eb272f6e00fdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ai/Library/Artifacts/0f/0fb68abf32c7c9d812cd086bcde10931" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ai/Library/Artifacts/1c/1c51ad0654841d797fd73d3041f4284a" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ai/Library/Artifacts/2a/2a5562d38ac9c1910908012a640821fd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ai/Library/Artifacts/2a/2a60205510a1653c6c46981126f6310f" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ai/Library/Artifacts/34/341dfcda6665e754229b7795ed98e1a0" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ai/Library/Artifacts/39/394b930e09cc8ff6f244541db414cf43" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ai/Library/Artifacts/3a/3aafa7f5b556f3a8961292ccc7f0094d" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ai/Library/Artifacts/45/45f9f5463e4ac9b238ba873c1cce3083" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ai/Library/Artifacts/47/470167a87499890abebd61defdb7224e" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ai/Library/Artifacts/48/4882e4e248d6d1c7a8a1ffa11c311729" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ai/Library/Artifacts/4e/4e5c58c1a2dc4773d4a7fde982f3bd75" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ai/Library/Artifacts/51/510342cf275df341d8cbae6150761b69" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ai/Library/Artifacts/54/540bf1067b95ef39edf3b100ac6d7342" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ai/Library/Artifacts/61/614356b889ee4174e0828fee738a3f08" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ai/Library/Artifacts/61/6189846938a0ba99cbe54f121afb3751" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ai/Library/Artifacts/6b/6bf86b30d6a39259de075fc594df1894" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ai/Library/Artifacts/6e/6eb22ab860a066665354430cf99718b7" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ai/Library/Artifacts/70/707fc7ac5dce04ee337f9c764a5faf6a" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ai/Library/Artifacts/74/744237ce8c0937849e39290c38ad684c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ai/Library/Artifacts/7a/7a2eb25c1c27f1ea2987edf5a5df93ea" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ai/Library/Artifacts/80/8020209e6baad4eca0cbbc0a85ab8954" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ai/Library/Artifacts/80/805aebe7c00be8382aaa6ebc5cd4ac58" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ai/Library/Artifacts/80/808b3e8973c0d59e337edbfa4169ef4c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ai/Library/Artifacts/83/83528459cbacd05c2cb03d82914a82b0" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ai/Library/Artifacts/83/83918afb06c1e70d58615c8815f2bbcc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ai/Library/Artifacts/85/85804c23f3ca13810091c2a35cef8908" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ai/Library/Artifacts/86/86695c50a36f9e92365b444e1a4c58d4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ai/Library/Artifacts/9b/9b4399ca9b5d86def336d05206942e13" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ai/Library/Artifacts/9d/9d2a39ee74f7f5ea97857ba7c1bf1370" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ai/Library/Artifacts/b1/b1638401cc4132b0d8b9c81662622dfa" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ai/Library/Artifacts/b2/b2d218f25214976d39562de106c2d3dd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ai/Library/Artifacts/b2/b2f2a384e9c87571070c0e32ff24867a" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ai/Library/Artifacts/b6/b6f111b752ed4a828165e4f02a42fe39" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ai/Library/Artifacts/b7/b75d2f3e44d07f56b80dc8f954f36e8f" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ai/Library/Artifacts/b8/b83caede110b2674d57f3b3b9b901a8d" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ai/Library/Artifacts/bf/bfd4279813b6864ac68d4d99e550b099" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ai/Library/Artifacts/c6/c6d0d3ee3f99d972225b72139729a8d4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ai/Library/Artifacts/c6/c6ec6dc8b3a0ae55edc2e7f6642b7833" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ai/Library/Artifacts/cb/cb61df8ab70b48e9c43a8fd7f1602d2a" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ai/Library/Artifacts/d3/d3b4250e174f7073902656b08aaa9f8e" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ai/Library/Artifacts/e1/e17515f7d8e61a0e814f7b204a8bc478" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ai/Library/Artifacts/e2/e2d0db9c805489b3cc927987b43bbbc2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ai/Library/Artifacts/e4/e477cbec6d18f6344b99ca97d8a53cf7" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ai/Library/Artifacts/e7/e732ede1139d6cccf5af9d4d6ebf15f2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ai/Library/Artifacts/eb/ebfc02c5e72f09f0d8a4453e35b1fed6" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ai/Library/Artifacts/f7/f7c3dccb87fe3bce1546fba2b4a43e36" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ai/Library/Artifacts/f9/f91cc7a65b2df7d3a4eb1417bef5e91c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ai/Library/Artifacts/f9/f942633c5e815153b54ae301d33537be" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ai/Library/Artifacts/f9/f9e64c33b5a733c39ca07e2207357cb2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ai/Library/CurrentLayout-default.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/../ai/Library/CurrentLayout-default.dwlt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ai/Library/InspectorExpandedItems.asset" beforeDir="false" afterPath="$PROJECT_DIR$/../ai/Library/InspectorExpandedItems.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ai/Library/SceneVisibilityState.asset" beforeDir="false" afterPath="$PROJECT_DIR$/../ai/Library/SceneVisibilityState.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ai/Library/ScriptAssemblies/Assembly-CSharp.dll" beforeDir="false" afterPath="$PROJECT_DIR$/../ai/Library/ScriptAssemblies/Assembly-CSharp.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ai/Library/ScriptAssemblies/Assembly-CSharp.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/../ai/Library/ScriptAssemblies/Assembly-CSharp.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ai/Library/ShaderCache.db" beforeDir="false" afterPath="$PROJECT_DIR$/../ai/Library/ShaderCache.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ai/Library/ShaderCache/EditorEncounteredVariants" beforeDir="false" afterPath="$PROJECT_DIR$/../ai/Library/ShaderCache/EditorEncounteredVariants" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ai/Library/SourceAssetDB" beforeDir="false" afterPath="$PROJECT_DIR$/../ai/Library/SourceAssetDB" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ai/Library/StateCache/MainStageHierarchy/4d/4d2a36d9faf65734f0bbefb3ee623532.json" beforeDir="false" afterPath="$PROJECT_DIR$/../ai/Library/StateCache/MainStageHierarchy/4d/4d2a36d9faf65734f0bbefb3ee623532.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ai/Library/StateCache/SceneView/8c/8cd7c613bf844de3b80696e27a479d5e.json" beforeDir="false" afterPath="$PROJECT_DIR$/../ai/Library/StateCache/SceneView/8c/8cd7c613bf844de3b80696e27a479d5e.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ai/Library/UIElements/EditorWindows/UnityEditor.PackageManager.UI.PackageManagerWindow.pref" beforeDir="false" afterPath="$PROJECT_DIR$/../ai/Library/UIElements/EditorWindows/UnityEditor.PackageManager.UI.PackageManagerWindow.pref" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ai/Library/shadercompiler-UnityShaderCompiler.exe1.log" beforeDir="false" afterPath="$PROJECT_DIR$/../ai/Library/shadercompiler-UnityShaderCompiler.exe1.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ai/Library/shadercompiler-UnityShaderCompiler.exe2.log" beforeDir="false" afterPath="$PROJECT_DIR$/../ai/Library/shadercompiler-UnityShaderCompiler.exe2.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ai/Library/shadercompiler-UnityShaderCompiler.exe3.log" beforeDir="false" afterPath="$PROJECT_DIR$/../ai/Library/shadercompiler-UnityShaderCompiler.exe3.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ai/Logs/AssetImportWorker0-prev.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ai/Logs/AssetImportWorker0.log" beforeDir="false" afterPath="$PROJECT_DIR$/../ai/Logs/AssetImportWorker0.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ai/Logs/AssetImportWorker1-prev.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ai/Logs/AssetImportWorker1.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ai/ProjectSettings/AudioManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/../ai/ProjectSettings/AudioManager.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ai/ProjectSettings/ClusterInputManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/../ai/ProjectSettings/ClusterInputManager.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ai/ProjectSettings/DynamicsManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/../ai/ProjectSettings/DynamicsManager.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ai/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/../ai/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ai/ProjectSettings/EditorSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/../ai/ProjectSettings/EditorSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ai/ProjectSettings/GraphicsSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/../ai/ProjectSettings/GraphicsSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ai/ProjectSettings/InputManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/../ai/ProjectSettings/InputManager.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ai/ProjectSettings/NavMeshAreas.asset" beforeDir="false" afterPath="$PROJECT_DIR$/../ai/ProjectSettings/NavMeshAreas.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ai/ProjectSettings/Physics2DSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/../ai/ProjectSettings/Physics2DSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ai/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/../ai/ProjectSettings/ProjectSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ai/ProjectSettings/QualitySettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/../ai/ProjectSettings/QualitySettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ai/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/../ai/ProjectSettings/TagManager.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ai/ProjectSettings/TimeManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/../ai/ProjectSettings/TimeManager.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ai/ProjectSettings/UnityConnectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/../ai/ProjectSettings/UnityConnectSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ai/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/../ai/UserSettings/EditorUserSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ai/ai.sln" beforeDir="false" afterPath="$PROJECT_DIR$/../ai/ai.sln" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ai/obj/Debug/Assembly-CSharp-Editor.csprojAssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/../ai/obj/Debug/Assembly-CSharp-Editor.csprojAssemblyReference.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ai/obj/Debug/Assembly-CSharp.csprojAssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/../ai/obj/Debug/Assembly-CSharp.csprojAssemblyReference.cache" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/../../__old_before_20200808/my_games/dzz/Assets/shoots.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Worker/WorkerUIEnable.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../../__old_before_20200808/my_games/dzz/Assets/save.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../../__old_before_20200808/my_games/dzz/Assets/exitcontr.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Game.cs" root0="FORCE_HIGHLIGHTING" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/Assets/Scripts/Worker/WorkerUIEnable.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Game.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Building/Building.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Building/BuildingsGrid.cs" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectId" id="1kmyo96y6EYqe68pwy1kmEdou7z" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="Discover.Launch.Via.Unity" value="true" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="settings.editor.selected.configurable" value="preferences.sourceCode" />
+    <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
+    <configuration name="Attach to Unity Editor &amp; Play" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="UNITY_ATTACH_AND_PLAY" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
+      <option name="allowRunningInParallel" value="false" />
+      <option name="listenPortForConnections" value="false" />
+      <option name="pid" />
+      <option name="selectedOptions">
+        <set />
+      </option>
+      <method v="2" />
+    </configuration>
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
+      <option name="allowRunningInParallel" value="false" />
+      <option name="listenPortForConnections" value="false" />
+      <option name="pid" />
+      <option name="selectedOptions">
+        <set />
+      </option>
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="0f09ad32-73ad-4ab8-9cad-c2ba67c77721" name="Default Changelist" comment="" />
+      <created>1606320236339</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1606320236339</updated>
+      <workItem from="1606320253004" duration="8827000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="UnityProjectConfiguration" hasMinimizedUI="true" />
+  <component name="UnityUnitTestConfiguration" currentTestLauncher="EditMode" />
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="777" y="434" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1606327056132">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="777" y="434" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040/-1280.150.1280.1024@0.0.1920.1040" timestamp="1606327056132" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1606327306151">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/-1280.150.1280.1024@0.0.1920.1040" timestamp="1606327306151" />
+  </component>
+</project>
