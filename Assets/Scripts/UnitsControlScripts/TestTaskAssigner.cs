@@ -71,6 +71,17 @@ public class TestTaskAssigner : MonoBehaviour
                 }
             }
         }
+        for (int i = 0; i < possibleOrderTypes.Count; i++)
+        {
+            Type t = possibleOrderTypes[i];
+            for (int j = i; j < possibleOrderTypes.Count; j++)
+            {
+                if (t == possibleOrderTypes[j])
+                {
+                    possibleOrderTypes.Remove(possibleOrderTypes[j]);
+                }
+            }
+        }
     }
 
     void UpdateSelectionBox(Vector2 curMousePos)
