@@ -1,5 +1,6 @@
 using Assets.Scripts;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class BuildingsGrid : MonoBehaviour
 {
