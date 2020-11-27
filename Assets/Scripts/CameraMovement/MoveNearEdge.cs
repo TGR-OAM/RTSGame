@@ -27,6 +27,6 @@ public class MoveNearEdge : MonoBehaviour
             direction += new Vector3(1, 0, 0);
 
         direction.Normalize();
-        GetComponent<WSAD>().TryMoveByDirection(direction);                      
+        GetComponent<MovementByKeyBoard>().TryMoveByDirection(direction);                      
     }
 }

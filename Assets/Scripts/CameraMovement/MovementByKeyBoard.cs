@@ -35,7 +35,7 @@ public class MovementByKeyBoard : MonoBehaviour
         TryMoveByDirection(direction);
     }
 
-    void TryMoveByDirection(Vector3 direction)
+    public void TryMoveByDirection(Vector3 direction)
     {
         if (direction.magnitude != 0)
         {
