@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WSAD : MonoBehaviour
+public class MovementByKeyBoard : MonoBehaviour
 {
     public float speed;
   
@@ -46,5 +46,13 @@ public class WSAD : MonoBehaviour
             dMove *= speed * Time.deltaTime;
             this.transform.position += dMove;
         }        
+    }
+
+    public void MoveToHorPositionOnMap(Vector3 position)
+    {
+        Vector3 newPos = this.transform.rotation * Vector3.forward;
+        newPos *= this.transform.position.y/ newPos.y;
+
+        this.transform.position = newPos + position;
     }
 }
