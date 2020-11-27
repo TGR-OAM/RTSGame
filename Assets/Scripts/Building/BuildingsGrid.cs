@@ -15,6 +15,7 @@ public class BuildingsGrid : MonoBehaviour
         }
 
         flyingBuilding = Instantiate(buildingPrefab);
+        flyingBuilding.hexGrid = hexGrid;
     }
 
     private void Update()
@@ -30,8 +31,11 @@ public class BuildingsGrid : MonoBehaviour
 
                 available = IsPossibleToBuild(flyingBuilding);
 
+                #region syncing data with building
+                flyingBuilding.HexCoords = HexMetrics.CalcHexCoordXZFromDefault(CoordsOfCenter, hexGrid.MapData.cellSize);
                 flyingBuilding.transform.position = CoordsOfCenter;
                 flyingBuilding.SetTransparent(available);
+                #endregion
 
                 if (available && Input.GetMouseButtonDown(0))
                 {

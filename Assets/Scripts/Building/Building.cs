@@ -1,12 +1,14 @@
+using Assets.Scripts;
 using UnityEngine;
 
 [RequireComponent(typeof(Collider))]
 public class Building : MonoBehaviour
 {
+    public HexGrid hexGrid;
     public Material Materials;
     public Renderer[] MainRenderer;
-    public Vector2Int Size = Vector2Int.one;
-
+    public Vector2Int Size;
+    public Vector3 HexCoords;
     public void SetTransparent(bool available)
     {
         if (available)
@@ -39,13 +41,20 @@ public class Building : MonoBehaviour
     {
         for (int x = 0; x < Size.x; x++)
         {
-            for (int y = 0; y < Size.y; y++)
+            for (int z = 0; z < Size.y; z++)
             {
-                if ((x + y) % 2 == 0) Gizmos.color = new Color(0.88f, 0f, 1f, 0.3f);
-                else Gizmos.color = new Color(1f, 0.68f, 0f, 0.3f);
+                Mesh hexMesh = new Mesh();
+                hexMesh.vertices = HexMetrics.corners;
+                int[] tris = { 0, 1, 2, 0, 2, 3, 0, 3, 4, 0, 4, 5 };
+                hexMesh.triangles = tris;
+                hexMesh.RecalculateNormals();
+                Gizmos.color = new Color(0.88f, 0f, 1f, 0.3f);
 
-                Gizmos.DrawCube(transform.position + new Vector3(x, 0, y), new Vector3(1, .1f, 1));
+                Vector3 CenterCoord = HexMetrics.CalcCenterCoordXZFromHexCoordXZ(HexCoords, hexGrid.MapData) + HexMetrics.CalcCenterCoordXZFromHexCoordXZ( new Vector3(x, 0, z), hexGrid.MapData);
+
+                Gizmos.DrawMesh(hexMesh, 0, CenterCoord, Quaternion.identity, Vector3.one * hexGrid.MapData.cellSize);
             }
         }
+        
     }
 }
