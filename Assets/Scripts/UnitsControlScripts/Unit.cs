@@ -1,12 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Unit : MonoBehaviour //@author
 {
     [SerializeField]
     public GameOrder gameOrder { get; private set; }
-    public UnitState state = UnitState.Idle;
+    public UnitState state = UnitState.Defending;
     public float reachDistance = 1f;
     public virtual void GiveOrder(GameOrder order)
     {
