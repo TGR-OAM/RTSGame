@@ -1,5 +1,6 @@
 using UnityEngine;
 
+[RequireComponent(typeof(Collider))]
 public class Building : MonoBehaviour
 {
     public Material Materials;

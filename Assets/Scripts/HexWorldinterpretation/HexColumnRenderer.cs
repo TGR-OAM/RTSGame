@@ -9,15 +9,15 @@ namespace Assets.Scripts
 {
     public class HexColumnRenderer
     {
-        HexGridData UploadedData;
+        HexGridData MapData;
         GameObject Column;
 
         public HexColumnRenderer(int x,HexGrid hexGrid, Transform MeshPart)
         {
-            this.UploadedData = hexGrid.MapData;
+            this.MapData = hexGrid.MapData;
 
             Column = new GameObject("Column " + x, typeof(MeshRenderer),typeof(MeshFilter));
-            Column.transform.localPosition = new Vector3(HexMetrics.innerRadius*2*UploadedData.cellSize*x,0,0);
+            Column.transform.localPosition = new Vector3(HexMetrics.innerRadius*2*MapData.cellSize*x,0,0);
             Column.transform.parent = MeshPart;
 
             UpdateColumn(x);
@@ -30,9 +30,9 @@ namespace Assets.Scripts
             List<Vector3> Vertices = new List<Vector3>();
             List<int> Tris = new List<int>();
 
-            float HexSizeWithPadding = UploadedData.cellSize - UploadedData.padding;
+            float HexSizeWithPadding = MapData.cellSize - MapData.padding;
 
-            for (int z = 0; z < UploadedData.height; z++)
+            for (int z = 0; z < MapData.height; z++)
             {
                 InitCell(ref Vertices, ref Tris, x, z, HexSizeWithPadding);
             }
@@ -44,13 +44,13 @@ namespace Assets.Scripts
             ColumnMesh.Optimize();
 
             Column.GetComponent<MeshFilter>().mesh = ColumnMesh;
-            Column.GetComponent<MeshRenderer>().material = UploadedData.Default;
+            Column.GetComponent<MeshRenderer>().material = MapData.Default;
         }
 
 
         void InitCell(ref List<Vector3> Vertices,ref List<int> Tris,int x, int z,float HexSizeWithPadding)
         {
-            Vector3 ThisCenter = HexMetrics.CalcCenterCoordXZFromHexCoordXZ(new Vector3(0,0,z),UploadedData) + GetHeightByHexCoord(x,z);
+            Vector3 ThisCenter = HexMetrics.CalcCenterCoordXZFromHexCoordXZ(new Vector3(0,0,z),MapData) + GetHeightByHexCoord(x,z);
 
             #region init hexagon inside
 
@@ -63,9 +63,9 @@ namespace Assets.Scripts
 
             #region init up in one column padding
 
-            if(z != UploadedData.height-1)
+            if(z != MapData.height-1)
             {
-                Vector3 OtherCenterInThisColumn = HexMetrics.CalcCenterCoordXZFromHexCoordXZ(new Vector3(0, 0, z + 1), UploadedData)+ GetHeightByHexCoord(x, z+1);
+                Vector3 OtherCenterInThisColumn = HexMetrics.CalcCenterCoordXZFromHexCoordXZ(new Vector3(0, 0, z + 1), MapData)+ GetHeightByHexCoord(x, z+1);
 
                 if (z % 2 == 0)
                 {
@@ -83,9 +83,9 @@ namespace Assets.Scripts
 
             Vector3 RightCenter = new Vector3();
 
-            if (x != UploadedData.width - 1)
+            if (x != MapData.width - 1)
             {
-                RightCenter = HexMetrics.CalcCenterCoordXZFromHexCoordXZ(new Vector3(1, 0, z), UploadedData) + GetHeightByHexCoord(x+1, z);
+                RightCenter = HexMetrics.CalcCenterCoordXZFromHexCoordXZ(new Vector3(1, 0, z), MapData) + GetHeightByHexCoord(x+1, z);
                 AddSquare(ref Vertices, ref Tris, ThisCenter + HexMetrics.corners[1] * HexSizeWithPadding, RightCenter + HexMetrics.corners[5] * HexSizeWithPadding, RightCenter + HexMetrics.corners[4] * HexSizeWithPadding, ThisCenter + HexMetrics.corners[2] * HexSizeWithPadding);
             }
 
@@ -93,9 +93,9 @@ namespace Assets.Scripts
 
             #region init right up padding
 
-            if (z % 2 == 1 && z != UploadedData.height - 1 && x != UploadedData.width - 1)
+            if (z % 2 == 1 && z != MapData.height - 1 && x != MapData.width - 1)
             {
-                Vector3 RightUpCenter = HexMetrics.CalcCenterCoordXZFromHexCoordXZ(new Vector3(1, 0, z + 1), UploadedData) + GetHeightByHexCoord(x+1, z+1);
+                Vector3 RightUpCenter = HexMetrics.CalcCenterCoordXZFromHexCoordXZ(new Vector3(1, 0, z + 1), MapData) + GetHeightByHexCoord(x+1, z+1);
 
                 AddSquare(ref Vertices, ref Tris, ThisCenter + HexMetrics.corners[0] * HexSizeWithPadding, RightUpCenter + HexMetrics.corners[4] * HexSizeWithPadding, RightUpCenter + HexMetrics.corners[3] * HexSizeWithPadding, ThisCenter + HexMetrics.corners[1] * HexSizeWithPadding);
             }
@@ -104,9 +104,9 @@ namespace Assets.Scripts
 
             #region init right down padding
 
-            if (z % 2 == 1 && z != 0 && x != UploadedData.width-1)
+            if (z % 2 == 1 && z != 0 && x != MapData.width-1)
             {
-                Vector3 RightDownCenter = HexMetrics.CalcCenterCoordXZFromHexCoordXZ(new Vector3(1, 0, z - 1), UploadedData) + GetHeightByHexCoord(x+1, z-1);
+                Vector3 RightDownCenter = HexMetrics.CalcCenterCoordXZFromHexCoordXZ(new Vector3(1, 0, z - 1), MapData) + GetHeightByHexCoord(x+1, z-1);
                 AddSquare(ref Vertices, ref Tris, ThisCenter + HexMetrics.corners[2] * HexSizeWithPadding, RightDownCenter + HexMetrics.corners[0] * HexSizeWithPadding, RightDownCenter + HexMetrics.corners[5] * HexSizeWithPadding, ThisCenter + HexMetrics.corners[3] * HexSizeWithPadding);
             }
 
@@ -114,19 +114,19 @@ namespace Assets.Scripts
 
             #region init up right padding triangle
 
-            if (x != UploadedData.width - 1)
+            if (x != MapData.width - 1)
             {
-                if (z != UploadedData.height - 1)
+                if (z != MapData.height - 1)
                 {
                     Vector3 RightUpCenter;
                     if (z % 2 == 0)
                     {
-                        RightUpCenter = HexMetrics.CalcCenterCoordXZFromHexCoordXZ(new Vector3(0, 0, z + 1), UploadedData) + GetHeightByHexCoord(x, z + 1);
+                        RightUpCenter = HexMetrics.CalcCenterCoordXZFromHexCoordXZ(new Vector3(0, 0, z + 1), MapData) + GetHeightByHexCoord(x, z + 1);
                        
                     }
                     else
                     {
-                        RightUpCenter = HexMetrics.CalcCenterCoordXZFromHexCoordXZ(new Vector3(1, 0, z + 1), UploadedData) + GetHeightByHexCoord(x + 1, z + 1);
+                        RightUpCenter = HexMetrics.CalcCenterCoordXZFromHexCoordXZ(new Vector3(1, 0, z + 1), MapData) + GetHeightByHexCoord(x + 1, z + 1);
                         
                     }
                     AddTriangle(ref Vertices, ref Tris, ThisCenter + HexMetrics.corners[1] * HexSizeWithPadding, RightUpCenter + HexMetrics.corners[3] * HexSizeWithPadding, RightCenter + HexMetrics.corners[5] * HexSizeWithPadding);
@@ -137,18 +137,18 @@ namespace Assets.Scripts
 
             #region init down right padding triangle
 
-            if (x != UploadedData.width - 1)
+            if (x != MapData.width - 1)
             {
                 if (z != 0)
                 {
                     Vector3 RightDownCenter;
                     if (z % 2 == 0)
                     {
-                        RightDownCenter = HexMetrics.CalcCenterCoordXZFromHexCoordXZ(new Vector3(0, 0, z - 1), UploadedData) + GetHeightByHexCoord(x, z - 1);
+                        RightDownCenter = HexMetrics.CalcCenterCoordXZFromHexCoordXZ(new Vector3(0, 0, z - 1), MapData) + GetHeightByHexCoord(x, z - 1);
                     }
                     else
                     {
-                        RightDownCenter = HexMetrics.CalcCenterCoordXZFromHexCoordXZ(new Vector3(1, 0, z - 1), UploadedData) + GetHeightByHexCoord(x + 1, z - 1);
+                        RightDownCenter = HexMetrics.CalcCenterCoordXZFromHexCoordXZ(new Vector3(1, 0, z - 1), MapData) + GetHeightByHexCoord(x + 1, z - 1);
                     }
                     AddTriangle(ref Vertices, ref Tris, ThisCenter + HexMetrics.corners[2] * HexSizeWithPadding, RightCenter + HexMetrics.corners[4] * HexSizeWithPadding, RightDownCenter + HexMetrics.corners[0] * HexSizeWithPadding);
 
@@ -181,7 +181,7 @@ namespace Assets.Scripts
 
         Vector3 GetHeightByHexCoord(int x, int z)
         {
-            return new Vector3(0,UploadedData.HeightMap[z*UploadedData.width+x],0);
+            return new Vector3(0,MapData.HeightMap[z*MapData.width+x],0);
         }
     }
 }
