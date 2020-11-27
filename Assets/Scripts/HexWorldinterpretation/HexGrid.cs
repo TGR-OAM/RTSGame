@@ -1,20 +1,21 @@
 ﻿using Assets.Scripts;
+using Assets.Scripts.HexWorldinterpretation;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class HexGrid : MonoBehaviour
 {
+    public string DefMapPath;
+
     public HexGridData MapData;
 
-    public HexGridRenderer hexGridRenderer;
-    public HexGridColiderer hexGridColiderer;
-
-    public Material Default;
+    public HexGridRenderer hexGridRenderer { get; private set; }
+    public HexGridColiderer hexGridColiderer { get; private set; }
 
     private void Awake()
     {
-        MapData = new HexGridData(128, 128, 1, 0, .0001f,Default);
+        MapData = XMLMapParser.LoadXMLFileMap(DefMapPath)[0];
 
         InitWorld();
     }
@@ -44,6 +45,8 @@ public class HexGrid : MonoBehaviour
 public struct HexGridData
 {
     #region this gets with resource load
+
+    public string name { get; private set; }
     public float AccurcyOfApproximation { get; private set; }
      
     public int width { get; private set; }
@@ -68,9 +71,9 @@ public struct HexGridData
     #endregion
 
 
-    public HexGridData(int width,int height, float cellSize, float padding, float AccurcyOfApproximation, Material Default)
+    public HexGridData(string name,int width,int height, float cellSize, float padding, float AccurcyOfApproximation, Material Default)
     {
-        this.AccurcyOfApproximation = AccurcyOfApproximation;
+        this.name = name;
 
         this.width = width;
         this.height = height;
@@ -80,8 +83,34 @@ public struct HexGridData
 
         this.HeightMap = new float[width* height];
 
+        this.HeightMap[0] = 5;
+
         this.Default = Default;
 
+        this.AccurcyOfApproximation = AccurcyOfApproximation;
+
+        this.widthInUnits = width * HexMetrics.innerRadius * 2f * cellSize + (height > 1f ? HexMetrics.innerRadius * cellSize : 0);
+        this.heightInUnits = 1.5f * (height - 1) * cellSize * HexMetrics.outerRadius + cellSize * HexMetrics.outerRadius * 2f;
+
+        Buildings = new List<Building>();
+
+    }
+    public HexGridData(string name, int width, int height, float cellSize, float padding, float[] HeightMap,float AccurcyOfApproximation, Material Default)
+    {
+        this.name = name;
+
+
+        this.width = width;
+        this.height = height;
+
+        this.cellSize = cellSize;
+        this.padding = padding;
+
+        this.HeightMap = HeightMap;
+
+        this.Default = Default;
+
+        this.AccurcyOfApproximation = AccurcyOfApproximation;
 
         this.widthInUnits = width * HexMetrics.innerRadius * 2f * cellSize + (height > 1f ? HexMetrics.innerRadius * cellSize : 0);
         this.heightInUnits = 1.5f * (height - 1) * cellSize * HexMetrics.outerRadius + cellSize * HexMetrics.outerRadius * 2f;

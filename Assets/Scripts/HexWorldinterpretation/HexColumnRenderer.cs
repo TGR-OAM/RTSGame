@@ -17,7 +17,6 @@ namespace Assets.Scripts
             this.MapData = hexGrid.MapData;
 
             Column = new GameObject("Column " + x, typeof(MeshRenderer),typeof(MeshFilter));
-            Column.transform.localPosition = new Vector3(HexMetrics.innerRadius*2*MapData.cellSize*x,0,0);
             Column.transform.parent = MeshPart;
 
             UpdateColumn(x);
@@ -50,7 +49,7 @@ namespace Assets.Scripts
 
         void InitCell(ref List<Vector3> Vertices,ref List<int> Tris,int x, int z,float HexSizeWithPadding)
         {
-            Vector3 ThisCenter = HexMetrics.CalcCenterCoordXZFromHexCoordXZ(new Vector3(0,0,z),MapData) + GetHeightByHexCoord(x,z);
+            Vector3 ThisCenter = HexMetrics.CalcCenterCoordXZFromHexCoordXZ(new Vector3(x, 0, z), MapData);
 
             #region init hexagon inside
 
@@ -65,7 +64,7 @@ namespace Assets.Scripts
 
             if(z != MapData.height-1)
             {
-                Vector3 OtherCenterInThisColumn = HexMetrics.CalcCenterCoordXZFromHexCoordXZ(new Vector3(0, 0, z + 1), MapData)+ GetHeightByHexCoord(x, z+1);
+                Vector3 OtherCenterInThisColumn = HexMetrics.CalcCenterCoordXZFromHexCoordXZ(new Vector3(x, 0, z + 1), MapData);
 
                 if (z % 2 == 0)
                 {
@@ -85,7 +84,7 @@ namespace Assets.Scripts
 
             if (x != MapData.width - 1)
             {
-                RightCenter = HexMetrics.CalcCenterCoordXZFromHexCoordXZ(new Vector3(1, 0, z), MapData) + GetHeightByHexCoord(x+1, z);
+                RightCenter = HexMetrics.CalcCenterCoordXZFromHexCoordXZ(new Vector3(x + 1, 0, z), MapData);
                 AddSquare(ref Vertices, ref Tris, ThisCenter + HexMetrics.corners[1] * HexSizeWithPadding, RightCenter + HexMetrics.corners[5] * HexSizeWithPadding, RightCenter + HexMetrics.corners[4] * HexSizeWithPadding, ThisCenter + HexMetrics.corners[2] * HexSizeWithPadding);
             }
 
@@ -95,7 +94,7 @@ namespace Assets.Scripts
 
             if (z % 2 == 1 && z != MapData.height - 1 && x != MapData.width - 1)
             {
-                Vector3 RightUpCenter = HexMetrics.CalcCenterCoordXZFromHexCoordXZ(new Vector3(1, 0, z + 1), MapData) + GetHeightByHexCoord(x+1, z+1);
+                Vector3 RightUpCenter = HexMetrics.CalcCenterCoordXZFromHexCoordXZ(new Vector3(x + 1, 0, z + 1), MapData);
 
                 AddSquare(ref Vertices, ref Tris, ThisCenter + HexMetrics.corners[0] * HexSizeWithPadding, RightUpCenter + HexMetrics.corners[4] * HexSizeWithPadding, RightUpCenter + HexMetrics.corners[3] * HexSizeWithPadding, ThisCenter + HexMetrics.corners[1] * HexSizeWithPadding);
             }
@@ -106,7 +105,7 @@ namespace Assets.Scripts
 
             if (z % 2 == 1 && z != 0 && x != MapData.width-1)
             {
-                Vector3 RightDownCenter = HexMetrics.CalcCenterCoordXZFromHexCoordXZ(new Vector3(1, 0, z - 1), MapData) + GetHeightByHexCoord(x+1, z-1);
+                Vector3 RightDownCenter = HexMetrics.CalcCenterCoordXZFromHexCoordXZ(new Vector3(x+1, 0, z - 1), MapData);
                 AddSquare(ref Vertices, ref Tris, ThisCenter + HexMetrics.corners[2] * HexSizeWithPadding, RightDownCenter + HexMetrics.corners[0] * HexSizeWithPadding, RightDownCenter + HexMetrics.corners[5] * HexSizeWithPadding, ThisCenter + HexMetrics.corners[3] * HexSizeWithPadding);
             }
 
@@ -121,12 +120,12 @@ namespace Assets.Scripts
                     Vector3 RightUpCenter;
                     if (z % 2 == 0)
                     {
-                        RightUpCenter = HexMetrics.CalcCenterCoordXZFromHexCoordXZ(new Vector3(0, 0, z + 1), MapData) + GetHeightByHexCoord(x, z + 1);
+                        RightUpCenter = HexMetrics.CalcCenterCoordXZFromHexCoordXZ(new Vector3(x, 0, z + 1), MapData);
                        
                     }
                     else
                     {
-                        RightUpCenter = HexMetrics.CalcCenterCoordXZFromHexCoordXZ(new Vector3(1, 0, z + 1), MapData) + GetHeightByHexCoord(x + 1, z + 1);
+                        RightUpCenter = HexMetrics.CalcCenterCoordXZFromHexCoordXZ(new Vector3(x + 1, 0, z + 1), MapData);
                         
                     }
                     AddTriangle(ref Vertices, ref Tris, ThisCenter + HexMetrics.corners[1] * HexSizeWithPadding, RightUpCenter + HexMetrics.corners[3] * HexSizeWithPadding, RightCenter + HexMetrics.corners[5] * HexSizeWithPadding);
@@ -144,11 +143,11 @@ namespace Assets.Scripts
                     Vector3 RightDownCenter;
                     if (z % 2 == 0)
                     {
-                        RightDownCenter = HexMetrics.CalcCenterCoordXZFromHexCoordXZ(new Vector3(0, 0, z - 1), MapData) + GetHeightByHexCoord(x, z - 1);
+                        RightDownCenter = HexMetrics.CalcCenterCoordXZFromHexCoordXZ(new Vector3(x, 0, z - 1), MapData);
                     }
                     else
                     {
-                        RightDownCenter = HexMetrics.CalcCenterCoordXZFromHexCoordXZ(new Vector3(1, 0, z - 1), MapData) + GetHeightByHexCoord(x + 1, z - 1);
+                        RightDownCenter = HexMetrics.CalcCenterCoordXZFromHexCoordXZ(new Vector3(x + 1, 0, z - 1), MapData);
                     }
                     AddTriangle(ref Vertices, ref Tris, ThisCenter + HexMetrics.corners[2] * HexSizeWithPadding, RightCenter + HexMetrics.corners[4] * HexSizeWithPadding, RightDownCenter + HexMetrics.corners[0] * HexSizeWithPadding);
 
@@ -176,12 +175,6 @@ namespace Assets.Scripts
             Tris.Add(VertCount);
             Tris.Add(VertCount + 1);
             Tris.Add(VertCount + 2);
-        }
-
-
-        Vector3 GetHeightByHexCoord(int x, int z)
-        {
-            return new Vector3(0,MapData.HeightMap[z*MapData.width+x],0);
         }
     }
 }
