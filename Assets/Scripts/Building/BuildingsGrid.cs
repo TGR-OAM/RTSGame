@@ -53,14 +53,28 @@ public class BuildingsGrid : MonoBehaviour
         }
     }
 
-    private bool IsPossibleToBuild(Building building)
+    private bool IsPossibleToBuild(Building thisBuilding)
     {
-        Collider thisColider = building.GetComponent<Collider>();
+        if (IsIntersectingOtherBuilding(thisBuilding))
+            return false;
+
+        return true;
+    }
+
+    private bool IsIntersectingOtherBuilding(Building thisBuilding)
+    {
+        Collider thisColider = thisBuilding.GetComponent<Collider>();
         foreach (Building AlreadyBuilded in hexGrid.MapData.Buildings)
         {
             if (thisColider.bounds.Intersects(AlreadyBuilded.GetComponent<Collider>().bounds))
-                return false;
+                return true;
         }
+        return false;
+    }
+
+    private bool IsStayingOnSurface(Building thisBuilding)
+    {
+
         return true;
     }
 

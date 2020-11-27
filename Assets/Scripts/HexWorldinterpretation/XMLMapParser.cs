@@ -19,7 +19,14 @@ namespace Assets.Scripts.HexWorldinterpretation
             List<HexGridData> hexGridDatas = new List<HexGridData>();
             foreach (XmlNode MapNode in RootNode.SelectNodes("MapData"))
             {
-                hexGridDatas.Add(LoadMap(MapNode));
+                try
+                {
+                    hexGridDatas.Add(LoadMap(MapNode));
+                }
+                catch(Exception e)
+                {
+                    Debug.LogWarning("Error at parser: \n"+ e.Message);
+                }
             }
 
             return hexGridDatas;
