@@ -4,11 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 namespace Assets.Scripts
 {
     public class HexGridColiderer
     {
+
         int SurfaceLayer;
 
         HexGridData MapData;
@@ -58,6 +60,11 @@ namespace Assets.Scripts
 
         public bool TryRaycastHexGrid( Ray rayToCast, out Vector3 DefOutput)
         {
+            if (EventSystem.current.IsPointerOverGameObject())
+            {
+                DefOutput = new Vector3();
+                return false;
+            }
 
             List<RaycastHit> hits = Physics.RaycastAll(rayToCast.origin, rayToCast.direction, Mathf.Infinity, SurfaceLayer).ToList();
             hits = hits.OrderBy(h => h.distance).ToList();

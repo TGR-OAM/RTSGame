@@ -25,9 +25,10 @@ public class BuildingsGrid : MonoBehaviour
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
-            if (hexGrid.TryRaycastHexGrid(ray,out Vector3 worldPosition))
+            if (hexGrid.TryRaycastHexGrid(ray, out Vector3 worldPosition))
             {
-                Vector3 CoordsOfCenter = HexMetrics.CalcCenterCoordXZFromHexCoordXZ(HexMetrics.CalcHexCoordXZFromDefault(worldPosition, hexGrid.MapData.cellSize),hexGrid.MapData);
+                flyingBuilding.gameObject.SetActive(true);
+                Vector3 CoordsOfCenter = HexMetrics.CalcCenterCoordXZFromHexCoordXZ(HexMetrics.CalcHexCoordXZFromDefault(worldPosition, hexGrid.MapData.cellSize), hexGrid.MapData);
                 bool available = true;
 
                 available = IsPossibleToBuild(flyingBuilding);
@@ -43,7 +44,11 @@ public class BuildingsGrid : MonoBehaviour
                     Debug.Log(CoordsOfCenter);
                     PlaceFlyingBuilding();
                 }
-                
+
+            }
+            else
+            {
+                flyingBuilding.gameObject.SetActive(false);
             }
         }
     }
