@@ -1,6 +1,8 @@
 ﻿using System.Collections;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class TestTaskAssigner : MonoBehaviour
 {
@@ -14,6 +16,8 @@ public class TestTaskAssigner : MonoBehaviour
     private UnitLister lister;
     [SerializeField]
     private string listerTag;
+
+    private List<Type> possibleOrderTypes = new List<Type>();
     // Start is called before the first frame update
     void Start()
     {
@@ -44,6 +48,38 @@ public class TestTaskAssigner : MonoBehaviour
             if (screenPos.x > min.x && screenPos.x < max.x && screenPos.y > min.y && screenPos.y < max.y && unit.GetComponent<FractionMember>().fraction == fraction)
             {
                 units.Add(unit.GetComponent<Unit>());
+            }
+        }
+
+        DefinePossibleOrderTypes();
+    }
+
+    private void DefinePossibleOrderTypes()
+    {
+        foreach (Unit u in units)
+        {
+            possibleOrderTypes.AddRange(u.orderTypes);
+        }
+        foreach (Unit u in units)
+        {
+            List<Type> types = u.orderTypes;
+            foreach (Type t in possibleOrderTypes)
+            {
+                if (!types.Contains(t))
+                {
+                    possibleOrderTypes.Remove(t);
+                }
+            }
+        }
+        for (int i = 0; i < possibleOrderTypes.Count; i++)
+        {
+            Type t = possibleOrderTypes[i];
+            for (int j = i; j < possibleOrderTypes.Count; j++)
+            {
+                if (t == possibleOrderTypes[j])
+                {
+                    possibleOrderTypes.Remove(possibleOrderTypes[j]);
+                }
             }
         }
     }

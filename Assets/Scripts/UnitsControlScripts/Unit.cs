@@ -1,4 +1,7 @@
-﻿using UnityEngine;
+﻿using System;
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 
 public class Unit : MonoBehaviour //@author
 {
@@ -6,6 +9,7 @@ public class Unit : MonoBehaviour //@author
     public GameOrder gameOrder { get; private set; }
     public UnitState state = UnitState.Defending;
     public float reachDistance = 1f;
+    public List<Type> orderTypes { get;  protected set; } 
     public virtual void GiveOrder(GameOrder order)
     {
         CompleteTask();

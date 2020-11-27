@@ -25,6 +25,7 @@ public class Infantry : Unit
 
     private void Start()
     {
+        orderTypes = new List<Type> {typeof(MoveAttackTask), typeof (MoveTask), typeof(AttackTask)};
         fractionMember = GetComponent<FractionMember>();
         agent = GetComponent<NavMeshAgent>();
     }
