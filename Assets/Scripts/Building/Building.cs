@@ -50,7 +50,7 @@ public class Building : MonoBehaviour
                 hexMesh.RecalculateNormals();
                 Gizmos.color = new Color(0.88f, 0f, 1f, 0.3f);
 
-                Vector3 CenterCoord = HexMetrics.CalcCenterCoordXZFromHexCoordXZ(HexCoords, hexGrid.MapData) + HexMetrics.CalcCenterCoordXZFromHexCoordXZ( new Vector3(x, 0, z), hexGrid.MapData);
+                Vector3 CenterCoord = HexMetrics.CalcCenterCoordXZFromHexCoordXZ(HexCoords, hexGrid.MapData) + new Vector3(HexMetrics.CalcCenterCoordXZFromHexCoordXZ(new Vector3(x, 0, z), hexGrid.MapData).x, 0, HexMetrics.CalcCenterCoordXZFromHexCoordXZ(new Vector3(x, 0, z), hexGrid.MapData).z);
 
                 Gizmos.DrawMesh(hexMesh, 0, CenterCoord, Quaternion.identity, Vector3.one * hexGrid.MapData.cellSize);
             }
