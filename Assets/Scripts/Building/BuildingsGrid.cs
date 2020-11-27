@@ -31,7 +31,7 @@ public class BuildingsGrid : MonoBehaviour
                 Vector3 CoordsOfCenter = HexMetrics.CalcCenterCoordXZFromHexCoordXZ(HexMetrics.CalcHexCoordXZFromDefault(worldPosition, hexGrid.MapData.cellSize), hexGrid.MapData);
                 bool available = true;
 
-                available = IsPossibleToBuild(flyingBuilding);
+                available = IsPossibleToBuild(flyingBuilding,HexMetrics.CalcHexCoordXZFromDefault(CoordsOfCenter,hexGrid.MapData.cellSize));
 
                 #region syncing data with building
                 flyingBuilding.HexCoords = HexMetrics.CalcHexCoordXZFromDefault(CoordsOfCenter, hexGrid.MapData.cellSize);
@@ -53,10 +53,13 @@ public class BuildingsGrid : MonoBehaviour
         }
     }
 
-    private bool IsPossibleToBuild(Building thisBuilding)
+    private bool IsPossibleToBuild(Building thisBuilding, Vector3 HexCoord)
     {
         if (IsIntersectingOtherBuilding(thisBuilding))
             return false;
+        if (!IsStayingOnSurface(thisBuilding, HexCoord))
+            return false;
+
 
         return true;
     }
@@ -72,9 +75,29 @@ public class BuildingsGrid : MonoBehaviour
         return false;
     }
 
-    private bool IsStayingOnSurface(Building thisBuilding)
+    private bool IsStayingOnSurface(Building thisBuilding, Vector3 HexCoord)
     {
-
+        for(int x = 0;x< thisBuilding.Size.x;x++)
+        {
+            for (int z = 0; z < thisBuilding.Size.y; z++)
+            {
+                if (HexCoord.z % 2 == 0)
+                {
+                    if (thisBuilding.transform.position.y != hexGrid.MapData.HeightMap[(int)(HexCoord.z + z) * hexGrid.MapData.width + (int)(HexCoord.x + x)])
+                    { 
+                        return false;
+                    }
+                }
+                else
+                {
+                    if (thisBuilding.transform.position.y != hexGrid.MapData.HeightMap[(int)(HexCoord.z + z) * hexGrid.MapData.width + (int)(HexCoord.x + x)])
+                    {
+                        Debug.Log(hexGrid.MapData.HeightMap[(int)(HexCoord.z + z) * hexGrid.MapData.width + (int)(HexCoord.x + x + z % 2)]);
+                        return false;
+                    }
+                }
+            }
+        }
         return true;
     }
 

@@ -25,7 +25,7 @@ namespace Assets.Scripts.HexWorldinterpretation
                 }
                 catch(Exception e)
                 {
-                    Debug.LogWarning("Error at parser: \n"+ e.Message);
+                    Debug.LogWarning("Error at parser/xml document: \n"+ e.Message);
                 }
             }
 

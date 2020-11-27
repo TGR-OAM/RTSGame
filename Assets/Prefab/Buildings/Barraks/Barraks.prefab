@@ -131,7 +131,7 @@ MonoBehaviour:
   Materials: {fileID: 2100000, guid: 7162051ff053a874cacc5eae8177684d, type: 2}
   MainRenderer:
   - {fileID: 3886593828228358734}
-  Size: {x: 2, y: 2}
+  Size: {x: 2, y: 3}
   HexCoords: {x: 0, y: 0, z: 0}
 --- !u!65 &7893316468862192133
 BoxCollider:
