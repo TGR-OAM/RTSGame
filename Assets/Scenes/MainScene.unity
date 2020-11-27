@@ -232,11 +232,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c337a38929e2b874fad29bd806840ae3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  DefMapPath: Xml/MapExample
   MapData:
     HeightMap: []
     Default: {fileID: 0}
     Buildings: []
-  Default: {fileID: 10302, guid: 0000000000000000f000000000000000, type: 3}
 --- !u!4 &221974593
 Transform:
   m_ObjectHideFlags: 0
@@ -576,6 +576,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13c88ba15151a2043ac98ec993818457, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  edgeX: 10
+  edgeY: 10
 --- !u!224 &1279019897 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 7653288037613124266, guid: 1987fdb3388969b4da09a381f1ec69d3, type: 3}
@@ -844,6 +846,38 @@ PrefabInstance:
       propertyPath: m_Material
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 2238883470033828679, guid: 5d25e587d3c8cb544b67fd71895983c9, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0.97
+      objectReference: {fileID: 0}
+    - target: {fileID: 2238883470033828679, guid: 5d25e587d3c8cb544b67fd71895983c9, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0.95
+      objectReference: {fileID: 0}
+    - target: {fileID: 2238883470033828679, guid: 5d25e587d3c8cb544b67fd71895983c9, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0.03
+      objectReference: {fileID: 0}
+    - target: {fileID: 2238883470033828679, guid: 5d25e587d3c8cb544b67fd71895983c9, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 2238883470033828679, guid: 5d25e587d3c8cb544b67fd71895983c9, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2238883470033828679, guid: 5d25e587d3c8cb544b67fd71895983c9, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2238883470033828679, guid: 5d25e587d3c8cb544b67fd71895983c9, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2238883470033828679, guid: 5d25e587d3c8cb544b67fd71895983c9, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3977158759503039535, guid: 5d25e587d3c8cb544b67fd71895983c9, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -852,6 +886,38 @@ PrefabInstance:
       propertyPath: Manager
       value: 
       objectReference: {fileID: 2110698436}
+    - target: {fileID: 6598320827750369205, guid: 5d25e587d3c8cb544b67fd71895983c9, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0.97
+      objectReference: {fileID: 0}
+    - target: {fileID: 6598320827750369205, guid: 5d25e587d3c8cb544b67fd71895983c9, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0.95
+      objectReference: {fileID: 0}
+    - target: {fileID: 6598320827750369205, guid: 5d25e587d3c8cb544b67fd71895983c9, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0.03
+      objectReference: {fileID: 0}
+    - target: {fileID: 6598320827750369205, guid: 5d25e587d3c8cb544b67fd71895983c9, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 6598320827750369205, guid: 5d25e587d3c8cb544b67fd71895983c9, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6598320827750369205, guid: 5d25e587d3c8cb544b67fd71895983c9, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6598320827750369205, guid: 5d25e587d3c8cb544b67fd71895983c9, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6598320827750369205, guid: 5d25e587d3c8cb544b67fd71895983c9, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6601963544230055564, guid: 5d25e587d3c8cb544b67fd71895983c9, type: 3}
       propertyPath: m_Name
       value: 'MiniMap '

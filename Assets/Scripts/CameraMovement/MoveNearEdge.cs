@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class MoveNearEdge : MonoBehaviour
 {
-    float edgeX = 150f;
-    float edgeY = 50f;
+    public float edgeX = 150f;
+    public float edgeY = 50f;
 
     void Update()
     {
