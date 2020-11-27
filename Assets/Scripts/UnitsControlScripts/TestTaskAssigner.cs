@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 using Random = UnityEngine.Random;
+using UnityEngine.EventSystems;
 
 public class TestTaskAssigner : MonoBehaviour
 {
@@ -17,6 +18,7 @@ public class TestTaskAssigner : MonoBehaviour
     [SerializeField]
     private string listerTag;
 
+    [SerializeField]
     private List<Type> possibleOrderTypes = new List<Type>();
     // Start is called before the first frame update
     void Start()
@@ -27,16 +29,15 @@ public class TestTaskAssigner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        ControlUnits();
-        if (Input.GetMouseButtonDown(0)) startPos = Input.mousePosition;
-        if (Input.GetMouseButton(0)) UpdateSelectionBox(Input.mousePosition);
-        if (Input.GetMouseButtonUp(0)) ReleaseSelectionBox();
+            ControlUnits();
+            if (Input.GetMouseButtonDown(0)) startPos = Input.mousePosition;
+            if (Input.GetMouseButton(0)) UpdateSelectionBox(Input.mousePosition);
+            if (Input.GetMouseButtonUp(0)) ReleaseSelectionBox();        
     }
 
     private void ReleaseSelectionBox()
     {
         selectionBox.gameObject.SetActive(false);
-
         Vector2 min = selectionBox.anchoredPosition - (selectionBox.sizeDelta / 2);
         Vector2 max = selectionBox.anchoredPosition + (selectionBox.sizeDelta / 2);
         units.Clear();
@@ -86,7 +87,7 @@ public class TestTaskAssigner : MonoBehaviour
 
     void UpdateSelectionBox(Vector2 curMousePos)
     {
-        if (!selectionBox.gameObject.activeInHierarchy)
+        if (!selectionBox.gameObject.activeSelf)
             selectionBox.gameObject.SetActive(true);
 
         float width = curMousePos.x - startPos.x;

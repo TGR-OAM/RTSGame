@@ -10,33 +10,7 @@
     <materialPath>Materials/Default</materialPath>
     
     <HeightMap type="override">
-
-      <Cell>
-        <Xindex>5</Xindex>
-        <Zindex>7</Zindex>
-        <Y>5</Y>
-      </Cell>
-      <Cell>
-        <Xindex>6</Xindex>
-        <Zindex>6</Zindex>
-        <Y>5</Y>
-      </Cell>
-      <Cell>
-        <Xindex>6</Xindex>
-        <Zindex>7</Zindex>
-        <Y>5</Y>
-      </Cell>
-      <Cell>
-        <Xindex>7</Xindex>
-        <Zindex>6</Zindex>
-        <Y>5</Y>
-      </Cell>
-      <Cell>
-        <Xindex>7</Xindex>
-        <Zindex>7</Zindex>
-        <Y>5</Y>
-      </Cell>
-     
+      
     </HeightMap>
   </MapData>
 </MapDatas>
