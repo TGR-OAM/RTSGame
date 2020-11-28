@@ -20,7 +20,9 @@ public class Unit : MonoBehaviour //@author
     [SerializeField]
     public GameOrder gameOrder { get; private set; }
     public UnitState state = UnitState.Defending;
-    public float reachDistance = 1f;
+
+    [SerializeField]
+    protected float reachDistance = 1f;
     public List<Type> orderTypes { get;  protected set; } 
     public virtual void GiveOrder(GameOrder order)
     {
