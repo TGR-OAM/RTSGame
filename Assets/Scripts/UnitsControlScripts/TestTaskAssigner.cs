@@ -7,6 +7,8 @@ using UnityEngine.EventSystems;
 
 public class TestTaskAssigner : MonoBehaviour
 {
+    public HexGrid hexGrid;
+
     [SerializeField]
     public List<Unit> units;
     [SerializeField]
@@ -122,7 +124,7 @@ public class TestTaskAssigner : MonoBehaviour
 
     private void ControlUnits()
     {
-        if (Input.GetMouseButtonDown(1) && !Input.GetKey(KeyCode.A))
+        if (Input.GetMouseButtonDown(1) && !Input.GetKey(KeyCode.Q))
         {
             RaycastHit hit;
             if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, 100f))
@@ -148,7 +150,7 @@ public class TestTaskAssigner : MonoBehaviour
                 }
             }
         }
-        if (Input.GetMouseButtonDown(1) && Input.GetKey(KeyCode.A))
+        if (Input.GetMouseButtonDown(1) && Input.GetKey(KeyCode.Q))
         {
             RaycastHit hit;
             if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, 100f))
