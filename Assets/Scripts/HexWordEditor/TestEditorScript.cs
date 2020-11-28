@@ -1,4 +1,5 @@
 ﻿using Assets.Scripts;
+using Assets.Scripts.HexWordEditor;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -15,6 +16,8 @@ public class TestEditorScript : MonoBehaviour
     void Start()
     {
         worldEditor = new WorldEditor(hexGrid);
+
+        XMLMapSaver.MapSaverXMLFile(hexGrid.MapData, "",SaveType.defaultSave);
     }
 
     void Update()

@@ -15,7 +15,7 @@ public class HexGrid : MonoBehaviour
 
     private void Awake()
     {
-        MapData = XMLMapParser.LoadXMLFileMap(DefMapPath)[0];
+        MapData = XMLMapLoader.MapLoadXMLFile(DefMapPath)[0];
 
         InitWorld();
     }
@@ -56,13 +56,16 @@ public struct HexGridData
     public float heightInUnits { get; private set; }
 
     public float cellSize { get; private set; }
-    public float padding { get; private set; }
+    public float cellPadding { get; private set; }
 
     public float[] HeightMap;
+
+    public Color[] ColorMap;
 
     #endregion
 
     #region this isnt permanent solution
+    public string materialPath;
     public Material Default;
     #endregion
 
@@ -71,7 +74,7 @@ public struct HexGridData
     #endregion
 
 
-    public HexGridData(string name,int width,int height, float cellSize, float padding, float AccurcyOfApproximation, Material Default)
+    public HexGridData(string name,int width,int height, float cellSize, float padding, float AccurcyOfApproximation, Material Default,string materialPath)
     {
         this.name = name;
 
@@ -79,13 +82,18 @@ public struct HexGridData
         this.height = height;
 
         this.cellSize = cellSize;
-        this.padding = padding;
+        this.cellPadding = padding;
 
         this.HeightMap = new float[width* height];
 
-        this.HeightMap[0] = 5;
+        this.ColorMap = new Color[width * height];
+        for(int i =0;i< width * height;i++)
+        {
+            ColorMap[i] = Default.color;
+        }
 
         this.Default = Default;
+        this.materialPath = materialPath;
 
         this.AccurcyOfApproximation = AccurcyOfApproximation;
 
@@ -95,7 +103,7 @@ public struct HexGridData
         Buildings = new List<Building>();
 
     }
-    public HexGridData(string name, int width, int height, float cellSize, float padding, float[] HeightMap,float AccurcyOfApproximation, Material Default)
+    public HexGridData(string name, int width, int height, float cellSize, float padding, float[] HeightMap, float AccurcyOfApproximation, Material Default,string materialPath)
     {
         this.name = name;
 
@@ -104,11 +112,18 @@ public struct HexGridData
         this.height = height;
 
         this.cellSize = cellSize;
-        this.padding = padding;
+        this.cellPadding = padding;
 
         this.HeightMap = HeightMap;
 
+        this.ColorMap = new Color[width * height];
+        for (int i = 0; i < width * height; i++)
+        {
+            ColorMap[i] = Default.color;
+        }
+
         this.Default = Default;
+        this.materialPath = materialPath;
 
         this.AccurcyOfApproximation = AccurcyOfApproximation;
 
@@ -118,5 +133,30 @@ public struct HexGridData
         Buildings = new List<Building>();
 
     }
+    public HexGridData(string name, int width, int height, float cellSize, float padding, float[] HeightMap, Color[] ColorMap,float AccurcyOfApproximation, Material Default, string materialPath)
+    {
+        this.name = name;
 
+
+        this.width = width;
+        this.height = height;
+
+        this.cellSize = cellSize;
+        this.cellPadding = padding;
+
+        this.HeightMap = HeightMap;
+
+        this.ColorMap = ColorMap;
+
+        this.Default = Default;
+        this.materialPath = materialPath;
+
+        this.AccurcyOfApproximation = AccurcyOfApproximation;
+
+        this.widthInUnits = width * HexMetrics.innerRadius * 2f * cellSize + (height > 1f ? HexMetrics.innerRadius * cellSize : 0);
+        this.heightInUnits = 1.5f * (height - 1) * cellSize * HexMetrics.outerRadius + cellSize * HexMetrics.outerRadius * 2f;
+
+        Buildings = new List<Building>();
+
+    }
 }

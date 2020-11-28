@@ -49,7 +49,7 @@ public class Builder : MonoBehaviour
                 Vector3 CoordsOfCenter = HexMetrics.CalcCenterCoordXZFromHexCoordXZ(HexMetrics.CalcHexCoordXZFromDefault(worldPosition, hexGrid.MapData.cellSize), hexGrid.MapData);
                 bool available = true;
 
-                available = IsPossibleToBuild(flyingBuilding,HexMetrics.CalcHexCoordXZFromDefault(CoordsOfCenter,hexGrid.MapData.cellSize));
+                available = IsPossibleToBuild(flyingBuilding, HexMetrics.CalcHexCoordXZFromDefault(CoordsOfCenter, hexGrid.MapData.cellSize));
 
                 #region syncing data with building
                 flyingBuilding.HexCoords = HexMetrics.CalcHexCoordXZFromDefault(CoordsOfCenter, hexGrid.MapData.cellSize);
@@ -70,6 +70,11 @@ public class Builder : MonoBehaviour
             }
         }
         else
+        {
+            StopPlacingBuilding();
+        }
+
+        if (Input.GetKeyDown(KeyCode.Escape))
         {
             StopPlacingBuilding();
         }
