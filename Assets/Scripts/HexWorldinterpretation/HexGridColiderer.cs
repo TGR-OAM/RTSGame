@@ -60,10 +60,17 @@ namespace Assets.Scripts
 
         public bool TryRaycastHexGrid( Ray rayToCast, out Vector3 DefOutput)
         {
-            if (EventSystem.current.IsPointerOverGameObject())
+            try
             {
-                DefOutput = new Vector3();
-                return false;
+                if (EventSystem.current.IsPointerOverGameObject())
+                {
+                    DefOutput = new Vector3();
+                    return false;
+                }
+            }
+            catch(Exception e)
+            {
+                //Debug.LogWarning(e.Message);
             }
 
             List<RaycastHit> hits = Physics.RaycastAll(rayToCast.origin, rayToCast.direction, Mathf.Infinity, SurfaceLayer).ToList();
