@@ -94,7 +94,7 @@ public class Builder : MonoBehaviour
     private bool IsIntersectingOtherBuilding(Building thisBuilding)
     {
         Collider thisColider = thisBuilding.GetComponent<Collider>();
-        foreach (Building AlreadyBuilded in hexGrid.MapData.Buildings)
+        foreach (Building AlreadyBuilded in hexGrid.MapData.ConstructedBuildings)
         {
             if (thisColider.bounds.Intersects(AlreadyBuilded.GetComponent<Collider>().bounds))
                 return true;
@@ -132,7 +132,7 @@ public class Builder : MonoBehaviour
     {
         flyingBuilding.SetNormal();
         flyingBuilding.gameObject.GetComponentInChildren<Renderer>().material = flyingBuilding.Materials;
-        hexGrid.MapData.Buildings.Add(flyingBuilding);
+        hexGrid.MapData.ConstructedBuildings.Add(flyingBuilding);
         flyingBuilding.gameObject.layer = 9;
         flyingBuilding = null;
         StopPlacingBuilding();

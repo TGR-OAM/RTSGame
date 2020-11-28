@@ -526,7 +526,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c337a38929e2b874fad29bd806840ae3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DefMapPath: SavedMaps/coloredMap
+  DefMapPath: Xml/MapExample
   MapData:
     HeightMap: []
     ColorMap: []

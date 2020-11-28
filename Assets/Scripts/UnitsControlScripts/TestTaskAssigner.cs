@@ -38,7 +38,8 @@ public class TestTaskAssigner : MonoBehaviour
         if (player.playerData.state == PlayerOrderState.Idle)
         { 
             ControlUnits();
-            if (Input.GetMouseButtonDown(0) && !EventSystem.current.IsPointerOverGameObject()) { startPos = Input.mousePosition; isSelecting = true; }
+            if (Input.GetMouseButtonDown(0) && !EventSystem.current.IsPointerOverGameObject()) { 
+                startPos = Input.mousePosition; isSelecting = true; }
             if (Input.GetMouseButton(0) && isSelecting) UpdateSelectionBox(Input.mousePosition);
             if (Input.GetMouseButtonUp(0) && isSelecting) { ReleaseSelectionBox();}
         }
@@ -67,7 +68,8 @@ public class TestTaskAssigner : MonoBehaviour
         {
             Vector3 screenPos = Camera.main.WorldToScreenPoint(unit.transform.position);
 
-            if (screenPos.x > min.x && screenPos.x < max.x && screenPos.y > min.y && screenPos.y < max.y && unit.GetComponent<FractionMember>().fraction == fraction)
+            if (screenPos.x > min.x && screenPos.x < max.x && screenPos.y > min.y &&
+                screenPos.y < max.y && unit.GetComponent<FractionMember>().fraction == fraction)
             {
                 units.Add(unit.GetComponent<Unit>());
             }

@@ -179,12 +179,12 @@ namespace Assets.Scripts
             AddTriangle( Vertices,  Tris,  colors, v3, v4,  v1, color3, color4, color1);
         }
 
-        void AddTriangle( List<Vector3> Vertices,  List<int> Tris,  List<Color> colors, Vector3 v1, Vector3 v2, Vector3 v3, Color color1, Color color2, Color color3)
+        void AddTriangle( List<Vector3> OutVertices,  List<int> Tris,  List<Color> colors, Vector3 v1, Vector3 v2, Vector3 v3, Color color1, Color color2, Color color3)
         {
-            int VertCount = Vertices.Count;
-            Vertices.Add(v1);
-            Vertices.Add(v2);
-            Vertices.Add(v3);
+            int VertCount = OutVertices.Count;
+            OutVertices.Add(v1);
+            OutVertices.Add(v2);
+            OutVertices.Add(v3);
 
             colors.Add(color1);
             colors.Add(color2);

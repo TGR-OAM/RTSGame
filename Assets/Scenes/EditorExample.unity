@@ -766,13 +766,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c337a38929e2b874fad29bd806840ae3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DefMapPath: SavedMaps/some map
+  DefMapPath: SavedMaps/1234
   MapData:
     HeightMap: []
     ColorMap: []
     materialPath: 
     Default: {fileID: 0}
-    Buildings: []
+    ConstructedBuildings: []
 --- !u!4 &869663600
 Transform:
   m_ObjectHideFlags: 0
