@@ -6464,6 +6464,16 @@
         <Y>0.5</Y>
       </Cell>
     </HeightMap>
-    <ColorMap type="overrideSave" />
+    <ColorMap type="overrideSave">
+      <Cell>
+        <Xindex>20</Xindex>
+        <Zindex>20</Zindex>
+        <Color>
+          <Red>1</Red>
+          <Green>2</Green>
+          <Blue>1</Blue>
+        </Color>
+      </Cell>
+    </ColorMap>
   </MapData>
 </MapDatas>

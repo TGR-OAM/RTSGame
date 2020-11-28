@@ -185,5 +185,40 @@ namespace Assets.Scripts
 
             TryUpdateCellHeight(AllCenters, dY, targetHeight);
         }
+
+
+        public void TryUpdateCellColor(List<Vector3> Coords, Color color)
+        {
+            for (int i = 0; i < Coords.Count; i++)
+            {
+                if (Coords[i].x < 0 || Coords[i].z < 0 || Coords[i].x > MapData.width - 1 || Coords[i].z > MapData.height - 1)
+                {
+                    Coords.RemoveAt(i);
+                    i--;
+                    continue;
+                }
+                else
+                    MapData.ColorMap[(int)Coords[i].z * MapData.width + (int)Coords[i].x] = color;
+            }
+            hexGridRenderer.UpdateHexGridMesh(Coords);
+            hexGridColiderer.ReUpdateAllColiders();
+        }
+
+        public void TryUpdateCellColor(Vector3 Coord, Color color)
+        {
+            if (Coord.x < 0 || Coord.z < 0 || Coord.x > MapData.width - 1 || Coord.z > MapData.height - 1)
+            {
+                return;
+            }
+            else
+            {
+                MapData.ColorMap[(int)Coord.z * MapData.width + (int)Coord.x] = color;
+            }
+
+            List<Vector3> Coords = new List<Vector3>();
+            Coords.Add(Coord);
+            hexGridRenderer.UpdateHexGridMesh(Coords);
+            hexGridColiderer.ReUpdateAllColiders();
+        }
     }
 }

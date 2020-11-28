@@ -15,12 +15,15 @@ public class TestEditorScript : MonoBehaviour
 
     public InputField inputField;
 
+    public Color curColor;
+
     // Start is called before the first frame update
     void Start()
     {
         worldEditor = new WorldEditor(hexGrid);
 
         inputField.text = hexGrid.MapData.name;
+
     }
 
     void Update()
@@ -53,6 +56,11 @@ public class TestEditorScript : MonoBehaviour
             {
                 worldEditor.TryUpdateCellHeightInRadius(HexMetrics.CalcHexCoordXZFromDefault(center, hexGrid.MapData.cellSize), .5f, radiusToChange, targetHeight);
             }
+
+            if(Input.GetKey(KeyCode.P) && Input.GetMouseButton(0))
+            {
+                worldEditor.TryUpdateCellColor(HexMetrics.CalcHexCoordXZFromDefault(center, hexGrid.MapData.cellSize), curColor);
+            }
         }
 
     }
@@ -61,5 +69,21 @@ public class TestEditorScript : MonoBehaviour
     {
         if(inputField.text != "")
             XMLMapSaver.MapSaverXMLFile(hexGrid.MapData, "SavedMaps/"+ inputField.text, SaveType.overrideSave);
+    }
+
+    public void OnColorButtonClick(string color)
+    {
+        switch (color)
+        {
+            case "yellow":
+                curColor = Color.yellow;
+                break;
+            case "blue":
+                curColor = Color.blue;
+                break;
+            case "green":
+                curColor = Color.green;
+                break;
+        }
     }
 }
