@@ -492,7 +492,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d6e90b7009a13c418aa2f84d20645b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hexGrid: {fileID: 0}
+  hexGrid: {fileID: 221974592}
   units: []
   fraction: 0
   selectionBox: {fileID: 398628358}
@@ -526,7 +526,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c337a38929e2b874fad29bd806840ae3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DefMapPath: Xml/MapExample
+  DefMapPath: SavedMaps/some map
   MapData:
     HeightMap: []
     ColorMap: []
