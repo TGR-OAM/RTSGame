@@ -6,9 +6,10 @@ using System.Text;
 using System.Threading.Tasks;
 using UnityEngine;
 using UnityEditor;
+using System.Globalization;
 
 namespace Assets.Scripts.HexWordEditor
-{
+{    
     public enum SaveType
     { 
         defaultSave,
@@ -18,8 +19,13 @@ namespace Assets.Scripts.HexWordEditor
 
     static public class XMLMapSaver
     {
-        static public void MapSaverXMLFile(HexGridData MapToSave, string path, SaveType saveType)
+        static CultureInfo CInfo = (CultureInfo)CultureInfo.CurrentCulture.Clone();
+
+        static public void MapSaverXMLFile(HexGridData MapToSave, string path,SaveType saveType)
         {
+
+            CInfo.NumberFormat.NumberDecimalSeparator = ".";
+
             XDocument XmlDoc = new XDocument(
                 new XDeclaration("1.0", "utf-8", "yes"),
                 new XElement("MapDatas"));
@@ -49,26 +55,26 @@ namespace Assets.Scripts.HexWordEditor
                     break;
 
                 case SaveType.overrideSave:
-
+                    MapSaverXMLFile_OverrideSave(ref HeightMap, ref ColorMap, MapToSave);
                     break;
 
             }
             MapData.Add(HeightMap);
             MapData.Add(ColorMap);
 
-            XmlDoc.Save(Application.dataPath + "/"+MapToSave.name + ".xml");
+            XmlDoc.Save(Application.dataPath+"/"+ "Resources/"+ path + ".xml");
             AssetDatabase.SaveAssets();
             AssetDatabase.Refresh();
         }
 
-        static void MapSaverXMLFile_DefaultSave(ref XElement HeightMap,ref XElement ColorMap,HexGridData MapData)
+        static void MapSaverXMLFile_DefaultSave(ref XElement HeightMap, ref XElement ColorMap, HexGridData MapData)
         {
             for (int z = 0; z < MapData.height; z++)
             {
                 string rowValue = "";
                 for (int x = 0; x < MapData.width; x++)
                 {
-                    rowValue += MapData.HeightMap[z * MapData.width + x].ToString() + "/";
+                    rowValue += MapData.HeightMap[z * MapData.width + x].ToString(CInfo) + "/";
 
                     XElement Cell = new XElement("Cell");
 
@@ -77,14 +83,55 @@ namespace Assets.Scripts.HexWordEditor
 
                     XElement Color = new XElement("Color");
 
-                    Color.Add("Red", MapData.ColorMap[z * MapData.width + x].r);
-                    Color.Add("Green", MapData.ColorMap[z * MapData.width + x].g);
-                    Color.Add("Blue", MapData.ColorMap[z * MapData.width + x].b);
+                    Color.Add(new XElement("Red", MapData.ColorMap[z * MapData.width + x].r));
+                    Color.Add(new XElement("Green", MapData.ColorMap[z * MapData.width + x].g));
+                    Color.Add(new XElement("Blue", MapData.ColorMap[z * MapData.width + x].b));
 
                     Cell.Add(Color);
                     ColorMap.Add(Cell);
                 }
-                HeightMap.Add(new XElement("Row",rowValue));
+                HeightMap.Add(new XElement("Row", rowValue));
+            }
+        }
+
+        static void MapSaverXMLFile_OverrideSave(ref XElement HeightMap, ref XElement ColorMap, HexGridData MapData)
+        {
+            for (int z = 0; z < MapData.height; z++)
+            {
+                for (int x = 0; x < MapData.width; x++)
+                {
+                    #region Save color
+                    if (MapData.ColorMap[z * MapData.width + x] != MapData.Default.color)
+                    {
+                        XElement Cell = new XElement("Cell");
+
+                        Cell.Add(new XElement("Xindex", x));
+                        Cell.Add(new XElement("Zindex", z));
+
+                        XElement Color = new XElement("Color");
+
+                        Color.Add(new XElement("Red", MapData.ColorMap[z * MapData.width + x].r));
+                        Color.Add(new XElement("Green", MapData.ColorMap[z * MapData.width + x].g));
+                        Color.Add(new XElement("Blue", MapData.ColorMap[z * MapData.width + x].b));
+
+                        Cell.Add(Color);
+                        ColorMap.Add(Cell);
+                    }
+                    #endregion
+
+                    #region SaveHeight
+                    if(MapData.HeightMap[z * MapData.width + x] != 0)
+                    {
+                        XElement Cell = new XElement("Cell");
+
+                        Cell.Add(new XElement("Xindex", x));
+                        Cell.Add(new XElement("Zindex", z));
+                        Cell.Add(new XElement("Y", MapData.HeightMap[z * MapData.width + x].ToString(CInfo)));
+
+                        HeightMap.Add(Cell);
+                    }
+                    #endregion
+                }
             }
         }
     }

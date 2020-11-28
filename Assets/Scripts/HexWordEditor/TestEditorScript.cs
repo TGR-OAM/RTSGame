@@ -3,6 +3,7 @@ using Assets.Scripts.HexWordEditor;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class TestEditorScript : MonoBehaviour
 {
@@ -12,12 +13,14 @@ public class TestEditorScript : MonoBehaviour
     public float targetHeight;
     public int radiusToChange;
 
+    public InputField inputField;
+
     // Start is called before the first frame update
     void Start()
     {
         worldEditor = new WorldEditor(hexGrid);
 
-        XMLMapSaver.MapSaverXMLFile(hexGrid.MapData, "",SaveType.defaultSave);
+        inputField.text = hexGrid.MapData.name;
     }
 
     void Update()
@@ -52,5 +55,11 @@ public class TestEditorScript : MonoBehaviour
             }
         }
 
+    }
+
+    public void SaveMap()
+    {
+        if(inputField.text != "")
+            XMLMapSaver.MapSaverXMLFile(hexGrid.MapData, "SavedMaps/"+ inputField.text, SaveType.overrideSave);
     }
 }
