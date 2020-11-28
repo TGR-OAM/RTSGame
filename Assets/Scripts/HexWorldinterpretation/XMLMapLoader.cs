@@ -12,14 +12,14 @@ namespace Assets.Scripts.HexWorldinterpretation
     static public class XMLMapLoader
     {
         static CultureInfo CInfo = (CultureInfo) CultureInfo.CurrentCulture.Clone();
-        
+             
 
         static public List<HexGridData> MapLoadXMLFile(string path)
         {
             CInfo.NumberFormat.NumberDecimalSeparator = ".";
             TextAsset XML_String = Resources.Load<TextAsset>(path);
             XmlDocument XmlData = new XmlDocument();
-            XmlData.LoadXml(XML_String.text);
+            XmlData.LoadXml(XML_String.text);   
             XmlNode RootNode  = XmlData.SelectSingleNode("MapDatas");
             List<HexGridData> hexGridDatas = new List<HexGridData>();
             foreach (XmlNode MapNode in RootNode.SelectNodes("MapData"))

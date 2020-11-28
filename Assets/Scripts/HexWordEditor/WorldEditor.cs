@@ -64,7 +64,6 @@ namespace Assets.Scripts
             hexGridRenderer.UpdateHexGridMesh(Coords);
             hexGridColiderer.ReUpdateAllColiders();
         }
-
         public void TryUpdateCellHeight(Vector3 Coord, float dY)
         {
             if (Coord.x < 0 || Coord.z < 0)
@@ -77,7 +76,6 @@ namespace Assets.Scripts
             hexGridRenderer.UpdateHexGridMesh(Coords);
             hexGridColiderer.ReUpdateAllColiders();
         }
-
         public void TryUpdateCellHeight(Vector3 Coord, float dY, float targetHeight)
         {
             if (Coord.x < 0 || Coord.z < 0)

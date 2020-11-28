@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class UIManager : MonoBehaviour
 {
-    public HexGrid hexGrid;//world to show in minimap
+    public HexGrid hexGrid;
     public InteractiveZoneScript interactiveZoneScript;
 
     public void UpdatePossibleOrdersAtInteractiveZone(List<Type> Orders)
