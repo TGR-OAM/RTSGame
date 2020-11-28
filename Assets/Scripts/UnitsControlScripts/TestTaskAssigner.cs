@@ -20,23 +20,42 @@ public class TestTaskAssigner : MonoBehaviour
 
     [SerializeField]
     private List<Type> possibleOrderTypes = new List<Type>();
-    // Start is called before the first frame update
+
+    Player player;
+    bool isSelecting = false;
+
+
     void Start()
     {
+        player = GameObject.FindWithTag("Player").GetComponent<Player>();
         lister = GameObject.FindGameObjectWithTag(listerTag).GetComponent<UnitLister>();
     }
 
-    // Update is called once per frame
     void Update()
     {
+        if (player.playerData.state == PlayerOrderState.Idle)
+        { 
             ControlUnits();
-            if (Input.GetMouseButtonDown(0)) startPos = Input.mousePosition;
-            if (Input.GetMouseButton(0)) UpdateSelectionBox(Input.mousePosition);
-            if (Input.GetMouseButtonUp(0)) ReleaseSelectionBox();        
+            if (Input.GetMouseButtonDown(0) && !EventSystem.current.IsPointerOverGameObject()) { startPos = Input.mousePosition; isSelecting = true; }
+            if (Input.GetMouseButton(0) && isSelecting) UpdateSelectionBox(Input.mousePosition);
+            if (Input.GetMouseButtonUp(0) && isSelecting) { ReleaseSelectionBox();}
+        }
+        else
+        {
+            if (isSelecting)
+            {
+                ReleaseSelectionBox();
+            }
+            startPos = Input.mousePosition;
+            isSelecting = false;
+            
+        }
+        
     }
 
     private void ReleaseSelectionBox()
     {
+        isSelecting = false;
         selectionBox.gameObject.SetActive(false);
         Vector2 min = selectionBox.anchoredPosition - (selectionBox.sizeDelta / 2);
         Vector2 max = selectionBox.anchoredPosition + (selectionBox.sizeDelta / 2);
@@ -57,6 +76,7 @@ public class TestTaskAssigner : MonoBehaviour
 
     private void DefinePossibleOrderTypes()
     {
+        possibleOrderTypes = new List<Type>();
         foreach (Unit u in units)
         {
             possibleOrderTypes.AddRange(u.orderTypes);
@@ -75,14 +95,17 @@ public class TestTaskAssigner : MonoBehaviour
         for (int i = 0; i < possibleOrderTypes.Count; i++)
         {
             Type t = possibleOrderTypes[i];
-            for (int j = i; j < possibleOrderTypes.Count; j++)
+            for (int j = i + 1; j < possibleOrderTypes.Count; j++)
             {
                 if (t == possibleOrderTypes[j])
                 {
-                    possibleOrderTypes.Remove(possibleOrderTypes[j]);
+                    possibleOrderTypes.RemoveAt(j);
+                    j--;
                 }
             }
         }
+
+        player.UpdatePossibleOrders(possibleOrderTypes);
     }
 
     void UpdateSelectionBox(Vector2 curMousePos)

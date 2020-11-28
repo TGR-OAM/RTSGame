@@ -2,11 +2,19 @@ using Assets.Scripts;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class BuildingsGrid : MonoBehaviour
+public class Builder : MonoBehaviour
 {
-    public HexGrid hexGrid;
+    private Player player;
+
+    private HexGrid hexGrid;
 
     private Building flyingBuilding;
+
+    private void Start()
+    {
+        player = GameObject.FindWithTag("Player").GetComponent<Player>();
+        hexGrid = player.playerData.hexGrid;
+    }
 
     public void StartPlacingBuilding(Building buildingPrefab)
     {
@@ -17,11 +25,21 @@ public class BuildingsGrid : MonoBehaviour
 
         flyingBuilding = Instantiate(buildingPrefab);
         flyingBuilding.hexGrid = hexGrid;
+        player.SetState(PlayerOrderState.Building);
+    }
+
+    void StopPlacingBuilding()
+    {
+        if (flyingBuilding != null)
+        {
+            Destroy(flyingBuilding.gameObject);
+        }
+        player.SetState(PlayerOrderState.Idle);
     }
 
     private void Update()
     {
-        if (flyingBuilding != null)
+        if (player.playerData.state == PlayerOrderState.Building)
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
@@ -50,6 +68,10 @@ public class BuildingsGrid : MonoBehaviour
             {
                 flyingBuilding.gameObject.SetActive(false);
             }
+        }
+        else
+        {
+            StopPlacingBuilding();
         }
     }
 
@@ -108,5 +130,6 @@ public class BuildingsGrid : MonoBehaviour
         hexGrid.MapData.Buildings.Add(flyingBuilding);
         flyingBuilding.gameObject.layer = 9;
         flyingBuilding = null;
+        StopPlacingBuilding();
     }
 }

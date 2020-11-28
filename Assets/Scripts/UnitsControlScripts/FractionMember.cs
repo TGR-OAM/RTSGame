@@ -5,7 +5,7 @@ using UnityEngine;
 public class FractionMember : MonoBehaviour
 {
     [SerializeField]
-    public string unitListerTag;
+    private string unitListerTag;
     [SerializeField]
     public UnitLister lister;
     [SerializeField]
