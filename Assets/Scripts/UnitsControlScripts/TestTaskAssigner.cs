@@ -127,7 +127,7 @@ public class TestTaskAssigner : MonoBehaviour
         if (Input.GetMouseButtonDown(1) && !Input.GetKey(KeyCode.Q))
         {
             RaycastHit hit;
-            if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, 100f))
+            if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, 100f,1 << 8 ))
             {
                 GameObject g = hit.collider.gameObject;
                 FractionMember f = g.GetComponent<FractionMember>();
@@ -149,17 +149,41 @@ public class TestTaskAssigner : MonoBehaviour
                     }
                 }
             }
+            else
+            {
+                if(hexGrid.TryRaycastHexGrid(Camera.main.ScreenPointToRay(Input.mousePosition),out Vector3 output))
+                {
+                    foreach (Unit u in units)
+                    {
+                        float offset = units.Count * 0.21f;
+                        MoveTask o = new MoveTask(output + new Vector3(Random.Range(-offset, offset), 0, Random.Range(-offset, offset)));
+                        u.GiveOrder(o);
+                    }
+                }
+            }
         }
         if (Input.GetMouseButtonDown(1) && Input.GetKey(KeyCode.Q))
         {
             RaycastHit hit;
-            if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, 100f))
+            if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, 100f, 1 << 8))
             {
                 foreach (Unit u in units)
                 {
                     float offset = units.Count * 0.21f;
                     MoveAttackTask o = new MoveAttackTask(hit.point + new Vector3(Random.Range(-offset, offset), 0, Random.Range(-offset, offset)));
                     u.GiveOrder(o);
+                }
+            }
+            else
+            {
+                if (hexGrid.TryRaycastHexGrid(Camera.main.ScreenPointToRay(Input.mousePosition), out Vector3 output))
+                {
+                    foreach (Unit u in units)
+                    {
+                        float offset = units.Count * 0.21f;
+                        MoveAttackTask o = new MoveAttackTask(output + new Vector3(Random.Range(-offset, offset), 0, Random.Range(-offset, offset)));
+                        u.GiveOrder(o);
+                    }
                 }
             }
         }

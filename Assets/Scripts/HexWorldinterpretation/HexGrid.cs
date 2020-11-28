@@ -28,7 +28,7 @@ public class HexGrid : MonoBehaviour
         #endregion
 
         #region init coliders
-        hexGridColiderer = new HexGridColiderer(this,8);
+        hexGridColiderer = new HexGridColiderer(this,9);
         #endregion
     }
 

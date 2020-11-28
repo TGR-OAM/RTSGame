@@ -46,7 +46,7 @@ namespace Assets.Scripts
                 GameObject PlaneCollider = GameObject.CreatePrimitive(PrimitiveType.Cube);
                 PlaneCollider.name = "Colider " + height;
                 PlaneCollider.transform.parent = ColiderPart.transform;
-                PlaneCollider.layer = 8;
+                PlaneCollider.layer = 9;
                 PlaneCollider.transform.localPosition = new Vector3(MapData.widthInUnits / 2f - MapData.cellSize * HexMetrics.innerRadius, height - .0005f, MapData.heightInUnits / 2f - MapData.cellSize * HexMetrics.outerRadius);
                 PlaneCollider.transform.localScale = new Vector3(MapData.widthInUnits, .001f, MapData.heightInUnits);
 
@@ -70,7 +70,7 @@ namespace Assets.Scripts
             }
             catch(Exception e)
             {
-                //Debug.LogWarning(e.Message);
+                Debug.LogWarning(e.Message);
             }
 
             List<RaycastHit> hits = Physics.RaycastAll(rayToCast.origin, rayToCast.direction, Mathf.Infinity, SurfaceLayer).ToList();
