@@ -4,17 +4,10 @@ using UnityEngine.AI;
 
 public class Builder : MonoBehaviour
 {
-    private Player player;
-
-    private HexGrid hexGrid;
+    public  HexGrid hexGrid;
 
     private Building flyingBuilding;
 
-    private void Start()
-    {
-        player = GameObject.FindWithTag("Player").GetComponent<Player>();
-        hexGrid = player.playerData.hexGrid;
-    }
 
     public void StartPlacingBuilding(Building buildingPrefab)
     {
@@ -25,7 +18,6 @@ public class Builder : MonoBehaviour
 
         flyingBuilding = Instantiate(buildingPrefab);
         flyingBuilding.hexGrid = hexGrid;
-        player.SetState(PlayerOrderState.Building);
     }
 
     void StopPlacingBuilding()
@@ -34,44 +26,32 @@ public class Builder : MonoBehaviour
         {
             Destroy(flyingBuilding.gameObject);
         }
-        player.SetState(PlayerOrderState.Idle);
     }
 
     private void Update()
     {
-        if (player.playerData.state == PlayerOrderState.Building)
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+
+        if (hexGrid.TryRaycastHexGrid(ray, out Vector3 worldPosition) && flyingBuilding!=null)
         {
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            flyingBuilding.gameObject.SetActive(true);
+            Vector3 CoordsOfCenter = HexMetrics.CalcCenterCoordXZFromHexCoordXZ(HexMetrics.CalcHexCoordXZFromDefault(worldPosition, hexGrid.MapData.cellSize), hexGrid.MapData);
+            bool available = true;
 
-            if (hexGrid.TryRaycastHexGrid(ray, out Vector3 worldPosition))
+            available = IsPossibleToBuild(flyingBuilding, HexMetrics.CalcHexCoordXZFromDefault(CoordsOfCenter, hexGrid.MapData.cellSize));
+
+            #region syncing data with building
+            flyingBuilding.HexCoords = HexMetrics.CalcHexCoordXZFromDefault(CoordsOfCenter, hexGrid.MapData.cellSize);
+            flyingBuilding.transform.position = CoordsOfCenter;
+            flyingBuilding.SetTransparent(available);
+            #endregion
+
+            if (available && Input.GetMouseButtonDown(0))
             {
-                flyingBuilding.gameObject.SetActive(true);
-                Vector3 CoordsOfCenter = HexMetrics.CalcCenterCoordXZFromHexCoordXZ(HexMetrics.CalcHexCoordXZFromDefault(worldPosition, hexGrid.MapData.cellSize), hexGrid.MapData);
-                bool available = true;
-
-                available = IsPossibleToBuild(flyingBuilding, HexMetrics.CalcHexCoordXZFromDefault(CoordsOfCenter, hexGrid.MapData.cellSize));
-
-                #region syncing data with building
-                flyingBuilding.HexCoords = HexMetrics.CalcHexCoordXZFromDefault(CoordsOfCenter, hexGrid.MapData.cellSize);
-                flyingBuilding.transform.position = CoordsOfCenter;
-                flyingBuilding.SetTransparent(available);
-                #endregion
-
-                if (available && Input.GetMouseButtonDown(0))
-                {
-                    Debug.Log(CoordsOfCenter);
-                    PlaceFlyingBuilding();
-                }
-
+                Debug.Log(CoordsOfCenter);
+                PlaceFlyingBuilding();
             }
-            else
-            {
-                flyingBuilding.gameObject.SetActive(false);
-            }
-        }
-        else
-        {
-            StopPlacingBuilding();
+
         }
 
         if (Input.GetKeyDown(KeyCode.Escape))
