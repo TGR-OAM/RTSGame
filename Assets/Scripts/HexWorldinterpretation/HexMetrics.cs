@@ -23,10 +23,9 @@ namespace Assets.Scripts
 		};
 
 		
-		public static Vector3 CalcCenterCoordXZFromHexCoordXZ(Vector3 hexCoord,HexGridData UploadedData)
+		public static Vector3 CalcCenterCoordXZFromHexCoordXZ(Vector3 hexCoord,HexGridData MapData)
         {
-			Vector3 CenterCoord = new Vector3(hexCoord.x * 2 * innerRadius * UploadedData.cellSize + hexCoord.z % 2 * innerRadius * UploadedData.cellSize, 0, hexCoord.z * 1.5f * UploadedData.cellSize * outerRadius);
-
+			Vector3 CenterCoord = new Vector3(hexCoord.x * 2 * innerRadius * MapData.cellSize + hexCoord.z % 2 * innerRadius * MapData.cellSize, MapData.HeightMap[(int)hexCoord.z*MapData.width+(int)hexCoord.x], hexCoord.z * 1.5f * MapData.cellSize * outerRadius);
 			return CenterCoord;
         }
 

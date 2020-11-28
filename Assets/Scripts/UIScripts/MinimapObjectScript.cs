@@ -41,8 +41,6 @@ public class MinimapObjectScript:MonoBehaviour
         CameraComponent.transform.rotation = Quaternion.Euler(90, 0, 0);
         CameraComponent.orthographicSize = Mathf.Min(hexGrid.MapData.widthInUnits, hexGrid.MapData.heightInUnits) / 2;
 
-        //CameraComponent.rect = new Rect(0, 1 - Mathf.Min(hexGrid.MapData.widthInUnits, hexGrid.MapData.heightInUnits) / Mathf.Max(hexGrid.MapData.widthInUnits, hexGrid.MapData.heightInUnits), 1, 1);
-
         CameraComponent.targetTexture = CameraRenderTexture;
         RenderMinimapTexture.texture = CameraRenderTexture;
     }

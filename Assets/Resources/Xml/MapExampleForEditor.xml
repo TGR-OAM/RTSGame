@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<MapDatas>
+  <MapData name="MapExample">
+    <width>256</width>
+    <height>256</height>
+    <cellSize>1</cellSize>
+    <cellPadding>0.5</cellPadding>
+    <accuracyOfApproximation>0.0001</accuracyOfApproximation>
+
+    <materialPath>Materials/Default</materialPath>
+    
+    <HeightMap type="overrideSave">
+      
+    </HeightMap>
+
+    <ColorMap type="overrideSave">
+
+    </ColorMap>
+    
+  </MapData>
+</MapDatas>

@@ -9,15 +9,14 @@ namespace Assets.Scripts
 {
     public class HexColumnRenderer
     {
-        HexGridData UploadedData;
+        HexGridData MapData;
         GameObject Column;
 
         public HexColumnRenderer(int x,HexGrid hexGrid, Transform MeshPart)
         {
-            this.UploadedData = hexGrid.MapData;
+            this.MapData = hexGrid.MapData;
 
             Column = new GameObject("Column " + x, typeof(MeshRenderer),typeof(MeshFilter));
-            Column.transform.localPosition = new Vector3(HexMetrics.innerRadius*2*UploadedData.cellSize*x,0,0);
             Column.transform.parent = MeshPart;
 
             UpdateColumn(x);
@@ -29,51 +28,58 @@ namespace Assets.Scripts
 
             List<Vector3> Vertices = new List<Vector3>();
             List<int> Tris = new List<int>();
+            List<Color> colors = new List<Color>();
 
-            float HexSizeWithPadding = UploadedData.cellSize - UploadedData.padding;
+            float HexSizeWithPadding = MapData.cellSize - MapData.cellPadding;
 
-            for (int z = 0; z < UploadedData.height; z++)
+            for (int z = 0; z < MapData.height; z++)
             {
-                InitCell(ref Vertices, ref Tris, x, z, HexSizeWithPadding);
+                InitCell(Vertices, Tris, colors,x, z, HexSizeWithPadding);
             }
 
             ColumnMesh.vertices = Vertices.ToArray();
             ColumnMesh.triangles = Tris.ToArray();
+            ColumnMesh.colors = colors.ToArray();
 
             ColumnMesh.RecalculateNormals();
             ColumnMesh.Optimize();
 
             Column.GetComponent<MeshFilter>().mesh = ColumnMesh;
-            Column.GetComponent<MeshRenderer>().material = UploadedData.Default;
+            Column.GetComponent<MeshRenderer>().material = MapData.Default;
         }
 
 
-        void InitCell(ref List<Vector3> Vertices,ref List<int> Tris,int x, int z,float HexSizeWithPadding)
+        void InitCell(List<Vector3> Vertices,List<int> Tris, List<Color> colors,int x, int z,float HexSizeWithPadding)
         {
-            Vector3 ThisCenter = HexMetrics.CalcCenterCoordXZFromHexCoordXZ(new Vector3(0,0,z),UploadedData) + GetHeightByHexCoord(x,z);
+            Vector3 ThisCenter = HexMetrics.CalcCenterCoordXZFromHexCoordXZ(new Vector3(x, 0, z), MapData);
+
+            Color thisColor = MapData.ColorMap[z * MapData.width + x];
 
             #region init hexagon inside
 
             for (int i = 2;i< HexMetrics.corners.Count();i++)
             {
-                AddTriangle(ref Vertices, ref Tris, HexMetrics.corners[0] * HexSizeWithPadding + ThisCenter, HexMetrics.corners[i-1]* HexSizeWithPadding + ThisCenter, HexMetrics.corners[i]* HexSizeWithPadding + ThisCenter);
+                AddTriangle( Vertices,  Tris, colors, HexMetrics.corners[0] * HexSizeWithPadding + ThisCenter, HexMetrics.corners[i-1]* HexSizeWithPadding + ThisCenter, HexMetrics.corners[i]* HexSizeWithPadding + ThisCenter, thisColor);
             }
 
             #endregion
 
             #region init up in one column padding
 
-            if(z != UploadedData.height-1)
+            if(z != MapData.height-1)
             {
-                Vector3 OtherCenterInThisColumn = HexMetrics.CalcCenterCoordXZFromHexCoordXZ(new Vector3(0, 0, z + 1), UploadedData)+ GetHeightByHexCoord(x, z+1);
+                Vector3 OtherCenterInThisColumn = HexMetrics.CalcCenterCoordXZFromHexCoordXZ(new Vector3(x, 0, z + 1), MapData);
+
+                Color OtherCenterInThisColumnColor = MapData.ColorMap[(z+1)*MapData.width+x];
 
                 if (z % 2 == 0)
                 {
-                    AddSquare(ref Vertices, ref Tris, ThisCenter + HexMetrics.corners[0] * HexSizeWithPadding, OtherCenterInThisColumn + HexMetrics.corners[4] * HexSizeWithPadding, OtherCenterInThisColumn + HexMetrics.corners[3] * HexSizeWithPadding, ThisCenter + HexMetrics.corners[1] * HexSizeWithPadding);
+
+                    AddSquare( Vertices,  Tris,  colors, ThisCenter + HexMetrics.corners[0] * HexSizeWithPadding, thisColor, OtherCenterInThisColumn + HexMetrics.corners[4] * HexSizeWithPadding, OtherCenterInThisColumnColor, OtherCenterInThisColumn + HexMetrics.corners[3] * HexSizeWithPadding, OtherCenterInThisColumnColor, ThisCenter + HexMetrics.corners[1] * HexSizeWithPadding, thisColor);
                 }
                 else
                 {
-                    AddSquare(ref Vertices, ref Tris, ThisCenter + HexMetrics.corners[5] * HexSizeWithPadding, OtherCenterInThisColumn + HexMetrics.corners[3] * HexSizeWithPadding, OtherCenterInThisColumn + HexMetrics.corners[2] * HexSizeWithPadding, ThisCenter + HexMetrics.corners[0] * HexSizeWithPadding);
+                    AddSquare( Vertices,  Tris,  colors, ThisCenter + HexMetrics.corners[5] * HexSizeWithPadding, thisColor,OtherCenterInThisColumn + HexMetrics.corners[3] * HexSizeWithPadding, OtherCenterInThisColumnColor, OtherCenterInThisColumn + HexMetrics.corners[2] * HexSizeWithPadding, OtherCenterInThisColumnColor, ThisCenter + HexMetrics.corners[0] * HexSizeWithPadding, thisColor);
                 }
             }
 
@@ -82,54 +88,58 @@ namespace Assets.Scripts
             #region init right padding
 
             Vector3 RightCenter = new Vector3();
+            Color RightColor = new Color();
 
-            if (x != UploadedData.width - 1)
+            if (x != MapData.width - 1)
             {
-                RightCenter = HexMetrics.CalcCenterCoordXZFromHexCoordXZ(new Vector3(1, 0, z), UploadedData) + GetHeightByHexCoord(x+1, z);
-                AddSquare(ref Vertices, ref Tris, ThisCenter + HexMetrics.corners[1] * HexSizeWithPadding, RightCenter + HexMetrics.corners[5] * HexSizeWithPadding, RightCenter + HexMetrics.corners[4] * HexSizeWithPadding, ThisCenter + HexMetrics.corners[2] * HexSizeWithPadding);
+                RightCenter = HexMetrics.CalcCenterCoordXZFromHexCoordXZ(new Vector3(x + 1, 0, z), MapData);
+                RightColor = MapData.ColorMap[z * MapData.width + (x + 1)];
+                AddSquare( Vertices,  Tris,  colors, ThisCenter + HexMetrics.corners[1] * HexSizeWithPadding, thisColor,RightCenter + HexMetrics.corners[5] * HexSizeWithPadding, RightColor, RightCenter + HexMetrics.corners[4] * HexSizeWithPadding, RightColor, ThisCenter + HexMetrics.corners[2] * HexSizeWithPadding,thisColor);
             }
 
             #endregion
 
             #region init right up padding
 
-            if (z % 2 == 1 && z != UploadedData.height - 1 && x != UploadedData.width - 1)
+            if (z % 2 == 1 && z != MapData.height - 1 && x != MapData.width - 1)
             {
-                Vector3 RightUpCenter = HexMetrics.CalcCenterCoordXZFromHexCoordXZ(new Vector3(1, 0, z + 1), UploadedData) + GetHeightByHexCoord(x+1, z+1);
-
-                AddSquare(ref Vertices, ref Tris, ThisCenter + HexMetrics.corners[0] * HexSizeWithPadding, RightUpCenter + HexMetrics.corners[4] * HexSizeWithPadding, RightUpCenter + HexMetrics.corners[3] * HexSizeWithPadding, ThisCenter + HexMetrics.corners[1] * HexSizeWithPadding);
+                Vector3 RightUpCenter = HexMetrics.CalcCenterCoordXZFromHexCoordXZ(new Vector3(x + 1, 0, z + 1), MapData);
+                Color RightUpColor = MapData.ColorMap[(z+1) * MapData.width + (x + 1)];
+                AddSquare( Vertices,  Tris,  colors, ThisCenter + HexMetrics.corners[0] * HexSizeWithPadding, thisColor,RightUpCenter + HexMetrics.corners[4] * HexSizeWithPadding, RightUpColor,RightUpCenter + HexMetrics.corners[3] * HexSizeWithPadding,RightUpColor, ThisCenter + HexMetrics.corners[1] * HexSizeWithPadding,thisColor);
             }
 
             #endregion
 
             #region init right down padding
 
-            if (z % 2 == 1 && z != 0 && x != UploadedData.width-1)
+            if (z % 2 == 1 && z != 0 && x != MapData.width-1)
             {
-                Vector3 RightDownCenter = HexMetrics.CalcCenterCoordXZFromHexCoordXZ(new Vector3(1, 0, z - 1), UploadedData) + GetHeightByHexCoord(x+1, z-1);
-                AddSquare(ref Vertices, ref Tris, ThisCenter + HexMetrics.corners[2] * HexSizeWithPadding, RightDownCenter + HexMetrics.corners[0] * HexSizeWithPadding, RightDownCenter + HexMetrics.corners[5] * HexSizeWithPadding, ThisCenter + HexMetrics.corners[3] * HexSizeWithPadding);
+                Vector3 RightDownCenter = HexMetrics.CalcCenterCoordXZFromHexCoordXZ(new Vector3(x+1, 0, z - 1), MapData);
+                Color RightDownColor = MapData.ColorMap[(z - 1) * MapData.width + (x + 1)];
+                AddSquare( Vertices,  Tris,  colors, ThisCenter + HexMetrics.corners[2] * HexSizeWithPadding, thisColor,RightDownCenter + HexMetrics.corners[0] * HexSizeWithPadding, RightDownColor, RightDownCenter + HexMetrics.corners[5] * HexSizeWithPadding, RightDownColor, ThisCenter + HexMetrics.corners[3] * HexSizeWithPadding, thisColor);
             }
 
             #endregion
 
             #region init up right padding triangle
 
-            if (x != UploadedData.width - 1)
+            if (x != MapData.width - 1)
             {
-                if (z != UploadedData.height - 1)
+                if (z != MapData.height - 1)
                 {
                     Vector3 RightUpCenter;
+                    Color RightUpColor;
                     if (z % 2 == 0)
                     {
-                        RightUpCenter = HexMetrics.CalcCenterCoordXZFromHexCoordXZ(new Vector3(0, 0, z + 1), UploadedData) + GetHeightByHexCoord(x, z + 1);
-                       
+                        RightUpCenter = HexMetrics.CalcCenterCoordXZFromHexCoordXZ(new Vector3(x, 0, z + 1), MapData);
+                        RightUpColor = MapData.ColorMap[(z+1)*MapData.width+x];
                     }
                     else
                     {
-                        RightUpCenter = HexMetrics.CalcCenterCoordXZFromHexCoordXZ(new Vector3(1, 0, z + 1), UploadedData) + GetHeightByHexCoord(x + 1, z + 1);
-                        
+                        RightUpCenter = HexMetrics.CalcCenterCoordXZFromHexCoordXZ(new Vector3(x + 1, 0, z + 1), MapData);
+                        RightUpColor = MapData.ColorMap[(z + 1) * MapData.width + x+1];
                     }
-                    AddTriangle(ref Vertices, ref Tris, ThisCenter + HexMetrics.corners[1] * HexSizeWithPadding, RightUpCenter + HexMetrics.corners[3] * HexSizeWithPadding, RightCenter + HexMetrics.corners[5] * HexSizeWithPadding);
+                    AddTriangle( Vertices,  Tris,  colors, ThisCenter + HexMetrics.corners[1] * HexSizeWithPadding, RightUpCenter + HexMetrics.corners[3] * HexSizeWithPadding, RightCenter + HexMetrics.corners[5] * HexSizeWithPadding,thisColor,RightUpColor,RightColor);
                 }
             }
 
@@ -137,20 +147,23 @@ namespace Assets.Scripts
 
             #region init down right padding triangle
 
-            if (x != UploadedData.width - 1)
+            if (x != MapData.width - 1)
             {
                 if (z != 0)
                 {
                     Vector3 RightDownCenter;
+                    Color RightDownColor;
                     if (z % 2 == 0)
                     {
-                        RightDownCenter = HexMetrics.CalcCenterCoordXZFromHexCoordXZ(new Vector3(0, 0, z - 1), UploadedData) + GetHeightByHexCoord(x, z - 1);
+                        RightDownCenter = HexMetrics.CalcCenterCoordXZFromHexCoordXZ(new Vector3(x, 0, z - 1), MapData);
+                        RightDownColor = MapData.ColorMap[(z - 1) * MapData.width + x];
                     }
                     else
                     {
-                        RightDownCenter = HexMetrics.CalcCenterCoordXZFromHexCoordXZ(new Vector3(1, 0, z - 1), UploadedData) + GetHeightByHexCoord(x + 1, z - 1);
+                        RightDownCenter = HexMetrics.CalcCenterCoordXZFromHexCoordXZ(new Vector3(x + 1, 0, z - 1), MapData);
+                        RightDownColor = MapData.ColorMap[(z - 1) * MapData.width + x+1];
                     }
-                    AddTriangle(ref Vertices, ref Tris, ThisCenter + HexMetrics.corners[2] * HexSizeWithPadding, RightCenter + HexMetrics.corners[4] * HexSizeWithPadding, RightDownCenter + HexMetrics.corners[0] * HexSizeWithPadding);
+                    AddTriangle( Vertices, Tris, colors, ThisCenter + HexMetrics.corners[2] * HexSizeWithPadding, RightCenter + HexMetrics.corners[4] * HexSizeWithPadding, RightDownCenter + HexMetrics.corners[0] * HexSizeWithPadding, thisColor,  RightColor, RightDownColor);
 
                 }
             }
@@ -160,28 +173,42 @@ namespace Assets.Scripts
         }
 
 
-        void AddSquare(ref List<Vector3> Vertices, ref List<int> Tris, Vector3 v1, Vector3 v2, Vector3 v3, Vector3 v4)
+        void AddSquare( List<Vector3> Vertices,  List<int> Tris,  List<Color> colors, Vector3 v1, Color color1, Vector3 v2, Color color2, Vector3 v3, Color color3, Vector3 v4, Color color4)
         {
-            AddTriangle(ref Vertices, ref Tris, v1, v2, v3);
-            AddTriangle(ref Vertices, ref Tris, v3, v4, v1);
+            AddTriangle( Vertices,  Tris,  colors, v1,  v2,  v3, color1, color2, color3);
+            AddTriangle( Vertices,  Tris,  colors, v3, v4,  v1, color3, color4, color1);
         }
 
-        void AddTriangle(ref List<Vector3> Vertices, ref List<int> Tris, Vector3 v1, Vector3 v2, Vector3 v3)
+        void AddTriangle( List<Vector3> OutVertices,  List<int> Tris,  List<Color> colors, Vector3 v1, Vector3 v2, Vector3 v3, Color color1, Color color2, Color color3)
         {
-            int VertCount = Vertices.Count;
-            Vertices.Add(v1);
-            Vertices.Add(v2);
-            Vertices.Add(v3);
+            int VertCount = OutVertices.Count;
+            OutVertices.Add(v1);
+            OutVertices.Add(v2);
+            OutVertices.Add(v3);
+
+            colors.Add(color1);
+            colors.Add(color2);
+            colors.Add(color3);
 
             Tris.Add(VertCount);
             Tris.Add(VertCount + 1);
             Tris.Add(VertCount + 2);
         }
 
-
-        Vector3 GetHeightByHexCoord(int x, int z)
+        void AddTriangle( List<Vector3> Vertices,  List<int> Tris,  List<Color> colors, Vector3 v1, Vector3 v2, Vector3 v3, Color color)
         {
-            return new Vector3(0,UploadedData.HeightMap[z*UploadedData.width+x],0);
+            int VertCount = Vertices.Count;
+            Vertices.Add(v1);
+            Vertices.Add(v2);
+            Vertices.Add(v3);
+
+            colors.Add(color);
+            colors.Add(color);
+            colors.Add(color);
+
+            Tris.Add(VertCount);
+            Tris.Add(VertCount + 1);
+            Tris.Add(VertCount + 2);
         }
     }
 }

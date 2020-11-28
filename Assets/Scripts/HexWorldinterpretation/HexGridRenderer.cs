@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using UnityEngine;
+using UnityEngine.AI;
 
 namespace Assets.Scripts
 {
@@ -18,7 +19,7 @@ namespace Assets.Scripts
             this.MapData = hexGrid.MapData;
             hexColumnRenderers = new HexColumnRenderer[MapData.width];
 
-            GameObject MeshPart = new GameObject("Mesh Part");
+            GameObject MeshPart = new GameObject("Mesh Part", typeof(NavMeshSurface));
 
             MeshPart.transform.parent = hexGrid.transform;
 
@@ -27,6 +28,7 @@ namespace Assets.Scripts
                 InitColumn(x, hexGrid, MeshPart.transform);
             }
 
+            MeshPart.GetComponent<NavMeshSurface>().BuildNavMesh();
         }
 
         public void UpdateHexGridMesh(List<Vector3> HexagonsToUpdate)

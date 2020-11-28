@@ -1,18 +1,15 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class UIManager : MonoBehaviour
 {
-    public HexGrid hexGrid;//world to show in minimap
+    public HexGrid hexGrid;
+    public InteractiveZoneScript interactiveZoneScript;
 
-    void Start()
+    public void UpdatePossibleOrdersAtInteractiveZone(List<Type> Orders)
     {
-        
-    }
-
-    void Update()
-    {
-        
+        interactiveZoneScript.UpdatePossibleOrders(Orders);
     }
 }
