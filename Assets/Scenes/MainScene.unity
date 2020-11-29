@@ -449,6 +449,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b923ed7a298faed42afe4b801a5dfc85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hexGrid: {fileID: 221974592}
 --- !u!114 &181414838
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -496,7 +497,10 @@ MonoBehaviour:
   units: []
   fraction: 0
   selectionBox: {fileID: 398628358}
+  startPos: {x: 0, y: 0}
+  lister: {fileID: 0}
   listerTag: MainCamera
+  isSelecting: 0
 --- !u!1 &221974591
 GameObject:
   m_ObjectHideFlags: 0
@@ -532,7 +536,7 @@ MonoBehaviour:
     ColorMap: []
     materialPath: 
     Default: {fileID: 0}
-    Buildings: []
+    ConstructedBuildings: []
 --- !u!4 &221974593
 Transform:
   m_ObjectHideFlags: 0
@@ -829,17 +833,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 814608776215377286, guid: bf09aa5a0bec137469aa42ee8e6219c4, type: 3}
   m_PrefabInstance: {fileID: 1205362788}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &490168761 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4191411113126672232, guid: 1987fdb3388969b4da09a381f1ec69d3, type: 3}
-  m_PrefabInstance: {fileID: 7653288036336234963}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3d09ad7b527b5d04ea2a1d1b79117877, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &491020128
 GameObject:
   m_ObjectHideFlags: 0
@@ -1576,7 +1569,7 @@ RectTransform:
   - {fileID: 1760505016}
   - {fileID: 1952672720}
   m_Father: {fileID: 1279019897}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -3894,7 +3887,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hexGrid: {fileID: 221974592}
-  interactiveZoneScript: {fileID: 490168761}
 --- !u!1001 &2140328474
 PrefabInstance:
   m_ObjectHideFlags: 0
