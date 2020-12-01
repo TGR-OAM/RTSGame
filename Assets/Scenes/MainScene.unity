@@ -462,11 +462,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3b07bc5fc093a249a64ef6c6a5e85df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerData:
-    state: 0
-    hexGrid: {fileID: 0}
-  taskAssigner: {fileID: 0}
-  uiManager: {fileID: 0}
 --- !u!4 &181414839
 Transform:
   m_ObjectHideFlags: 0
@@ -493,14 +488,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d6e90b7009a13c418aa2f84d20645b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hexGrid: {fileID: 221974592}
-  units: []
-  fraction: 0
-  selectionBox: {fileID: 398628358}
-  startPos: {x: 0, y: 0}
-  lister: {fileID: 0}
-  listerTag: MainCamera
-  isSelecting: 0
 --- !u!1 &221974591
 GameObject:
   m_ObjectHideFlags: 0
@@ -568,7 +555,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 814608776215377286, guid: bf09aa5a0bec137469aa42ee8e6219c4, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.80000305
+      value: -2.58
       objectReference: {fileID: 0}
     - target: {fileID: 814608776215377286, guid: bf09aa5a0bec137469aa42ee8e6219c4, type: 3}
       propertyPath: m_LocalPosition.y
@@ -576,7 +563,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 814608776215377286, guid: bf09aa5a0bec137469aa42ee8e6219c4, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.55999756
+      value: 0.62
       objectReference: {fileID: 0}
     - target: {fileID: 814608776215377286, guid: bf09aa5a0bec137469aa42ee8e6219c4, type: 3}
       propertyPath: m_LocalRotation.w
@@ -638,7 +625,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 814608776215377286, guid: bf09aa5a0bec137469aa42ee8e6219c4, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.534996
+      value: -4.5
       objectReference: {fileID: 0}
     - target: {fileID: 814608776215377286, guid: bf09aa5a0bec137469aa42ee8e6219c4, type: 3}
       propertyPath: m_LocalPosition.y
@@ -646,7 +633,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 814608776215377286, guid: bf09aa5a0bec137469aa42ee8e6219c4, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -1.114006
+      value: -1.89
       objectReference: {fileID: 0}
     - target: {fileID: 814608776215377286, guid: bf09aa5a0bec137469aa42ee8e6219c4, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1123,7 +1110,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 814608776215377286, guid: bf09aa5a0bec137469aa42ee8e6219c4, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.8670044
+      value: -2.94
       objectReference: {fileID: 0}
     - target: {fileID: 814608776215377286, guid: bf09aa5a0bec137469aa42ee8e6219c4, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1131,7 +1118,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 814608776215377286, guid: bf09aa5a0bec137469aa42ee8e6219c4, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -4.0770035
+      value: -5.86
       objectReference: {fileID: 0}
     - target: {fileID: 814608776215377286, guid: bf09aa5a0bec137469aa42ee8e6219c4, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1977,7 +1964,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 814608776215377286, guid: bf09aa5a0bec137469aa42ee8e6219c4, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.26399994
+      value: -1.32
       objectReference: {fileID: 0}
     - target: {fileID: 814608776215377286, guid: bf09aa5a0bec137469aa42ee8e6219c4, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1985,7 +1972,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 814608776215377286, guid: bf09aa5a0bec137469aa42ee8e6219c4, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -1.2630005
+      value: -2.59
       objectReference: {fileID: 0}
     - target: {fileID: 814608776215377286, guid: bf09aa5a0bec137469aa42ee8e6219c4, type: 3}
       propertyPath: m_LocalRotation.w
@@ -2743,7 +2730,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 814608776215377286, guid: bf09aa5a0bec137469aa42ee8e6219c4, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.7429962
+      value: -5.63
       objectReference: {fileID: 0}
     - target: {fileID: 814608776215377286, guid: bf09aa5a0bec137469aa42ee8e6219c4, type: 3}
       propertyPath: m_LocalPosition.y
@@ -2751,7 +2738,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 814608776215377286, guid: bf09aa5a0bec137469aa42ee8e6219c4, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 1.5179977
+      value: 2.22
       objectReference: {fileID: 0}
     - target: {fileID: 814608776215377286, guid: bf09aa5a0bec137469aa42ee8e6219c4, type: 3}
       propertyPath: m_LocalRotation.w
@@ -3011,12 +2998,13 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 181414837}
-        m_TargetAssemblyTypeName: Builder, Assembly-CSharp
+        m_TargetAssemblyTypeName: Assets.Scripts.BuildingScripts.PlayerBuilder, Assembly-CSharp
         m_MethodName: StartPlacingBuilding
         m_Mode: 2
         m_Arguments:
           m_ObjectArgument: {fileID: 8205979929494484361, guid: d80e758dcddce1f489ef0f6a754cdb7a, type: 3}
-          m_ObjectArgumentAssemblyTypeName: Building, Assembly-CSharp
+          m_ObjectArgumentAssemblyTypeName: Assets.Scripts.BuildingScripts.Building,
+            Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -3335,12 +3323,13 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 181414837}
-        m_TargetAssemblyTypeName: Builder, Assembly-CSharp
+        m_TargetAssemblyTypeName: Assets.Scripts.BuildingScripts.PlayerBuilder, Assembly-CSharp
         m_MethodName: StartPlacingBuilding
         m_Mode: 2
         m_Arguments:
           m_ObjectArgument: {fileID: 7781565261085879258, guid: 112265c1b89c4b145ba9d3cd5bbcad49, type: 3}
-          m_ObjectArgumentAssemblyTypeName: Building, Assembly-CSharp
+          m_ObjectArgumentAssemblyTypeName: Assets.Scripts.BuildingScripts.Building,
+            Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -3722,7 +3711,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 814608776215377286, guid: bf09aa5a0bec137469aa42ee8e6219c4, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -3.8099976
+      value: -6.86
       objectReference: {fileID: 0}
     - target: {fileID: 814608776215377286, guid: bf09aa5a0bec137469aa42ee8e6219c4, type: 3}
       propertyPath: m_LocalPosition.y
@@ -3730,7 +3719,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 814608776215377286, guid: bf09aa5a0bec137469aa42ee8e6219c4, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -3.1190033
+      value: -4.33
       objectReference: {fileID: 0}
     - target: {fileID: 814608776215377286, guid: bf09aa5a0bec137469aa42ee8e6219c4, type: 3}
       propertyPath: m_LocalRotation.w

@@ -1,15 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="6f6bfc7b-0c44-4f35-909a-40320cf9e8a8" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.HexagonTerrainCreator/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.HexagonTerrainCreator/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefab/Units/PlayersBot.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefab/Units/PlayersBot.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Orders/OrderableObject.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Orders/OrderableObject.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Orders/Units/MoveAttackTask.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Orders/Units/MoveAttackTask.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Orders/Units/MoveTask.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Orders/Units/MoveTask.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Units/Unit.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Units/Unit.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Units/Warrior.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Units/Warrior.cs" afterDir="false" />
-    </list>
+    <list default="true" id="6f6bfc7b-0c44-4f35-909a-40320cf9e8a8" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -56,9 +48,9 @@
       <option value="$PROJECT_DIR$/Assets/Scripts/Orders/Units/BuildTask.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Orders/OrderableObject.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Units/Unit.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Units/Warrior.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Orders/Units/MoveAttackTask.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Orders/Units/MoveTask.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Orders/Units/MoveAttackTask.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Units/Warrior.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1l1OfsDjHjs1qbooko3VCg3JFHx" />
@@ -112,7 +104,7 @@
       <workItem from="1606765411763" duration="57000" />
       <workItem from="1606765489262" duration="21000" />
       <workItem from="1606841795338" duration="953000" />
-      <workItem from="1606842770814" duration="10889000" />
+      <workItem from="1606842770814" duration="11263000" />
     </task>
     <servers />
   </component>
