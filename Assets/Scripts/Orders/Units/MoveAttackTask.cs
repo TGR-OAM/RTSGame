@@ -43,18 +43,24 @@ namespace Assets.Scripts.Orders.Units
                     if (bestTarget != null)
                     {
                         thisUnit.agent.SetDestination(bestTarget.transform.position);
+                        target = bestTarget;
                     }
                     else
                     {
                         if (thisUnit.agent.destination != destination)
-                            thisUnit.agent.SetDestination(destination + new Vector3(Random.value*0.21f,0,Random.value*0.21f)*numOfUnits);
+                        {
+                            float offset = numOfUnits * 0.21f;
+                            thisUnit.agent.SetDestination(destination +
+                                                          new Vector3(Random.Range(-offset, offset), 0,
+                                                              Random.Range(-offset, offset)));
+                        }
                     }
                 }
-
-                if (Vector3.Distance(thisUnit.transform.position, target.transform.position) <= thisUnit.attackDistance)
+                else if (Vector3.Distance(thisUnit.transform.position, target.transform.position) <= thisUnit.attackDistance)
                 {
                     Attack(thisUnit);
                 }
+                
             }
         }
 
@@ -73,7 +79,7 @@ namespace Assets.Scripts.Orders.Units
 
         private GameObject UpdateTarget(Warrior thisUnit)
         {
-            float smallestDst = 1000000;
+            float smallestDst = float.MaxValue;
             GameObject o = null;
             foreach (GameObject g in thisUnit.fractionMember.lister.units)
             {
@@ -81,6 +87,7 @@ namespace Assets.Scripts.Orders.Units
                 if (g.GetComponent<FractionMember>().fraction != thisUnit.fractionMember.fraction && d < smallestDst &&
                     d < thisUnit.visionDistance)
                 {
+                    smallestDst = d;
                     o = g;
                 }
             }

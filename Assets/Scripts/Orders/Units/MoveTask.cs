@@ -20,8 +20,11 @@ namespace Assets.Scripts.Orders.Units
 
             if (ObjectToOrder.TryGetComponent(typeof(Unit), out Component component))
             {
-                Unit unit = component as Unit;
-                unit.agent.SetDestination(destination + new Vector3(Random.value*0.21f,0,Random.value*0.21f)*numOfUnits);
+                Unit thisUnit = component as Unit;
+                float offset = numOfUnits * 0.21f;
+                thisUnit.agent.SetDestination(destination +
+                                          new Vector3(Random.Range(-offset, offset), 0,
+                                              Random.Range(-offset, offset)));
             }
         }
 

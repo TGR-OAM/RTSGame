@@ -22,6 +22,8 @@ namespace Assets.Scripts.Units
             this.transform.GetComponent<OrderableObject>().SetPossibleOrderTypes(new List<Type> {typeof(MoveTask)});
             fractionMember = GetComponent<FractionMember>();
             agent = GetComponent<NavMeshAgent>();
+
+
         }
     }
 }

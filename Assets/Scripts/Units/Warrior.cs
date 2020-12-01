@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using Assets.Scripts.Orders.Units;
 using Assets.Scripts.UnitsControlScripts;
+using UnityEngine;
 using UnityEngine.AI;
-using UnityEngine.UI;
 
 namespace Assets.Scripts.Units
 {
@@ -17,15 +17,16 @@ namespace Assets.Scripts.Units
         {
             #region Part-time data
             
-            attackDistance = .1f;
+            attackDistance = 5f;
             visionDistance = 10f;
-            damagePerSecond = 100f;
+            damagePerSecond = 10f;
 
             #endregion
             
             this.GetComponent<OrderableObject>().SetPossibleOrderTypes(new List<Type> {typeof(MoveTask),typeof(AttackTask),typeof(MoveAttackTask)});
             fractionMember = GetComponent<FractionMember>();
             agent = GetComponent<NavMeshAgent>();
+            
         }
         
     }
