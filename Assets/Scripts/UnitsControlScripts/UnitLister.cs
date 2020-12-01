@@ -1,8 +1,10 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
-public class UnitLister : MonoBehaviour
+namespace Assets.Scripts.UnitsControlScripts.UnitsControlScripts
 {
-    public List<GameObject> units;
+    public class UnitLister : MonoBehaviour
+    {
+        public List<GameObject> units;
+    }
 }

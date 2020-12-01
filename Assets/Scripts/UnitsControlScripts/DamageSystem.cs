@@ -1,18 +1,19 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class DamageSystem : MonoBehaviour
+namespace Assets.Scripts.UnitsControlScripts
 {
-    [SerializeField]
-    private float hp;
-
-    public void TakeDamage(float value)
+    public class DamageSystem : MonoBehaviour
     {
-        hp -= value;
-        if (hp <= 0)
+        [SerializeField]
+        private float hp;
+
+        public void TakeDamage(float value)
         {
-            Destroy(gameObject);
+            hp -= value;
+            if (hp <= 0)
+            {
+                Destroy(gameObject);
+            }
         }
     }
 }

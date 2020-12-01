@@ -1,44 +1,32 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
+using Assets.Scripts.Orders;
 using UnityEngine;
 
-public enum OrderableObjectState
+namespace Assets.Scripts.UnitsControlScripts
 {
-    Attacking, //воюет
-    Moving, //убегает
-    Chasing, //преследует врага
-    Building, //строит
-    Gathering, //собирает
-    AttackMoving,//двигается и смотрит, кого бы убить, как ЛКМ+А в Старкрафте
-    Defending,//защищается
-    Idle,//бездействует
-}
-
-public class OrderableObject : MonoBehaviour
-{
-    [SerializeField]
-    public GameOrder gameOrder { get; private set; }
-    public OrderableObjectState state = OrderableObjectState.Defending;
-
-    public List<Type> orderTypes { get;  protected set; } 
-
-    public virtual void GiveOrder(GameOrder order)
+    public class OrderableObject : MonoBehaviour
     {
-        CompleteTask();
-        gameOrder = order;
-    }
+        public GameOrder gameOrder { get; protected set; }
+        public List<Type> orderTypes;
 
-    public virtual void UpdateOrder()
-    {
-    }
-
-    public virtual void CompleteTask()
-    {
-        if (gameOrder != null)
+        public void SetPossibleOrderTypes(List<Type> orderTypes)
         {
-            gameOrder.isPefrormed = true;
+            this.orderTypes = orderTypes;
         }
-        state = OrderableObjectState.Idle;
+
+        public virtual void GiveOrder(GameOrder order)
+        {
+            CompleteTask();
+            gameOrder = order;
+        }
+    
+        public virtual void CompleteTask()
+        {
+            if (gameOrder != null)
+            {
+                gameOrder.StopOrder();
+            }
+        }
     }
 }
