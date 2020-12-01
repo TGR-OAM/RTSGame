@@ -19,9 +19,7 @@ namespace Assets.Scripts.Orders
         }
 
         public virtual void UpdateOrder()
-        {
-
-        }
+        { }
 
         public virtual void StopOrder()
         {

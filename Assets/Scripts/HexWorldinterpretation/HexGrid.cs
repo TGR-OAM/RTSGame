@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Assets.Scripts.BuildingScripts;
 using UnityEngine;
 
 namespace Assets.Scripts.HexWorldinterpretation
@@ -69,7 +70,7 @@ namespace Assets.Scripts.HexWorldinterpretation
         #endregion
 
         #region other information about map
-        public List<Building.Building> ConstructedBuildings;
+        public List<Building> ConstructedBuildings;
         #endregion
 
 
@@ -99,7 +100,7 @@ namespace Assets.Scripts.HexWorldinterpretation
             this.widthInUnits = width * HexMetrics.innerRadius * 2f * cellSize + (height > 1f ? HexMetrics.innerRadius * cellSize : 0);
             this.heightInUnits = 1.5f * (height - 1) * cellSize * HexMetrics.outerRadius + cellSize * HexMetrics.outerRadius * 2f;
 
-            ConstructedBuildings = new List<Building.Building>();
+            ConstructedBuildings = new List<Building>();
 
         }
         public HexGridData(string name, int width, int height, float cellSize, float padding, float[] HeightMap, float AccurcyOfApproximation, Material Default,string materialPath)
@@ -129,7 +130,7 @@ namespace Assets.Scripts.HexWorldinterpretation
             this.widthInUnits = width * HexMetrics.innerRadius * 2f * cellSize + (height > 1f ? HexMetrics.innerRadius * cellSize : 0);
             this.heightInUnits = 1.5f * (height - 1) * cellSize * HexMetrics.outerRadius + cellSize * HexMetrics.outerRadius * 2f;
 
-            ConstructedBuildings = new List<Building.Building>();
+            ConstructedBuildings = new List<Building>();
 
         }
         public HexGridData(string name, int width, int height, float cellSize, float padding, float[] HeightMap, Color[] ColorMap,float AccurcyOfApproximation, Material Default, string materialPath)
@@ -155,7 +156,7 @@ namespace Assets.Scripts.HexWorldinterpretation
             this.widthInUnits = width * HexMetrics.innerRadius * 2f * cellSize + (height > 1f ? HexMetrics.innerRadius * cellSize : 0);
             this.heightInUnits = 1.5f * (height - 1) * cellSize * HexMetrics.outerRadius + cellSize * HexMetrics.outerRadius * 2f;
 
-            ConstructedBuildings = new List<Building.Building>();
+            ConstructedBuildings = new List<Building>();
 
         }
     }

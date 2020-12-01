@@ -41,9 +41,9 @@
           </e>
         </e>
         <e p="Scripts" t="Include">
-          <e p="Building" t="Include">
-            <e p="Builder.cs" t="Include" />
+          <e p="BuildingScripts" t="Include">
             <e p="Building.cs" t="Include" />
+            <e p="PlayerBuilder.cs" t="Include" />
           </e>
           <e p="CameraMovement" t="Include">
             <e p="MouseLook.cs" t="Include" />
@@ -69,8 +69,10 @@
           </e>
           <e p="Orders" t="Include">
             <e p="GameOrder.cs" t="Include" />
+            <e p="OrderableObject.cs" t="Include" />
             <e p="Units" t="Include">
               <e p="AttackTask.cs" t="Include" />
+              <e p="BuildTask.cs" t="Include" />
               <e p="MoveAttackTask.cs" t="Include" />
               <e p="MoveTask.cs" t="Include" />
             </e>
@@ -81,11 +83,14 @@
             <e p="MinimapObjectScript.cs" t="Include" />
             <e p="UIManager.cs" t="Include" />
           </e>
+          <e p="Units" t="Include">
+            <e p="Builder.cs" t="Include" />
+            <e p="Unit.cs" t="Include" />
+            <e p="Warrior.cs" t="Include" />
+          </e>
           <e p="UnitsControlScripts" t="Include">
             <e p="DamageSystem.cs" t="Include" />
             <e p="FractionMember.cs" t="Include" />
-            <e p="OrderableObject.cs" t="Include" />
-            <e p="Unit.cs" t="Include" />
             <e p="UnitLister.cs" t="Include" />
           </e>
           <e p="Worker" t="Include">

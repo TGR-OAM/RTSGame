@@ -1,4 +1,5 @@
 ﻿using Assets.Scripts.UnitsControlScripts;
+using Assets.Scripts.Units;
 using UnityEngine;
 
 namespace Assets.Scripts.Orders.Units
@@ -29,9 +30,9 @@ namespace Assets.Scripts.Orders.Units
                 return;
             }
         
-            if (ObjectToOrder.TryGetComponent(typeof(Unit), out Component component))
+            if (ObjectToOrder.TryGetComponent(typeof(Warrior), out Component component))
             {
-                Unit unit = component as Unit;
+                Warrior unit = component as Warrior;
                 if (Vector3.Distance(unit.transform.position, target.transform.position) <= unit.attackDistance)
                 {
                     StopOrder();
@@ -53,7 +54,7 @@ namespace Assets.Scripts.Orders.Units
 
         #region Additional methods
 
-        private void Attack(Unit thisUnit)
+        private void Attack(Warrior thisUnit)
         {
             thisUnit.transform.LookAt(target.transform.position);
             target.GetComponent<DamageSystem>().TakeDamage(thisUnit.damagePerSecond * Time.deltaTime);

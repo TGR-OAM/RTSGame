@@ -1,7 +1,7 @@
 using Assets.Scripts.HexWorldinterpretation;
 using UnityEngine;
 
-namespace Assets.Scripts.Building
+namespace Assets.Scripts.BuildingScripts
 {
     [RequireComponent(typeof(Collider))]
     public class Building : MonoBehaviour
@@ -11,6 +11,8 @@ namespace Assets.Scripts.Building
         public Renderer[] MainRenderer;
         public Vector2Int Size;
         public Vector3 HexCoords;
+        public float timeUntilConstruction;
+        
         public void SetTransparent(bool available)
         {
             if (available)

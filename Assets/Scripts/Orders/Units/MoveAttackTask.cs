@@ -1,16 +1,19 @@
 ﻿using Assets.Scripts.UnitsControlScripts;
+using Assets.Scripts.Units;
 using UnityEngine;
 
 namespace Assets.Scripts.Orders.Units
 {
     public class MoveAttackTask : GameOrder
     {
-        public Vector3 destination { get; private set; }
-        public GameObject target { get; private set; }
+        private Vector3 destination;
+        private int numOfUnits;
+        private GameObject target;
 
-        public MoveAttackTask(Vector3 destination, GameObject ObjectToOrder) : base(ObjectToOrder)
+        public MoveAttackTask(Vector3 destination, int numOfUnits,GameObject ObjectToOrder) : base(ObjectToOrder)
         {
             this.destination = destination;
+            this.numOfUnits = numOfUnits;
         }
 
         public override void StartOrder()
@@ -19,15 +22,15 @@ namespace Assets.Scripts.Orders.Units
             if (ObjectToOrder.TryGetComponent(typeof(Unit), out Component component))
             {
                 Unit unit = component as Unit;
-                unit.agent.SetDestination(destination);
+                unit.agent.SetDestination(destination + new Vector3(Random.value*0.21f,0,Random.value*0.21f)*numOfUnits);
             }
         }
 
         public override void UpdateOrder()
         {
-            if (ObjectToOrder.TryGetComponent(typeof(Unit), out Component component))
+            if (ObjectToOrder.TryGetComponent(typeof(Warrior), out Component component))
             {
-                Unit thisUnit = component as Unit;
+                Warrior thisUnit = component as Warrior;
                 if (Vector3.Distance(thisUnit.transform.position, destination) <= thisUnit.reachDistance)
                 {
                     StopOrder();
@@ -44,7 +47,7 @@ namespace Assets.Scripts.Orders.Units
                     else
                     {
                         if (thisUnit.agent.destination != destination)
-                            thisUnit.agent.SetDestination(destination);
+                            thisUnit.agent.SetDestination(destination + new Vector3(Random.value*0.21f,0,Random.value*0.21f)*numOfUnits);
                     }
                 }
 
@@ -68,7 +71,7 @@ namespace Assets.Scripts.Orders.Units
 
         #region Additional methods
 
-        private GameObject UpdateTarget(Unit thisUnit)
+        private GameObject UpdateTarget(Warrior thisUnit)
         {
             float smallestDst = 1000000;
             GameObject o = null;
@@ -85,7 +88,7 @@ namespace Assets.Scripts.Orders.Units
             return o;
         }
 
-        private void Attack(Unit thisUnit)
+        private void Attack(Warrior thisUnit)
         {
             thisUnit.transform.LookAt(target.transform.position);
             target.GetComponent<DamageSystem>().TakeDamage(thisUnit.damagePerSecond * Time.deltaTime);

@@ -1,9 +1,9 @@
 using Assets.Scripts.HexWorldinterpretation;
 using UnityEngine;
 
-namespace Assets.Scripts.Building
+namespace Assets.Scripts.BuildingScripts
 {
-    public class Builder : MonoBehaviour
+    public class PlayerBuilder : MonoBehaviour
     {
         public  HexGrid hexGrid;
 
@@ -19,6 +19,7 @@ namespace Assets.Scripts.Building
 
             flyingBuilding = Instantiate(buildingPrefab);
             flyingBuilding.hexGrid = hexGrid;
+            Debug.Log("Started to buils ");
         }
 
         void StopPlacingBuilding()

@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 814608776215377281}
   - component: {fileID: 814608776215377283}
   - component: {fileID: 814608776215377287}
+  - component: {fileID: 5886744827755816414}
   m_Layer: 8
   m_Name: PlayersBot
   m_TagString: Untagged
@@ -120,13 +121,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 537f68926ff2cb24681c27f74dd7e13c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  state: 7
-  reachDistance: 2
-  agent: {fileID: 814608776215377282}
-  destination: {x: 0, y: 0, z: 0}
-  attackDistance: 7
-  visionDistance: 10
-  damagePerSecond: 100
 --- !u!135 &814608776215377283
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -155,6 +149,18 @@ MonoBehaviour:
   unitListerTag: MainCamera
   lister: {fileID: 0}
   fraction: 0
+--- !u!114 &5886744827755816414
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 814608776215377280}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7cbdbc3daee30ed499a06de295269c9f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &814608776606960558
 GameObject:
   m_ObjectHideFlags: 0
