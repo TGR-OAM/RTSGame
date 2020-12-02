@@ -69,8 +69,7 @@ namespace Assets.Scripts.PlayerControl
                 return false;
             if (!IsStayingOnSurface(thisBuilding, HexCoord))
                 return false;
-
-
+            
             return true;
         }
 
