@@ -1,23 +1,36 @@
+using System;
+using System.Collections.Generic;
 using Assets.Scripts.HexWorldinterpretation;
+using Assets.Scripts.Orders.Units;
+using Assets.Scripts.UnitsControlScripts;
 using UnityEngine;
 
 namespace Assets.Scripts.Buildings
 {
-    [RequireComponent(typeof(Collider))]
+    [RequireComponent(typeof(Collider), typeof(OrderableObject))]
     public class Building : MonoBehaviour
     {
         public HexGrid hexGrid;
         public Material Materials;
-        public Renderer[] MainRenderer;
+        public Renderer[] MainRenderers;
         public Vector2Int Size;
         public Vector3 HexCoords;
-        public float timeUntilConstruction;
         
+        public float timeUntilConstruction;
+
+        public OrderableObject orderableObject { get; private set; }
+
+        private void Start()
+        {
+            BaseBuildingInitialization();
+            orderableObject.SetPossibleOrderTypes(new List<Type> {});
+        }
+
         public void SetTransparent(bool available)
         {
             if (available)
             {
-                foreach (var VARIABLE in MainRenderer)
+                foreach (var VARIABLE in MainRenderers)
                 {
                     VARIABLE.material.color = Color.green;
                 }
@@ -25,7 +38,7 @@ namespace Assets.Scripts.Buildings
             }
             else
             {
-                foreach (var VARIABLE in MainRenderer)
+                foreach (var VARIABLE in MainRenderers)
                 {
                     VARIABLE.material.color = Color.red;
                 }
@@ -35,7 +48,7 @@ namespace Assets.Scripts.Buildings
 
         public void SetNormal()
         {
-            foreach (var VARIABLE in MainRenderer)
+            foreach (var VARIABLE in MainRenderers)
             {
                 VARIABLE.material.color = Color.white;
             }
@@ -60,6 +73,11 @@ namespace Assets.Scripts.Buildings
                 }
             }
         
+        }
+
+        protected void BaseBuildingInitialization()
+        {
+            orderableObject = this.GetComponent<OrderableObject>();
         }
     }
 }

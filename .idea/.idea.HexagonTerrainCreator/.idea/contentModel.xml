@@ -67,6 +67,9 @@
             <e p="XMLMapLoader.cs" t="Include" />
           </e>
           <e p="Orders" t="Include">
+            <e p="Buildings" t="Include">
+              <e p="UnitCreationTask.cs" t="Include" />
+            </e>
             <e p="GameOrder.cs" t="Include" />
             <e p="OrderableObject.cs" t="Include" />
             <e p="Units" t="Include">

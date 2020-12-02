@@ -20,7 +20,7 @@ namespace Assets.Scripts.PlayerControl
 
             flyingBuilding = Instantiate(buildingPrefab);
             flyingBuilding.hexGrid = hexGrid;
-            Debug.Log("Started to buils ");
+            Debug.Log("Started to builds ");
         }
 
         void StopPlacingBuilding()
