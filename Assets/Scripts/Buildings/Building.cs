@@ -1,7 +1,7 @@
 using Assets.Scripts.HexWorldinterpretation;
 using UnityEngine;
 
-namespace Assets.Scripts.BuildingScripts
+namespace Assets.Scripts.Buildings
 {
     [RequireComponent(typeof(Collider))]
     public class Building : MonoBehaviour

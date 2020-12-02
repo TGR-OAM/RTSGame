@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using Assets.Scripts.BuildingScripts;
+using Assets.Scripts.Buildings;
 using UnityEngine;
 
 namespace Assets.Scripts.HexWorldinterpretation

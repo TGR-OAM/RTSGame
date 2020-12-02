@@ -24,7 +24,6 @@ namespace Assets.Scripts.UnitsControlScripts
         private void Update()
         {
             if (currentOrder != null)
-
             {
                 if (currentOrder.isPefrormed)
                 {

@@ -41,9 +41,8 @@
           </e>
         </e>
         <e p="Scripts" t="Include">
-          <e p="BuildingScripts" t="Include">
+          <e p="Buildings" t="Include">
             <e p="Building.cs" t="Include" />
-            <e p="PlayerBuilder.cs" t="Include" />
           </e>
           <e p="CameraMovement" t="Include">
             <e p="MouseLook.cs" t="Include" />
@@ -76,6 +75,10 @@
               <e p="MoveAttackTask.cs" t="Include" />
               <e p="MoveTask.cs" t="Include" />
             </e>
+          </e>
+          <e p="PlayerControl" t="Include">
+            <e p="PlayerBuilder.cs" t="Include" />
+            <e p="PlayerUnitsController.cs" t="Include" />
           </e>
           <e p="UIScripts" t="Include">
             <e p="LogScript.cs" t="Include" />

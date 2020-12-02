@@ -14,16 +14,23 @@ namespace Assets.Scripts.Units
         
         public NavMeshAgent agent { get; protected set; }
         public FractionMember fractionMember { get; protected set; }
+        public OrderableObject orderableObject { get; private set; }
 
         private void Start()
         {
             reachDistance = .1f;
 
-            this.transform.GetComponent<OrderableObject>().SetPossibleOrderTypes(new List<Type> {typeof(MoveTask)});
+            BaseUnitInitialization();
+            
+            orderableObject.SetPossibleOrderTypes(new List<Type> {typeof(MoveTask)});
+        }
+
+        protected void BaseUnitInitialization()
+        {
+            orderableObject = GetComponent<OrderableObject>();
             fractionMember = GetComponent<FractionMember>();
             agent = GetComponent<NavMeshAgent>();
-
-
         }
+        
     }
 }

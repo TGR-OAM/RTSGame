@@ -1,6 +1,5 @@
 ﻿using Assets.Scripts.Units;
-using Assets.Scripts.BuildingScripts;
-using Assets.Scripts.UnitsControlScripts;
+using Assets.Scripts.Buildings;
 using UnityEngine;
 using Builder = Assets.Scripts.Units.Builder;
 

@@ -11,7 +11,9 @@ namespace Assets.Scripts.Units
         
         private void Start()
         {
-            this.GetComponent<OrderableObject>().SetPossibleOrderTypes(new List<Type>
+            BaseUnitInitialization();
+            
+            orderableObject.SetPossibleOrderTypes(new List<Type>
                 {typeof(MoveTask), });
         }
     }

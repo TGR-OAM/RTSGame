@@ -1,7 +1,8 @@
+using Assets.Scripts.Buildings;
 using Assets.Scripts.HexWorldinterpretation;
 using UnityEngine;
 
-namespace Assets.Scripts.BuildingScripts
+namespace Assets.Scripts.PlayerControl
 {
     public class PlayerBuilder : MonoBehaviour
     {

@@ -23,10 +23,10 @@ namespace Assets.Scripts.Units
 
             #endregion
             
-            this.GetComponent<OrderableObject>().SetPossibleOrderTypes(new List<Type> {typeof(MoveTask),typeof(AttackTask),typeof(MoveAttackTask)});
-            fractionMember = GetComponent<FractionMember>();
-            agent = GetComponent<NavMeshAgent>();
+            BaseUnitInitialization();
             
+            orderableObject.SetPossibleOrderTypes(new List<Type> {typeof(MoveTask),typeof(AttackTask),typeof(MoveAttackTask)});
+
         }
         
     }
