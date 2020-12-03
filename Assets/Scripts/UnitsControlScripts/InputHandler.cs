@@ -57,7 +57,6 @@ namespace Assets.Scripts.UnitsControlScripts
                     break;
                 case HandlerState.Building:
                     OperateBuildingPlacing();
-                    OperateBuildingPlacing();
                     break;
             }
 
