@@ -19,6 +19,7 @@ namespace Assets.Scripts.UnitsControlScripts
         {
             CompleteTask();
             currentOrder = order;
+            currentOrder.StartOrder();
         }
 
         private void Update()

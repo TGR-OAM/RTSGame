@@ -47,7 +47,7 @@ namespace Assets.Scripts.Orders.Units
             if (ObjectToOrder.TryGetComponent(typeof(Unit), out Component component))
             {
                 Unit unit = component as Unit;
-                unit.agent.isStopped = true;
+                unit.agent.SetDestination(unit.transform.position);
                 return;
             }
         }
