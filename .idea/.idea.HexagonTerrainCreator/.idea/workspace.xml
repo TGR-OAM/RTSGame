@@ -3,8 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="6f6bfc7b-0c44-4f35-909a-40320cf9e8a8" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.HexagonTerrainCreator/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.HexagonTerrainCreator/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Orders/OrderableObject.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Orders/OrderableObject.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PlayerControl/PlayerUnitsController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PlayerControl/PlayerUnitsController.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -62,8 +60,8 @@
       <option value="$PROJECT_DIR$/Assets/Scripts/Units/Unit.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Buildings/Building.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Orders/Buildings/UnitCreationTask.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Orders/OrderableObject.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/PlayerControl/PlayerUnitsController.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Orders/OrderableObject.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1l1OfsDjHjs1qbooko3VCg3JFHx" />
