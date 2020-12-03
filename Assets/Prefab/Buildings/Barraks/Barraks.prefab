@@ -93,6 +93,7 @@ GameObject:
   - component: {fileID: 8205979929494484361}
   - component: {fileID: 7893316468862192133}
   - component: {fileID: 5077300615314828940}
+  - component: {fileID: 9201007050984811661}
   m_Layer: 0
   m_Name: Barraks
   m_TagString: Untagged
@@ -129,10 +130,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hexGrid: {fileID: 0}
   Materials: {fileID: 2100000, guid: 7162051ff053a874cacc5eae8177684d, type: 2}
-  MainRenderer:
-  - {fileID: 3886593828228358734}
+  MainRenderers: []
   Size: {x: 2, y: 2}
   HexCoords: {x: 0, y: 0, z: 0}
+  timeUntilConstruction: 0
 --- !u!65 &7893316468862192133
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -162,3 +163,15 @@ NavMeshObstacle:
   m_CarveOnlyStationary: 1
   m_Center: {x: 0.5, y: 1, z: 0.5}
   m_TimeToStationary: 0.5
+--- !u!114 &9201007050984811661
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5735925306961837886}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7cbdbc3daee30ed499a06de295269c9f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
