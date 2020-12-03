@@ -5,7 +5,7 @@ using Assets.Scripts.UnitsControlScripts;
 
 namespace Assets.Scripts.Units
 {
-    public class Builder:Unit
+    public class UnitBuilder:Unit
     {
         
         

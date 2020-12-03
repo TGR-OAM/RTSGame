@@ -6,12 +6,10 @@ namespace Assets.Scripts.Orders.Units
     public class MoveTask : GameOrder
     {
         private Vector3 destination;
-        private int numOfUnits;
 
-        public MoveTask(Vector3 destination, int numOfUnits,GameObject ObjectToOrder) : base(ObjectToOrder)
+        public MoveTask(Vector3 destination ,GameObject ObjectToOrder) : base(ObjectToOrder)
         {
             this.destination = destination;
-            this.numOfUnits = numOfUnits;
         }
 
         public override void StartOrder()
@@ -21,10 +19,7 @@ namespace Assets.Scripts.Orders.Units
             if (ObjectToOrder.TryGetComponent(typeof(Unit), out Component component))
             {
                 Unit thisUnit = component as Unit;
-                float offset = numOfUnits * 0.21f;
-                thisUnit.agent.SetDestination(destination +
-                                          new Vector3(Random.Range(-offset, offset), 0,
-                                              Random.Range(-offset, offset)));
+                thisUnit.agent.SetDestination(destination);
             }
         }
 

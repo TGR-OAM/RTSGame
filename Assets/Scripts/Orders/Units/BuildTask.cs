@@ -1,7 +1,6 @@
 ﻿using Assets.Scripts.Units;
 using Assets.Scripts.Buildings;
 using UnityEngine;
-using Builder = Assets.Scripts.Units.Builder;
 
 namespace Assets.Scripts.Orders.Units
 {
@@ -31,9 +30,9 @@ namespace Assets.Scripts.Orders.Units
 
         public override void UpdateOrder()
         {
-            if (ObjectToOrder.TryGetComponent(typeof(Builder), out Component component))
+            if (ObjectToOrder.TryGetComponent(typeof(UnitBuilder), out Component component))
             {
-                Builder unit = component as Builder;
+                UnitBuilder unit = component as UnitBuilder;
                 if (buildingToBuild == null) StopOrder();
                 if (buildingToBuild.timeUntilConstruction <= 0) StopOrder();
                 if (Vector3.Distance(unit.transform.position, destination) <= unit.reachDistance)
