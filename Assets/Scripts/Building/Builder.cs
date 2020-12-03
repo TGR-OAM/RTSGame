@@ -2,33 +2,38 @@ using Assets.Scripts;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class Builder : MonoBehaviour
+public class Builder 
 {
     public  HexGrid hexGrid;
 
     private Building flyingBuilding;
 
+    public bool isMouseButtonPressed = false;
 
+    public Builder(HexGrid hexGrid)
+    {
+        this.hexGrid = hexGrid;
+    }
     public void StartPlacingBuilding(Building buildingPrefab)
     {
         if (flyingBuilding != null)
         {
-            Destroy(flyingBuilding.gameObject);
+            GameObject.Destroy(flyingBuilding.gameObject);
         }
 
-        flyingBuilding = Instantiate(buildingPrefab);
+        flyingBuilding = GameObject.Instantiate(buildingPrefab);
         flyingBuilding.hexGrid = hexGrid;
     }
 
-    void StopPlacingBuilding()
+    public void StopPlacingBuilding()
     {
         if (flyingBuilding != null)
         {
-            Destroy(flyingBuilding.gameObject);
+            GameObject.Destroy(flyingBuilding.gameObject);
         }
     }
 
-    private void Update()
+    public void Update()
     {
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
@@ -46,17 +51,11 @@ public class Builder : MonoBehaviour
             flyingBuilding.SetTransparent(available);
             #endregion
 
-            if (available && Input.GetMouseButtonDown(0))
+            if (available && isMouseButtonPressed)
             {
                 Debug.Log(CoordsOfCenter);
                 PlaceFlyingBuilding();
             }
-
-        }
-
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            StopPlacingBuilding();
         }
     }
 
