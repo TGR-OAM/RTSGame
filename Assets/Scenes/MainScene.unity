@@ -437,6 +437,19 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &181414837
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 181414836}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b923ed7a298faed42afe4b801a5dfc85, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hexGrid: {fileID: 221974592}
 --- !u!114 &181414838
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -558,7 +571,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 814608776215377286, guid: bf09aa5a0bec137469aa42ee8e6219c4, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.80000305
+      value: -2.58
       objectReference: {fileID: 0}
     - target: {fileID: 814608776215377286, guid: bf09aa5a0bec137469aa42ee8e6219c4, type: 3}
       propertyPath: m_LocalPosition.y
@@ -566,7 +579,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 814608776215377286, guid: bf09aa5a0bec137469aa42ee8e6219c4, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.55999756
+      value: 0.62
       objectReference: {fileID: 0}
     - target: {fileID: 814608776215377286, guid: bf09aa5a0bec137469aa42ee8e6219c4, type: 3}
       propertyPath: m_LocalRotation.w
@@ -784,7 +797,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 814608776215377286, guid: bf09aa5a0bec137469aa42ee8e6219c4, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.534996
+      value: -4.5
       objectReference: {fileID: 0}
     - target: {fileID: 814608776215377286, guid: bf09aa5a0bec137469aa42ee8e6219c4, type: 3}
       propertyPath: m_LocalPosition.y
@@ -792,7 +805,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 814608776215377286, guid: bf09aa5a0bec137469aa42ee8e6219c4, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -1.114006
+      value: -1.89
       objectReference: {fileID: 0}
     - target: {fileID: 814608776215377286, guid: bf09aa5a0bec137469aa42ee8e6219c4, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1269,7 +1282,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 814608776215377286, guid: bf09aa5a0bec137469aa42ee8e6219c4, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.8670044
+      value: -2.94
       objectReference: {fileID: 0}
     - target: {fileID: 814608776215377286, guid: bf09aa5a0bec137469aa42ee8e6219c4, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1277,7 +1290,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 814608776215377286, guid: bf09aa5a0bec137469aa42ee8e6219c4, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -4.0770035
+      value: -5.86
       objectReference: {fileID: 0}
     - target: {fileID: 814608776215377286, guid: bf09aa5a0bec137469aa42ee8e6219c4, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1716,7 +1729,7 @@ RectTransform:
   - {fileID: 1952672720}
   - {fileID: 2092655090}
   m_Father: {fileID: 1279019897}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -2124,7 +2137,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 814608776215377286, guid: bf09aa5a0bec137469aa42ee8e6219c4, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.26399994
+      value: -1.32
       objectReference: {fileID: 0}
     - target: {fileID: 814608776215377286, guid: bf09aa5a0bec137469aa42ee8e6219c4, type: 3}
       propertyPath: m_LocalPosition.y
@@ -2132,7 +2145,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 814608776215377286, guid: bf09aa5a0bec137469aa42ee8e6219c4, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -1.2630005
+      value: -2.59
       objectReference: {fileID: 0}
     - target: {fileID: 814608776215377286, guid: bf09aa5a0bec137469aa42ee8e6219c4, type: 3}
       propertyPath: m_LocalRotation.w
@@ -3048,7 +3061,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 814608776215377286, guid: bf09aa5a0bec137469aa42ee8e6219c4, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.7429962
+      value: -5.63
       objectReference: {fileID: 0}
     - target: {fileID: 814608776215377286, guid: bf09aa5a0bec137469aa42ee8e6219c4, type: 3}
       propertyPath: m_LocalPosition.y
@@ -3056,7 +3069,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 814608776215377286, guid: bf09aa5a0bec137469aa42ee8e6219c4, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 1.5179977
+      value: 2.22
       objectReference: {fileID: 0}
     - target: {fileID: 814608776215377286, guid: bf09aa5a0bec137469aa42ee8e6219c4, type: 3}
       propertyPath: m_LocalRotation.w
@@ -3315,13 +3328,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 181414841}
-        m_TargetAssemblyTypeName: InputHandler, Assembly-CSharp
-        m_MethodName: Build
+      - m_Target: {fileID: 181414837}
+        m_TargetAssemblyTypeName: Assets.Scripts.PlayerControl.PlayerBuilder, Assembly-CSharp
+        m_MethodName: StartPlacingBuilding
         m_Mode: 2
         m_Arguments:
           m_ObjectArgument: {fileID: 8205979929494484361, guid: d80e758dcddce1f489ef0f6a754cdb7a, type: 3}
-          m_ObjectArgumentAssemblyTypeName: Building, Assembly-CSharp
+          m_ObjectArgumentAssemblyTypeName: Assets.Scripts.Buildings.Building, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -3639,13 +3652,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 181414841}
-        m_TargetAssemblyTypeName: InputHandler, Assembly-CSharp
-        m_MethodName: Build
+      - m_Target: {fileID: 181414837}
+        m_TargetAssemblyTypeName: Assets.Scripts.PlayerControl.PlayerBuilder, Assembly-CSharp
+        m_MethodName: StartPlacingBuilding
         m_Mode: 2
         m_Arguments:
           m_ObjectArgument: {fileID: 7781565261085879258, guid: 112265c1b89c4b145ba9d3cd5bbcad49, type: 3}
-          m_ObjectArgumentAssemblyTypeName: Building, Assembly-CSharp
+          m_ObjectArgumentAssemblyTypeName: Assets.Scripts.Buildings.Building, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -4183,7 +4196,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 814608776215377286, guid: bf09aa5a0bec137469aa42ee8e6219c4, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -3.8099976
+      value: -6.86
       objectReference: {fileID: 0}
     - target: {fileID: 814608776215377286, guid: bf09aa5a0bec137469aa42ee8e6219c4, type: 3}
       propertyPath: m_LocalPosition.y
@@ -4191,7 +4204,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 814608776215377286, guid: bf09aa5a0bec137469aa42ee8e6219c4, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -3.1190033
+      value: -4.33
       objectReference: {fileID: 0}
     - target: {fileID: 814608776215377286, guid: bf09aa5a0bec137469aa42ee8e6219c4, type: 3}
       propertyPath: m_LocalRotation.w

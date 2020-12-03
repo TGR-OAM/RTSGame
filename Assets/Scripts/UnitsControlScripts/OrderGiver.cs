@@ -1,86 +1,90 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using Assets.Scripts.HexWorldinterpretation;
+using Assets.Scripts.Orders.Units;
+using Assets.Scripts.Units;
 using UnityEngine;
 
-public class OrderGiver
+namespace Assets.Scripts.UnitsControlScripts
 {
-    private HexGrid hexGrid;
-    public OrderGiver(HexGrid grid)
+    public class OrderGiver
     {
-        hexGrid = grid;
-    }
-    public void GiveOrder (Unit[] units, OrderType orderType)
-    {
-        if (orderType == OrderType.None)
+        private HexGrid hexGrid;
+        public OrderGiver(HexGrid grid)
         {
-            RaycastHit hit;
-            if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, 100f, 1 << 8))
+            hexGrid = grid;
+        }
+        public void GiveOrder (Unit[] units, OrderType orderType)
+        {
+            if (orderType == OrderType.None)
             {
-                GameObject g = hit.collider.gameObject;
-                FractionMember f = g.GetComponent<FractionMember>();
-                if (g.GetComponent<DamageSystem>() == null)
+                RaycastHit hit;
+                if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, 100f, 1 << 8))
                 {
-                    foreach (Unit u in units)
+                    GameObject g = hit.collider.gameObject;
+                    FractionMember f = g.GetComponent<FractionMember>();
+                    if (g.GetComponent<DamageSystem>() == null)
                     {
-                        float offset = units.Length * 0.21f;
-                        MoveTask o = new MoveTask(hit.point + new Vector3(Random.Range(-offset, offset), 0, Random.Range(-offset, offset)));
-                        u.GiveOrder(o);
+                        foreach (Unit u in units)
+                        {
+                            float offset = units.Length * 0.21f;
+                            MoveTask o = new MoveTask(hit.point + new Vector3(Random.Range(-offset, offset), 0, Random.Range(-offset, offset)), u.gameObject);
+                            u.orderableObject.GiveOrder(o);
+                        }
+                    }
+                    else
+                    {
+                        foreach (Unit u in units)
+                        {
+                            AttackTask t = new AttackTask(g, u.gameObject);
+                            u.orderableObject.GiveOrder(t);
+                        }
                     }
                 }
                 else
                 {
-                    AttackTask t = new AttackTask(g);
-                    foreach (Unit u in units)
+                    if (hexGrid.TryRaycastHexGrid(Camera.main.ScreenPointToRay(Input.mousePosition), out Vector3 output))
                     {
-                        u.GiveOrder(t);
+                        foreach (Unit u in units)
+                        {
+                            float offset = units.Length * 0.21f;
+                            MoveTask o = new MoveTask(output + new Vector3(Random.Range(-offset, offset), 0, Random.Range(-offset, offset)), u.gameObject);
+                            u.orderableObject.GiveOrder(o);
+                        }
                     }
                 }
             }
-            else
+            if (orderType == OrderType.MoveAttack)
             {
-                if (hexGrid.TryRaycastHexGrid(Camera.main.ScreenPointToRay(Input.mousePosition), out Vector3 output))
+                RaycastHit hit;
+                if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, 100f, 1 << 8))
                 {
                     foreach (Unit u in units)
                     {
                         float offset = units.Length * 0.21f;
-                        MoveTask o = new MoveTask(output + new Vector3(Random.Range(-offset, offset), 0, Random.Range(-offset, offset)));
-                        u.GiveOrder(o);
+                        MoveAttackTask o = new MoveAttackTask(hit.point + new Vector3(Random.Range(-offset, offset), 0, Random.Range(-offset, offset)), u.gameObject);
+                        u.orderableObject.GiveOrder(o);
                     }
                 }
-            }
-        }
-        if (orderType == OrderType.MoveAttack)
-        {
-            RaycastHit hit;
-            if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, 100f, 1 << 8))
-            {
-                foreach (Unit u in units)
+                else
                 {
-                    float offset = units.Length * 0.21f;
-                    MoveAttackTask o = new MoveAttackTask(hit.point + new Vector3(Random.Range(-offset, offset), 0, Random.Range(-offset, offset)));
-                    u.GiveOrder(o);
-                }
-            }
-            else
-            {
-                if (hexGrid.TryRaycastHexGrid(Camera.main.ScreenPointToRay(Input.mousePosition), out Vector3 output))
-                {
-                    foreach (Unit u in units)
+                    if (hexGrid.TryRaycastHexGrid(Camera.main.ScreenPointToRay(Input.mousePosition), out Vector3 output))
                     {
-                        float offset = units.Length * 0.21f;
-                        MoveAttackTask o = new MoveAttackTask(output + new Vector3(Random.Range(-offset, offset), 0, Random.Range(-offset, offset)));
-                        u.GiveOrder(o);
+                        foreach (Unit u in units)
+                        {
+                            float offset = units.Length * 0.21f;
+                            MoveAttackTask o = new MoveAttackTask(output + new Vector3(Random.Range(-offset, offset), 0, Random.Range(-offset, offset)),u.gameObject);
+                            u.orderableObject.GiveOrder(o);
+                        }
                     }
                 }
             }
         }
     }
-}
 
-public enum OrderType
-{
-    Move,
-    Attack,
-    MoveAttack,
-    None
+    public enum OrderType
+    {
+        Move,
+        Attack,
+        MoveAttack,
+        None
+    }
 }

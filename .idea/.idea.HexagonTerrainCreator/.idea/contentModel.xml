@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ContentModelStore">
+    <e p="C:\Users\boris\AppData\Local\JetBrains\Rider2020.3\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\boris\AppData\Local\JetBrains\Rider2020.3\resharper-host\Local\Transient\Rider\v203\SolutionCaches\_HexagonTerrainCreator.1816753951.00" t="ExcludeRecursive" />
+    <e p="E:\UnityProjects\RTSGame\HexagonTerrainCreator" t="IncludeRecursive">
+      <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
+      <e p="Assets" t="Include">
+        <e p="NavMeshComponents" t="Include">
+          <e p="Editor" t="Include">
+            <e p="NavMeshAssetManager.cs" t="Include" />
+            <e p="NavMeshComponentsEditor.asmdef" t="Include" />
+            <e p="NavMeshComponentsGUIUtility.cs" t="Include" />
+            <e p="NavMeshLinkEditor.cs" t="Include" />
+            <e p="NavMeshModifierEditor.cs" t="Include" />
+            <e p="NavMeshModifierVolumeEditor.cs" t="Include" />
+            <e p="NavMeshSurfaceEditor.cs" t="Include" />
+          </e>
+          <e p="Scripts" t="Include">
+            <e p="NavMeshComponents.asmdef" t="Include" />
+            <e p="NavMeshLink.cs" t="Include" />
+            <e p="NavMeshModifier.cs" t="Include" />
+            <e p="NavMeshModifierVolume.cs" t="Include" />
+            <e p="NavMeshSurface.cs" t="Include" />
+          </e>
+        </e>
+        <e p="Resources" t="Include">
+          <e p="SavedMaps" t="Include">
+            <e p="1234.xml" t="Include" />
+            <e p="bad save.xml" t="Include" />
+            <e p="coloredMap.xml" t="Include" />
+            <e p="MapExample.xml" t="Include" />
+            <e p="Prototype map example.xml" t="Include" />
+            <e p="some map.xml" t="Include" />
+            <e p="someName.xml" t="Include" />
+          </e>
+          <e p="Xml" t="Include">
+            <e p="example1.xml" t="Include" />
+            <e p="MapExample.xml" t="Include" />
+            <e p="MapExampleForEditor.xml" t="Include" />
+          </e>
+        </e>
+        <e p="Scripts" t="Include">
+          <e p="Buildings" t="Include">
+            <e p="Builder.cs" t="Include" />
+            <e p="Building.cs" t="Include" />
+          </e>
+          <e p="CameraMovement" t="Include">
+            <e p="MouseLook.cs" t="Include" />
+            <e p="MovementByKeyBoard.cs" t="Include" />
+            <e p="MovementByMinimap.cs" t="Include" />
+            <e p="MoveNearEdge.cs" t="Include" />
+          </e>
+          <e p="ErrorReport" t="Include">
+            <e p="LogReport.cs" t="Include" />
+          </e>
+          <e p="HexWordEditor" t="Include">
+            <e p="TestEditorScript.cs" t="Include" />
+            <e p="WorldEditor.cs" t="Include" />
+            <e p="XMLMapSaver.cs" t="Include" />
+          </e>
+          <e p="HexWorldinterpretation" t="Include">
+            <e p="HexColumnRenderer.cs" t="Include" />
+            <e p="HexGrid.cs" t="Include" />
+            <e p="HexGridColiderer.cs" t="Include" />
+            <e p="HexGridRenderer.cs" t="Include" />
+            <e p="HexMetrics.cs" t="Include" />
+            <e p="XMLMapLoader.cs" t="Include" />
+          </e>
+          <e p="Orders" t="Include">
+            <e p="Buildings" t="Include">
+              <e p="UnitCreationTask.cs" t="Include" />
+            </e>
+            <e p="GameOrder.cs" t="Include" />
+            <e p="OrderableObject.cs" t="Include" />
+            <e p="Units" t="Include">
+              <e p="AttackTask.cs" t="Include" />
+              <e p="BuildTask.cs" t="Include" />
+              <e p="MoveAttackTask.cs" t="Include" />
+              <e p="MoveTask.cs" t="Include" />
+            </e>
+          </e>
+          <e p="PlayerControl" t="Include">
+            <e p="PlayerBuilder.cs" t="Include" />
+            <e p="PlayerUnitsController.cs" t="Include" />
+          </e>
+          <e p="UIScripts" t="Include">
+            <e p="LogScript.cs" t="Include" />
+            <e p="MessageScript.cs" t="Include" />
+            <e p="MinimapObjectScript.cs" t="Include" />
+            <e p="UIManager.cs" t="Include" />
+          </e>
+          <e p="Units" t="Include">
+            <e p="Unit.cs" t="Include" />
+            <e p="UnitBuilder.cs" t="Include" />
+            <e p="Warrior.cs" t="Include" />
+          </e>
+          <e p="UnitsControlScripts" t="Include">
+            <e p="DamageSystem.cs" t="Include" />
+            <e p="FractionMember.cs" t="Include" />
+            <e p="InputHandler.cs" t="Include" />
+            <e p="OrderGiver.cs" t="Include" />
+            <e p="UnitLister.cs" t="Include" />
+          </e>
+          <e p="Worker" t="Include">
+            <e p="Ui" t="Include">
+              <e p="WorkerUI.cs" t="Include" />
+            </e>
+            <e p="WorkerUIEnable.cs" t="Include" />
+          </e>
+        </e>
+        <e p="Shaders" t="Include">
+          <e p="BasicMeshColorer.shader" t="Include" />
+        </e>
+      </e>
+      <e p="HexagonTerrainCreator.sln" t="IncludeFlat" />
+      <e p="NavMeshComponents.csproj" t="IncludeRecursive" />
+      <e p="NavMeshComponentsEditor.csproj" t="IncludeRecursive" />
+      <e p="obj" t="ExcludeRecursive" />
+      <e p="Packages" t="ExcludeRecursive" />
+      <e p="Temp\Bin" t="ExcludeRecursive" />
+    </e>
+  </component>
+</project>
