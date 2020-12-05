@@ -3,6 +3,11 @@
   <component name="ChangeListManager">
     <list default="true" id="6f6bfc7b-0c44-4f35-909a-40320cf9e8a8" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.HexagonTerrainCreator/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.HexagonTerrainCreator/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Orders/Buildings/UnitCreationTask.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Orders/Buildings/UnitCreationTask.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Orders/Units/AttackTask.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Orders/Units/AttackTask.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Orders/Units/BuildTask.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Orders/Units/BuildTask.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Orders/Units/MoveAttackTask.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Orders/Units/MoveAttackTask.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Orders/Units/MoveTask.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Orders/Units/MoveTask.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,27 +51,27 @@
       <option value="$PROJECT_DIR$/Assets/Scripts/UnitsControlScripts/Builder.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/UnitsControlScripts/Warrior.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/UnitsControlScripts/Unit.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Orders/Units/AttackTask.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/BuildingScripts/Builder.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/BuildingScripts/Building.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/BuildingScripts/PlayerBuilder.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Player control/PlayerBuilder.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/HexWorldinterpretation/HexGrid.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Orders/Units/BuildTask.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Units/Warrior.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Units/Builder.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/PlayerControl/PlayerBuilder.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Units/Unit.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Orders/Buildings/UnitCreationTask.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/PlayerControl/PlayerUnitsController.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Orders/OrderableObject.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Buildings/Builder.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Orders/Units/MoveTask.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Orders/Units/MoveAttackTask.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/UnitsControlScripts/OrderGiver.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Units/UnitBuilder.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/UnitsControlScripts/InputHandler.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Buildings/Building.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/UnitsControlScripts/InputHandler.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Orders/Units/MoveTask.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Orders/Units/MoveAttackTask.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Orders/Units/AttackTask.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Orders/Units/BuildTask.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Orders/Buildings/UnitCreationTask.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1l1OfsDjHjs1qbooko3VCg3JFHx" />
@@ -123,7 +128,8 @@
       <workItem from="1606842770814" duration="11368000" />
       <workItem from="1606899796642" duration="4747000" />
       <workItem from="1606937013849" duration="1409000" />
-      <workItem from="1607021925284" duration="3495000" />
+      <workItem from="1607021925284" duration="6770000" />
+      <workItem from="1607182515770" duration="4935000" />
     </task>
     <servers />
   </component>

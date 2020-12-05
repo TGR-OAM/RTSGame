@@ -6,6 +6,7 @@ namespace Assets.Scripts.Orders.Units
     public class MoveTask : GameOrder
     {
         private Vector3 destination;
+        private Unit UnitToOrder;
 
         public MoveTask(Vector3 destination ,GameObject ObjectToOrder) : base(ObjectToOrder)
         {
@@ -19,19 +20,18 @@ namespace Assets.Scripts.Orders.Units
             if (ObjectToOrder.TryGetComponent(typeof(Unit), out Component component))
             {
                 Unit thisUnit = component as Unit;
+                UnitToOrder = thisUnit;
                 thisUnit.agent.SetDestination(destination);
             }
         }
 
         public override void UpdateOrder()
         {
-            if (ObjectToOrder.TryGetComponent(typeof(Unit), out Component component))
+            if (UnitToOrder != null)
             {
-                Unit unit = component as Unit;
-                if (Vector3.Distance(unit.transform.position, destination) <= unit.reachDistance)
+                if (Vector3.Distance(UnitToOrder.transform.position, destination) <= UnitToOrder.reachDistance)
                 {
                     StopOrder();
-                    return;
                 }
             }
         }
@@ -39,11 +39,10 @@ namespace Assets.Scripts.Orders.Units
         public override void StopOrder()
         {
             base.StopOrder();
-            if (ObjectToOrder.TryGetComponent(typeof(Unit), out Component component))
+            
+            if (UnitToOrder != null)
             {
-                Unit unit = component as Unit;
-                unit.agent.SetDestination(unit.transform.position);
-                return;
+                UnitToOrder.agent.SetDestination(UnitToOrder.transform.position);
             }
         }
     }

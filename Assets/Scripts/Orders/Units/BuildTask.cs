@@ -9,6 +9,8 @@ namespace Assets.Scripts.Orders.Units
         private Vector3 destination;
         private Building buildingToBuild;
 
+        private Unit UnitToOrder;
+        
         private bool isBuilding = false;
 
         public BuildTask(Vector3 destination,Building buildingToBuild,GameObject ObjectToOrder) : base(ObjectToOrder)
@@ -23,22 +25,23 @@ namespace Assets.Scripts.Orders.Units
 
             if (ObjectToOrder.TryGetComponent(typeof(Unit), out Component component))
             {
-                Unit unit = component as Unit;
-                unit.agent.SetDestination(destination);
+                UnitToOrder = component as Unit;
+                UnitToOrder.agent.SetDestination(destination);
             }
         }
-
+        
+        
+        
         public override void UpdateOrder()
         {
-            if (ObjectToOrder.TryGetComponent(typeof(UnitBuilder), out Component component))
+            if (UnitToOrder != null)
             {
-                UnitBuilder unit = component as UnitBuilder;
                 if (buildingToBuild == null) StopOrder();
                 if (buildingToBuild.timeUntilConstruction <= 0) StopOrder();
-                if (Vector3.Distance(unit.transform.position, destination) <= unit.reachDistance)
+                if (Vector3.Distance(UnitToOrder.transform.position, destination) <= UnitToOrder.reachDistance)
                 {
                     isBuilding = true;
-                    unit.agent.isStopped = true;
+                    UnitToOrder.agent.isStopped = true;
                 }
 
                 if(isBuilding)
@@ -48,10 +51,9 @@ namespace Assets.Scripts.Orders.Units
 
         public override void StopOrder()
         {
-            if (ObjectToOrder.TryGetComponent(typeof(Unit), out Component component))
+            if (UnitToOrder != null)
             {
-                Unit unit = component as Unit;
-                unit.agent.isStopped = true;
+                UnitToOrder.agent.isStopped = true;
                 return;
             }
         }

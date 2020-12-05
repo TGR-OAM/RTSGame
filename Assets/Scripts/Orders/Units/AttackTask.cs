@@ -7,6 +7,7 @@ namespace Assets.Scripts.Orders.Units
     public class AttackTask : GameOrder
     {
         public GameObject target;
+        private Warrior WarriorToOrder;
         public AttackTask (GameObject t, GameObject ObjectToOrder):base(ObjectToOrder)
         {
             target = t;
@@ -17,8 +18,8 @@ namespace Assets.Scripts.Orders.Units
             base.StartOrder();
             if (ObjectToOrder.TryGetComponent(typeof(Unit), out Component component))
             {
-                Unit unit = component as Unit;
-                unit.agent.SetDestination(target.transform.position);
+                Warrior WarriorToOrder = component as Warrior;
+                WarriorToOrder.agent.SetDestination(target.transform.position);
             }
         }
 
@@ -30,10 +31,9 @@ namespace Assets.Scripts.Orders.Units
                 return;
             }
         
-            if (ObjectToOrder.TryGetComponent(typeof(Warrior), out Component component))
+            if (WarriorToOrder != null)
             {
-                Warrior unit = component as Warrior;
-                if (Vector3.Distance(unit.transform.position, target.transform.position) <= unit.attackDistance)
+                if (Vector3.Distance(WarriorToOrder.transform.position, target.transform.position) <= WarriorToOrder.attackDistance)
                 {
                     StopOrder();
                     return;
@@ -44,10 +44,9 @@ namespace Assets.Scripts.Orders.Units
         public override void StopOrder()
         {
             base.StopOrder();
-            if (ObjectToOrder.TryGetComponent(typeof(Unit), out Component component))
+            if (WarriorToOrder!= null)
             {
-                Unit unit = component as Unit;
-                unit.agent.SetDestination(unit.transform.position);
+                WarriorToOrder.agent.SetDestination(WarriorToOrder.transform.position);
                 return;
             }
         }

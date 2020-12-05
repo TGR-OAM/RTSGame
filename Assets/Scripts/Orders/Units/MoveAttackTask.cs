@@ -8,6 +8,7 @@ namespace Assets.Scripts.Orders.Units
     {
         private Vector3 destination;
         private GameObject target;
+        private Warrior UnitToOrder;
 
         public MoveAttackTask(Vector3 destination,GameObject ObjectToOrder) : base(ObjectToOrder)
         {
@@ -17,43 +18,42 @@ namespace Assets.Scripts.Orders.Units
         public override void StartOrder()
         {
             base.StartOrder();
-            if (ObjectToOrder.TryGetComponent(typeof(Unit), out Component component))
+            if (ObjectToOrder.TryGetComponent(typeof(Warrior), out Component component))
             {
-                Unit unit = component as Unit;
+                Warrior unit = component as Warrior;
+                UnitToOrder = unit;
                 unit.agent.SetDestination(destination);
             }
         }
 
         public override void UpdateOrder()
         {
-            if (ObjectToOrder.TryGetComponent(typeof(Warrior), out Component component))
+            if (UnitToOrder != null) 
             {
-                Warrior thisUnit = component as Warrior;
-                if (Vector3.Distance(thisUnit.transform.position, destination) <= thisUnit.reachDistance)
+                if (Vector3.Distance(UnitToOrder.transform.position, destination) <= UnitToOrder.reachDistance)
                 {
                     StopOrder();
-                    return;
                 }
 
                 if (target == null)
                 {
-                    GameObject bestTarget = UpdateTarget(thisUnit);
+                    GameObject bestTarget = UpdateTarget(UnitToOrder);
                     if (bestTarget != null)
                     {
-                        thisUnit.agent.SetDestination(bestTarget.transform.position);
+                        UnitToOrder.agent.SetDestination(bestTarget.transform.position);
                         target = bestTarget;
                     }
                     else
                     {
-                        if (thisUnit.agent.destination != destination)
+                        if (UnitToOrder.agent.destination != destination)
                         {
-                            thisUnit.agent.SetDestination(destination);
+                            UnitToOrder.agent.SetDestination(destination);
                         }
                     }
                 }
-                else if (Vector3.Distance(thisUnit.transform.position, target.transform.position) <= thisUnit.attackDistance)
+                else if (Vector3.Distance(UnitToOrder.transform.position, target.transform.position) <= UnitToOrder.attackDistance)
                 {
-                    Attack(thisUnit);
+                    Attack(UnitToOrder);
                 }
                 
             }
@@ -66,7 +66,6 @@ namespace Assets.Scripts.Orders.Units
             {
                 Unit unit = component as Unit;
                 unit.agent.SetDestination(unit.transform.position);
-                return;
             }
         }
 

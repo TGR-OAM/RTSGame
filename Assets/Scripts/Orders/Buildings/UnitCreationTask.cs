@@ -5,20 +5,24 @@ namespace Assets.Scripts.Orders.Buildings
     public class UnitCreationTask:GameOrder
     {
         private GameObject unitToCreate;
-        
-        public UnitCreationTask(GameObject unitToCreate, GameObject ObjectToOrder) : base(ObjectToOrder)
+        private float TimeUntilConstruction;
+
+        public UnitCreationTask(GameObject unitToCreate, float timeToCreate,GameObject ObjectToOrder) : base(ObjectToOrder)
         {
             this.unitToCreate = unitToCreate;
-        }
 
-        public override void StartOrder()
-        {
-            base.StartOrder();
+            TimeUntilConstruction = timeToCreate;
         }
 
         public override void UpdateOrder()
         {
-            
+            TimeUntilConstruction -= Time.deltaTime;
+
+            if (TimeUntilConstruction <= 0)
+            {
+                GameObject.Instantiate(unitToCreate);
+                StopOrder();
+            }
         }
 
         public override void StopOrder()
