@@ -30,13 +30,12 @@ namespace Assets.Scripts.Orders.Units
                 StopOrder();
                 return;
             }
-        
+
             if (WarriorToOrder != null)
             {
-                if (Vector3.Distance(WarriorToOrder.transform.position, target.transform.position) <= WarriorToOrder.attackDistance)
+                if (WarriorToOrder.isNearToDestination(target.transform.position, WarriorToOrder.reachDistance))
                 {
                     StopOrder();
-                    return;
                 }
             }
         }
@@ -47,7 +46,6 @@ namespace Assets.Scripts.Orders.Units
             if (WarriorToOrder!= null)
             {
                 WarriorToOrder.agent.SetDestination(WarriorToOrder.transform.position);
-                return;
             }
         }
 

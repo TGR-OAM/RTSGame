@@ -8,6 +8,7 @@
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Orders/Units/BuildTask.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Orders/Units/BuildTask.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Orders/Units/MoveAttackTask.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Orders/Units/MoveAttackTask.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Orders/Units/MoveTask.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Orders/Units/MoveTask.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Units/Unit.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Units/Unit.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,7 +60,6 @@
       <option value="$PROJECT_DIR$/Assets/Scripts/Units/Warrior.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Units/Builder.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/PlayerControl/PlayerBuilder.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Units/Unit.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/PlayerControl/PlayerUnitsController.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Orders/OrderableObject.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Buildings/Builder.cs" />
@@ -67,10 +67,11 @@
       <option value="$PROJECT_DIR$/Assets/Scripts/Units/UnitBuilder.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Buildings/Building.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/UnitsControlScripts/InputHandler.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Units/Unit.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Orders/Units/MoveTask.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Orders/Units/MoveAttackTask.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Orders/Units/AttackTask.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Orders/Units/BuildTask.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Orders/Units/AttackTask.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Orders/Buildings/UnitCreationTask.cs" />
     </changedPaths>
   </component>
@@ -129,7 +130,7 @@
       <workItem from="1606899796642" duration="4747000" />
       <workItem from="1606937013849" duration="1409000" />
       <workItem from="1607021925284" duration="6770000" />
-      <workItem from="1607182515770" duration="4935000" />
+      <workItem from="1607182515770" duration="13575000" />
     </task>
     <servers />
   </component>

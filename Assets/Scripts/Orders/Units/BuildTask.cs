@@ -29,16 +29,14 @@ namespace Assets.Scripts.Orders.Units
                 UnitToOrder.agent.SetDestination(destination);
             }
         }
-        
-        
-        
+
         public override void UpdateOrder()
         {
             if (UnitToOrder != null)
             {
                 if (buildingToBuild == null) StopOrder();
                 if (buildingToBuild.timeUntilConstruction <= 0) StopOrder();
-                if (Vector3.Distance(UnitToOrder.transform.position, destination) <= UnitToOrder.reachDistance)
+                if (UnitToOrder.isNearToDestination(destination,UnitToOrder.reachDistance))
                 {
                     isBuilding = true;
                     UnitToOrder.agent.isStopped = true;
@@ -54,7 +52,6 @@ namespace Assets.Scripts.Orders.Units
             if (UnitToOrder != null)
             {
                 UnitToOrder.agent.isStopped = true;
-                return;
             }
         }
     }

@@ -31,6 +31,14 @@ namespace Assets.Scripts.Units
             fractionMember = GetComponent<FractionMember>();
             agent = GetComponent<NavMeshAgent>();
         }
-        
+
+
+        public bool isNearToDestination(Vector3 destination, float distance)
+        {
+            if (Vector3.Distance(this.transform.position, destination) <= distance)
+                return true;
+            else
+                return false;
+        }
     }
 }

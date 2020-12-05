@@ -1,15 +1,19 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 
 namespace Assets.Scripts.Orders.Buildings
 {
     public class UnitCreationTask:GameOrder
     {
-        private GameObject unitToCreate;
+        private List<GameObject> unitPartsToCreate;
+        private List<Transform> unitPartsTransform;
+        
         private float TimeUntilConstruction;
 
-        public UnitCreationTask(GameObject unitToCreate, float timeToCreate,GameObject ObjectToOrder) : base(ObjectToOrder)
+        public UnitCreationTask(List<GameObject> unitPartsToCreate, List<Transform> unitPartsTransform,float timeToCreate,GameObject ObjectToOrder) : base(ObjectToOrder)
         {
-            this.unitToCreate = unitToCreate;
+            this.unitPartsToCreate = unitPartsToCreate;
+            this.unitPartsTransform = unitPartsTransform;
 
             TimeUntilConstruction = timeToCreate;
         }
@@ -17,10 +21,10 @@ namespace Assets.Scripts.Orders.Buildings
         public override void UpdateOrder()
         {
             TimeUntilConstruction -= Time.deltaTime;
-
+            
             if (TimeUntilConstruction <= 0)
             {
-                GameObject.Instantiate(unitToCreate);
+                CreateUnitFromParts();
                 StopOrder();
             }
         }
@@ -28,6 +32,11 @@ namespace Assets.Scripts.Orders.Buildings
         public override void StopOrder()
         {
             base.StopOrder();
+        }
+
+        void CreateUnitFromParts()
+        {
+            //create unit from part
         }
     }
 }
