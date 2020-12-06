@@ -1,6 +1,7 @@
 using Assets.Scripts;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.InputSystem;
 
 public class Builder 
 {
@@ -8,7 +9,7 @@ public class Builder
 
     private Building flyingBuilding;
 
-    public bool isMouseButtonPressed = false;
+    private bool isAvailableToBuild;
 
     public Builder(HexGrid hexGrid)
     {
@@ -35,13 +36,13 @@ public class Builder
 
     public void Update()
     {
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        Ray ray = Camera.main.ScreenPointToRay(Mouse.current.position.ReadValue());
 
         if (hexGrid.TryRaycastHexGrid(ray, out Vector3 worldPosition) && flyingBuilding!=null)
         {
             flyingBuilding.gameObject.SetActive(true);
             Vector3 CoordsOfCenter = HexMetrics.CalcCenterCoordXZFromHexCoordXZ(HexMetrics.CalcHexCoordXZFromDefault(worldPosition, hexGrid.MapData.cellSize), hexGrid.MapData);
-            bool available = true;
+            bool available;
 
             available = IsPossibleToBuild(flyingBuilding, HexMetrics.CalcHexCoordXZFromDefault(CoordsOfCenter, hexGrid.MapData.cellSize));
 
@@ -50,12 +51,14 @@ public class Builder
             flyingBuilding.transform.position = CoordsOfCenter;
             flyingBuilding.SetTransparent(available);
             #endregion
+        }
+    }
 
-            if (available && isMouseButtonPressed)
-            {
-                Debug.Log(CoordsOfCenter);
-                PlaceFlyingBuilding();
-            }
+    public void PlaceBuilding()
+    {
+        if (isAvailableToBuild)
+        {
+            PlaceFlyingBuilding();
         }
     }
 

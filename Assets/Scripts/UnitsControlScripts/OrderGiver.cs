@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class OrderGiver
 {
@@ -11,10 +12,11 @@ public class OrderGiver
     }
     public void GiveOrder (Unit[] units, OrderType orderType)
     {
+        Vector2 mousePos = Mouse.current.position.ReadValue();
         if (orderType == OrderType.None)
         {
             RaycastHit hit;
-            if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, 100f, 1 << 8))
+            if (Physics.Raycast(Camera.main.ScreenPointToRay(mousePos), out hit, 100f, 1 << 8))
             {
                 GameObject g = hit.collider.gameObject;
                 FractionMember f = g.GetComponent<FractionMember>();
@@ -38,7 +40,7 @@ public class OrderGiver
             }
             else
             {
-                if (hexGrid.TryRaycastHexGrid(Camera.main.ScreenPointToRay(Input.mousePosition), out Vector3 output))
+                if (hexGrid.TryRaycastHexGrid(Camera.main.ScreenPointToRay(mousePos), out Vector3 output))
                 {
                     foreach (Unit u in units)
                     {
@@ -52,7 +54,7 @@ public class OrderGiver
         if (orderType == OrderType.MoveAttack)
         {
             RaycastHit hit;
-            if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, 100f, 1 << 8))
+            if (Physics.Raycast(Camera.main.ScreenPointToRay(mousePos), out hit, 100f, 1 << 8))
             {
                 foreach (Unit u in units)
                 {
@@ -63,7 +65,7 @@ public class OrderGiver
             }
             else
             {
-                if (hexGrid.TryRaycastHexGrid(Camera.main.ScreenPointToRay(Input.mousePosition), out Vector3 output))
+                if (hexGrid.TryRaycastHexGrid(Camera.main.ScreenPointToRay(mousePos), out Vector3 output))
                 {
                     foreach (Unit u in units)
                     {

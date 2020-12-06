@@ -1,9 +1,7 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 using UnityEngine.EventSystems;
-using System;
+using UnityEngine.InputSystem;
 
 public class InputHandler : MonoBehaviour
 {
@@ -24,18 +22,22 @@ public class InputHandler : MonoBehaviour
     private Vector2 startPos;
 
     [Header("Unit control properties")]
+    [SerializeField]
     private List<Unit> units = new List<Unit>();
     private Fraction fraction = Fraction.Player;
     [SerializeField]
     private UnitLister lister;
+    private bool isSelecting = false;
 
     [Header("Building properties")]
     private Builder builder;
+    private bool isBuilding = false;
 
     [SerializeField]
     private OrderGiver orderGiver;
-    //[SerializeField]
-    //private string unitListerTag;
+
+
+    private Vector2 mousePosition;
 
     private void Start()
     {
@@ -45,27 +47,31 @@ public class InputHandler : MonoBehaviour
 
     private void Update()
     {
+        mousePosition = Mouse.current.position.ReadValue();
+
         switch (currentState)
         {
             case HandlerState.Idle:
-                SelectUnits();
-                GiveOrderToUnits();
+                if (isSelecting)
+                {
+                    UpdateSelectionBox(mousePosition);
+                }
+                else if (selectionBox.gameObject.activeInHierarchy)
+                {
+                    selectionBox.gameObject.SetActive(false);
+                }
                 break;
             case HandlerState.Building:
-                OperateBuildingPlacing();
-                OperateBuildingPlacing();
+                if (isBuilding)
+                {
+                    OperateBuildingPlacing();
+                }
                 break;
-        }
-
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            ReturnToIdleState();
         }
     }
 
     private void OperateBuildingPlacing()
     {
-        builder.isMouseButtonPressed = Input.GetMouseButtonDown(0);
         builder.Update();
     }
 
@@ -75,48 +81,31 @@ public class InputHandler : MonoBehaviour
         currentState = HandlerState.Idle;
     }
 
-    private void GiveOrderToUnits()
+    public void GiveOrderToUnits()
     {
-        if (Input.GetMouseButtonDown(1))
+        orderGiver.GiveOrder(units.ToArray(), OrderType.None);
+    }
+
+    public void SelectUnits()
+    {
+        if (!EventSystem.current.IsPointerOverGameObject() && currentState == HandlerState.Idle)
         {
-            if (Input.GetKey(KeyCode.Q))
-            {
-                orderGiver.GiveOrder(units.ToArray(), OrderType.MoveAttack);
-            } else
-            {
-                orderGiver.GiveOrder(units.ToArray(), OrderType.None);
-            }
+            selectionBox.gameObject.SetActive(true);
+            isSelecting = true;
+            startPos = mousePosition;
+            print("huy" + Time.time);
         }
     }
 
-    private void SelectUnits()
-    {
-        if (!EventSystem.current.IsPointerOverGameObject() || selectionBox.gameObject.activeInHierarchy)
-        {
-            if (Input.GetMouseButtonDown(0))
-            {
-                startPos = Input.mousePosition;
-            }
-            if (Input.GetMouseButton(0))
-            {
-                UpdateSelectionBox(Input.mousePosition);
-            }
-            if (Input.GetMouseButtonUp(0))
-            {
-                ReleaseSelectionBox();
-            }
-        }
-    }
-
-    private void ReleaseSelectionBox()
+    public void ReleaseSelectionBox()
     {
         selectionBox.gameObject.SetActive(false);
 
         Vector2 min = selectionBox.anchoredPosition - (selectionBox.sizeDelta / 2);
         Vector2 max = selectionBox.anchoredPosition + (selectionBox.sizeDelta / 2);
         units.Clear();
-        List<GameObject> guys = lister.units;
-        foreach (GameObject unit in guys)
+        List<GameObject> fullUnitList = lister.units;
+        foreach (GameObject unit in fullUnitList)
         {
             Vector3 screenPos = Camera.main.WorldToScreenPoint(unit.transform.position);
 
@@ -125,6 +114,8 @@ public class InputHandler : MonoBehaviour
                 units.Add(unit.GetComponent<Unit>());
             }
         }
+        print("not huy");
+        isSelecting = false;
     }
 
     private void UpdateSelectionBox(Vector2 curMousePos)
@@ -141,22 +132,11 @@ public class InputHandler : MonoBehaviour
 
     public void ChangeState(int newState)
     {
-        switch (newState)
-        {
-            case 0:
-                currentState = HandlerState.Idle;
-                break;
-            case 1:
-                currentState = HandlerState.Building;
-                break;
-            case 2:
-                currentState = HandlerState.Ordering;
-                break;
-        }
+        currentState = (HandlerState)newState;
     }
 
     public void Build(Building building)
     {
-        if (currentState == HandlerState.Building) builder.StartPlacingBuilding(building);
+        if (currentState == HandlerState.Building && !EventSystem.current.IsPointerOverGameObject()) builder.StartPlacingBuilding(building);
     }
 }
