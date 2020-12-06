@@ -33,6 +33,10 @@ public class InputHandler : MonoBehaviour
     private Builder builder;
     private bool isBuilding = false;
 
+    [Header("Input property")]
+    [SerializeField]
+    private PlayerInput playerInput;
+    
     [SerializeField]
     private OrderGiver orderGiver;
 
@@ -43,6 +47,9 @@ public class InputHandler : MonoBehaviour
     {
         orderGiver = new OrderGiver(hexGrid);
         builder = new Builder(hexGrid);
+
+        playerInput.actions.FindActionMap("Player").FindAction("SelectUnit").started += _ => SelectUnits();
+        playerInput.actions.FindActionMap("Player").FindAction("SelectUnit").canceled += _ => ReleaseSelectionBox();
     }
 
     private void Update()
@@ -88,7 +95,7 @@ public class InputHandler : MonoBehaviour
 
     public void SelectUnits()
     {
-        if (!EventSystem.current.IsPointerOverGameObject() && currentState == HandlerState.Idle)
+        if (!EventSystem.current.IsPointerOverGameObject() && currentState == HandlerState.Idle && !isSelecting)
         {
             selectionBox.gameObject.SetActive(true);
             isSelecting = true;
@@ -120,9 +127,6 @@ public class InputHandler : MonoBehaviour
 
     private void UpdateSelectionBox(Vector2 curMousePos)
     {
-        if (!selectionBox.gameObject.activeInHierarchy)
-            selectionBox.gameObject.SetActive(true);
-
         float width = curMousePos.x - startPos.x;
         float height = curMousePos.y - startPos.y;
 

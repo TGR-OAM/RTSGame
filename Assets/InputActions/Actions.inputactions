@@ -28,6 +28,14 @@
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "Press"
+                },
+                {
+                    "name": "SelectUnit",
+                    "type": "Button",
+                    "id": "da1b5823-a43b-4596-ad20-d9166e588868",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "Press"
                 }
             ],
             "bindings": [
@@ -35,7 +43,7 @@
                     "name": "",
                     "id": "85aaee94-5fb5-41a7-af35-f430067111e8",
                     "path": "<Mouse>/leftButton",
-                    "interactions": "Press(behavior=1)",
+                    "interactions": "Press(pressPoint=0.9,behavior=1)",
                     "processors": "",
                     "groups": "Keyboard&Mouse",
                     "action": "Stop selecting",
@@ -57,10 +65,21 @@
                     "name": "",
                     "id": "bc300df1-881a-41fa-ae17-1d7748809f0d",
                     "path": "<Mouse>/leftButton",
-                    "interactions": "Hold",
+                    "interactions": "Press(pressPoint=0.9)",
                     "processors": "",
                     "groups": "Keyboard&Mouse",
                     "action": "Start Selecting",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "a31fd9b4-fbf6-4417-bfd3-aeb5b814f868",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "SelectUnit",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
