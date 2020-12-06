@@ -7,14 +7,18 @@ using UnityEngine.AI;
 
 namespace Assets.Scripts.Units
 {
-    [RequireComponent(typeof(OrderableObject), typeof(FractionMember))]
+    [RequireComponent(typeof(OrderableObject), typeof(FractionMember), typeof(DamageSystem))]
     public class Unit : MonoBehaviour
     {
         public float reachDistance { get; protected set; }
+
+        public float MaxHp;
         
         public NavMeshAgent agent { get; protected set; }
         public FractionMember fractionMember { get; protected set; }
         public OrderableObject orderableObject { get; private set; }
+
+        public DamageSystem damageSystem { get; private set; }
 
         private void Start()
         {
@@ -30,6 +34,9 @@ namespace Assets.Scripts.Units
             orderableObject = GetComponent<OrderableObject>();
             fractionMember = GetComponent<FractionMember>();
             agent = GetComponent<NavMeshAgent>();
+            damageSystem = GetComponent<DamageSystem>();
+            damageSystem.SetMaxHpd(MaxHp);
+            damageSystem.SetHpToMax();
         }
 
 

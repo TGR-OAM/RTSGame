@@ -5,7 +5,7 @@ namespace Assets.Scripts.Orders
 {
     [Serializable]
     public class GameOrder{
-        public bool isPefrormed { get; private set; } = false;
+        public bool isPefrorming { get; private set; } = false;
         public GameObject ObjectToOrder;
 
         public GameOrder(GameObject ObjectToOrder)
@@ -15,7 +15,7 @@ namespace Assets.Scripts.Orders
 
         public virtual void StartOrder()
         {
-            isPefrormed = true;
+            isPefrorming = true;
         }
 
         public virtual void UpdateOrder()
@@ -23,7 +23,7 @@ namespace Assets.Scripts.Orders
 
         public virtual void StopOrder()
         {
-            isPefrormed = false;
+            isPefrorming = false;
         }
     }
 }

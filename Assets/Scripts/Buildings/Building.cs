@@ -7,18 +7,21 @@ using UnityEngine;
 
 namespace Assets.Scripts.Buildings
 {
-    [RequireComponent(typeof(Collider), typeof(OrderableObject))]
+    [RequireComponent(typeof(Collider), typeof(OrderableObject),typeof(DamageSystem))]
     public class Building : MonoBehaviour
     {
         public HexGrid hexGrid;
         public Material Materials;
         public Renderer[] MainRenderers;
+        public float MaxHp;
+        public float TimeUntilFullConstruction;
         public Vector2Int Size;
         public Vector3 HexCoords;
         
         public float timeUntilConstruction;
 
         public OrderableObject orderableObject { get; private set; }
+        public DamageSystem damageSystem { get; private set; }
 
         private void Start()
         {
@@ -78,6 +81,8 @@ namespace Assets.Scripts.Buildings
         protected void BaseBuildingInitialization()
         {
             orderableObject = this.GetComponent<OrderableObject>();
+            damageSystem = this.GetComponent<DamageSystem>();
+            damageSystem.SetMaxHpd(MaxHp);
         }
     }
 }

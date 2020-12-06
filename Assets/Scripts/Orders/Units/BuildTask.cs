@@ -1,5 +1,6 @@
 ﻿using Assets.Scripts.Units;
 using Assets.Scripts.Buildings;
+using Assets.Scripts.UnitsControlScripts;
 using UnityEngine;
 
 namespace Assets.Scripts.Orders.Units
@@ -7,51 +8,51 @@ namespace Assets.Scripts.Orders.Units
     public class BuildTask : GameOrder
     {
         private Vector3 destination;
-        private Building buildingToBuild;
+        private DamageSystem buildingDamageSystem;
 
-        private Unit UnitToOrder;
+        private float TimeUntilFullConstruction;
         
-        private bool isBuilding = false;
-
-        public BuildTask(Vector3 destination,Building buildingToBuild,GameObject ObjectToOrder) : base(ObjectToOrder)
+        private Unit unitToOrder;
+        
+        public BuildTask(Vector3 destination,Building buildingToBuild, GameObject ObjectToOrder) : base(ObjectToOrder)
         {
             this.destination = destination;
-            this.buildingToBuild = buildingToBuild;
+            this.buildingDamageSystem = buildingToBuild.damageSystem;
+            this.TimeUntilFullConstruction = buildingToBuild.TimeUntilFullConstruction;
         }
 
         public override void StartOrder()
         {
-            base.StartOrder();
-
             if (ObjectToOrder.TryGetComponent(typeof(Unit), out Component component))
             {
-                UnitToOrder = component as Unit;
-                UnitToOrder.agent.SetDestination(destination);
+                base.StartOrder();
+                
+                unitToOrder = component as Unit;
+                unitToOrder.agent.SetDestination(destination);
             }
         }
 
         public override void UpdateOrder()
         {
-            if (UnitToOrder != null)
+            if (unitToOrder != null)
             {
-                if (buildingToBuild == null) StopOrder();
-                if (buildingToBuild.timeUntilConstruction <= 0) StopOrder();
-                if (UnitToOrder.isNearToDestination(destination,UnitToOrder.reachDistance))
+                if (buildingDamageSystem == null) StopOrder();
+                if (unitToOrder.isNearToDestination(destination,unitToOrder.reachDistance))
                 {
-                    isBuilding = true;
-                    UnitToOrder.agent.isStopped = true;
+                    buildingDamageSystem.Heal(buildingDamageSystem.MaxHp/TimeUntilFullConstruction * Time.deltaTime);
+                    unitToOrder.agent.SetDestination(unitToOrder.transform.position);
                 }
-
-                if(isBuilding)
-                    buildingToBuild.timeUntilConstruction -= Time.deltaTime;
+                if (buildingDamageSystem.Hp >= buildingDamageSystem.MaxHp) StopOrder();
             }
         }
 
         public override void StopOrder()
         {
-            if (UnitToOrder != null)
+            base.StopOrder();
+            
+            if (unitToOrder != null)
             {
-                UnitToOrder.agent.isStopped = true;
+                unitToOrder.agent.SetDestination(unitToOrder.transform.position);
             }
         }
     }

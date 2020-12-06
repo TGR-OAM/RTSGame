@@ -26,7 +26,7 @@ namespace Assets.Scripts.UnitsControlScripts
         {
             if (currentOrder != null)
             {
-                if (currentOrder.isPefrormed)
+                if (currentOrder.isPefrorming)
                 {
                     currentOrder.UpdateOrder();
                 }
