@@ -15,10 +15,10 @@ namespace Assets.Scripts.Orders.Units
 
         public override void StartOrder()
         {
-            base.StartOrder();
             if (ObjectToOrder.TryGetComponent(typeof(Unit), out Component component))
             {
-                Warrior WarriorToOrder = component as Warrior;
+                base.StartOrder();
+                WarriorToOrder = component as Warrior;
                 WarriorToOrder.agent.SetDestination(target.transform.position);
             }
         }
@@ -33,9 +33,9 @@ namespace Assets.Scripts.Orders.Units
 
             if (WarriorToOrder != null)
             {
-                if (WarriorToOrder.isNearToDestination(target.transform.position, WarriorToOrder.reachDistance))
+                if (WarriorToOrder.isNearToDestination(target.transform.position, WarriorToOrder.attackDistance))
                 {
-                    StopOrder();
+                    Attack(WarriorToOrder);
                 }
             }
         }

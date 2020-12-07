@@ -6,13 +6,11 @@ namespace Assets.Scripts.CameraMovement
 {
     public class MovementByMinimap : MonoBehaviour
     {
-        Vector2 mousePositon = Mouse.current.position.ReadValue();
-        float relXCursor = (mousePositon.x - (this.transform.position.x - this.GetComponent<RectTransform>().rect.width/2))/ this.GetComponent<RectTransform>().rect.width * hexGrid.MapData.widthInUnits;
-        float relYCursor = (mousePositon.y - (this.transform.position.y - this.GetComponent<RectTransform>().rect.height / 2))/ this.GetComponent<RectTransform>().rect.height * hexGrid.MapData.heightInUnits;
         public HexGrid hexGrid;
 
         public void ClickedOnMiniMap()
         {
+            Vector2 mousePositon = Mouse.current.position.ReadValue();
             float relXCursor = (Input.mousePosition.x - (this.transform.position.x - this.GetComponent<RectTransform>().rect.width/2))/ this.GetComponent<RectTransform>().rect.width * hexGrid.MapData.widthInUnits;
             float relYCursor = (Input.mousePosition.y - (this.transform.position.y - this.GetComponent<RectTransform>().rect.height / 2))/ this.GetComponent<RectTransform>().rect.height * hexGrid.MapData.heightInUnits;
 
