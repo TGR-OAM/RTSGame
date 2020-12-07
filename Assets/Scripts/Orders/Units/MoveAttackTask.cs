@@ -17,9 +17,10 @@ namespace Assets.Scripts.Orders.Units
 
         public override void StartOrder()
         {
-            base.StartOrder();
+            
             if (ObjectToOrder.TryGetComponent(typeof(Warrior), out Component component))
             {
+                base.StartOrder();
                 Warrior unit = component as Warrior;
                 UnitToOrder = unit;
                 unit.agent.SetDestination(destination);
@@ -40,8 +41,9 @@ namespace Assets.Scripts.Orders.Units
                     GameObject bestTarget = UpdateTarget(UnitToOrder);
                     if (bestTarget != null)
                     {
-                        UnitToOrder.agent.SetDestination(bestTarget.transform.position);
                         target = bestTarget;
+                        UnitToOrder.agent.SetDestination(bestTarget.transform.position);
+                        
                     }
                     else
                     {
@@ -51,7 +53,7 @@ namespace Assets.Scripts.Orders.Units
                         }
                     }
                 }
-                else if (UnitToOrder.isNearToDestination(destination,UnitToOrder.attackDistance))
+                else if (UnitToOrder.isNearToDestination(target.transform.position,UnitToOrder.attackDistance))
                 {
                     Attack(UnitToOrder);
                 }
