@@ -6,28 +6,12 @@
             "id": "5ad74341-00e4-436f-a666-ebaf251b5a70",
             "actions": [
                 {
-                    "name": "Stop selecting",
-                    "type": "Button",
-                    "id": "37e3e097-00af-47a7-84fc-b130dddc995a",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": ""
-                },
-                {
-                    "name": "Give order to units",
+                    "name": "GiveOrderToUnit",
                     "type": "Button",
                     "id": "42e4d0a5-3612-4538-a0ba-db3c93caf546",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
-                },
-                {
-                    "name": "Start Selecting",
-                    "type": "Button",
-                    "id": "a960c0e9-5529-4df0-baaf-cea4586cc601",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "Press"
                 },
                 {
                     "name": "SelectUnit",
@@ -36,20 +20,17 @@
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "Press"
+                },
+                {
+                    "name": "APressed",
+                    "type": "Button",
+                    "id": "b2b93f13-0fa1-4b37-b178-7ac2a3a740d5",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "Press"
                 }
             ],
             "bindings": [
-                {
-                    "name": "",
-                    "id": "85aaee94-5fb5-41a7-af35-f430067111e8",
-                    "path": "<Mouse>/leftButton",
-                    "interactions": "Press(pressPoint=0.9,behavior=1)",
-                    "processors": "",
-                    "groups": "Keyboard&Mouse",
-                    "action": "Stop selecting",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
                 {
                     "name": "",
                     "id": "7d9ae7b5-c21d-446d-b83a-dc7dfa76b8c3",
@@ -57,18 +38,7 @@
                     "interactions": "Press",
                     "processors": "",
                     "groups": "Keyboard&Mouse",
-                    "action": "Give order to units",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "bc300df1-881a-41fa-ae17-1d7748809f0d",
-                    "path": "<Mouse>/leftButton",
-                    "interactions": "Press(pressPoint=0.9)",
-                    "processors": "",
-                    "groups": "Keyboard&Mouse",
-                    "action": "Start Selecting",
+                    "action": "GiveOrderToUnit",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -80,6 +50,17 @@
                     "processors": "",
                     "groups": "Keyboard&Mouse",
                     "action": "SelectUnit",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "47a39205-9371-4488-b40a-4c973ec83a0f",
+                    "path": "<Keyboard>/a",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "APressed",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

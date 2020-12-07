@@ -51,6 +51,7 @@ namespace Assets.Scripts.UnitsControlScripts
 
             playerInput.actions.FindActionMap("Player").FindAction("SelectUnit").started += _ => SelectUnits();
             playerInput.actions.FindActionMap("Player").FindAction("SelectUnit").canceled += _ => ReleaseSelectionBox();
+            playerInput.actions.FindActionMap("Player").FindAction("GiveOrderToUnit").performed += _ => GiveOrderToUnits();
         }
 
         private void Update()
@@ -93,7 +94,14 @@ namespace Assets.Scripts.UnitsControlScripts
 
         public void GiveOrderToUnits()
         {
-            orderGiver.GiveOrder(units.ToArray(), OrderType.None);
+            if (playerInput.actions.FindActionMap("Player").FindAction("APressed").ReadValue<float>() >=.5f)
+            {
+                orderGiver.GiveOrder(units.ToArray(), OrderType.MoveAttack);
+            }
+            else
+            {
+                orderGiver.GiveOrder(units.ToArray(), OrderType.None);
+            }
         }
 
         public void SelectUnits()
