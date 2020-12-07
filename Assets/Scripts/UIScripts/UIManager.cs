@@ -1,10 +1,11 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
+using Assets.Scripts.HexWorldinterpretation;
 using UnityEngine;
 
-public class UIManager : MonoBehaviour
+namespace Assets.Scripts.UIScripts
 {
-    public HexGrid hexGrid;
+    public class UIManager : MonoBehaviour
+    {
+        public HexGrid hexGrid;
 
+    }
 }

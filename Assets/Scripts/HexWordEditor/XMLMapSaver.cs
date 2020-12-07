@@ -1,12 +1,8 @@
-﻿using System;
-using System.Xml.Linq;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Xml.Linq;
 using UnityEngine;
 using UnityEditor;
 using System.Globalization;
+using Assets.Scripts.HexWorldinterpretation;
 
 namespace Assets.Scripts.HexWordEditor
 {    

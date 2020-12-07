@@ -1,18 +1,36 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
+using UnityEngine.Serialization;
 
-public class DamageSystem : MonoBehaviour
+namespace Assets.Scripts.UnitsControlScripts
 {
-    [SerializeField]
-    private float hp;
-
-    public void TakeDamage(float value)
+    public class DamageSystem : MonoBehaviour
     {
-        hp -= value;
-        if (hp <= 0)
+        public float Hp { get; private set; }
+        public float MaxHp{ get; private set; }
+
+        public void TakeDamage(float value)
         {
-            Destroy(gameObject);
+            Hp -= value;
+            if (Hp < 0)
+            {
+                Destroy(gameObject);
+            }
         }
+        
+        public void Heal(float value)
+        {
+            Hp = Mathf.Clamp(Hp + value, 0, MaxHp);
+        }
+
+        public void SetMaxHpd(float MaxHp)
+        {
+            this.MaxHp = MaxHp;
+        }
+
+        public void SetHpToMax()
+        {
+            Hp = MaxHp;
+        }
+        
     }
 }

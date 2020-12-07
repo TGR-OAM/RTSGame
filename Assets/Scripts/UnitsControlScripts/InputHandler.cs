@@ -3,23 +3,25 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 
-public class InputHandler : MonoBehaviour
+namespace Assets.Scripts.UnitsControlScripts
 {
-    private enum HandlerState
+    public class InputHandler : MonoBehaviour
     {
-        Idle,
-        Building,
-        Ordering
-    }
-    [SerializeField]
-    private HandlerState currentState = HandlerState.Idle;
-    [SerializeField]
-    private HexGrid hexGrid;
+        private enum HandlerState
+        {
+            Idle,
+            Building,
+            Ordering
+        }
+        [SerializeField]
+        private HandlerState currentState = HandlerState.Idle;
+        [SerializeField]
+        private HexGrid hexGrid;
 
-    [Header("UI properties")]
-    [SerializeField]
-    private RectTransform selectionBox;
-    private Vector2 startPos;
+        [Header("UI properties")]
+        [SerializeField]
+        private RectTransform selectionBox;
+        private Vector2 startPos;
 
     [Header("Unit control properties")]
     [SerializeField]
@@ -102,7 +104,6 @@ public class InputHandler : MonoBehaviour
             startPos = mousePosition;
             print("huy" + Time.time);
         }
-    }
 
     public void ReleaseSelectionBox()
     {
@@ -114,11 +115,20 @@ public class InputHandler : MonoBehaviour
         List<GameObject> fullUnitList = lister.units;
         foreach (GameObject unit in fullUnitList)
         {
-            Vector3 screenPos = Camera.main.WorldToScreenPoint(unit.transform.position);
+            selectionBox.gameObject.SetActive(false);
 
-            if (screenPos.x > min.x && screenPos.x < max.x && screenPos.y > min.y && screenPos.y < max.y && unit.GetComponent<FractionMember>().fraction == fraction)
+            Vector2 min = selectionBox.anchoredPosition - (selectionBox.sizeDelta / 2);
+            Vector2 max = selectionBox.anchoredPosition + (selectionBox.sizeDelta / 2);
+            units.Clear();
+            List<GameObject> guys = lister.units;
+            foreach (GameObject unit in guys)
             {
-                units.Add(unit.GetComponent<Unit>());
+                Vector3 screenPos = Camera.main.WorldToScreenPoint(unit.transform.position);
+
+                if (screenPos.x > min.x && screenPos.x < max.x && screenPos.y > min.y && screenPos.y < max.y && unit.GetComponent<FractionMember>().fraction == fraction)
+                {
+                    units.Add(unit.GetComponent<Unit>());
+                }
             }
         }
         print("not huy");
@@ -130,9 +140,9 @@ public class InputHandler : MonoBehaviour
         float width = curMousePos.x - startPos.x;
         float height = curMousePos.y - startPos.y;
 
-        selectionBox.sizeDelta = new Vector2(Mathf.Abs(width), Mathf.Abs(height));
-        selectionBox.anchoredPosition = startPos + new Vector2(width / 2, height / 2);
-    }
+            selectionBox.sizeDelta = new Vector2(Mathf.Abs(width), Mathf.Abs(height));
+            selectionBox.anchoredPosition = startPos + new Vector2(width / 2, height / 2);
+        }
 
     public void ChangeState(int newState)
     {
