@@ -19,6 +19,7 @@ namespace Assets.Scripts.Orders.Units
             {
                 base.StartOrder();
                 WarriorToOrder = component as Warrior;
+                WarriorToOrder.agent.isStopped = false;
                 WarriorToOrder.agent.SetDestination(target.transform.position);
             }
         }
@@ -39,24 +40,24 @@ namespace Assets.Scripts.Orders.Units
                 }
             }
         }
-
+    
         public override void StopOrder()
         {
             base.StopOrder();
             if (WarriorToOrder!= null)
             {
-                WarriorToOrder.agent.SetDestination(WarriorToOrder.transform.position);
+                WarriorToOrder.agent.isStopped = true;
             }
         }
-
+    
         #region Additional methods
-
+    
         private void Attack(Warrior thisUnit)
         {
             thisUnit.transform.LookAt(target.transform.position);
             target.GetComponent<DamageSystem>().TakeDamage(thisUnit.damagePerSecond * Time.deltaTime);
         }
-
+    
         #endregion
     }
 }

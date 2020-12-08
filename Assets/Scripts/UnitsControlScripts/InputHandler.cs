@@ -1,6 +1,11 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Linq;
 using Assets.Scripts.Buildings;
 using Assets.Scripts.HexWorldinterpretation;
+using Assets.Scripts.Orders.Units;
+using Assets.Scripts.UIScripts;
 using Assets.Scripts.Units;
 using Assets.Scripts.UnitsControlScripts.UnitsControlScripts;
 using UnityEngine;
@@ -21,8 +26,9 @@ namespace Assets.Scripts.UnitsControlScripts
         [SerializeField] private HandlerState currentState = HandlerState.Idle;
         [SerializeField] private HexGrid hexGrid;
 
-        [Header("UI properties")] [SerializeField]
-        private RectTransform selectionBox;
+        [Header("UI properties")] 
+        [SerializeField] private RectTransform selectionBox;
+        [SerializeField] private UIManager uiManager;
 
         private Vector2 startPos;
 
@@ -33,12 +39,18 @@ namespace Assets.Scripts.UnitsControlScripts
         [SerializeField] private UnitLister lister;
         private bool isSelecting = false;
 
-        [Header("Building properties")] private Builder builder;
-        private bool isBuilding = false;
+        [Header("Building")] 
+        [Description("If state is building")]
+        private Builder builder;
+        [SerializeField]private bool isBuilding = false;
 
-        [Header("Input property")] [SerializeField]
-        private PlayerInput playerInput;
+        [Header("Input property")]
+        [SerializeField] private PlayerInput playerInput;
 
+        [Header("Ordering")]
+        [SerializeField] private Type CurrentOrder;
+        
+        [Header("General references")]
         [SerializeField] private OrderGiver orderGiver;
 
 
@@ -49,9 +61,13 @@ namespace Assets.Scripts.UnitsControlScripts
             orderGiver = new OrderGiver(hexGrid);
             builder = new Builder(hexGrid);
 
-            playerInput.actions.FindActionMap("Player").FindAction("SelectUnit").started += _ => SelectUnits();
-            playerInput.actions.FindActionMap("Player").FindAction("SelectUnit").canceled += _ => ReleaseSelectionBox();
-            playerInput.actions.FindActionMap("Player").FindAction("GiveOrderToUnit").performed += _ => GiveOrderToUnits();
+            
+            InputActionMap PlayerActionMap = playerInput.actions.FindActionMap("Player");
+            
+            PlayerActionMap.FindAction("SelectUnit").started += _ => SelectUnits();
+            PlayerActionMap.FindAction("SelectUnit").canceled += _ => ReleaseSelectionBox();
+            PlayerActionMap.FindAction("GiveOrderToUnit").performed += _ => GiveOrderToUnits();
+            PlayerActionMap.FindAction("SetIdleState").performed += _ => ReturnToIdleState();
         }
 
         private void Update()
@@ -65,7 +81,7 @@ namespace Assets.Scripts.UnitsControlScripts
                     {
                         UpdateSelectionBox(mousePosition);
                     }
-                    else if (selectionBox.gameObject.activeInHierarchy)
+                    else if (selectionBox.gameObject.activeSelf)
                     {
                         selectionBox.gameObject.SetActive(false);
                     }
@@ -81,12 +97,18 @@ namespace Assets.Scripts.UnitsControlScripts
             }
         }
 
+        public void SetOrderingState(Type orderType)
+        {
+            CurrentOrder = orderType;
+            currentState = HandlerState.Ordering;
+        }
+        
         private void OperateBuildingPlacing()
         {
             builder.Update();
         }
 
-        private void ReturnToIdleState()
+        public void ReturnToIdleState()
         {
             builder.StopPlacingBuilding();
             currentState = HandlerState.Idle;
@@ -94,13 +116,21 @@ namespace Assets.Scripts.UnitsControlScripts
 
         public void GiveOrderToUnits()
         {
-            if (playerInput.actions.FindActionMap("Player").FindAction("APressed").ReadValue<float>() >=.5f)
+            if (currentState == HandlerState.Idle)
             {
-                orderGiver.GiveOrder(units.ToArray(), OrderType.MoveAttack);
+                if (playerInput.actions.FindActionMap("Player").FindAction("APressed").ReadValue<float>() >= .5f)
+                {
+                    orderGiver.GiveOrder(units.ToArray(), typeof(MoveAttackTask));
+                }
+                else
+                {
+                    orderGiver.GiveOrder(units.ToArray(), null, true);
+                }
             }
-            else
+            else if (currentState == HandlerState.Ordering)
             {
-                orderGiver.GiveOrder(units.ToArray(), OrderType.None);
+                orderGiver.GiveOrder(units.ToArray(), CurrentOrder);
+                ReturnToIdleState();
             }
         }
 
@@ -116,24 +146,28 @@ namespace Assets.Scripts.UnitsControlScripts
 
         public void ReleaseSelectionBox()
         {
-            selectionBox.gameObject.SetActive(false);
-
-            Vector2 min = selectionBox.anchoredPosition - (selectionBox.sizeDelta / 2);
-            Vector2 max = selectionBox.anchoredPosition + (selectionBox.sizeDelta / 2);
-            units.Clear();
-            selectionBox.gameObject.SetActive(false);
-            units.Clear();
-            List<GameObject> guys = lister.units;
-            foreach (GameObject unit in guys)
+            if (currentState == HandlerState.Idle && isSelecting)
             {
-                Vector3 screenPos = Camera.main.WorldToScreenPoint(unit.transform.position);
+                Vector2 min = selectionBox.anchoredPosition - (selectionBox.sizeDelta / 2);
+                Vector2 max = selectionBox.anchoredPosition + (selectionBox.sizeDelta / 2);
+                units.Clear();
+                selectionBox.gameObject.SetActive(false);
 
-                if (screenPos.x > min.x && screenPos.x < max.x && screenPos.y > min.y && screenPos.y < max.y &&
-                    unit.GetComponent<FractionMember>().fraction == fraction)
+                List<GameObject> AllUnits = lister.units;
+                foreach (GameObject unit in AllUnits)
                 {
-                    units.Add(unit.GetComponent<Unit>());
+                    Vector3 screenPos = Camera.main.WorldToScreenPoint(unit.transform.position);
+
+                    if (screenPos.x > min.x && screenPos.x < max.x && screenPos.y > min.y && screenPos.y < max.y &&
+                        unit.GetComponent<FractionMember>().fraction == fraction)
+                    {
+                        units.Add(unit.GetComponent<Unit>());
+                    }
+
+                    isSelecting = false;
                 }
-                isSelecting = false;
+
+                uiManager.UpdateOrderButtonsInUI(units.Select(x => x.orderableObject).ToList());
             }
         }
 
