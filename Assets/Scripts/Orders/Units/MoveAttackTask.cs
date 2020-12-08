@@ -23,6 +23,7 @@ namespace Assets.Scripts.Orders.Units
                 base.StartOrder();
                 Warrior unit = component as Warrior;
                 UnitToOrder = unit;
+                unit.agent.isStopped = false;
                 unit.agent.SetDestination(destination);
             }
         }
@@ -67,7 +68,7 @@ namespace Assets.Scripts.Orders.Units
             if (ObjectToOrder.TryGetComponent(typeof(Unit), out Component component))
             {
                 Unit unit = component as Unit;
-                unit.agent.SetDestination(unit.transform.position);
+                unit.agent.isStopped = true;
             }
         }
 

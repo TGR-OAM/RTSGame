@@ -1,8 +1,11 @@
-﻿using Assets.Scripts.Units;
+﻿using System.ComponentModel;
+using Assets.Scripts.Units;
 using UnityEngine;
+using Component = UnityEngine.Component;
 
 namespace Assets.Scripts.Orders.Units
 {
+    [Description("some text")]
     public class MoveTask : GameOrder
     {
         private Vector3 destination;
@@ -15,12 +18,12 @@ namespace Assets.Scripts.Orders.Units
 
         public override void StartOrder()
         {
-            base.StartOrder();
-
             if (ObjectToOrder.TryGetComponent(typeof(Unit), out Component component))
             {
+                base.StartOrder();
                 Unit thisUnit = component as Unit;
                 UnitToOrder = thisUnit;
+                UnitToOrder.agent.isStopped = false;
                 thisUnit.agent.SetDestination(destination);
             }
         }
@@ -42,7 +45,7 @@ namespace Assets.Scripts.Orders.Units
             
             if (UnitToOrder != null)
             {
-                UnitToOrder.agent.SetDestination(UnitToOrder.transform.position);
+                UnitToOrder.agent.isStopped = true;
             }
         }
     }

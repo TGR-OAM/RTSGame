@@ -28,6 +28,7 @@ namespace Assets.Scripts.Orders.Units
                 base.StartOrder();
                 
                 unitToOrder = component as Unit;
+                unitToOrder.agent.isStopped = false;
                 unitToOrder.agent.SetDestination(destination);
             }
         }
@@ -52,6 +53,7 @@ namespace Assets.Scripts.Orders.Units
             
             if (unitToOrder != null)
             {
+                unitToOrder.agent.isStopped = true;
                 unitToOrder.agent.SetDestination(unitToOrder.transform.position);
             }
         }

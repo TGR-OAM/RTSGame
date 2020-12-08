@@ -1,10 +1,12 @@
-﻿using System.ComponentModel.Design;
+﻿using System;
+using System.ComponentModel.Design;
 using Assets.Scripts.HexWorldinterpretation;
 using Assets.Scripts.Orders.Units;
 using Assets.Scripts.Units;
 using UnityEditor.Animations;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using Random = UnityEngine.Random;
 
 namespace Assets.Scripts.UnitsControlScripts
 {
@@ -17,12 +19,12 @@ namespace Assets.Scripts.UnitsControlScripts
             hexGrid = grid;
         }
 
-        public void GiveOrder(Unit[] units, OrderType orderType)
+        public void GiveOrder(Unit[] units, Type orderType, bool isIdleState = false)
         {
-            
+
             Vector2 mousePos = Mouse.current.position.ReadValue();
-            
-            if (orderType == OrderType.None)
+
+            if (isIdleState)
             {
                 RaycastHit hit;
                 if (Physics.Raycast(Camera.main.ScreenPointToRay(mousePos), out hit, 100f, 1 << 8))
@@ -41,14 +43,16 @@ namespace Assets.Scripts.UnitsControlScripts
                     {
                         foreach (Unit u in units)
                         {
-                            AttackTask t = new AttackTask(g, u.gameObject);
-                            u.orderableObject.GiveOrder(t);
+                            if (u.fractionMember != f)
+                            {
+                                AttackTask t = new AttackTask(g, u.gameObject);
+                                u.orderableObject.GiveOrder(t);
+                            }
                         }
                     }
                 }
                 else
                 {
-                    
                     if (hexGrid.TryRaycastHexGrid(Camera.main.ScreenPointToRay(mousePos),
                         out Vector3 output))
                     {
@@ -61,41 +65,64 @@ namespace Assets.Scripts.UnitsControlScripts
                 }
 
             }
-
-            if (orderType == OrderType.MoveAttack)
+            else
             {
-                if (hexGrid.TryRaycastHexGrid(Camera.main.ScreenPointToRay(mousePos), out Vector3 output))
+                if (orderType == typeof(MoveAttackTask))
                 {
-                    foreach (Unit u in units)
+                    RaycastHit hit;
+                    if (Physics.Raycast(Camera.main.ScreenPointToRay(mousePos), out hit, 100f, 1 << 8))
                     {
-                        MoveAttackTask o = new MoveAttackTask(GetDestinationWithOffset(output, units.Length), u.gameObject);
-                        u.orderableObject.GiveOrder(o);
+                        foreach (Unit u in units)
+                        {
+                            MoveAttackTask o = new MoveAttackTask(GetDestinationWithOffset(hit.point, units.Length),
+                                u.gameObject);
+                            u.orderableObject.GiveOrder(o);
+                        }
+                    }
+                    else
+                    {
+                        if (hexGrid.TryRaycastHexGrid(Camera.main.ScreenPointToRay(mousePos), out Vector3 output))
+                        {
+                            foreach (Unit u in units)
+                            {
+                                MoveAttackTask o = new MoveAttackTask(GetDestinationWithOffset(output, units.Length),
+                                    u.gameObject);
+                                u.orderableObject.GiveOrder(o);
+                            }
+                        }
                     }
                 }
-            }
 
-
-            if (orderType == OrderType.MoveAttack)
-            {
-                RaycastHit hit;
-                if (Physics.Raycast(Camera.main.ScreenPointToRay(mousePos), out hit, 100f, 1 << 8))
-                {
-                    foreach (Unit u in units)
-                    {
-                        MoveAttackTask o = new MoveAttackTask(GetDestinationWithOffset(hit.point, units.Length), u.gameObject);
-                        u.orderableObject.GiveOrder(o);
-                    }
-                }
-                else
+                if (orderType == typeof(MoveTask))
                 {
                     if (hexGrid.TryRaycastHexGrid(Camera.main.ScreenPointToRay(mousePos), out Vector3 output))
                     {
                         foreach (Unit u in units)
                         {
-                            MoveAttackTask o = new MoveAttackTask(GetDestinationWithOffset(output, units.Length), u.gameObject);
+                            MoveAttackTask o = new MoveAttackTask(GetDestinationWithOffset(output, units.Length),
+                                u.gameObject);
                             u.orderableObject.GiveOrder(o);
                         }
+                    }
+                }
 
+                if (orderType == typeof(AttackTask))
+                {
+                    if (Physics.Raycast(Camera.main.ScreenPointToRay(mousePos), out RaycastHit hit, 100f, 1 << 8))
+                    {
+                        GameObject g = hit.collider.gameObject;
+                        FractionMember f = g.GetComponent<FractionMember>();
+                        if (g.GetComponent<DamageSystem>() != null)
+                        {
+                            foreach (Unit u in units)
+                            {
+                                if (u.fractionMember != f)
+                                {
+                                    AttackTask t = new AttackTask(g, u.gameObject);
+                                    u.orderableObject.GiveOrder(t);
+                                }
+                            }
+                        }
                     }
                 }
             }
@@ -107,13 +134,5 @@ namespace Assets.Scripts.UnitsControlScripts
             return destination + new Vector3(Random.Range(-offset, offset), 0, Random.Range(-offset, offset));
         }
         
-    }
-
-    public enum OrderType
-    {
-        Move,
-        Attack,
-        MoveAttack,
-        None
     }
 }
