@@ -1,6 +1,8 @@
-﻿using Assets.Scripts.HexWorldinterpretation;
+﻿using System.ComponentModel.Design;
+using Assets.Scripts.HexWorldinterpretation;
 using Assets.Scripts.Orders.Units;
 using Assets.Scripts.Units;
+using UnityEditor.Animations;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -31,11 +33,7 @@ namespace Assets.Scripts.UnitsControlScripts
                     {
                         foreach (Unit u in units)
                         {
-                            float offset = units.Length * 0.21f;
-                            MoveTask o =
-                                new MoveTask(
-                                    hit.point + new Vector3(Random.Range(-offset, offset), 0,
-                                        Random.Range(-offset, offset)), u.gameObject);
+                            MoveTask o = new MoveTask(GetDestinationWithOffset(hit.point, units.Length), u.gameObject);
                             u.orderableObject.GiveOrder(o);
                         }
                     }
@@ -56,11 +54,7 @@ namespace Assets.Scripts.UnitsControlScripts
                     {
                         foreach (Unit u in units)
                         {
-                            float offset = units.Length * 0.21f;
-                            MoveTask o =
-                                new MoveTask(
-                                    output + new Vector3(Random.Range(-offset, offset), 0,
-                                        Random.Range(-offset, offset)), u.gameObject);
+                            MoveTask o = new MoveTask(GetDestinationWithOffset(output, units.Length), u.gameObject);
                             u.orderableObject.GiveOrder(o);
                         }
                     }
@@ -74,10 +68,7 @@ namespace Assets.Scripts.UnitsControlScripts
                 {
                     foreach (Unit u in units)
                     {
-                        float offset = units.Length * 0.21f;
-                        MoveAttackTask o = new MoveAttackTask(
-                            output + new Vector3(Random.Range(-offset, offset), 0,
-                                Random.Range(-offset, offset)), u.gameObject);
+                        MoveAttackTask o = new MoveAttackTask(GetDestinationWithOffset(output, units.Length), u.gameObject);
                         u.orderableObject.GiveOrder(o);
                     }
                 }
@@ -91,10 +82,7 @@ namespace Assets.Scripts.UnitsControlScripts
                 {
                     foreach (Unit u in units)
                     {
-                        float offset = units.Length * 0.21f;
-                        MoveAttackTask o = new MoveAttackTask(
-                            hit.point + new Vector3(Random.Range(-offset, offset), 0, Random.Range(-offset, offset)),
-                            u.gameObject);
+                        MoveAttackTask o = new MoveAttackTask(GetDestinationWithOffset(hit.point, units.Length), u.gameObject);
                         u.orderableObject.GiveOrder(o);
                     }
                 }
@@ -104,10 +92,7 @@ namespace Assets.Scripts.UnitsControlScripts
                     {
                         foreach (Unit u in units)
                         {
-                            float offset = units.Length * 0.21f;
-                            MoveAttackTask o = new MoveAttackTask(
-                                output + new Vector3(Random.Range(-offset, offset), 0, Random.Range(-offset, offset)),
-                                u.gameObject);
+                            MoveAttackTask o = new MoveAttackTask(GetDestinationWithOffset(output, units.Length), u.gameObject);
                             u.orderableObject.GiveOrder(o);
                         }
 
@@ -115,6 +100,13 @@ namespace Assets.Scripts.UnitsControlScripts
                 }
             }
         }
+
+        private Vector3 GetDestinationWithOffset(Vector3 destination, int numOfUnits)
+        {
+            float offset = numOfUnits * 0.21f;
+            return destination + new Vector3(Random.Range(-offset, offset), 0, Random.Range(-offset, offset));
+        }
+        
     }
 
     public enum OrderType
