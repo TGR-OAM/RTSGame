@@ -6,7 +6,7 @@ namespace Assets.Scripts.UnitsControlScripts
     public class DamageSystem : MonoBehaviour
     {
         public float Hp;
-        public float MaxHp{ get; private set; }
+        public float MaxHp;
 
         public void TakeDamage(float value)
         {

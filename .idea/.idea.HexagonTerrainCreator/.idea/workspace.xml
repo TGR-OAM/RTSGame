@@ -2,25 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="17ebf66f-4afe-4731-9078-d61fb3995c9d" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.HexagonTerrainCreator/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.HexagonTerrainCreator/.idea/contentModel.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.HexagonTerrainCreator/.idea/indexLayout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.HexagonTerrainCreator/.idea/indexLayout.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.HexagonTerrainCreator/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.HexagonTerrainCreator/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Materials/red.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Materials/red.mat" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/MainScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/MainScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Building.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Building/Builder.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Building/Builder.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Buildings/Builder.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Buildings/Builder.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/CameraMovement/MovementByMinimap.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/CameraMovement/MovementByMinimap.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Orders/Units/AttackTask.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Orders/Units/AttackTask.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PlayerControl/PlayerBuilder.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PlayerControl/PlayerBuilder.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UIScripts/OrderButtonsSetter.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UIScripts/OrderButtonsSetter.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UIScripts/UIManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UIScripts/UIManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Buildings/Building.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Buildings/Building.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Orders/Units/BuildTask.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Orders/Units/BuildTask.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Units/UnitBuilder.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Units/UnitBuilder.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/UnitsControlScripts/DamageSystem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UnitsControlScripts/DamageSystem.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/UnitsControlScripts/InputHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UnitsControlScripts/InputHandler.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UnitsControlScripts/OrderGiver.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UnitsControlScripts/OrderGiver.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,17 +27,18 @@
     <changedPaths>
       <option value="$PROJECT_DIR$/Assets/Scripts/Building/Builder.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Orders/Units/MoveAttackTask.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Orders/Units/BuildTask.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Orders/Units/MoveTask.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/CameraMovement/MovementByMinimap.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/UnitsControlScripts/OrderGiver.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Units/UnitBuilder.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/UIScripts/UIManager.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Orders/Units/AttackTask.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/UIScripts/OrderButtonsSetter.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Buildings/Builder.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/UnitsControlScripts/InputHandler.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/UnitsControlScripts/DamageSystem.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Units/UnitBuilder.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Buildings/Building.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Orders/Units/BuildTask.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1lIISIM12q3GC48Z5aO5fthc7Rz" />
@@ -101,7 +90,7 @@
       <workItem from="1607278186500" duration="1500000" />
       <workItem from="1607358081425" duration="2831000" />
       <workItem from="1607449448209" duration="12073000" />
-      <workItem from="1607530000519" duration="3905000" />
+      <workItem from="1607530000519" duration="6340000" />
     </task>
     <servers />
   </component>

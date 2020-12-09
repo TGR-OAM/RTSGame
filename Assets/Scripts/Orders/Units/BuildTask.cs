@@ -7,16 +7,17 @@ namespace Assets.Scripts.Orders.Units
 {
     public class BuildTask : GameOrder
     {
-        private Vector3 destination;
         private DamageSystem buildingDamageSystem;
+        private Building BuildingToBuild;
 
         private float TimeUntilFullConstruction;
+        private float NearestDistance;
         
         private Unit unitToOrder;
         
-        public BuildTask(Vector3 destination,Building buildingToBuild, GameObject ObjectToOrder) : base(ObjectToOrder)
+        public BuildTask(Building buildingToBuild, GameObject ObjectToOrder) : base(ObjectToOrder)
         {
-            this.destination = destination;
+            this.BuildingToBuild = buildingToBuild;
             this.buildingDamageSystem = buildingToBuild.damageSystem;
             this.TimeUntilFullConstruction = buildingToBuild.TimeUntilFullConstruction;
         }
@@ -29,7 +30,9 @@ namespace Assets.Scripts.Orders.Units
                 
                 unitToOrder = component as Unit;
                 unitToOrder.agent.isStopped = false;
-                unitToOrder.agent.SetDestination(destination);
+                unitToOrder.agent.SetDestination(BuildingToBuild.ObjectCollider.bounds.center);
+
+                NearestDistance = BuildingToBuild.ObjectCollider.bounds.extents.magnitude + 1f;
             }
         }
 
@@ -38,7 +41,7 @@ namespace Assets.Scripts.Orders.Units
             if (unitToOrder != null)
             {
                 if (buildingDamageSystem == null) StopOrder();
-                if (unitToOrder.isNearToDestination(destination,unitToOrder.reachDistance))
+                if (unitToOrder.isNearToDestination(BuildingToBuild.ObjectCollider.bounds.center,NearestDistance))
                 {
                     buildingDamageSystem.Heal(buildingDamageSystem.MaxHp/TimeUntilFullConstruction * Time.deltaTime);
                     unitToOrder.agent.SetDestination(unitToOrder.transform.position);
@@ -54,7 +57,6 @@ namespace Assets.Scripts.Orders.Units
             if (unitToOrder != null)
             {
                 unitToOrder.agent.isStopped = true;
-                unitToOrder.agent.SetDestination(unitToOrder.transform.position);
             }
         }
     }

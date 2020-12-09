@@ -75,8 +75,8 @@ namespace Assets.Scripts.UnitsControlScripts
         private void Update()
         {
             mousePosition = Mouse.current.position.ReadValue();
-
             switch (currentState)
+
             {
                 case HandlerState.Idle:
                     if (isSelecting)
@@ -147,7 +147,7 @@ namespace Assets.Scripts.UnitsControlScripts
             }
             else if (currentState == HandlerState.Building)
             {
-                BuildTask buildTask = new BuildTask(builder.flyingBuilding.transform.position,builder.flyingBuilding,units[0].gameObject);
+                BuildTask buildTask = new BuildTask(builder.flyingBuilding,units[0].gameObject);
                 if (builder.TryPlaceFlyingBuilding())
                 {
                     units[0].orderableObject.GiveOrder(buildTask);

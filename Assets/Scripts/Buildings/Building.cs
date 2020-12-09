@@ -17,6 +17,7 @@ namespace Assets.Scripts.Buildings
         public float TimeUntilFullConstruction;
         public Vector2Int Size;
         public Vector3 HexCoords;
+        public Collider ObjectCollider;
         
         public float timeUntilConstruction;
 
@@ -82,6 +83,7 @@ namespace Assets.Scripts.Buildings
         {
             orderableObject = this.GetComponent<OrderableObject>();
             damageSystem = this.GetComponent<DamageSystem>();
+            ObjectCollider = this.GetComponent<Collider>();
             damageSystem.SetMaxHpd(MaxHp);
         }
     }

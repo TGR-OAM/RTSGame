@@ -567,7 +567,7 @@ MonoBehaviour:
   units: []
   lister: {fileID: 963194232}
   isBuilding: 0
-  TestPrefab: {fileID: 0}
+  TestPrefab: {fileID: 8205979929494484361, guid: d80e758dcddce1f489ef0f6a754cdb7a, type: 3}
   playerInput: {fileID: 181414837}
 --- !u!1 &221974591
 GameObject:

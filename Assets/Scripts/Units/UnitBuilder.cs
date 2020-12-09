@@ -12,7 +12,7 @@ namespace Assets.Scripts.Units
         private void Start()
         {
             BaseUnitInitialization();
-            
+
             orderableObject.SetPossibleOrderTypes(new List<Type>
                 {typeof(MoveTask), typeof(BuildTask)});
         }
