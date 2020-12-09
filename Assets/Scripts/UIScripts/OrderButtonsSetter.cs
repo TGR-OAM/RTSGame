@@ -17,20 +17,19 @@ public class OrderButtonsSetter : MonoBehaviour
     public void UpdateButtons(List<OrderableObject> orderableObjects)
     {
         if (CurrentOrders == null) CurrentOrders = new List<Button>();
-
+        
         CurrentOrders.ForEach(x => Destroy(x.gameObject));
         
         CurrentOrders = new List<Button>();
-
-        List<Type> OrderTypes = GetPossibleOrdersFromUnits(orderableObjects);
         
+        List<Type> OrderTypes = GetPossibleOrdersFromUnits(orderableObjects);
         foreach (Type type in OrderTypes)
         {
             Button ButtonToAdd = Instantiate(ButtonPrefab, this.transform);
             ButtonToAdd.GetComponentInChildren<Text>().text = type.ToString();
             ButtonToAdd.onClick.AddListener(delegate
             {
-                SetSetOrder(type);
+                SetOrder(type);
             });
             CurrentOrders.Add(ButtonToAdd);
         }
@@ -40,18 +39,20 @@ public class OrderButtonsSetter : MonoBehaviour
     {
         if (orderableObjects.Count != 0 && orderableObjects != null)
         {
-            List<Type> ordersType = orderableObjects[0].orderTypes;
-
+            List<Type> ordersType = new List<Type>();
+            ordersType.AddRange(orderableObjects[0].orderTypes);
             foreach (OrderableObject orderableObject in orderableObjects)
             {
-                foreach (Type type in ordersType)
+                for (int i = 0; i < ordersType.Count; i++)
                 {
-                    if (!orderableObject.orderTypes.Contains(type))
+                    if (!orderableObject.orderTypes.Contains(ordersType[i]))
                     {
-                        ordersType.Remove(type);
+                        ordersType.RemoveAt(i);
+                        i--;
                     }
 
                 }
+                Debug.Log(ordersType.Count);
             }
             return ordersType;
         }
@@ -61,9 +62,9 @@ public class OrderButtonsSetter : MonoBehaviour
         }
     }
 
-    public void SetSetOrder(Type orderType)
+    public void SetOrder(Type orderType)
     {
-        uiManager.inputHandler.SetOrderingState(orderType);
-        //Debug.Log(orderType);
+        uiManager.inputHandler.SetOrder(orderType);
+        Debug.Log(orderType);
     }
 }

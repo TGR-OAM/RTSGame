@@ -1,5 +1,6 @@
 using Assets.Scripts.HexWorldinterpretation;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 namespace Assets.Scripts.Buildings
 {
@@ -7,9 +8,9 @@ namespace Assets.Scripts.Buildings
     {
         public  HexGrid hexGrid;
 
-        private Building flyingBuilding;
+        public Building flyingBuilding;
 
-        public bool isMouseButtonPressed = false;
+        public bool isAvailable = false;
 
         public Builder(HexGrid hexGrid)
         {
@@ -36,27 +37,20 @@ namespace Assets.Scripts.Buildings
 
         public void Update()
         {
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            Ray ray = Camera.main.ScreenPointToRay(Mouse.current.position.ReadValue());
 
             if (hexGrid.TryRaycastHexGrid(ray, out Vector3 worldPosition) && flyingBuilding!=null)
             {
                 flyingBuilding.gameObject.SetActive(true);
                 Vector3 CoordsOfCenter = HexMetrics.CalcCenterCoordXZFromHexCoordXZ(HexMetrics.CalcHexCoordXZFromDefault(worldPosition, hexGrid.MapData.cellSize), hexGrid.MapData);
-                bool available = true;
 
-                available = IsPossibleToBuild(flyingBuilding, HexMetrics.CalcHexCoordXZFromDefault(CoordsOfCenter, hexGrid.MapData.cellSize));
+                isAvailable = IsPossibleToBuild(flyingBuilding, HexMetrics.CalcHexCoordXZFromDefault(CoordsOfCenter, hexGrid.MapData.cellSize));
 
                 #region syncing data with building
                 flyingBuilding.HexCoords = HexMetrics.CalcHexCoordXZFromDefault(CoordsOfCenter, hexGrid.MapData.cellSize);
                 flyingBuilding.transform.position = CoordsOfCenter;
-                flyingBuilding.SetTransparent(available);
+                flyingBuilding.SetTransparent(isAvailable);
                 #endregion
-
-                if (available && isMouseButtonPressed)
-                {
-                    Debug.Log(CoordsOfCenter);
-                    PlaceFlyingBuilding();
-                }
             }
         }
 
@@ -108,14 +102,19 @@ namespace Assets.Scripts.Buildings
             return true;
         }
 
-        private void PlaceFlyingBuilding()
+        public bool TryPlaceFlyingBuilding()
         {
-            flyingBuilding.SetNormal();
-            flyingBuilding.gameObject.GetComponentInChildren<Renderer>().material = flyingBuilding.Materials;
-            hexGrid.MapData.ConstructedBuildings.Add(flyingBuilding);
-            flyingBuilding.gameObject.layer = 9;
-            flyingBuilding = null;
-            StopPlacingBuilding();
+            if (isAvailable)
+            {
+                flyingBuilding.SetNormal();
+                flyingBuilding.gameObject.GetComponentInChildren<Renderer>().material = flyingBuilding.Materials;
+                hexGrid.MapData.ConstructedBuildings.Add(flyingBuilding);
+                flyingBuilding.gameObject.layer = 9;
+                flyingBuilding = null;
+                StopPlacingBuilding();
+            }
+
+            return isAvailable;
         }
     }
 }

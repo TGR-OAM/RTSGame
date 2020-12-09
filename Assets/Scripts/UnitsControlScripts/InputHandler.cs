@@ -26,8 +26,9 @@ namespace Assets.Scripts.UnitsControlScripts
         [SerializeField] private HandlerState currentState = HandlerState.Idle;
         [SerializeField] private HexGrid hexGrid;
 
-        [Header("UI properties")] 
-        [SerializeField] private RectTransform selectionBox;
+        [Header("UI properties")] [SerializeField]
+        private RectTransform selectionBox;
+
         [SerializeField] private UIManager uiManager;
 
         private Vector2 startPos;
@@ -39,10 +40,11 @@ namespace Assets.Scripts.UnitsControlScripts
         [SerializeField] private UnitLister lister;
         private bool isSelecting = false;
 
-        [Header("Building")] 
-        [Description("If state is building")]
+        [Header("Building")] [Description("If state is building")]
         private Builder builder;
-        [SerializeField]private bool isBuilding = false;
+
+        [SerializeField] private bool isBuilding = false;
+        [SerializeField] private Building TestPrefab;
 
         [Header("Input property")]
         [SerializeField] private PlayerInput playerInput;
@@ -88,19 +90,30 @@ namespace Assets.Scripts.UnitsControlScripts
 
                     break;
                 case HandlerState.Building:
-                    if (isBuilding)
-                    {
-                        OperateBuildingPlacing();
-                    }
+                    OperateBuildingPlacing();
 
                     break;
             }
         }
 
-        public void SetOrderingState(Type orderType)
+        public void SetOrder(Type orderType)
         {
-            CurrentOrder = orderType;
-            currentState = HandlerState.Ordering;
+            if (orderType == typeof(BuildTask))
+            {
+                currentState = HandlerState.Building;
+                builder.StartPlacingBuilding(TestPrefab);
+            }
+            else
+            {
+                CurrentOrder = orderType;
+                currentState = HandlerState.Ordering;
+            }
+            
+        }
+        
+        public void SetBuildingState(Building building)
+        {
+            currentState = HandlerState.Building;
         }
         
         private void OperateBuildingPlacing()
@@ -131,6 +144,16 @@ namespace Assets.Scripts.UnitsControlScripts
             {
                 orderGiver.GiveOrder(units.ToArray(), CurrentOrder);
                 ReturnToIdleState();
+            }
+            else if (currentState == HandlerState.Building)
+            {
+                BuildTask buildTask = new BuildTask(builder.flyingBuilding.transform.position,builder.flyingBuilding,units[0].gameObject);
+                if (builder.TryPlaceFlyingBuilding())
+                {
+                    units[0].orderableObject.GiveOrder(buildTask);
+                    ReturnToIdleState();
+                }
+                
             }
         }
 
@@ -166,8 +189,8 @@ namespace Assets.Scripts.UnitsControlScripts
 
                     isSelecting = false;
                 }
-
                 uiManager.UpdateOrderButtonsInUI(units.Select(x => x.orderableObject).ToList());
+                
             }
         }
 

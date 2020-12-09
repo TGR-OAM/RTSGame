@@ -99,7 +99,7 @@ namespace Assets.Scripts.UnitsControlScripts
                     {
                         foreach (Unit u in units)
                         {
-                            MoveAttackTask o = new MoveAttackTask(GetDestinationWithOffset(output, units.Length),
+                            MoveTask o = new MoveTask(GetDestinationWithOffset(output, units.Length),
                                 u.gameObject);
                             u.orderableObject.GiveOrder(o);
                         }

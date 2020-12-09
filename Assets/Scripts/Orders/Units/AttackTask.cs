@@ -15,7 +15,7 @@ namespace Assets.Scripts.Orders.Units
 
         public override void StartOrder()
         {
-            if (ObjectToOrder.TryGetComponent(typeof(Unit), out Component component))
+            if (ObjectToOrder.TryGetComponent(typeof(Warrior), out Component component))
             {
                 base.StartOrder();
                 WarriorToOrder = component as Warrior;
