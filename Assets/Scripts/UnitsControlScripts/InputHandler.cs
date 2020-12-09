@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using Assets.Scripts.Buildings;
+using Assets.Scripts.CameraMovement;
 using Assets.Scripts.HexWorldinterpretation;
 using Assets.Scripts.Orders.Units;
 using Assets.Scripts.UIScripts;
@@ -55,6 +56,7 @@ namespace Assets.Scripts.UnitsControlScripts
         [Header("General references")]
         [SerializeField] private OrderGiver orderGiver;
 
+        [SerializeField] private MovementByKeyBoard camera;         
 
         private Vector2 mousePosition;
 
@@ -70,10 +72,13 @@ namespace Assets.Scripts.UnitsControlScripts
             PlayerActionMap.FindAction("SelectUnit").canceled += _ => ReleaseSelectionBox();
             PlayerActionMap.FindAction("GiveOrderToUnit").performed += _ => GiveOrderToUnits();
             PlayerActionMap.FindAction("SetIdleState").performed += _ => ReturnToIdleState();
+            
         }
 
         private void Update()
         {
+            CameraMovement(playerInput.actions.FindActionMap("Player").FindAction("MoveCamera").ReadValue<Vector2>());
+
             mousePosition = Mouse.current.position.ReadValue();
 
             switch (currentState)
@@ -212,6 +217,10 @@ namespace Assets.Scripts.UnitsControlScripts
         {
             if (currentState == HandlerState.Building && !EventSystem.current.IsPointerOverGameObject())
                 builder.StartPlacingBuilding(building);
+        }
+        public void CameraMovement(Vector2 direction)
+        {
+            camera.TryMoveByDirection(direction);       
         }
     }
 }
