@@ -569,6 +569,7 @@ MonoBehaviour:
   isBuilding: 0
   TestPrefab: {fileID: 8205979929494484361, guid: d80e758dcddce1f489ef0f6a754cdb7a, type: 3}
   playerInput: {fileID: 181414837}
+  camera: {fileID: 963194229}
 --- !u!1 &221974591
 GameObject:
   m_ObjectHideFlags: 0
