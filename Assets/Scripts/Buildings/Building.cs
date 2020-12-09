@@ -69,14 +69,13 @@ namespace Assets.Scripts.Buildings
                     int[] tris = { 0, 1, 2, 0, 2, 3, 0, 3, 4, 0, 4, 5 };
                     hexMesh.triangles = tris;
                     hexMesh.RecalculateNormals();
-                    Gizmos.color = new Color(0.88f, 0f, 1f, 0.3f);
+                    Gizmos.color = Color.Lerp(Color.red, Color.green, damageSystem.Hp/damageSystem.MaxHp);
 
                     Vector3 CenterCoord = HexMetrics.CalcCenterCoordXZFromHexCoordXZ(HexCoords, hexGrid.MapData) + new Vector3(HexMetrics.CalcCenterCoordXZFromHexCoordXZ(new Vector3(x, 0, z), hexGrid.MapData).x, 0, HexMetrics.CalcCenterCoordXZFromHexCoordXZ(new Vector3(x, 0, z), hexGrid.MapData).z);
 
                     Gizmos.DrawMesh(hexMesh, 0, CenterCoord, Quaternion.identity, Vector3.one * hexGrid.MapData.cellSize);
                 }
             }
-        
         }
 
         protected void BaseBuildingInitialization()

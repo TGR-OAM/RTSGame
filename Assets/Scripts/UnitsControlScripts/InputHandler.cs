@@ -34,8 +34,9 @@ namespace Assets.Scripts.UnitsControlScripts
 
         private Vector2 startPos;
 
-        [Header("Unit control properties")] [SerializeField]
-        private List<Unit> units = new List<Unit>();
+        [Header("Unit control properties")] 
+        [SerializeField] private List<Unit> units = new List<Unit>();
+        public List<Type> PossibleOrders = new List<Type>();
 
         private Fraction fraction = Fraction.Player;
         [SerializeField] private UnitLister lister;
@@ -62,7 +63,7 @@ namespace Assets.Scripts.UnitsControlScripts
 
         private void Start()
         {
-            orderGiver = new OrderGiver(hexGrid);
+            orderGiver = new OrderGiver(hexGrid, this);
             builder = new Builder(hexGrid);
 
             
@@ -194,7 +195,9 @@ namespace Assets.Scripts.UnitsControlScripts
 
                     isSelecting = false;
                 }
-                uiManager.UpdateOrderButtonsInUI(units.Select(x => x.orderableObject).ToList());
+
+                PossibleOrders = GetPossibleOrdersFromUnits(units.Select(x => x.orderableObject).ToList());
+                uiManager.UpdateOrderButtonsInUI(PossibleOrders);
                 
             }
         }
@@ -221,6 +224,33 @@ namespace Assets.Scripts.UnitsControlScripts
         public void CameraMovement(Vector2 direction)
         {
             camera.TryMoveByDirection(direction);       
+        }
+        
+        private List<Type> GetPossibleOrdersFromUnits(List<OrderableObject> orderableObjects)
+        {
+            if (orderableObjects.Count != 0 && orderableObjects != null)
+            {
+                List<Type> ordersType = new List<Type>();
+                ordersType.AddRange(orderableObjects[0].orderTypes);
+                foreach (OrderableObject orderableObject in orderableObjects)
+                {
+                    for (int i = 0; i < ordersType.Count; i++)
+                    {
+                        if (!orderableObject.orderTypes.Contains(ordersType[i]))
+                        {
+                            ordersType.RemoveAt(i);
+                            i--;
+                        }
+
+                    }
+                    Debug.Log(ordersType.Count);
+                }
+                return ordersType;
+            }
+            else
+            {
+                return new List<Type>();
+            }
         }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel.Design;
+using Assets.Scripts.Buildings;
 using Assets.Scripts.HexWorldinterpretation;
 using Assets.Scripts.Orders.Units;
 using Assets.Scripts.Units;
@@ -13,10 +14,12 @@ namespace Assets.Scripts.UnitsControlScripts
     public class OrderGiver
     {
         public HexGrid hexGrid;
+        public InputHandler inputHandler;
 
-        public OrderGiver(HexGrid grid)
+        public OrderGiver(HexGrid grid, InputHandler inputHandler)
         {
             hexGrid = grid;
+            this.inputHandler = inputHandler;
         }
 
         public void GiveOrder(Unit[] units, Type orderType, bool isIdleState = false)
@@ -49,6 +52,29 @@ namespace Assets.Scripts.UnitsControlScripts
                                 u.orderableObject.GiveOrder(t);
                             }
                         }
+                    }
+                }
+                else if (Physics.Raycast(Camera.main.ScreenPointToRay(mousePos), out hit, 100f, 1 << 10))
+                {
+                    GameObject gameObject = hit.collider.gameObject;
+                    FractionMember f = gameObject.GetComponent<FractionMember>();
+
+                    Building building = gameObject.GetComponent<Building>();
+                    
+                    if (units.Length == 1 && units[0].orderableObject.orderTypes.Contains(typeof(BuildTask)))//if we selected one builder
+                    {
+                        BuildTask buildTask = new BuildTask(building, units[0].gameObject);
+                        units[0].orderableObject.GiveOrder(buildTask);
+                    }
+
+                    if (inputHandler.PossibleOrders.Contains(typeof(AttackTask)))
+                    {
+                        foreach (Unit unit in units)
+                        {
+                            AttackTask attackTask = new AttackTask(gameObject,unit.gameObject);
+                            unit.orderableObject.GiveOrder(attackTask);
+                        }
+                        
                     }
                 }
                 else

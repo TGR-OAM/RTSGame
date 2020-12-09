@@ -109,7 +109,7 @@ namespace Assets.Scripts.Buildings
                 flyingBuilding.SetNormal();
                 flyingBuilding.gameObject.GetComponentInChildren<Renderer>().material = flyingBuilding.Materials;
                 hexGrid.MapData.ConstructedBuildings.Add(flyingBuilding);
-                flyingBuilding.gameObject.layer = 9;
+                flyingBuilding.gameObject.layer = 10;
                 flyingBuilding = null;
                 StopPlacingBuilding();
             }

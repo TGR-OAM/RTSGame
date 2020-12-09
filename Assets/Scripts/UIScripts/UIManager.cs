@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Security.Cryptography;
 using Assets.Scripts.HexWorldinterpretation;
@@ -13,9 +14,9 @@ namespace Assets.Scripts.UIScripts
         [SerializeField] private OrderButtonsSetter orderButtonsSetter;
         
 
-        public void UpdateOrderButtonsInUI(List<OrderableObject> orderableObjects)
+        public void UpdateOrderButtonsInUI(List<Type> possibleOrders)
         {
-            orderButtonsSetter.UpdateButtons(orderableObjects);
+            orderButtonsSetter.UpdateButtons(possibleOrders);
         }
     }
 }

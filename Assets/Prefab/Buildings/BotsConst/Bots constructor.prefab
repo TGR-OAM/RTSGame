@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2090002146934259808}
   - component: {fileID: 6480521545030003725}
   - component: {fileID: 2214986588501832742}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -95,7 +95,8 @@ GameObject:
   - component: {fileID: -2448693662822188119}
   - component: {fileID: 2978106879045718431}
   - component: {fileID: 8505359684180654833}
-  m_Layer: 0
+  - component: {fileID: -3579613254884548647}
+  m_Layer: 10
   m_Name: Bots constructor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -136,6 +137,7 @@ MonoBehaviour:
   TimeUntilFullConstruction: 5
   Size: {x: 2, y: 5}
   HexCoords: {x: 0, y: 0, z: 0}
+  ObjectCollider: {fileID: 0}
   timeUntilConstruction: 0
 --- !u!65 &1231594590266577920
 BoxCollider:
@@ -190,3 +192,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 691116507f273d54db89105a9ffce2bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Hp: 0
+  MaxHp: 0
+--- !u!114 &-3579613254884548647
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5326122496888578061}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2985059719f0ff648adef6b048decc7e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  unitListerTag: MainCamera
+  lister: {fileID: 0}
+  fraction: 0

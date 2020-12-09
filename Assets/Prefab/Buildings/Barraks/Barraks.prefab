@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8652549042048637364}
   - component: {fileID: 4998096527002945096}
   - component: {fileID: 3886593828228358734}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Cylinder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -95,7 +95,8 @@ GameObject:
   - component: {fileID: 5077300615314828940}
   - component: {fileID: 9201007050984811661}
   - component: {fileID: 3371817007554099333}
-  m_Layer: 0
+  - component: {fileID: -739048075195411871}
+  m_Layer: 10
   m_Name: Barraks
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -136,6 +137,7 @@ MonoBehaviour:
   TimeUntilFullConstruction: 5
   Size: {x: 2, y: 2}
   HexCoords: {x: 0, y: 0, z: 0}
+  ObjectCollider: {fileID: 0}
   timeUntilConstruction: 0
 --- !u!65 &7893316468862192133
 BoxCollider:
@@ -190,3 +192,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 691116507f273d54db89105a9ffce2bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Hp: 0
+  MaxHp: 0
+--- !u!114 &-739048075195411871
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5735925306961837886}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2985059719f0ff648adef6b048decc7e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  unitListerTag: MainCamera
+  lister: {fileID: 0}
+  fraction: 0

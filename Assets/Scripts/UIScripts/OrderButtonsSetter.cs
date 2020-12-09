@@ -14,7 +14,7 @@ public class OrderButtonsSetter : MonoBehaviour
     
     private List<Button> CurrentOrders;
 
-    public void UpdateButtons(List<OrderableObject> orderableObjects)
+    public void UpdateButtons(List<Type> possibleOrders)
     {
         if (CurrentOrders == null) CurrentOrders = new List<Button>();
         
@@ -22,8 +22,7 @@ public class OrderButtonsSetter : MonoBehaviour
         
         CurrentOrders = new List<Button>();
         
-        List<Type> OrderTypes = GetPossibleOrdersFromUnits(orderableObjects);
-        foreach (Type type in OrderTypes)
+        foreach (Type type in possibleOrders)
         {
             Button ButtonToAdd = Instantiate(ButtonPrefab, this.transform);
             ButtonToAdd.GetComponentInChildren<Text>().text = type.ToString();
@@ -32,33 +31,6 @@ public class OrderButtonsSetter : MonoBehaviour
                 SetOrder(type);
             });
             CurrentOrders.Add(ButtonToAdd);
-        }
-    }
-
-    public List<Type> GetPossibleOrdersFromUnits(List<OrderableObject> orderableObjects)
-    {
-        if (orderableObjects.Count != 0 && orderableObjects != null)
-        {
-            List<Type> ordersType = new List<Type>();
-            ordersType.AddRange(orderableObjects[0].orderTypes);
-            foreach (OrderableObject orderableObject in orderableObjects)
-            {
-                for (int i = 0; i < ordersType.Count; i++)
-                {
-                    if (!orderableObject.orderTypes.Contains(ordersType[i]))
-                    {
-                        ordersType.RemoveAt(i);
-                        i--;
-                    }
-
-                }
-                Debug.Log(ordersType.Count);
-            }
-            return ordersType;
-        }
-        else
-        {
-            return new List<Type>();
         }
     }
 
