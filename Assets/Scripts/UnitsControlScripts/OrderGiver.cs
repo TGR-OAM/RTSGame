@@ -71,8 +71,11 @@ namespace Assets.Scripts.UnitsControlScripts
                     {
                         foreach (OrderableObject EntetyToOrder in EntetiesToOrder)
                         {
-                            AttackTask attackTask = new AttackTask(gameObject,EntetyToOrder.gameObject);
-                            EntetyToOrder.GiveOrder(attackTask);
+                            if (f == EntetyToOrder.GetComponent<FractionMember>())
+                            {
+                                AttackTask attackTask = new AttackTask(gameObject, EntetyToOrder.gameObject);
+                                EntetyToOrder.GiveOrder(attackTask);
+                            }
                         }
                         
                     }

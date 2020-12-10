@@ -69,7 +69,7 @@ namespace Assets.Scripts.UnitsControlScripts
             
             InputActionMap PlayerActionMap = playerInput.actions.FindActionMap("Player");
             
-            PlayerActionMap.FindAction("SelectUnit").started += _ => SelectUnits();
+            PlayerActionMap.FindAction("SelectUnit").started += _ => SelectEnteties();
             PlayerActionMap.FindAction("SelectUnit").canceled += _ => ReleaseSelectionBox();
             PlayerActionMap.FindAction("GiveOrderToUnit").performed += _ => GiveOrderToUnits();
             PlayerActionMap.FindAction("SetIdleState").performed += _ => ReturnToIdleState();
@@ -120,6 +120,7 @@ namespace Assets.Scripts.UnitsControlScripts
         public void SetBuildingState(Building building)
         {
             currentState = HandlerState.Building;
+            builder.StartPlacingBuilding(building);
         }
         
         private void OperateBuildingPlacing()
@@ -163,39 +164,57 @@ namespace Assets.Scripts.UnitsControlScripts
             }
         }
 
-        public void SelectUnits()
+        public void SelectEnteties()
         {
             if (!EventSystem.current.IsPointerOverGameObject() && currentState == HandlerState.Idle && !isSelecting)
             {
                 selectionBox.gameObject.SetActive(true);
                 isSelecting = true;
                 startPos = mousePosition;
+                UpdateSelectionBox(mousePosition);
             }
         }
-
+        
         public void ReleaseSelectionBox()
         {
             if (currentState == HandlerState.Idle && isSelecting)
             {
                 Vector2 min = selectionBox.anchoredPosition - (selectionBox.sizeDelta / 2);
                 Vector2 max = selectionBox.anchoredPosition + (selectionBox.sizeDelta / 2);
-                SelectedEnteties.Clear();
+                SelectedEnteties = new List<OrderableObject>();
                 selectionBox.gameObject.SetActive(false);
 
-                List<GameObject> AllUnits = lister.enteties;
-                foreach (GameObject Entety in AllUnits)
+                if (selectionBox.sizeDelta.magnitude <= 10f)
                 {
-                    Vector3 screenPos = Camera.main.WorldToScreenPoint(Entety.transform.position);
-
-                    if (screenPos.x > min.x && screenPos.x < max.x && screenPos.y > min.y && screenPos.y < max.y &&
-                        Entety.GetComponent<FractionMember>().fraction == fraction && Entety.TryGetComponent(typeof(Unit), out _))
+                    if (Physics.Raycast(Camera.main.ScreenPointToRay(mousePosition), out RaycastHit hitBuilding, 100f, 1<<8 | 1 << 10))
                     {
-                        SelectedEnteties.Add(Entety.GetComponent<OrderableObject>());
+                        if (hitBuilding.transform.gameObject.GetComponent<FractionMember>().fraction == fraction)
+                        {
+                            SelectedEnteties.Add(hitBuilding.transform.GetComponent<OrderableObject>());
+                        }
                     }
+                }
+                else
+                {
+                    List<GameObject> AllUnits = lister.enteties;
+                    foreach (GameObject Entety in AllUnits)
+                    {
+                        Vector3 screenPos = Camera.main.WorldToScreenPoint(Entety.transform.position);
 
-                    isSelecting = false;
+                        if (screenPos.x > min.x && screenPos.x < max.x && screenPos.y > min.y && screenPos.y < max.y &&
+                            Entety.GetComponent<FractionMember>().fraction == fraction &&
+                            Entety.TryGetComponent(typeof(Unit), out _))
+                        {
+                            SelectedEnteties.Add(Entety.GetComponent<OrderableObject>());
+                        }
+
+                        
+                    }
                 }
 
+                isSelecting = false;
+                selectionBox.sizeDelta = new Vector2();
+                
                 PossibleOrders = GetPossibleOrdersFromUnits(SelectedEnteties.ToList());
                 uiManager.UpdateOrderButtonsInUI(PossibleOrders);
                 
