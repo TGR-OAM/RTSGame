@@ -22,7 +22,7 @@ namespace Assets.Scripts.UnitsControlScripts
             this.inputHandler = inputHandler;
         }
 
-        public void GiveOrder(Unit[] units, Type orderType, bool isIdleState = false)
+        public void GiveOrder(OrderableObject[] EntetiesToOrder, Type orderType, bool isIdleState = false)
         {
 
             Vector2 mousePos = Mouse.current.position.ReadValue();
@@ -36,20 +36,20 @@ namespace Assets.Scripts.UnitsControlScripts
                     FractionMember f = g.GetComponent<FractionMember>();
                     if (g.GetComponent<DamageSystem>() == null)
                     {
-                        foreach (Unit u in units)
+                        foreach (OrderableObject entety in EntetiesToOrder)
                         {
-                            MoveTask o = new MoveTask(GetDestinationWithOffset(hit.point, units.Length), u.gameObject);
-                            u.orderableObject.GiveOrder(o);
+                            MoveTask o = new MoveTask(GetDestinationWithOffset(hit.point, EntetiesToOrder.Length), entety.gameObject);
+                            entety.GiveOrder(o);
                         }
                     }
                     else
                     {
-                        foreach (Unit u in units)
+                        foreach (OrderableObject entety in EntetiesToOrder)
                         {
-                            if (u.fractionMember != f)
+                            if (entety.GetComponent<FractionMember>() != f)
                             {
-                                AttackTask t = new AttackTask(g, u.gameObject);
-                                u.orderableObject.GiveOrder(t);
+                                AttackTask t = new AttackTask(g, entety.gameObject);
+                                entety.GiveOrder(t);
                             }
                         }
                     }
@@ -61,18 +61,18 @@ namespace Assets.Scripts.UnitsControlScripts
 
                     Building building = gameObject.GetComponent<Building>();
                     
-                    if (units.Length == 1 && units[0].orderableObject.orderTypes.Contains(typeof(BuildTask)))//if we selected one builder
+                    if (EntetiesToOrder.Length == 1 && EntetiesToOrder[0].orderTypes.Contains(typeof(BuildTask)))//if we selected one builder
                     {
-                        BuildTask buildTask = new BuildTask(building, units[0].gameObject);
-                        units[0].orderableObject.GiveOrder(buildTask);
+                        BuildTask buildTask = new BuildTask(building, EntetiesToOrder[0].gameObject);
+                        EntetiesToOrder[0].GiveOrder(buildTask);
                     }
 
                     if (inputHandler.PossibleOrders.Contains(typeof(AttackTask)))
                     {
-                        foreach (Unit unit in units)
+                        foreach (OrderableObject EntetyToOrder in EntetiesToOrder)
                         {
-                            AttackTask attackTask = new AttackTask(gameObject,unit.gameObject);
-                            unit.orderableObject.GiveOrder(attackTask);
+                            AttackTask attackTask = new AttackTask(gameObject,EntetyToOrder.gameObject);
+                            EntetyToOrder.GiveOrder(attackTask);
                         }
                         
                     }
@@ -82,10 +82,10 @@ namespace Assets.Scripts.UnitsControlScripts
                     if (hexGrid.TryRaycastHexGrid(Camera.main.ScreenPointToRay(mousePos),
                         out Vector3 output))
                     {
-                        foreach (Unit u in units)
+                        foreach (OrderableObject EntetyToOrder in EntetiesToOrder)
                         {
-                            MoveTask o = new MoveTask(GetDestinationWithOffset(output, units.Length), u.gameObject);
-                            u.orderableObject.GiveOrder(o);
+                            MoveTask o = new MoveTask(GetDestinationWithOffset(output, EntetiesToOrder.Length), EntetyToOrder.gameObject);
+                            EntetyToOrder.GiveOrder(o);
                         }
                     }
                 }
@@ -98,22 +98,22 @@ namespace Assets.Scripts.UnitsControlScripts
                     RaycastHit hit;
                     if (Physics.Raycast(Camera.main.ScreenPointToRay(mousePos), out hit, 100f, 1 << 8))
                     {
-                        foreach (Unit u in units)
+                        foreach (OrderableObject EntetyToOrder in EntetiesToOrder)
                         {
-                            MoveAttackTask o = new MoveAttackTask(GetDestinationWithOffset(hit.point, units.Length),
-                                u.gameObject);
-                            u.orderableObject.GiveOrder(o);
+                            MoveAttackTask o = new MoveAttackTask(GetDestinationWithOffset(hit.point, EntetiesToOrder.Length),
+                                EntetyToOrder.gameObject);
+                            EntetyToOrder.GiveOrder(o);
                         }
                     }
                     else
                     {
                         if (hexGrid.TryRaycastHexGrid(Camera.main.ScreenPointToRay(mousePos), out Vector3 output))
                         {
-                            foreach (Unit u in units)
+                            foreach (OrderableObject EntetyToOrder in EntetiesToOrder)
                             {
-                                MoveAttackTask o = new MoveAttackTask(GetDestinationWithOffset(output, units.Length),
-                                    u.gameObject);
-                                u.orderableObject.GiveOrder(o);
+                                MoveAttackTask o = new MoveAttackTask(GetDestinationWithOffset(output, EntetiesToOrder.Length),
+                                    EntetyToOrder.gameObject);
+                                EntetyToOrder.GiveOrder(o);
                             }
                         }
                     }
@@ -123,11 +123,11 @@ namespace Assets.Scripts.UnitsControlScripts
                 {
                     if (hexGrid.TryRaycastHexGrid(Camera.main.ScreenPointToRay(mousePos), out Vector3 output))
                     {
-                        foreach (Unit u in units)
+                        foreach (OrderableObject EntetyToOrder in EntetiesToOrder)
                         {
-                            MoveTask o = new MoveTask(GetDestinationWithOffset(output, units.Length),
-                                u.gameObject);
-                            u.orderableObject.GiveOrder(o);
+                            MoveTask o = new MoveTask(GetDestinationWithOffset(output, EntetiesToOrder.Length),
+                                EntetyToOrder.gameObject);
+                            EntetyToOrder.GiveOrder(o);
                         }
                     }
                 }
@@ -140,12 +140,12 @@ namespace Assets.Scripts.UnitsControlScripts
                         FractionMember f = g.GetComponent<FractionMember>();
                         if (g.GetComponent<DamageSystem>() != null)
                         {
-                            foreach (Unit u in units)
+                            foreach (OrderableObject EntetyToOrder in EntetiesToOrder)
                             {
-                                if (u.fractionMember != f)
+                                if (EntetyToOrder.GetComponent<FractionMember>() != f)
                                 {
-                                    AttackTask t = new AttackTask(g, u.gameObject);
-                                    u.orderableObject.GiveOrder(t);
+                                    AttackTask t = new AttackTask(g, EntetyToOrder.gameObject);
+                                    EntetyToOrder.GiveOrder(t);
                                 }
                             }
                         }

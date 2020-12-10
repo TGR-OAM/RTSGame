@@ -1,10 +1,11 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Assets.Scripts.UnitsControlScripts.UnitsControlScripts
 {
-    public class UnitLister : MonoBehaviour
+    public class EntetiesLister : MonoBehaviour
     {
-        public List<GameObject> units;
+        public List<GameObject> enteties;
     }
 }

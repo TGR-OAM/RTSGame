@@ -78,7 +78,7 @@ namespace Assets.Scripts.Orders.Units
         {
             float smallestDst = float.MaxValue;
             GameObject o = null;
-            foreach (GameObject g in thisUnit.fractionMember.lister.units)
+            foreach (GameObject g in thisUnit.fractionMember.lister.enteties)
             {
                 float d = Vector3.Distance(thisUnit.transform.position, g.transform.position);
                 if (g.GetComponent<FractionMember>().fraction != thisUnit.fractionMember.fraction && d < smallestDst &&

@@ -8,18 +8,18 @@ namespace Assets.Scripts.UnitsControlScripts
         [SerializeField]
         private string unitListerTag;
         [SerializeField]
-        public UnitLister lister;
+        public EntetiesLister lister;
         [SerializeField]
         public Fraction fraction;
         // Start is called before the first frame update
         void Start()
         {
-            lister = GameObject.FindGameObjectWithTag(unitListerTag).GetComponent<UnitLister>();
-            lister.units.Add(this.gameObject);
+            lister = GameObject.FindGameObjectWithTag(unitListerTag).GetComponent<EntetiesLister>();
+            lister.enteties.Add(this.gameObject);
         }
         private void OnDestroy()
         {
-            lister.units.Remove(this.gameObject);
+            lister.enteties.Remove(this.gameObject);
         }
     }
 

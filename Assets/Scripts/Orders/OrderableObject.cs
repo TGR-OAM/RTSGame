@@ -8,7 +8,7 @@ namespace Assets.Scripts.UnitsControlScripts
     public class OrderableObject : MonoBehaviour
     {
         public GameOrder currentOrder { get; set; }
-        public List<Type> orderTypes{ get; protected set; }
+        public List<Type> orderTypes { get; protected set; } = new List<Type>();
 
         public void SetPossibleOrderTypes(List<Type> orderTypes)
         {

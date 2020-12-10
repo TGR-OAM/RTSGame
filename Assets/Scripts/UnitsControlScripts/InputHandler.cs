@@ -35,11 +35,11 @@ namespace Assets.Scripts.UnitsControlScripts
         private Vector2 startPos;
 
         [Header("Unit control properties")] 
-        [SerializeField] private List<Unit> units = new List<Unit>();
+        [SerializeField] private List<OrderableObject> SelectedEnteties = new List<OrderableObject>();
         public List<Type> PossibleOrders = new List<Type>();
 
         private Fraction fraction = Fraction.Player;
-        [SerializeField] private UnitLister lister;
+        [SerializeField] private EntetiesLister lister;
         private bool isSelecting = false;
 
         [Header("Building")] [Description("If state is building")]
@@ -139,24 +139,24 @@ namespace Assets.Scripts.UnitsControlScripts
             {
                 if (playerInput.actions.FindActionMap("Player").FindAction("APressed").ReadValue<float>() >= .5f)
                 {
-                    orderGiver.GiveOrder(units.ToArray(), typeof(MoveAttackTask));
+                    orderGiver.GiveOrder(SelectedEnteties.ToArray(), typeof(MoveAttackTask));
                 }
                 else
                 {
-                    orderGiver.GiveOrder(units.ToArray(), null, true);
+                    orderGiver.GiveOrder(SelectedEnteties.ToArray(), null, true);
                 }
             }
             else if (currentState == HandlerState.Ordering)
             {
-                orderGiver.GiveOrder(units.ToArray(), CurrentOrder);
+                orderGiver.GiveOrder(SelectedEnteties.ToArray(), CurrentOrder);
                 ReturnToIdleState();
             }
             else if (currentState == HandlerState.Building)
             {
-                BuildTask buildTask = new BuildTask(builder.flyingBuilding,units[0].gameObject);
+                BuildTask buildTask = new BuildTask(builder.flyingBuilding,SelectedEnteties[0].gameObject);
                 if (builder.TryPlaceFlyingBuilding())
                 {
-                    units[0].orderableObject.GiveOrder(buildTask);
+                    SelectedEnteties[0].GiveOrder(buildTask);
                     ReturnToIdleState();
                 }
                 
@@ -179,24 +179,24 @@ namespace Assets.Scripts.UnitsControlScripts
             {
                 Vector2 min = selectionBox.anchoredPosition - (selectionBox.sizeDelta / 2);
                 Vector2 max = selectionBox.anchoredPosition + (selectionBox.sizeDelta / 2);
-                units.Clear();
+                SelectedEnteties.Clear();
                 selectionBox.gameObject.SetActive(false);
 
-                List<GameObject> AllUnits = lister.units;
-                foreach (GameObject unit in AllUnits)
+                List<GameObject> AllUnits = lister.enteties;
+                foreach (GameObject Entety in AllUnits)
                 {
-                    Vector3 screenPos = Camera.main.WorldToScreenPoint(unit.transform.position);
+                    Vector3 screenPos = Camera.main.WorldToScreenPoint(Entety.transform.position);
 
                     if (screenPos.x > min.x && screenPos.x < max.x && screenPos.y > min.y && screenPos.y < max.y &&
-                        unit.GetComponent<FractionMember>().fraction == fraction)
+                        Entety.GetComponent<FractionMember>().fraction == fraction && Entety.TryGetComponent(typeof(Unit), out _))
                     {
-                        units.Add(unit.GetComponent<Unit>());
+                        SelectedEnteties.Add(Entety.GetComponent<OrderableObject>());
                     }
 
                     isSelecting = false;
                 }
 
-                PossibleOrders = GetPossibleOrdersFromUnits(units.Select(x => x.orderableObject).ToList());
+                PossibleOrders = GetPossibleOrdersFromUnits(SelectedEnteties.ToList());
                 uiManager.UpdateOrderButtonsInUI(PossibleOrders);
                 
             }
@@ -245,6 +245,10 @@ namespace Assets.Scripts.UnitsControlScripts
                     }
                     Debug.Log(ordersType.Count);
                 }
+
+                if (ordersType.Contains(typeof(BuildTask)) && orderableObjects.Count != 1)
+                    ordersType.Remove(typeof(BuildTask));
+                
                 return ordersType;
             }
             else
