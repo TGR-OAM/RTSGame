@@ -94,6 +94,7 @@ namespace Assets.Scripts.Orders.Units
         private void Attack(Warrior thisUnit)
         {
             thisUnit.transform.LookAt(target.transform.position);
+            thisUnit.agent.SetDestination(thisUnit.gameObject.transform.position);
             target.GetComponent<DamageSystem>().TakeDamage(thisUnit.damagePerSecond * Time.deltaTime);
         }
 

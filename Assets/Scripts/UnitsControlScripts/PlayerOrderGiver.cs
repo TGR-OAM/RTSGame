@@ -6,16 +6,9 @@ using UnityEngine.InputSystem;
 
 namespace Assets.Scripts.UnitsControlScripts
 {
-    public class OrderGiver
+    public static class PlayerOrderGiver
     {
-        public HexGrid hexGrid;
-
-        public OrderGiver(HexGrid grid)
-        {
-            hexGrid = grid;
-        }
-
-        public void GiveOrder(Unit[] units, OrderType orderType)
+        public static void GiveOrder(Unit[] units, OrderType orderType, HexGrid hexGrid)
         {
             
             Vector2 mousePos = Mouse.current.position.ReadValue();

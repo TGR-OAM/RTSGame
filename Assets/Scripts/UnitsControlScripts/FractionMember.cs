@@ -14,7 +14,10 @@ namespace Assets.Scripts.UnitsControlScripts
         // Start is called before the first frame update
         void Start()
         {
-            lister = GameObject.FindGameObjectWithTag(unitListerTag).GetComponent<UnitLister>();
+            if (lister == null)
+            {
+                lister = GameObject.FindGameObjectWithTag(unitListerTag).GetComponent<UnitLister>();
+            }
             lister.units.Add(this.gameObject);
         }
         private void OnDestroy()

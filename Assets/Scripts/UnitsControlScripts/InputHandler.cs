@@ -39,14 +39,12 @@ namespace Assets.Scripts.UnitsControlScripts
         [Header("Input property")] [SerializeField]
         private PlayerInput playerInput;
 
-        [SerializeField] private OrderGiver orderGiver;
 
 
         private Vector2 mousePosition;
 
         private void Start()
         {
-            orderGiver = new OrderGiver(hexGrid);
             builder = new Builder(hexGrid);
 
             playerInput.actions.FindActionMap("Player").FindAction("SelectUnit").started += _ => SelectUnits();
@@ -96,11 +94,11 @@ namespace Assets.Scripts.UnitsControlScripts
         {
             if (playerInput.actions.FindActionMap("Player").FindAction("APressed").ReadValue<float>() >=.5f)
             {
-                orderGiver.GiveOrder(units.ToArray(), OrderType.MoveAttack);
+                PlayerOrderGiver.GiveOrder(units.ToArray(), OrderType.MoveAttack, hexGrid);
             }
             else
             {
-                orderGiver.GiveOrder(units.ToArray(), OrderType.None);
+                PlayerOrderGiver.GiveOrder(units.ToArray(), OrderType.None, hexGrid);
             }
         }
 

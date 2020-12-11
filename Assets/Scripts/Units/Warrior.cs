@@ -17,7 +17,7 @@ namespace Assets.Scripts.Units
         {
             #region Part-time data
             
-            attackDistance = 5f;
+            attackDistance = 20f;
             visionDistance = 10f;
             damagePerSecond = 10f;
 
