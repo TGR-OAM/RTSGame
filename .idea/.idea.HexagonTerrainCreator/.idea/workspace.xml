@@ -2,33 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="17ebf66f-4afe-4731-9078-d61fb3995c9d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.vsconfig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/InputActions/CameraMovement.inputactions" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/InputActions/CameraMovement.inputactions.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Prefab/Units/EnemyBot.prefab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Prefab/Units/EnemyBot.prefab.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scenes/PrototypePolygon.unity" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/AIScripts/SimpleAI.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/AIScripts/SimpleAI.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/AIScripts/UnitsCreator.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/AIScripts/UnitsCreator.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.HexagonTerrainCreator/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.HexagonTerrainCreator/.idea/contentModel.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.HexagonTerrainCreator/.idea/indexLayout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.HexagonTerrainCreator/.idea/indexLayout.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.HexagonTerrainCreator/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.HexagonTerrainCreator/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/MainScene.unity.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/PrototypePolygon.unity.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Buildings/Building.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Buildings/Building.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Orders/Units/MoveAttackTask.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Orders/Units/MoveAttackTask.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PlayerControl.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/AIScripts.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PlayerControl/PlayerUnitsController.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PlayerControl/PlayerUnitsController.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Units/Warrior.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Units/Warrior.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UnitsControlScripts/DamageSystem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UnitsControlScripts/DamageSystem.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UnitsControlScripts/EntetiesLister.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UnitsControlScripts/EntetiesLister.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UnitsControlScripts/FractionMember.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UnitsControlScripts/FractionMember.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UnitsControlScripts/InputHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UnitsControlScripts/InputHandler.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UnitsControlScripts/OrderGiver.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Packages/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/manifest.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Packages/packages-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/packages-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UnitsControlScripts/OrderGiver.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UnitsControlScripts/OrderGiver.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,7 +35,6 @@
       <option value="$PROJECT_DIR$/Assets/Scripts/UIScripts/OrderButtonsSetter.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/UnitsControlScripts/Enteties.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Orders/OrderableObject.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/UnitsControlScripts/OrderGiver.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/AIScripts/SimpleAI.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/UnitsControlScripts/FractionMember.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/UnitsControlScripts/InputHandler.cs" />
@@ -68,6 +43,7 @@
       <option value="$PROJECT_DIR$/Assets/Scripts/UnitsControlScripts/DamageSystem.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/UnitsControlScripts/EntetiesLister.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Buildings/Building.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/UnitsControlScripts/OrderGiver.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1lIISIM12q3GC48Z5aO5fthc7Rz" />

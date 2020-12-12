@@ -59,8 +59,8 @@ namespace Assets.Scripts.HexWordEditor
             MapData.Add(ColorMap);
 
             XmlDoc.Save(Application.dataPath+"/"+ "Resources/"+ path + ".xml");
-            AssetDatabase.SaveAssets();
-            AssetDatabase.Refresh();
+            // AssetDatabase.SaveAssets();
+            // AssetDatabase.Refresh();
         }
 
         static void MapSaverXMLFile_DefaultSave(ref XElement HeightMap, ref XElement ColorMap, HexGridData MapData)
