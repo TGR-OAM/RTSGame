@@ -21,8 +21,4 @@ public class UnitsCreator : MonoBehaviour
             timeFromPreviousCreation = 0;
         }
     }
-    private void OnDestroy()
-    {
-        Application.LoadLevel(Application.loadedLevel);
-    }
 }

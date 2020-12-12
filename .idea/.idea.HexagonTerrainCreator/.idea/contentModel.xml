@@ -41,6 +41,10 @@
           </e>
         </e>
         <e p="Scripts" t="Include">
+          <e p="AIScripts" t="Include">
+            <e p="SimpleAI.cs" t="Include" />
+            <e p="UnitsCreator.cs" t="Include" />
+          </e>
           <e p="Building" t="Include">
             <e p="Builder.cs" t="Include" />
           </e>
@@ -102,7 +106,7 @@
             <e p="DamageSystem.cs" t="Include" />
             <e p="FractionMember.cs" t="Include" />
             <e p="InputHandler.cs" t="Include" />
-            <e p="OrderGiver.cs" t="Include" />
+            <e p="PlayerOrderGiver.cs" t="Include" />
             <e p="UnitLister.cs" t="Include" />
           </e>
           <e p="Worker" t="Include">

@@ -24,6 +24,8 @@ namespace Assets.Scripts.UnitsControlScripts
                     {
                         foreach (Unit u in units)
                         {
+                            if(u == null) continue;
+
                             float offset = units.Length * 0.21f;
                             MoveTask o =
                                 new MoveTask(
@@ -36,6 +38,8 @@ namespace Assets.Scripts.UnitsControlScripts
                     {
                         foreach (Unit u in units)
                         {
+                            if(u == null) continue;
+                            
                             AttackTask t = new AttackTask(g, u.gameObject);
                             u.orderableObject.GiveOrder(t);
                         }
@@ -49,6 +53,8 @@ namespace Assets.Scripts.UnitsControlScripts
                     {
                         foreach (Unit u in units)
                         {
+                            if(u == null) continue;
+                            
                             float offset = units.Length * 0.21f;
                             MoveTask o =
                                 new MoveTask(
@@ -67,6 +73,8 @@ namespace Assets.Scripts.UnitsControlScripts
                 {
                     foreach (Unit u in units)
                     {
+                        if(u == null) continue;
+                        
                         float offset = units.Length * 0.21f;
                         MoveAttackTask o = new MoveAttackTask(
                             output + new Vector3(Random.Range(-offset, offset), 0,
@@ -84,6 +92,8 @@ namespace Assets.Scripts.UnitsControlScripts
                 {
                     foreach (Unit u in units)
                     {
+                        if(u == null) continue;
+                        
                         float offset = units.Length * 0.21f;
                         MoveAttackTask o = new MoveAttackTask(
                             hit.point + new Vector3(Random.Range(-offset, offset), 0, Random.Range(-offset, offset)),
@@ -97,6 +107,8 @@ namespace Assets.Scripts.UnitsControlScripts
                     {
                         foreach (Unit u in units)
                         {
+                            if(u == null) continue;
+                            
                             float offset = units.Length * 0.21f;
                             MoveAttackTask o = new MoveAttackTask(
                                 output + new Vector3(Random.Range(-offset, offset), 0, Random.Range(-offset, offset)),
