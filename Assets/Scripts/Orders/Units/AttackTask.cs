@@ -37,6 +37,11 @@ namespace Assets.Scripts.Orders.Units
                 if (WarriorToOrder.isNearToDestination(target.transform.position, WarriorToOrder.attackDistance))
                 {
                     Attack(WarriorToOrder);
+                    WarriorToOrder.agent.isStopped = true;
+                }
+                else
+                {
+                    WarriorToOrder.agent.isStopped = false;
                 }
             }
         }

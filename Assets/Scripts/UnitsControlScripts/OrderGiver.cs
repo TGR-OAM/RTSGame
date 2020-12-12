@@ -60,10 +60,10 @@ namespace Assets.Scripts.UnitsControlScripts
 
                     Building building = gameObject.GetComponent<Building>();
                     
-                    if (EntetiesToOrder.Length == 1 && EntetiesToOrder[0].orderTypes.Contains(typeof(BuildTask)))//if we selected one builder
+                    if (EntetiesToOrder.Length == 1 && EntetiesToOrder[0].orderTypes.Contains(typeof(BuildOrder)))//if we selected one builder
                     {
-                        BuildTask buildTask = new BuildTask(building, EntetiesToOrder[0].gameObject);
-                        EntetiesToOrder[0].GiveOrder(buildTask);
+                        BuildOrder buildOrder = new BuildOrder(building, EntetiesToOrder[0].gameObject);
+                        EntetiesToOrder[0].GiveOrder(buildOrder);
                     }
 
                     if (inputHandler.PossibleOrders.Contains(typeof(AttackTask)))

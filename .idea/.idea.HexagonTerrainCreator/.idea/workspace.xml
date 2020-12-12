@@ -2,9 +2,23 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="17ebf66f-4afe-4731-9078-d61fb3995c9d" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Orders/EntityOrder.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Orders/EntityOrder/SpellOrder.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Orders/EntityOrder/SpellOrder.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Orders/GameOrderInitParams.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Orders/GameOrderInitParams.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.HexagonTerrainCreator/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.HexagonTerrainCreator/.idea/contentModel.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.HexagonTerrainCreator/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.HexagonTerrainCreator/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/AIScripts/SimpleAI.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/AIScripts/SimpleAI.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Buildings/Building.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Buildings/Building.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Orders/GameOrder.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Orders/GameOrder.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Orders/OrderableObject.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Orders/OrderableObject.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Orders/Units/AttackTask.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Orders/Units/AttackTask.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Orders/Units/BuildTask.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Orders/Units/BuildOrder.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Orders/Units/BuildTask.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Orders/Units/BuildOrder.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Units/UnitBuilder.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Units/UnitBuilder.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UnitsControlScripts/InputHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UnitsControlScripts/InputHandler.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/UnitsControlScripts/OrderGiver.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UnitsControlScripts/OrderGiver.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,23 +41,28 @@
       <option value="$PROJECT_DIR$/Assets/Scripts/Orders/Units/MoveAttackTask.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Orders/Units/MoveTask.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/CameraMovement/MovementByMinimap.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Orders/Units/AttackTask.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Units/UnitBuilder.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Orders/Units/BuildTask.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Buildings/Builder.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/UIScripts/UIManager.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/UIScripts/OrderButtonsSetter.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/UnitsControlScripts/Enteties.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Orders/OrderableObject.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/AIScripts/SimpleAI.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/UnitsControlScripts/FractionMember.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/UnitsControlScripts/InputHandler.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/AIScripts/UnitsCreator.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/PlayerControl/PlayerUnitsController.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/UnitsControlScripts/DamageSystem.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/UnitsControlScripts/EntetiesLister.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Buildings/Building.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/UnitsControlScripts/OrderGiver.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/HexWordEditor/XMLMapSaver.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Buildings/Building.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Orders/Units/AttackTask.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Orders/EntityOrder/SpellOrder.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Orders/GameOrder.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Orders/OrderableObject.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Orders/Units/BuildTask.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Orders/Units/BuildOrder.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Orders/GameOrderInitParams.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/AIScripts/SimpleAI.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1lIISIM12q3GC48Z5aO5fthc7Rz" />

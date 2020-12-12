@@ -7,6 +7,7 @@ namespace Assets.Scripts.Orders
     public class GameOrder{
         public bool isPefrorming { get; private set; } = false;
         public GameObject ObjectToOrder;
+        public bool isAvailable { get; set; } = true;
 
         public GameOrder(GameObject ObjectToOrder)
         {

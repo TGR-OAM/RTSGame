@@ -104,7 +104,7 @@ namespace Assets.Scripts.UnitsControlScripts
 
         public void SetOrder(Type orderType)
         {
-            if (orderType == typeof(BuildTask))
+            if (orderType == typeof(BuildOrder))
             {
                 currentState = HandlerState.Building;
                 builder.StartPlacingBuilding(TestPrefab);
@@ -154,10 +154,10 @@ namespace Assets.Scripts.UnitsControlScripts
             }
             else if (currentState == HandlerState.Building)
             {
-                BuildTask buildTask = new BuildTask(builder.flyingBuilding,SelectedEnteties[0].gameObject);
+                BuildOrder buildOrder = new BuildOrder(builder.flyingBuilding,SelectedEnteties[0].gameObject);
                 if (builder.TryPlaceFlyingBuilding())
                 {
-                    SelectedEnteties[0].GiveOrder(buildTask);
+                    SelectedEnteties[0].GiveOrder(buildOrder);
                     ReturnToIdleState();
                 }
                 
@@ -265,8 +265,8 @@ namespace Assets.Scripts.UnitsControlScripts
                     Debug.Log(ordersType.Count);
                 }
 
-                if (ordersType.Contains(typeof(BuildTask)) && orderableObjects.Count != 1)
-                    ordersType.Remove(typeof(BuildTask));
+                if (ordersType.Contains(typeof(BuildOrder)) && orderableObjects.Count != 1)
+                    ordersType.Remove(typeof(BuildOrder));
                 
                 return ordersType;
             }

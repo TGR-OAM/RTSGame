@@ -30,7 +30,7 @@ public class SimpleAI : MonoBehaviour
             currentTimeFromAttack = 0;
         }
     }
-
+    
     private void AttackPlayer()
     {
         print("Go go go");

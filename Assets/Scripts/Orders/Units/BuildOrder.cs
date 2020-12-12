@@ -5,7 +5,11 @@ using UnityEngine;
 
 namespace Assets.Scripts.Orders.Units
 {
-    public class BuildTask : GameOrder
+    public class BuildOrderInitParams : GameOrderInitParams
+    {
+        public Building building;
+    }
+    public class BuildOrder : GameOrder
     {
         private DamageSystem buildingDamageSystem;
         private Building BuildingToBuild;
@@ -15,7 +19,7 @@ namespace Assets.Scripts.Orders.Units
         
         private Unit unitToOrder;
         
-        public BuildTask(Building buildingToBuild, GameObject ObjectToOrder) : base(ObjectToOrder)
+        public BuildOrder(Building buildingToBuild, GameObject ObjectToOrder) : base(ObjectToOrder)
         {
             this.BuildingToBuild = buildingToBuild;
             this.buildingDamageSystem = buildingToBuild.damageSystem;

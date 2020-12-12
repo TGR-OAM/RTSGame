@@ -60,7 +60,7 @@ namespace Assets.Scripts.Buildings
 
         private void OnDrawGizmos()
         {
-            if(Application.isEditor) return;
+           if(!Application.isPlaying) return;
             
             for (int x = 0; x < Size.x; x++)
             {

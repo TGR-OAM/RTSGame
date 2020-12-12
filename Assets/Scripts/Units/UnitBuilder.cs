@@ -14,7 +14,7 @@ namespace Assets.Scripts.Units
             BaseUnitInitialization();
 
             orderableObject.SetPossibleOrderTypes(new List<Type>
-                {typeof(MoveTask), typeof(BuildTask)});
+                {typeof(MoveTask), typeof(BuildOrder)});
         }
     }
 }

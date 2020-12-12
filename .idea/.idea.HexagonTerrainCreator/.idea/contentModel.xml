@@ -75,11 +75,15 @@
             <e p="Buildings" t="Include">
               <e p="UnitCreationTask.cs" t="Include" />
             </e>
+            <e p="EntityOrder" t="Include">
+              <e p="SpellOrder.cs" t="Include" />
+            </e>
             <e p="GameOrder.cs" t="Include" />
+            <e p="GameOrderInitParams.cs" t="Include" />
             <e p="OrderableObject.cs" t="Include" />
             <e p="Units" t="Include">
               <e p="AttackTask.cs" t="Include" />
-              <e p="BuildTask.cs" t="Include" />
+              <e p="BuildOrder.cs" t="Include" />
               <e p="MoveAttackTask.cs" t="Include" />
               <e p="MoveTask.cs" t="Include" />
             </e>

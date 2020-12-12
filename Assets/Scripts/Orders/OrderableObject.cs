@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using Assets.Scripts.Orders;
 using UnityEngine;
 
@@ -9,6 +10,18 @@ namespace Assets.Scripts.UnitsControlScripts
     {
         public GameOrder currentOrder { get; set; }
         public List<Type> orderTypes { get; protected set; } = new List<Type>();
+        private GameOrder[] ourOrders;
+        [SerializeField] public GameOrderInitParams[] GameOrderInitParamsArray;
+
+        private void Start()
+        {
+            InitOrdersArray(GameOrderInitParamsArray);
+        }
+
+        private void InitOrdersArray(GameOrderInitParams[] gameOrderInitParamsArray)
+        {
+            ourOrders = gameOrderInitParamsArray.Select(x => x.CreateOrder()).ToArray();
+        }
 
         public void SetPossibleOrderTypes(List<Type> orderTypes)
         {
