@@ -18,7 +18,7 @@ namespace Assets.Scripts.Buildings
         public Vector2Int Size;
         public Vector3 HexCoords;
         public Collider ObjectCollider;
-        
+        public bool isStartWithFullHp = false;
         public float timeUntilConstruction;
 
         public OrderableObject orderableObject { get; private set; }
@@ -60,6 +60,8 @@ namespace Assets.Scripts.Buildings
 
         private void OnDrawGizmos()
         {
+            if(Application.isEditor) return;
+            
             for (int x = 0; x < Size.x; x++)
             {
                 for (int z = 0; z < Size.y; z++)
@@ -84,6 +86,7 @@ namespace Assets.Scripts.Buildings
             damageSystem = this.GetComponent<DamageSystem>();
             ObjectCollider = this.GetComponent<Collider>();
             damageSystem.SetMaxHpd(MaxHp);
+            if(isStartWithFullHp) damageSystem.Heal(MaxHp);
         }
     }
 }

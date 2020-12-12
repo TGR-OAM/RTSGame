@@ -63,7 +63,7 @@ namespace Assets.Scripts.UnitsControlScripts
 
         private void Start()
         {
-            orderGiver = new OrderGiver(hexGrid, this);
+            orderGiver = new OrderGiver(hexGrid,this);
             builder = new Builder(hexGrid);
 
             
