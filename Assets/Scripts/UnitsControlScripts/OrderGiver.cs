@@ -2,6 +2,7 @@
 using System.ComponentModel.Design;
 using Assets.Scripts.Buildings;
 using Assets.Scripts.HexWorldinterpretation;
+using Assets.Scripts.Orders;
 using Assets.Scripts.Orders.Units;
 using Assets.Scripts.Units;
 using UnityEngine;
@@ -31,13 +32,13 @@ namespace Assets.Scripts.UnitsControlScripts
                 RaycastHit hit;
                 if (Physics.Raycast(Camera.main.ScreenPointToRay(mousePos), out hit, 100f, 1 << 8))
                 {
-                    GameObject g = hit.collider.gameObject;
-                    FractionMember f = g.GetComponent<FractionMember>();
-                    if (g.GetComponent<DamageSystem>() == null)
+                    GameObject raycastHitGameObject = hit.collider.gameObject;
+                    FractionMember raycastHitGameObjectFraction = raycastHitGameObject.GetComponent<FractionMember>();
+                    if (raycastHitGameObject.GetComponent<DamageSystem>() == null)
                     {
                         foreach (OrderableObject entety in EntetiesToOrder)
                         {
-                            MoveTask o = new MoveTask(GetDestinationWithOffset(hit.point, EntetiesToOrder.Length), entety.gameObject);
+                            MoveOrder o = new MoveOrder(GetDestinationWithOffset(hit.point, EntetiesToOrder.Length), entety.gameObject);
                             entety.GiveOrder(o);
                         }
                     }
@@ -45,10 +46,10 @@ namespace Assets.Scripts.UnitsControlScripts
                     {
                         foreach (OrderableObject entety in EntetiesToOrder)
                         {
-                            if (entety.GetComponent<FractionMember>() != f)
+                            if (entety.GetComponent<FractionMember>() != raycastHitGameObjectFraction)
                             {
-                                AttackTask t = new AttackTask(g, entety.gameObject);
-                                entety.GiveOrder(t);
+                                AttackOrder order = new AttackOrder(raycastHitGameObject, entety.gameObject);
+                                entety.GiveOrder(order);
                             }
                         }
                     }
@@ -62,18 +63,21 @@ namespace Assets.Scripts.UnitsControlScripts
                     
                     if (EntetiesToOrder.Length == 1 && EntetiesToOrder[0].orderTypes.Contains(typeof(BuildOrder)))//if we selected one builder
                     {
-                        BuildOrder buildOrder = new BuildOrder(building, EntetiesToOrder[0].gameObject);
+                        BuildOrderInitParams buildOrderInitParams = new BuildOrderInitParams();
+                        buildOrderInitParams.building = building;
+                        GameOrder buildOrder = buildOrderInitParams.CreateOrder();
                         EntetiesToOrder[0].GiveOrder(buildOrder);
+                        buildOrder.ObjectToOrder = EntetiesToOrder[0].gameObject;
                     }
 
-                    if (inputHandler.PossibleOrders.Contains(typeof(AttackTask)))
+                    if (inputHandler.PossibleOrders.Contains(typeof(AttackOrder)))
                     {
                         foreach (OrderableObject EntetyToOrder in EntetiesToOrder)
                         {
                             if (f == EntetyToOrder.GetComponent<FractionMember>())
                             {
-                                AttackTask attackTask = new AttackTask(gameObject, EntetyToOrder.gameObject);
-                                EntetyToOrder.GiveOrder(attackTask);
+                                AttackOrder attackOrder = new AttackOrder(gameObject, EntetyToOrder.gameObject);
+                                EntetyToOrder.GiveOrder(attackOrder);
                             }
                         }
                         
@@ -86,23 +90,22 @@ namespace Assets.Scripts.UnitsControlScripts
                     {
                         foreach (OrderableObject EntetyToOrder in EntetiesToOrder)
                         {
-                            MoveTask o = new MoveTask(GetDestinationWithOffset(output, EntetiesToOrder.Length), EntetyToOrder.gameObject);
-                            EntetyToOrder.GiveOrder(o);
+                            MoveOrder order = new MoveOrder(GetDestinationWithOffset(output, EntetiesToOrder.Length), EntetyToOrder.gameObject);
+                            EntetyToOrder.GiveOrder(order);
                         }
                     }
                 }
-
             }
             else
             {
-                if (orderType == typeof(MoveAttackTask))
+                if (orderType == typeof(MoveAttackOrder))
                 {
                     RaycastHit hit;
                     if (Physics.Raycast(Camera.main.ScreenPointToRay(mousePos), out hit, 100f, 1 << 8))
                     {
                         foreach (OrderableObject EntetyToOrder in EntetiesToOrder)
                         {
-                            MoveAttackTask o = new MoveAttackTask(GetDestinationWithOffset(hit.point, EntetiesToOrder.Length),
+                            MoveAttackOrder o = new MoveAttackOrder(GetDestinationWithOffset(hit.point, EntetiesToOrder.Length),
                                 EntetyToOrder.gameObject);
                             EntetyToOrder.GiveOrder(o);
                         }
@@ -113,7 +116,7 @@ namespace Assets.Scripts.UnitsControlScripts
                         {
                             foreach (OrderableObject EntetyToOrder in EntetiesToOrder)
                             {
-                                MoveAttackTask o = new MoveAttackTask(GetDestinationWithOffset(output, EntetiesToOrder.Length),
+                                MoveAttackOrder o = new MoveAttackOrder(GetDestinationWithOffset(output, EntetiesToOrder.Length),
                                     EntetyToOrder.gameObject);
                                 EntetyToOrder.GiveOrder(o);
                             }
@@ -121,33 +124,36 @@ namespace Assets.Scripts.UnitsControlScripts
                     }
                 }
 
-                if (orderType == typeof(MoveTask))
+                if (orderType == typeof(MoveOrder))
                 {
                     if (hexGrid.TryRaycastHexGrid(Camera.main.ScreenPointToRay(mousePos), out Vector3 output))
                     {
                         foreach (OrderableObject EntetyToOrder in EntetiesToOrder)
                         {
-                            MoveTask o = new MoveTask(GetDestinationWithOffset(output, EntetiesToOrder.Length),
+                            MoveOrder o = new MoveOrder(GetDestinationWithOffset(output, EntetiesToOrder.Length),
                                 EntetyToOrder.gameObject);
                             EntetyToOrder.GiveOrder(o);
                         }
                     }
                 }
 
-                if (orderType == typeof(AttackTask))
+                if (orderType == typeof(AttackOrder))
                 {
                     if (Physics.Raycast(Camera.main.ScreenPointToRay(mousePos), out RaycastHit hit, 100f, 1 << 8))
                     {
-                        GameObject g = hit.collider.gameObject;
-                        FractionMember f = g.GetComponent<FractionMember>();
-                        if (g.GetComponent<DamageSystem>() != null)
+                        GameObject victim = hit.collider.gameObject;
+                        FractionMember victimFraction = victim.GetComponent<FractionMember>();
+                        if (victim.GetComponent<DamageSystem>() != null)
                         {
                             foreach (OrderableObject EntetyToOrder in EntetiesToOrder)
                             {
-                                if (EntetyToOrder.GetComponent<FractionMember>() != f)
+                                if (EntetyToOrder.GetComponent<FractionMember>() != victimFraction)
                                 {
-                                    AttackTask t = new AttackTask(g, EntetyToOrder.gameObject);
-                                    EntetyToOrder.GiveOrder(t);
+                                    AttackOrderInitParams currentParameters = new AttackOrderInitParams();
+                                    currentParameters.target = victim;
+                                    GameOrder order = currentParameters.CreateOrder();
+                                    order.ObjectToOrder = EntetyToOrder.gameObject;
+                                    EntetyToOrder.GiveOrder(order);
                                 }
                             }
                         }

@@ -140,7 +140,7 @@ namespace Assets.Scripts.UnitsControlScripts
             {
                 if (playerInput.actions.FindActionMap("Player").FindAction("APressed").ReadValue<float>() >= .5f)
                 {
-                    orderGiver.GiveOrder(SelectedEnteties.ToArray(), typeof(MoveAttackTask));
+                    orderGiver.GiveOrder(SelectedEnteties.ToArray(), typeof(MoveAttackOrder));
                 }
                 else
                 {

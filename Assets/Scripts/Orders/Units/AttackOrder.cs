@@ -4,11 +4,15 @@ using UnityEngine;
 
 namespace Assets.Scripts.Orders.Units
 {
-    public class AttackTask : GameOrder
+    public class AttackOrderInitParams : GameOrderInitParams
+    {
+        public GameObject target;
+    }
+    public class AttackOrder : GameOrder
     {
         public GameObject target;
         private Warrior WarriorToOrder;
-        public AttackTask (GameObject t, GameObject ObjectToOrder):base(ObjectToOrder)
+        public AttackOrder (GameObject t, GameObject ObjectToOrder):base(ObjectToOrder)
         {
             target = t;
         }

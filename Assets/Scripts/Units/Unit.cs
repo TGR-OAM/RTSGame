@@ -26,7 +26,7 @@ namespace Assets.Scripts.Units
 
             BaseUnitInitialization();
             
-            orderableObject.SetPossibleOrderTypes(new List<Type> {typeof(MoveTask)});
+            orderableObject.SetPossibleOrderTypes(new List<Type> {typeof(MoveOrder)});
         }
 
         protected void BaseUnitInitialization()

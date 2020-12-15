@@ -4,13 +4,13 @@ using UnityEngine;
 
 namespace Assets.Scripts.Orders.Units
 {
-    public class MoveAttackTask : GameOrder
+    public class MoveAttackOrder : GameOrder
     {
         private Vector3 destination;
         private GameObject target;
         private Warrior UnitToOrder;
 
-        public MoveAttackTask(Vector3 destination,GameObject ObjectToOrder) : base(ObjectToOrder)
+        public MoveAttackOrder(Vector3 destination,GameObject ObjectToOrder) : base(ObjectToOrder)
         {
             this.destination = destination;
         }

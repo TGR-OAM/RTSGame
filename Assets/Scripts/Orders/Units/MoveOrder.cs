@@ -5,13 +5,17 @@ using Component = UnityEngine.Component;
 
 namespace Assets.Scripts.Orders.Units
 {
+    public class MoveOrderInitParams : GameOrderInitParams
+    {
+        public Vector3 destination;
+    }
     [Description("some text")]
-    public class MoveTask : GameOrder
+    public class MoveOrder : GameOrder
     {
         private Vector3 destination;
         private Unit UnitToOrder;
 
-        public MoveTask(Vector3 destination ,GameObject ObjectToOrder) : base(ObjectToOrder)
+        public MoveOrder(Vector3 destination ,GameObject ObjectToOrder) : base(ObjectToOrder)
         {
             this.destination = destination;
         }
