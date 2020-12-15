@@ -12,7 +12,7 @@ namespace Assets.Scripts.Orders.Units
     {
         public GameObject target;
         private Warrior WarriorToOrder;
-        public AttackOrder (GameObject t, GameObject ObjectToOrder):base(ObjectToOrder)
+        public AttackOrder (GameObject t)
         {
             target = t;
         }

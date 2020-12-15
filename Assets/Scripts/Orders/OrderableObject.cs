@@ -32,6 +32,7 @@ namespace Assets.Scripts.UnitsControlScripts
         {
             CompleteTask();
             currentOrder = order;
+            order.ObjectToOrder = this.gameObject;
             currentOrder.StartOrder();
         }
 

@@ -9,11 +9,6 @@ namespace Assets.Scripts.Orders
         public GameObject ObjectToOrder;
         public bool isAvailable { get; set; } = true;
 
-        public GameOrder(GameObject ObjectToOrder)
-        {
-            this.ObjectToOrder = ObjectToOrder;
-        }
-
         public virtual void StartOrder()
         {
             isPefrorming = true;

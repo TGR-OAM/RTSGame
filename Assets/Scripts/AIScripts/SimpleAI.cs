@@ -39,7 +39,7 @@ public class SimpleAI : MonoBehaviour
         {
             if (unit.GetComponent<FractionMember>().fraction == Fraction.Enemy && unit.GetComponent<OrderableObject>() != null)
             {
-                unit.GetComponent<OrderableObject>().GiveOrder(new MoveAttackOrder(basePosition, unit));
+                //unit.GetComponent<OrderableObject>().GiveOrder(new MoveAttackOrder(basePosition, unit));
             }
         }
     }

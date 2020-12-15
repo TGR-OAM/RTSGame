@@ -154,7 +154,7 @@ namespace Assets.Scripts.UnitsControlScripts
             }
             else if (currentState == HandlerState.Building)
             {
-                BuildOrder buildOrder = new BuildOrder(builder.flyingBuilding,SelectedEnteties[0].gameObject);
+                BuildOrder buildOrder = new BuildOrder(builder.flyingBuilding);
                 if (builder.TryPlaceFlyingBuilding())
                 {
                     SelectedEnteties[0].GiveOrder(buildOrder);

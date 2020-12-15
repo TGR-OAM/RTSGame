@@ -10,7 +10,7 @@ namespace Assets.Scripts.Orders.Units
         private GameObject target;
         private Warrior UnitToOrder;
 
-        public MoveAttackOrder(Vector3 destination,GameObject ObjectToOrder) : base(ObjectToOrder)
+        public MoveAttackOrder(Vector3 destination)
         {
             this.destination = destination;
         }

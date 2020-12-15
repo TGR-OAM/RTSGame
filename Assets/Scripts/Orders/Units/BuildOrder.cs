@@ -19,7 +19,7 @@ namespace Assets.Scripts.Orders.Units
         
         private Unit unitToOrder;
         
-        public BuildOrder(Building buildingToBuild, GameObject ObjectToOrder) : base(ObjectToOrder)
+        public BuildOrder(Building buildingToBuild)
         {
             this.BuildingToBuild = buildingToBuild;
             this.buildingDamageSystem = buildingToBuild.damageSystem;

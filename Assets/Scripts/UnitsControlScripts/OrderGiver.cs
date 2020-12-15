@@ -1,10 +1,8 @@
-﻿using System;
-using System.ComponentModel.Design;
-using Assets.Scripts.Buildings;
+﻿using Assets.Scripts.Buildings;
 using Assets.Scripts.HexWorldinterpretation;
 using Assets.Scripts.Orders;
 using Assets.Scripts.Orders.Units;
-using Assets.Scripts.Units;
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using Random = UnityEngine.Random;
@@ -15,7 +13,7 @@ namespace Assets.Scripts.UnitsControlScripts
     {
         public HexGrid hexGrid;
         public InputHandler inputHandler;
-
+        public Fraction fraction = Fraction.Player;
         public OrderGiver(HexGrid grid, InputHandler inputHandler)
         {
             hexGrid = grid;
@@ -24,9 +22,7 @@ namespace Assets.Scripts.UnitsControlScripts
 
         public void GiveOrder(OrderableObject[] EntetiesToOrder, Type orderType, bool isIdleState = false)
         {
-
             Vector2 mousePos = Mouse.current.position.ReadValue();
-
             if (isIdleState)
             {
                 RaycastHit hit;
@@ -38,7 +34,9 @@ namespace Assets.Scripts.UnitsControlScripts
                     {
                         foreach (OrderableObject entety in EntetiesToOrder)
                         {
-                            MoveOrder o = new MoveOrder(GetDestinationWithOffset(hit.point, EntetiesToOrder.Length), entety.gameObject);
+                            MoveOrderInitParams moveOrderInitParams = new MoveOrderInitParams();
+                            m
+                            MoveOrder o = new MoveOrder(GetDestinationWithOffset(hit.point, EntetiesToOrder.Length));
                             entety.GiveOrder(o);
                         }
                     }
@@ -48,7 +46,7 @@ namespace Assets.Scripts.UnitsControlScripts
                         {
                             if (entety.GetComponent<FractionMember>() != raycastHitGameObjectFraction)
                             {
-                                AttackOrder order = new AttackOrder(raycastHitGameObject, entety.gameObject);
+                                AttackOrder order = new AttackOrder(raycastHitGameObject);
                                 entety.GiveOrder(order);
                             }
                         }
@@ -56,11 +54,11 @@ namespace Assets.Scripts.UnitsControlScripts
                 }
                 else if (Physics.Raycast(Camera.main.ScreenPointToRay(mousePos), out hit, 100f, 1 << 10))
                 {
-                    GameObject gameObject = hit.collider.gameObject;
-                    FractionMember f = gameObject.GetComponent<FractionMember>();
+                    GameObject enemyObject = hit.collider.gameObject;
+                    FractionMember victimFraction = enemyObject.GetComponent<FractionMember>();
 
-                    Building building = gameObject.GetComponent<Building>();
-                    
+                    Building building = enemyObject.GetComponent<Building>();
+
                     if (EntetiesToOrder.Length == 1 && EntetiesToOrder[0].orderTypes.Contains(typeof(BuildOrder)))//if we selected one builder
                     {
                         BuildOrderInitParams buildOrderInitParams = new BuildOrderInitParams();
@@ -72,15 +70,12 @@ namespace Assets.Scripts.UnitsControlScripts
 
                     if (inputHandler.PossibleOrders.Contains(typeof(AttackOrder)))
                     {
-                        foreach (OrderableObject EntetyToOrder in EntetiesToOrder)
+                        if (victimFraction.fraction != fraction)
                         {
-                            if (f == EntetyToOrder.GetComponent<FractionMember>())
-                            {
-                                AttackOrder attackOrder = new AttackOrder(gameObject, EntetyToOrder.gameObject);
-                                EntetyToOrder.GiveOrder(attackOrder);
-                            }
+                            AttackOrderInitParams attackOrderInitParams = new AttackOrderInitParams();
+                            attackOrderInitParams.target = enemyObject;
+                            GiveOrderToUnits(EntetiesToOrder, attackOrderInitParams);
                         }
-                        
                     }
                 }
                 else
@@ -90,8 +85,9 @@ namespace Assets.Scripts.UnitsControlScripts
                     {
                         foreach (OrderableObject EntetyToOrder in EntetiesToOrder)
                         {
-                            MoveOrder order = new MoveOrder(GetDestinationWithOffset(output, EntetiesToOrder.Length), EntetyToOrder.gameObject);
-                            EntetyToOrder.GiveOrder(order);
+                            MoveOrderInitParams moveOrderInitParams = new MoveOrderInitParams();
+                            moveOrderInitParams.destination = GetDestinationWithOffset(output, EntetiesToOrder.Length);
+                            GiveOrderToUnits(EntetyToOrder, moveOrderInitParams);
                         }
                     }
                 }
@@ -105,9 +101,10 @@ namespace Assets.Scripts.UnitsControlScripts
                     {
                         foreach (OrderableObject EntetyToOrder in EntetiesToOrder)
                         {
-                            MoveAttackOrder o = new MoveAttackOrder(GetDestinationWithOffset(hit.point, EntetiesToOrder.Length),
-                                EntetyToOrder.gameObject);
-                            EntetyToOrder.GiveOrder(o);
+                            MoveOrderInitParams moveAttackOrderInitParams = new MoveOrderInitParams();
+                            moveAttackOrderInitParams.destination = GetDestinationWithOffset(hit.point, EntetiesToOrder.Length);
+                            moveAttackOrderInitParams.isForMoveAttackOrder = true;
+                            GiveOrderToUnits(EntetyToOrder, moveAttackOrderInitParams);
                         }
                     }
                     else
@@ -116,9 +113,10 @@ namespace Assets.Scripts.UnitsControlScripts
                         {
                             foreach (OrderableObject EntetyToOrder in EntetiesToOrder)
                             {
-                                MoveAttackOrder o = new MoveAttackOrder(GetDestinationWithOffset(output, EntetiesToOrder.Length),
-                                    EntetyToOrder.gameObject);
-                                EntetyToOrder.GiveOrder(o);
+                                MoveOrderInitParams moveAttackOrderInitParams = new MoveOrderInitParams();
+                                moveAttackOrderInitParams.destination = GetDestinationWithOffset(output, EntetiesToOrder.Length);
+                                moveAttackOrderInitParams.isForMoveAttackOrder = true;
+                                GiveOrderToUnits(EntetyToOrder, moveAttackOrderInitParams);
                             }
                         }
                     }
@@ -130,9 +128,10 @@ namespace Assets.Scripts.UnitsControlScripts
                     {
                         foreach (OrderableObject EntetyToOrder in EntetiesToOrder)
                         {
-                            MoveOrder o = new MoveOrder(GetDestinationWithOffset(output, EntetiesToOrder.Length),
-                                EntetyToOrder.gameObject);
-                            EntetyToOrder.GiveOrder(o);
+                            MoveOrderInitParams moveOrderInitParams = new MoveOrderInitParams();
+                            moveOrderInitParams.destination = GetDestinationWithOffset(output, EntetiesToOrder.Length);
+                            GiveOrderToUnits(EntetyToOrder, moveOrderInitParams);
+                            return;
                         }
                     }
                 }
@@ -145,16 +144,11 @@ namespace Assets.Scripts.UnitsControlScripts
                         FractionMember victimFraction = victim.GetComponent<FractionMember>();
                         if (victim.GetComponent<DamageSystem>() != null)
                         {
-                            foreach (OrderableObject EntetyToOrder in EntetiesToOrder)
+                            if (fraction != victimFraction.fraction)
                             {
-                                if (EntetyToOrder.GetComponent<FractionMember>() != victimFraction)
-                                {
-                                    AttackOrderInitParams currentParameters = new AttackOrderInitParams();
-                                    currentParameters.target = victim;
-                                    GameOrder order = currentParameters.CreateOrder();
-                                    order.ObjectToOrder = EntetyToOrder.gameObject;
-                                    EntetyToOrder.GiveOrder(order);
-                                }
+                                AttackOrderInitParams currentParameters = new AttackOrderInitParams();
+                                currentParameters.target = victim;
+                                GiveOrderToUnits(EntetiesToOrder, currentParameters);
                             }
                         }
                     }
@@ -162,11 +156,26 @@ namespace Assets.Scripts.UnitsControlScripts
             }
         }
 
+        public static void GiveOrderToUnits(OrderableObject[] orderableObjects, GameOrderInitParams gameOrderInitParams)
+        {
+            GameOrder order = gameOrderInitParams.CreateOrder();
+            foreach (OrderableObject orderableObject in orderableObjects)
+            {
+                orderableObject.GiveOrder(order);
+            }
+        }
+
+        public static void GiveOrderToUnits(OrderableObject orderableObject, GameOrderInitParams gameOrderInitParams)
+        {
+            GameOrder order = gameOrderInitParams.CreateOrder();
+            orderableObject.GiveOrder(order);
+        }
+
         private Vector3 GetDestinationWithOffset(Vector3 destination, int numOfUnits)
         {
             float offset = numOfUnits * 0.21f;
             return destination + new Vector3(Random.Range(-offset, offset), 0, Random.Range(-offset, offset));
         }
-        
+
     }
 }

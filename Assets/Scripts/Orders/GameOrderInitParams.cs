@@ -31,7 +31,17 @@ namespace Assets.Scripts.Orders
             switch (orderInitParams)
             {
                 case BuildOrderInitParams buildParams:
-                    return new BuildOrder(buildParams.building, null);
+                    return new BuildOrder(buildParams.building);
+                case AttackOrderInitParams attackParams:
+                    return new AttackOrder(attackParams.target);
+                case MoveOrderInitParams moveParams:
+                    if (moveParams.isForMoveAttackOrder)
+                    {
+                        return new MoveAttackOrder(moveParams.destination);
+                    } else
+                    {
+                        return new MoveOrder(moveParams.destination);
+                    }
                 default:
                     throw new ArgumentOutOfRangeException(paramName: "orderInitParams");
             }

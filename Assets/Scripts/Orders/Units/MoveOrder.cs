@@ -7,6 +7,7 @@ namespace Assets.Scripts.Orders.Units
 {
     public class MoveOrderInitParams : GameOrderInitParams
     {
+        public bool isForMoveAttackOrder;
         public Vector3 destination;
     }
     [Description("some text")]
@@ -15,7 +16,7 @@ namespace Assets.Scripts.Orders.Units
         private Vector3 destination;
         private Unit UnitToOrder;
 
-        public MoveOrder(Vector3 destination ,GameObject ObjectToOrder) : base(ObjectToOrder)
+        public MoveOrder(Vector3 destination)
         {
             this.destination = destination;
         }
