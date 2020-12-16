@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - Constructor
+  - Factory
+  - FactoryUI
   layers:
   - Default
   - TransparentFX
@@ -15,7 +17,7 @@ TagManager:
   - 
   - 
   - Unit
-  - 
+  - Factory
   - 
   - 
   - 

@@ -105,9 +105,10 @@ GameObject:
   m_Component:
   - component: {fileID: 6868940406001656200}
   - component: {fileID: 7781565261085879258}
+  - component: {fileID: 1649880749178541360}
   m_Layer: 0
   m_Name: Bots constructor
-  m_TagString: Untagged
+  m_TagString: Factory
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -143,3 +144,16 @@ MonoBehaviour:
   MainRenderer:
   - {fileID: 2214986588501832742}
   Size: {x: 2, y: 5}
+--- !u!65 &1649880749178541360
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5326122496888578061}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2, y: 3, z: 5.0507784}
+  m_Center: {x: 0.5, y: 1.5, z: 2}

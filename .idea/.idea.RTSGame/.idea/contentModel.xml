@@ -7,6 +7,14 @@
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
         <e p="Scripts" t="Include">
+          <e p="Bots" t="Include">
+            <e p="Body.cs" t="Include" />
+            <e p="Bot.cs" t="Include" />
+            <e p="BotParts.cs" t="Include" />
+            <e p="CreateBot.cs" t="Include" />
+            <e p="Weapon.cs" t="Include" />
+            <e p="Wheels.cs" t="Include" />
+          </e>
           <e p="Building" t="Include">
             <e p="BuildBuilding" t="Include">
               <e p="Building.cs" t="Include" />
@@ -14,11 +22,8 @@
             </e>
           </e>
           <e p="Game.cs" t="Include" />
-          <e p="Worker" t="Include">
-            <e p="Ui" t="Include">
-              <e p="WorkerUI.cs" t="Include" />
-            </e>
-            <e p="WorkerUIEnable.cs" t="Include" />
+          <e p="UI" t="Include">
+            <e p="ButtonTag.cs" t="Include" />
           </e>
         </e>
       </e>

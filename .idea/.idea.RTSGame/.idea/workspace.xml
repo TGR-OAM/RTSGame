@@ -1,9 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="c400357b-b20a-4479-859d-a1ebe07358be" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Building/BuildBuilding/Building.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Building/BuildBuilding/Building.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.RTSGame/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.RTSGame/.idea/contentModel.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.RTSGame/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.RTSGame/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Buildings/BotsConst/Bots constructor.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Buildings/BotsConst/Bots constructor.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Building/BuildBuilding/BuildingsGrid.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Building/BuildBuilding/BuildingsGrid.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Worker.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Worker/Ui.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Worker/Ui/WorkerUI.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Worker/Ui/WorkerUI.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Worker/WorkerUIEnable.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Worker/WorkerUIEnable.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectVersion.txt" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectVersion.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -13,10 +42,33 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Bots/BotParts.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../ai/Assets/Scripts/Ai/AiTacticPoint.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Poligon/Assets/Scripts/Things/Item.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Bots/Bot.cs" root0="FORCE_HIGHLIGHTING" />
+  </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/Assets/Scripts/Building/BuildBuilding/Building.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Building/Bots/Weapon.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Building/Factory/Initialize UI.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Building/Factory/WeaponSlot.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Building/Factory/InitializeUI.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Building/Factory/OpenUI.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Building/BuildBuilding/BuildingsGrid.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Building/Factory/BuildAUnit.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Bots/MainBody.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Bots/Weapon.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Bots/BotParts.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Bots/HUIBLYAT.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Bots/UI/InitializeUI.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Bots/Body.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Bots/Bot.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Bots/CreateBot.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/UI/ButtonTag.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Bots/Wheels.cs" />
       </list>
     </option>
   </component>
@@ -27,6 +79,8 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="DebuggerViewTab_PTCS_FirstProportionKey" value="0.34950384" />
+    <property name="DebuggerViewTab_PTCS_LastProportionKey" value="0.29988974" />
     <property name="Discover.Launch.Via.Unity" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
@@ -62,6 +116,17 @@
       <option name="presentableId" value="Default" />
       <updated>1606410825270</updated>
       <workItem from="1606410840076" duration="299000" />
+      <workItem from="1606498752568" duration="2927000" />
+      <workItem from="1606571581570" duration="5702000" />
+      <workItem from="1606587711937" duration="660000" />
+      <workItem from="1606919847489" duration="3020000" />
+      <workItem from="1606936524454" duration="5731000" />
+      <workItem from="1607003894065" duration="660000" />
+      <workItem from="1607107960197" duration="6515000" />
+      <workItem from="1607189617299" duration="6498000" />
+      <workItem from="1607437353673" duration="2176000" />
+      <workItem from="1607454053594" duration="5739000" />
+      <workItem from="1608143796498" duration="2294000" />
     </task>
     <servers />
   </component>
@@ -70,7 +135,89 @@
   </component>
   <component name="UnityProjectConfiguration" hasMinimizedUI="true" />
   <component name="UnityUnitTestConfiguration" currentTestLauncher="EditMode" />
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state width="938" height="129" key="GridCell.Tab.0.bottom" timestamp="1606577329784">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="938" height="129" key="GridCell.Tab.0.bottom/0.0.1920.1040/-1280.150.1280.1024@0.0.1920.1040" timestamp="1606577329784" />
+    <state width="938" height="129" key="GridCell.Tab.0.center" timestamp="1606577329784">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="938" height="129" key="GridCell.Tab.0.center/0.0.1920.1040/-1280.150.1280.1024@0.0.1920.1040" timestamp="1606577329784" />
+    <state width="938" height="129" key="GridCell.Tab.0.left" timestamp="1606577329784">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="938" height="129" key="GridCell.Tab.0.left/0.0.1920.1040/-1280.150.1280.1024@0.0.1920.1040" timestamp="1606577329784" />
+    <state width="938" height="129" key="GridCell.Tab.0.right" timestamp="1606577329784">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="938" height="129" key="GridCell.Tab.0.right/0.0.1920.1040/-1280.150.1280.1024@0.0.1920.1040" timestamp="1606577329784" />
+    <state width="938" height="129" key="GridCell.Tab.1.bottom" timestamp="1606577329786">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="938" height="129" key="GridCell.Tab.1.bottom/0.0.1920.1040/-1280.150.1280.1024@0.0.1920.1040" timestamp="1606577329786" />
+    <state width="938" height="129" key="GridCell.Tab.1.center" timestamp="1606577329785">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="938" height="129" key="GridCell.Tab.1.center/0.0.1920.1040/-1280.150.1280.1024@0.0.1920.1040" timestamp="1606577329785" />
+    <state width="938" height="129" key="GridCell.Tab.1.left" timestamp="1606577329785">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="938" height="129" key="GridCell.Tab.1.left/0.0.1920.1040/-1280.150.1280.1024@0.0.1920.1040" timestamp="1606577329785" />
+    <state width="938" height="129" key="GridCell.Tab.1.right" timestamp="1606577329785">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="938" height="129" key="GridCell.Tab.1.right/0.0.1920.1040/-1280.150.1280.1024@0.0.1920.1040" timestamp="1606577329785" />
+    <state width="938" height="129" key="GridCell.Tab.2.bottom" timestamp="1606577329786">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="938" height="129" key="GridCell.Tab.2.bottom/0.0.1920.1040/-1280.150.1280.1024@0.0.1920.1040" timestamp="1606577329786" />
+    <state width="938" height="129" key="GridCell.Tab.2.center" timestamp="1606577329786">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="938" height="129" key="GridCell.Tab.2.center/0.0.1920.1040/-1280.150.1280.1024@0.0.1920.1040" timestamp="1606577329786" />
+    <state width="938" height="129" key="GridCell.Tab.2.left" timestamp="1606577329786">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="938" height="129" key="GridCell.Tab.2.left/0.0.1920.1040/-1280.150.1280.1024@0.0.1920.1040" timestamp="1606577329786" />
+    <state width="938" height="129" key="GridCell.Tab.2.right" timestamp="1606577329786">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="938" height="129" key="GridCell.Tab.2.right/0.0.1920.1040/-1280.150.1280.1024@0.0.1920.1040" timestamp="1606577329786" />
+    <state width="938" height="129" key="GridCell.Tab.3.bottom" timestamp="1606577329787">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="938" height="129" key="GridCell.Tab.3.bottom/0.0.1920.1040/-1280.150.1280.1024@0.0.1920.1040" timestamp="1606577329787" />
+    <state width="938" height="129" key="GridCell.Tab.3.center" timestamp="1606577329786">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="938" height="129" key="GridCell.Tab.3.center/0.0.1920.1040/-1280.150.1280.1024@0.0.1920.1040" timestamp="1606577329786" />
+    <state width="938" height="129" key="GridCell.Tab.3.left" timestamp="1606577329786">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="938" height="129" key="GridCell.Tab.3.left/0.0.1920.1040/-1280.150.1280.1024@0.0.1920.1040" timestamp="1606577329786" />
+    <state width="938" height="129" key="GridCell.Tab.3.right" timestamp="1606577329786">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="938" height="129" key="GridCell.Tab.3.right/0.0.1920.1040/-1280.150.1280.1024@0.0.1920.1040" timestamp="1606577329786" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1607458111249">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/-1280.150.1280.1024@0.0.1920.1040" timestamp="1607458111249" />
   </component>
 </project>

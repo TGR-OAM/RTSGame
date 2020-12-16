@@ -81,7 +81,6 @@ public class BuildingsGrid : MonoBehaviour
 
         flyingBuilding.SetNormal();
         flyingBuilding.gameObject.GetComponentInChildren<Renderer>().material = flyingBuilding.Materials; 
-        flyingBuilding.tag = "Constructor";
         flyingBuilding.gameObject.layer = 9;
         flyingBuilding = null;
     }
