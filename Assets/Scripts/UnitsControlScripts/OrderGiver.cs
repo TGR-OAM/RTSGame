@@ -35,20 +35,18 @@ namespace Assets.Scripts.UnitsControlScripts
                         foreach (OrderableObject entety in EntetiesToOrder)
                         {
                             MoveOrderInitParams moveOrderInitParams = new MoveOrderInitParams();
-                            m
-                            MoveOrder o = new MoveOrder(GetDestinationWithOffset(hit.point, EntetiesToOrder.Length));
-                            entety.GiveOrder(o);
+                            moveOrderInitParams.destination = GetDestinationWithOffset(hit.point, EntetiesToOrder.Length);
+                            GiveOrderToUnits(entety, moveOrderInitParams);
                         }
                     }
                     else
                     {
-                        foreach (OrderableObject entety in EntetiesToOrder)
+
+                        if (fraction != raycastHitGameObjectFraction.fraction)
                         {
-                            if (entety.GetComponent<FractionMember>() != raycastHitGameObjectFraction)
-                            {
-                                AttackOrder order = new AttackOrder(raycastHitGameObject);
-                                entety.GiveOrder(order);
-                            }
+                            AttackOrderInitParams attackOrderInitParams = new AttackOrderInitParams();
+                            attackOrderInitParams.target = raycastHitGameObject;
+                            GiveOrderToUnits(EntetiesToOrder, attackOrderInitParams);
                         }
                     }
                 }

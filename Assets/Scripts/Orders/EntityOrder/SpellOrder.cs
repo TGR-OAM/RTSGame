@@ -5,7 +5,7 @@ namespace Orders.EntityOrder
 {
     public class SpellOrder : GameOrder
     {
-        public SpellOrder(GameObject ObjectToOrder) : base(ObjectToOrder)
+        public SpellOrder(GameObject ObjectToOrder)
         {
         }
     }

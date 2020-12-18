@@ -19,7 +19,7 @@ public class SimpleAI : MonoBehaviour
     private float attackInterval;
     private float currentTimeFromAttack;
     [SerializeField]
-    private Vector3 basePosition;
+    private Vector3 enemyBasePosition;
 
     private void Update()
     {
@@ -34,12 +34,14 @@ public class SimpleAI : MonoBehaviour
     private void AttackPlayer()
     {
         print("Go go go");
-        List<GameObject> units = unitLister.enteties;
-        foreach (GameObject unit in units)
+        MoveOrderInitParams moveOrderInitParams = new MoveOrderInitParams();
+        moveOrderInitParams.destination = enemyBasePosition;
+        moveOrderInitParams.isForMoveAttackOrder = true;
+        foreach(GameObject gameObject in unitLister.enteties)
         {
-            if (unit.GetComponent<FractionMember>().fraction == Fraction.Enemy && unit.GetComponent<OrderableObject>() != null)
+            if (gameObject.GetComponent<FractionMember>().fraction == Fraction.Enemy)
             {
-                //unit.GetComponent<OrderableObject>().GiveOrder(new MoveAttackOrder(basePosition, unit));
+                OrderGiver.GiveOrderToUnits(gameObject.GetComponent<OrderableObject>(), moveOrderInitParams);
             }
         }
     }

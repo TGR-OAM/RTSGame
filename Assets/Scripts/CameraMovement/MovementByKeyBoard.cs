@@ -1,4 +1,5 @@
 using UnityEngine;
+using static UnityEngine.InputSystem.InputAction;
 
 namespace Assets.Scripts.CameraMovement
 {
@@ -27,6 +28,12 @@ namespace Assets.Scripts.CameraMovement
             newPos *= this.transform.position.y/ newPos.y;
 
             this.transform.position = newPos + position;
+        }
+
+        public void OnMove(CallbackContext callbackContext)
+        {
+            Vector2 moveVector = callbackContext.ReadValue<Vector2>();
+            TryMoveByDirection(moveVector);
         }
     }
 }

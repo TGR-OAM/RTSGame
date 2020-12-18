@@ -10,7 +10,7 @@ namespace Assets.Scripts.Orders.Buildings
         
         private float TimeUntilConstruction;
 
-        public UnitCreationTask(List<GameObject> unitPartsToCreate, List<Transform> unitPartsTransform,float timeToCreate,GameObject ObjectToOrder) : base(ObjectToOrder)
+        public UnitCreationTask(List<GameObject> unitPartsToCreate, List<Transform> unitPartsTransform,float timeToCreate)
         {
             this.unitPartsToCreate = unitPartsToCreate;
             this.unitPartsTransform = unitPartsTransform;

@@ -10,7 +10,7 @@ public class UnitsCreator : MonoBehaviour
     private float unitCreatingInterval;
     private float timeFromPreviousCreation;
     [SerializeField]
-    private Vector3 creatingPos;
+    private Transform positionToSpawnUnits;
     [SerializeField]
     private GameObject WarriorToCreate;
     [SerializeField]
@@ -18,7 +18,7 @@ public class UnitsCreator : MonoBehaviour
 
     private void Start()
     {
-        Instantiate(BuilderToCreate, creatingPos, Quaternion.identity);
+        Instantiate(BuilderToCreate, positionToSpawnUnits.position, Quaternion.identity);
     }
 
     void Update()
@@ -28,11 +28,11 @@ public class UnitsCreator : MonoBehaviour
         {
             if (Random.value <= .2f)
             {
-                Instantiate(BuilderToCreate, creatingPos, Quaternion.identity);
+                Instantiate(BuilderToCreate, positionToSpawnUnits.position, Quaternion.identity);
             }
             else
             {
-                Instantiate(WarriorToCreate, creatingPos, Quaternion.identity);
+                Instantiate(WarriorToCreate, positionToSpawnUnits.position, Quaternion.identity);
             }
             
             timeFromPreviousCreation = 0;

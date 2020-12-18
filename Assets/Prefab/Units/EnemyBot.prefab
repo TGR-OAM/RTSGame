@@ -98,18 +98,18 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 9
-  m_Acceleration: 45
+  m_Speed: 25
+  m_Acceleration: 0
   avoidancePriority: 50
   m_AngularSpeed: 10000
   m_StoppingDistance: 2
   m_AutoTraverseOffMeshLink: 1
-  m_AutoBraking: 1
+  m_AutoBraking: 0
   m_AutoRepath: 1
   m_Height: 1
   m_BaseOffset: 0.5
   m_WalkableMask: 4294967295
-  m_ObstacleAvoidanceType: 4
+  m_ObstacleAvoidanceType: 1
 --- !u!135 &5988925921437548173
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -150,6 +150,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7cbdbc3daee30ed499a06de295269c9f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  GameOrderInitParamsArray: []
 --- !u!114 &8913066266962825134
 MonoBehaviour:
   m_ObjectHideFlags: 0
