@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using Assets.Scripts.Orders;
+using Orders;
 using UnityEngine;
 
-namespace Assets.Scripts.UnitsControlScripts
+namespace UnitsControlScripts
 {
     public class OrderableObject : MonoBehaviour
     {

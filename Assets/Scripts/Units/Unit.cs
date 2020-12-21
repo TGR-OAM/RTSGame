@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using Assets.Scripts.Orders.Units;
-using Assets.Scripts.UnitsControlScripts;
+using Orders.Units;
+using UnitsControlScripts;
 using UnityEngine;
 using UnityEngine.AI;
 
-namespace Assets.Scripts.Units
+namespace Units
 {
     [RequireComponent(typeof(OrderableObject), typeof(FractionMember), typeof(DamageSystem))]
     public class Unit : MonoBehaviour

@@ -1,10 +1,9 @@
 ﻿using System;
 using System.Diagnostics;
-using Assets.Scripts.Orders;
-using Assets.Scripts.Orders.Units;
+using Orders.Units;
 using UnityEngine;
 
-namespace Assets.Scripts.Orders
+namespace Orders
 {
     public enum GameOrderType
     {

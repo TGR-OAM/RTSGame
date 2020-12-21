@@ -1,9 +1,9 @@
-﻿using Assets.Scripts.Units;
-using Assets.Scripts.Buildings;
-using Assets.Scripts.UnitsControlScripts;
+﻿using Buildings;
+using Units;
+using UnitsControlScripts;
 using UnityEngine;
 
-namespace Assets.Scripts.Orders.Units
+namespace Orders.Units
 {
     public class BuildOrderInitParams : GameOrderInitParams
     {

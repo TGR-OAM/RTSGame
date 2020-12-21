@@ -4,7 +4,7 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.Serialization;
 
-namespace Assets.Scripts.UnitsControlScripts.UnitsControlScripts
+namespace UnitsControlScripts
 {
     public class EntetiesLister : MonoBehaviour
     {

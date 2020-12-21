@@ -2,9 +2,9 @@
 using UnityEngine;
 using UnityEditor;
 using System.Globalization;
-using Assets.Scripts.HexWorldinterpretation;
+using HexWorldinterpretation;
 
-namespace Assets.Scripts.HexWordEditor
+namespace HexWordEditor
 {    
     public enum SaveType
     { 

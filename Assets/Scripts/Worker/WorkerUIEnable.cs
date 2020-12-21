@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using ErrorReport;
 using UnityEngine;
 
 public class WorkerUIEnable : MonoBehaviour

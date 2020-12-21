@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Assets.Scripts.HexWorldinterpretation
+namespace HexWorldinterpretation
 {
     public static class HexMetrics
     {

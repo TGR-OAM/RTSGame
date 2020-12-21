@@ -1,4 +1,4 @@
-﻿using Assets.Scripts.Orders;
+﻿using Units.Scripts.Orders;
 using UnityEngine;
 
 namespace Orders.EntityOrder

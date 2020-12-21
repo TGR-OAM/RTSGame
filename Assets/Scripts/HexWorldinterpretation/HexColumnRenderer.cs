@@ -2,7 +2,7 @@
 using System.Linq;
 using UnityEngine;
 
-namespace Assets.Scripts.HexWorldinterpretation
+namespace HexWorldinterpretation
 {
     public class HexColumnRenderer
     {

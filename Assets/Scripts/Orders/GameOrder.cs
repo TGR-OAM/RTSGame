@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-namespace Assets.Scripts.Orders
+namespace Orders
 {
     [Serializable]
     public class GameOrder{

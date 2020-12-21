@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
-namespace Assets.Scripts.Orders.Buildings
+namespace Orders.EntityOrder
 {
     public class UnitCreationTask:GameOrder
     {

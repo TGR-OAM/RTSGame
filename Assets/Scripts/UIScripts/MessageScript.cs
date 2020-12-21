@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Assets.Scripts.UIScripts
+namespace UIScripts
 {
     [RequireComponent(typeof(Text), typeof(ContentSizeFitter))]
     public class MessageScript : MonoBehaviour

@@ -1,11 +1,11 @@
 using System;
 using System.Collections.Generic;
 using System.Security.Cryptography;
-using Assets.Scripts.HexWorldinterpretation;
-using Assets.Scripts.UnitsControlScripts;
+using HexWorldinterpretation;
+using UnitsControlScripts;
 using UnityEngine;
 
-namespace Assets.Scripts.UIScripts
+namespace UIScripts
 {
     public class UIManager : MonoBehaviour
     {

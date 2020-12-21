@@ -1,9 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using Assets.Scripts.Orders.Units;
-using Assets.Scripts.UnitsControlScripts;
+using Orders.Units;
 
-namespace Assets.Scripts.Units
+namespace Units
 {
     public class UnitBuilder:Unit
     {

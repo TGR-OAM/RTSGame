@@ -1,7 +1,6 @@
-﻿using Assets.Scripts.UnitsControlScripts.UnitsControlScripts;
-using UnityEngine;
+﻿using UnityEngine;
 
-namespace Assets.Scripts.UnitsControlScripts
+namespace UnitsControlScripts
 {
     public class FractionMember : MonoBehaviour
     {

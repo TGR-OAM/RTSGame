@@ -1,8 +1,8 @@
-using Assets.Scripts.HexWorldinterpretation;
+using HexWorldinterpretation;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-namespace Assets.Scripts.Buildings
+namespace Buildings
 {
     public class Builder 
     {

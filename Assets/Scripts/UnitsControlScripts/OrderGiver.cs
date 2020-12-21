@@ -1,13 +1,13 @@
-﻿using Assets.Scripts.Buildings;
-using Assets.Scripts.HexWorldinterpretation;
-using Assets.Scripts.Orders;
-using Assets.Scripts.Orders.Units;
-using System;
+﻿using System;
+using Buildings;
+using HexWorldinterpretation;
+using Orders;
+using Orders.Units;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using Random = UnityEngine.Random;
 
-namespace Assets.Scripts.UnitsControlScripts
+namespace UnitsControlScripts
 {
     public class OrderGiver
     {

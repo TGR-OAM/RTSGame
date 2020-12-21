@@ -1,8 +1,8 @@
-﻿using Assets.Scripts.UnitsControlScripts;
-using Assets.Scripts.Units;
+﻿using Units;
+using UnitsControlScripts;
 using UnityEngine;
 
-namespace Assets.Scripts.Orders.Units
+namespace Orders.Units
 {
     public class AttackOrderInitParams : GameOrderInitParams
     {

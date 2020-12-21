@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Assets.Scripts.CameraMovement
+namespace CameraMovement
 {
     public class MouseLook : MonoBehaviour
     {

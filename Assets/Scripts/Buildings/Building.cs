@@ -1,11 +1,10 @@
 using System;
 using System.Collections.Generic;
-using Assets.Scripts.HexWorldinterpretation;
-using Assets.Scripts.Orders.Units;
-using Assets.Scripts.UnitsControlScripts;
+using HexWorldinterpretation;
+using UnitsControlScripts;
 using UnityEngine;
 
-namespace Assets.Scripts.Buildings
+namespace Buildings
 {
     [RequireComponent(typeof(Collider), typeof(OrderableObject),typeof(DamageSystem))]
     public class Building : MonoBehaviour

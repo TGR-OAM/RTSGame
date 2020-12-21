@@ -2,7 +2,7 @@
 using UnityEngine;
 using UnityEngine.AI;
 
-namespace Assets.Scripts.HexWorldinterpretation
+namespace HexWorldinterpretation
 {
     public class HexGridRenderer
     {

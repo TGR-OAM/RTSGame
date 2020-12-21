@@ -1,9 +1,9 @@
 ﻿using System.ComponentModel;
-using Assets.Scripts.Units;
+using Units;
 using UnityEngine;
 using Component = UnityEngine.Component;
 
-namespace Assets.Scripts.Orders.Units
+namespace Orders.Units
 {
     public class MoveOrderInitParams : GameOrderInitParams
     {

@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using Assets.Scripts.HexWorldinterpretation;
+using HexWorldinterpretation;
 using UnityEngine;
 
-namespace Assets.Scripts.HexWordEditor
+namespace HexWordEditor
 {
     public class WorldEditor
     {

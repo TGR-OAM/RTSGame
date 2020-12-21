@@ -1,9 +1,8 @@
-using Assets.Scripts;
-using Assets.Scripts.HexWorldinterpretation;
+using HexWorldinterpretation;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Assets.Scripts.UIScripts
+namespace UIScripts
 {
     public class MinimapObjectScript:MonoBehaviour
     {

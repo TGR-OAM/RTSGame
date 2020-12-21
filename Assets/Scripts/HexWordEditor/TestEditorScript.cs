@@ -1,8 +1,8 @@
-﻿using Assets.Scripts.HexWorldinterpretation;
+﻿using HexWorldinterpretation;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Assets.Scripts.HexWordEditor
+namespace HexWordEditor
 {
     public class TestEditorScript : MonoBehaviour
     {

@@ -2,18 +2,17 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
-using Assets.Scripts.Buildings;
-using Assets.Scripts.CameraMovement;
-using Assets.Scripts.HexWorldinterpretation;
-using Assets.Scripts.Orders.Units;
-using Assets.Scripts.UIScripts;
-using Assets.Scripts.Units;
-using Assets.Scripts.UnitsControlScripts.UnitsControlScripts;
+using Buildings;
+using CameraMovement;
+using HexWorldinterpretation;
+using Orders.Units;
+using UIScripts;
+using Units;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 
-namespace Assets.Scripts.UnitsControlScripts
+namespace UnitsControlScripts
 {
     public class InputHandler : MonoBehaviour
     {

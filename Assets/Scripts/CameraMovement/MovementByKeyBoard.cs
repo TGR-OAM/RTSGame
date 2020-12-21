@@ -1,7 +1,7 @@
 using UnityEngine;
 using static UnityEngine.InputSystem.InputAction;
 
-namespace Assets.Scripts.CameraMovement
+namespace CameraMovement
 {
     public class MovementByKeyBoard : MonoBehaviour
     {

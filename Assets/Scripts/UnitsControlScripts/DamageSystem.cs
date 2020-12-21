@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.Serialization;
 
-namespace Assets.Scripts.UnitsControlScripts
+namespace UnitsControlScripts
 {
     public class DamageSystem : MonoBehaviour
     {

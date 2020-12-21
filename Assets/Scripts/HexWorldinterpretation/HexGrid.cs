@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
-using Assets.Scripts.Buildings;
+using Buildings;
 using UnityEngine;
 
-namespace Assets.Scripts.HexWorldinterpretation
+namespace HexWorldinterpretation
 {
     public class HexGrid : MonoBehaviour
     {

@@ -1,42 +1,41 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.Security.Cryptography;
-using Assets.Scripts.UIScripts;
-using Assets.Scripts.UnitsControlScripts;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class OrderButtonsSetter : MonoBehaviour
+namespace UIScripts
 {
-    public Button ButtonPrefab;
-    public UIManager uiManager;
+    public class OrderButtonsSetter : MonoBehaviour
+    {
+        public Button ButtonPrefab;
+        public UIManager uiManager;
     
-    private List<Button> CurrentOrders;
+        private List<Button> CurrentOrders;
 
-    public void UpdateButtons(List<Type> possibleOrders)
-    {
-        if (CurrentOrders == null) CurrentOrders = new List<Button>();
-        
-        CurrentOrders.ForEach(x => Destroy(x.gameObject));
-        
-        CurrentOrders = new List<Button>();
-        
-        foreach (Type type in possibleOrders)
+        public void UpdateButtons(List<Type> possibleOrders)
         {
-            Button ButtonToAdd = Instantiate(ButtonPrefab, this.transform);
-            ButtonToAdd.GetComponentInChildren<Text>().text = type.ToString();
-            ButtonToAdd.onClick.AddListener(delegate
+            if (CurrentOrders == null) CurrentOrders = new List<Button>();
+        
+            CurrentOrders.ForEach(x => Destroy(x.gameObject));
+        
+            CurrentOrders = new List<Button>();
+        
+            foreach (Type type in possibleOrders)
             {
-                SetOrder(type);
-            });
-            CurrentOrders.Add(ButtonToAdd);
+                Button ButtonToAdd = Instantiate(ButtonPrefab, this.transform);
+                ButtonToAdd.GetComponentInChildren<Text>().text = type.ToString();
+                ButtonToAdd.onClick.AddListener(delegate
+                {
+                    SetOrder(type);
+                });
+                CurrentOrders.Add(ButtonToAdd);
+            }
         }
-    }
 
-    public void SetOrder(Type orderType)
-    {
-        uiManager.inputHandler.SetOrder(orderType);
-        Debug.Log(orderType);
+        public void SetOrder(Type orderType)
+        {
+            uiManager.inputHandler.SetOrder(orderType);
+            Debug.Log(orderType);
+        }
     }
 }
