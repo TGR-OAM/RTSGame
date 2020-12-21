@@ -8,6 +8,7 @@ namespace Assets.Scripts.Orders.Units
     {
         public GameObject target;
     }
+    
     public class AttackOrder : GameOrder
     {
         public GameObject target;

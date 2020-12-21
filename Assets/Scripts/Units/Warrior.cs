@@ -26,7 +26,6 @@ namespace Assets.Scripts.Units
             BaseUnitInitialization();
             
             orderableObject.SetPossibleOrderTypes(new List<Type> {typeof(MoveOrder),typeof(AttackOrder),typeof(MoveAttackOrder)});
-
         }
         
     }

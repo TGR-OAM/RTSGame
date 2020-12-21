@@ -10,7 +10,7 @@ namespace Assets.Scripts.UnitsControlScripts
     {
         public GameOrder currentOrder { get; set; }
         public List<Type> orderTypes { get; protected set; } = new List<Type>();
-        private GameOrder[] ourOrders;
+        private GameOrder[] ourOrders;// для списка приказов, забить до 26.12 числа точно
         [SerializeField] public GameOrderInitParams[] GameOrderInitParamsArray;
 
         private void Start()
