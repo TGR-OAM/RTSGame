@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using HexWorldinterpretation;
 using UnitsControlScripts;
 using UnityEngine;
+using Orders;
 
 namespace Buildings
 {
@@ -26,7 +27,6 @@ namespace Buildings
         private void Start()
         {
             BaseBuildingInitialization();
-            orderableObject.SetPossibleOrderTypes(new List<Type> {});
         }
 
         public void SetTransparent(bool available)

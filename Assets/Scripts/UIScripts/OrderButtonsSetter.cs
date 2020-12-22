@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Orders;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -12,7 +13,7 @@ namespace UIScripts
     
         private List<Button> CurrentOrders;
 
-        public void UpdateButtons(List<Type> possibleOrders)
+        public void UpdateButtons(List<GameOrderType> possibleOrders)
         {
             if (CurrentOrders == null) CurrentOrders = new List<Button>();
         
@@ -20,7 +21,7 @@ namespace UIScripts
         
             CurrentOrders = new List<Button>();
         
-            foreach (Type type in possibleOrders)
+            foreach (GameOrderType type in possibleOrders)
             {
                 Button ButtonToAdd = Instantiate(ButtonPrefab, this.transform);
                 ButtonToAdd.GetComponentInChildren<Text>().text = type.ToString();
@@ -32,7 +33,7 @@ namespace UIScripts
             }
         }
 
-        public void SetOrder(Type orderType)
+        public void SetOrder(GameOrderType orderType)
         {
             uiManager.inputHandler.SetOrder(orderType);
             Debug.Log(orderType);

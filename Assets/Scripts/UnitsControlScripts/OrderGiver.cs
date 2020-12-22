@@ -6,6 +6,7 @@ using Orders.Units;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using Random = UnityEngine.Random;
+using System.Linq;
 
 namespace UnitsControlScripts
 {
@@ -20,7 +21,7 @@ namespace UnitsControlScripts
             this.inputHandler = inputHandler;
         }
 
-        public void GiveOrder(OrderableObject[] EntetiesToOrder, Type orderType, bool isIdleState = false)
+        public void GiveOrder(OrderableObject[] EntetiesToOrder, GameOrderType orderType, bool isIdleState = false)
         {
             Vector2 mousePos = Mouse.current.position.ReadValue();
             if (isIdleState)
@@ -57,7 +58,7 @@ namespace UnitsControlScripts
 
                     Building building = enemyObject.GetComponent<Building>();
 
-                    if (EntetiesToOrder.Length == 1 && EntetiesToOrder[0].orderTypes.Contains(typeof(BuildOrder)))//if we selected one builder
+                    if (EntetiesToOrder.Length == 1 && EntetiesToOrder[0].orderTypes.Contains(GameOrderType.Build))//if we selected one builder
                     {
                         BuildOrderInitParams buildOrderInitParams = new BuildOrderInitParams();
                         buildOrderInitParams.building = building;
@@ -66,7 +67,7 @@ namespace UnitsControlScripts
                         buildOrder.ObjectToOrder = EntetiesToOrder[0].gameObject;
                     }
 
-                    if (inputHandler.PossibleOrders.Contains(typeof(AttackOrder)))
+                    if (inputHandler.PossibleOrders.Contains(GameOrderType.Attack))
                     {
                         if (victimFraction.fraction != fraction)
                         {
@@ -92,7 +93,7 @@ namespace UnitsControlScripts
             }
             else
             {
-                if (orderType == typeof(MoveAttackOrder))
+                if (orderType == GameOrderType.MoveAttack)
                 {
                     RaycastHit hit;
                     if (Physics.Raycast(Camera.main.ScreenPointToRay(mousePos), out hit, 100f, 1 << 8))
@@ -120,7 +121,7 @@ namespace UnitsControlScripts
                     }
                 }
 
-                if (orderType == typeof(MoveOrder))
+                if (orderType == GameOrderType.Move)
                 {
                     if (hexGrid.TryRaycastHexGrid(Camera.main.ScreenPointToRay(mousePos), out Vector3 output))
                     {
@@ -134,7 +135,7 @@ namespace UnitsControlScripts
                     }
                 }
 
-                if (orderType == typeof(AttackOrder))
+                if (orderType == GameOrderType.Attack)
                 {
                     if (Physics.Raycast(Camera.main.ScreenPointToRay(mousePos), out RaycastHit hit, 100f, 1 << 8))
                     {

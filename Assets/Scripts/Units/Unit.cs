@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Orders;
 using Orders.Units;
 using UnitsControlScripts;
 using UnityEngine;
@@ -26,7 +27,7 @@ namespace Units
 
             BaseUnitInitialization();
             
-            orderableObject.SetPossibleOrderTypes(new List<Type> {typeof(MoveOrder)});
+            orderableObject.SetPossibleOrderTypes(new List<GameOrderType> {GameOrderType.Move});
         }
 
         protected void BaseUnitInitialization()

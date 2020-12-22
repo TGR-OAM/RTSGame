@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using Orders.Units;
+using Orders;
 
 namespace Units
 {
@@ -12,8 +12,8 @@ namespace Units
         {
             BaseUnitInitialization();
 
-            orderableObject.SetPossibleOrderTypes(new List<Type>
-                {typeof(MoveOrder), typeof(BuildOrder)});
+            orderableObject.SetPossibleOrderTypes(new List<GameOrderType>
+                {GameOrderType.Move,GameOrderType.Build});
         }
     }
 }

@@ -9,7 +9,7 @@ namespace UnitsControlScripts
     public class OrderableObject : MonoBehaviour
     {
         public GameOrder currentOrder { get; set; }
-        public List<Type> orderTypes { get; protected set; } = new List<Type>();
+        public List<GameOrderType> orderTypes { get; protected set; }
         private GameOrder[] ourOrders;// для списка приказов, забить до 26.12 числа точно
         [SerializeField] public GameOrderInitParams[] GameOrderInitParamsArray;
 
@@ -23,7 +23,7 @@ namespace UnitsControlScripts
             ourOrders = gameOrderInitParamsArray.Select(x => x.CreateOrder()).ToArray();
         }
 
-        public void SetPossibleOrderTypes(List<Type> orderTypes)
+        public void SetPossibleOrderTypes(List<GameOrderType> orderTypes)
         {
             this.orderTypes = orderTypes;
         }

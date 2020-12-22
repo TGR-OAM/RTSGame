@@ -5,6 +5,7 @@ using System.Linq;
 using Buildings;
 using CameraMovement;
 using HexWorldinterpretation;
+using Orders;
 using Orders.Units;
 using UIScripts;
 using Units;
@@ -35,7 +36,7 @@ namespace UnitsControlScripts
 
         [Header("Unit control properties")] 
         [SerializeField] private List<OrderableObject> SelectedEnteties = new List<OrderableObject>();
-        public List<Type> PossibleOrders = new List<Type>();
+        public List<GameOrderType> PossibleOrders = new List<GameOrderType>();
 
         private Fraction fraction = Fraction.Player;
         [SerializeField] private EntetiesLister lister;
@@ -51,7 +52,7 @@ namespace UnitsControlScripts
         [SerializeField] private PlayerInput playerInput;
 
         [Header("Ordering")]
-        [SerializeField] private Type CurrentOrder;
+        [SerializeField] private GameOrderType CurrentOrder;
         
         [Header("General references")]
         [SerializeField] private OrderGiver orderGiver;
@@ -101,9 +102,9 @@ namespace UnitsControlScripts
             }
         }
 
-        public void SetOrder(Type orderType)
+        public void SetOrder(GameOrderType orderType)
         {
-            if (orderType == typeof(BuildOrder))
+            if (orderType == GameOrderType.Build)
             {
                 currentState = HandlerState.Building;
                 builder.StartPlacingBuilding(TestPrefab);
@@ -139,11 +140,11 @@ namespace UnitsControlScripts
             {
                 if (playerInput.actions.FindActionMap("Player").FindAction("APressed").ReadValue<float>() >= .5f)
                 {
-                    orderGiver.GiveOrder(SelectedEnteties.ToArray(), typeof(MoveAttackOrder));
+                    orderGiver.GiveOrder(SelectedEnteties.ToArray(), GameOrderType.MoveAttack);
                 }
                 else
                 {
-                    orderGiver.GiveOrder(SelectedEnteties.ToArray(), null, true);
+                    orderGiver.GiveOrder(SelectedEnteties.ToArray(), GameOrderType.None, true);
                 }
             }
             else if (currentState == HandlerState.Ordering)
@@ -244,11 +245,11 @@ namespace UnitsControlScripts
             camera.TryMoveByDirection(direction);       
         }
         
-        private List<Type> GetPossibleOrdersFromUnits(List<OrderableObject> orderableObjects)
+        private List<GameOrderType> GetPossibleOrdersFromUnits(List<OrderableObject> orderableObjects)
         {
             if (orderableObjects.Count != 0 && orderableObjects != null)
             {
-                List<Type> ordersType = new List<Type>();
+                List<GameOrderType> ordersType = new List<GameOrderType>();
                 ordersType.AddRange(orderableObjects[0].orderTypes);
                 foreach (OrderableObject orderableObject in orderableObjects)
                 {
@@ -264,14 +265,14 @@ namespace UnitsControlScripts
                     Debug.Log(ordersType.Count);
                 }
 
-                if (ordersType.Contains(typeof(BuildOrder)) && orderableObjects.Count != 1)
-                    ordersType.Remove(typeof(BuildOrder));
+                if (ordersType.Contains(GameOrderType.Build) && orderableObjects.Count != 1)
+                    ordersType.Remove(GameOrderType.Build);
                 
                 return ordersType;
             }
             else
             {
-                return new List<Type>();
+                return new List<GameOrderType>();
             }
         }
     }

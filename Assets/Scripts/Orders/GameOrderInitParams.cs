@@ -12,7 +12,8 @@ namespace Orders
         MoveAttack,
         Build,
         SpellCast,
-        Spawn
+        Spawn,
+        None
     }
 
     

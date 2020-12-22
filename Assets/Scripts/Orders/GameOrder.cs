@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace Orders
@@ -8,6 +9,7 @@ namespace Orders
         public bool isPefrorming { get; private set; } = false;
         public GameObject ObjectToOrder;
         public bool isAvailable { get; set; } = true;
+        public List<GameOrderType> orderType { get; protected set; }
 
         public virtual void StartOrder()
         {

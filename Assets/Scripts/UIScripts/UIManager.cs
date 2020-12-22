@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Security.Cryptography;
 using HexWorldinterpretation;
+using Orders;
 using UnitsControlScripts;
 using UnityEngine;
 
@@ -14,7 +15,7 @@ namespace UIScripts
         [SerializeField] private OrderButtonsSetter orderButtonsSetter;
         
 
-        public void UpdateOrderButtonsInUI(List<Type> possibleOrders)
+        public void UpdateOrderButtonsInUI(List<GameOrderType> possibleOrders)
         {
             orderButtonsSetter.UpdateButtons(possibleOrders);
         }
