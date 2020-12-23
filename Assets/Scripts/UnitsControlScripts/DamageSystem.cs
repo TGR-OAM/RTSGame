@@ -24,7 +24,7 @@ namespace UnitsControlScripts
             Hp = Mathf.Clamp(Hp + value, 0, MaxHp);
         }
 
-        public void SetMaxHpd(float MaxHp)
+        public void SetMaxHp(float MaxHp)
         {
             this.MaxHp = MaxHp;
         }

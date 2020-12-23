@@ -84,7 +84,7 @@ namespace Buildings
             orderableObject = this.GetComponent<OrderableObject>();
             damageSystem = this.GetComponent<DamageSystem>();
             ObjectCollider = this.GetComponent<Collider>();
-            damageSystem.SetMaxHpd(MaxHp);
+            damageSystem.SetMaxHp(MaxHp);
             if(isStartWithFullHp) damageSystem.Heal(MaxHp);
         }
     }

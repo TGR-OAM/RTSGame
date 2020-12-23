@@ -102,7 +102,7 @@ namespace UnitsControlScripts
             }
         }
 
-        public void SetOrder(GameOrderInitParams orderType)
+        public void SetStateFromOrderType(GameOrderInitParams orderType)
         {
             if (orderType is BuildOrderInitParams)
             {
@@ -114,15 +114,8 @@ namespace UnitsControlScripts
                 CurrentOrder = orderType;
                 currentState = HandlerState.Ordering;
             }
-            
         }
-        
-        public void SetBuildingState(Building building)
-        {
-            currentState = HandlerState.Building;
-            builder.StartPlacingBuilding(building);
-        }
-        
+
         private void OperateBuildingPlacing()
         {
             builder.Update();
@@ -140,11 +133,11 @@ namespace UnitsControlScripts
             {
                 if (playerInput.actions.FindActionMap("Player").FindAction("APressed").ReadValue<float>() >= .5f)
                 {
-                    orderGiver.GiveOrder(SelectedEnteties.ToArray(), new MoveAttackOrderInitParams(GameOrderType.MoveAttack));
+                    orderGiver.GiveOrder(SelectedEnteties.ToArray(), new MoveAttackOrderInitParams());
                 }
                 else
                 {
-                    orderGiver.GiveOrder(SelectedEnteties.ToArray(), new GameOrderInitParams(GameOrderType.None), true);
+                    orderGiver.GiveOrder(SelectedEnteties.ToArray(), new GameOrderInitParams(), true);
                 }
             }
             else if (currentState == HandlerState.Ordering)
@@ -154,13 +147,19 @@ namespace UnitsControlScripts
             }
             else if (currentState == HandlerState.Building)
             {
-                BuildOrder buildOrder = new BuildOrder(builder.flyingBuilding);
-                if (builder.TryPlaceFlyingBuilding())
+                if (builder.CanPlaceFlyingBuilding())
                 {
+                    Debug.Log(builder.flyingBuilding);
+                    BuildOrderVariableParams buildOrderVariableParams =
+                        new BuildOrderVariableParams(builder.flyingBuilding, SelectedEnteties[0].gameObject);
+                    BuildOrder buildOrder = new BuildOrder(buildOrderVariableParams);
+                    
                     SelectedEnteties[0].GiveOrder(buildOrder);
+                    
+                    builder.PlaceFlyingBuilding();
+                    
                     ReturnToIdleState();
                 }
-                
             }
         }
 
@@ -240,6 +239,7 @@ namespace UnitsControlScripts
             if (currentState == HandlerState.Building && !EventSystem.current.IsPointerOverGameObject())
                 builder.StartPlacingBuilding(building);
         }
+        
         public void CameraMovement(Vector2 direction)
         {
             camera.TryMoveByDirection(direction);       
@@ -255,7 +255,9 @@ namespace UnitsControlScripts
                 {
                     ordersType =
                         new List<GameOrderInitParams>(
-                            orderableObject.GameOrderInitParamsArray.Where(x => ordersType.Select(y => y.OrderType).Contains(x.OrderType)).Select(x=>x));
+                            orderableObject.GameOrderInitParamsArray.Where(x => ordersType
+                                .Select(y => x.GetType() == y.GetType()).Any())
+                            );
                 }
                 return ordersType;
             }

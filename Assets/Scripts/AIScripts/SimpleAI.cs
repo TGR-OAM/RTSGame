@@ -1,6 +1,8 @@
-﻿using HexWorldinterpretation;
+﻿using System.Linq;
+using HexWorldinterpretation;
 using Orders;
 using Orders.EntityOrder;
+using Units;
 using UnitsControlScripts;
 using UnityEngine;
 
@@ -31,14 +33,37 @@ namespace AIScripts
         private void AttackPlayer()
         {
             print("Go go go");
-            MoveAttackOrderInitParams moveOrderInitParams = new MoveAttackOrderInitParams(GameOrderType.MoveAttack);
-            moveOrderInitParams.destination = enemyBasePosition;
-            foreach(GameObject gameObject in unitLister.enteties)
+            SetMoveAttackOrderToUnits(unitLister.enteties.Where(x => x.GetComponent<FractionMember>().fraction == Fraction.Enemy)
+                .Select(x => x.GetComponent<Warrior>()).ToArray(), enemyBasePosition);
+            
+        }
+
+        public void SetAttackOrderToUnits(Warrior[] warriors, GameObject target)
+        {
+            foreach (Warrior warrior in warriors)
             {
-                if (gameObject.GetComponent<FractionMember>().fraction == Fraction.Enemy)
-                {
-                    OrderGiver.GiveOrderToUnits(gameObject.GetComponent<OrderableObject>(), moveOrderInitParams);
-                }
+                AttackOrderVariableParams attackOrderVariableParams = new AttackOrderVariableParams(target, warrior.gameObject);
+                warrior.orderableObject.GiveOrder(new AttackOrder(attackOrderVariableParams));
+            }
+        }
+        
+        public void SetMoveAttackOrderToUnits(Warrior[] warriors, Vector3 destination)
+        {
+            foreach (Warrior warrior in warriors)
+            {
+                if(warrior == null) return;
+                print(warrior);
+                MoveAttackOrderVariableParams attackOrderVariableParams = new MoveAttackOrderVariableParams(destination, warrior.gameObject);
+                warrior.orderableObject.GiveOrder(new MoveAttackOrder(attackOrderVariableParams));
+            }
+        }
+        
+        public void SetMoveOrderToUnits(Unit[] units, Vector3 destination)
+        {
+            foreach (Unit unit in units)
+            {
+                MoveOrderVariableParams moveOrderVariableParams = new MoveOrderVariableParams(destination, unit.gameObject);
+                unit.orderableObject.GiveOrder(new MoveOrder(moveOrderVariableParams));
             }
         }
     }

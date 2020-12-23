@@ -10,7 +10,7 @@ namespace UnitsControlScripts
     public class OrderableObject : MonoBehaviour
     {
         public GameOrder currentOrder { get; set; }
-        private GameOrder[] ourOrders;// для списка приказов, забить до 26.12 числа точно
+        private GameOrder[] possibleOrders;
         [SerializeField] public GameOrderInitParams[] GameOrderInitParamsArray;
 
         public void SetPossibleOrderTypes(List<GameOrderInitParams> orderTypes)

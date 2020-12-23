@@ -6,10 +6,15 @@ namespace Orders.EntityOrder
 {
     public class MoveAttackOrderInitParams : GameOrderInitParams
     {
-        public Vector3 destination;
+    }
 
-        public MoveAttackOrderInitParams(GameOrderType type) : base(type)
+    public class MoveAttackOrderVariableParams : GameOrderVariableParams
+    {
+        public Vector3 destination;
+        
+        public MoveAttackOrderVariableParams(Vector3 destination, GameObject objectToOrder) : base(objectToOrder)
         {
+            this.destination = destination;
         }
     }
     
@@ -19,9 +24,9 @@ namespace Orders.EntityOrder
         private GameObject target;
         private Warrior UnitToOrder;
 
-        public MoveAttackOrder(Vector3 destination)
+        public MoveAttackOrder(MoveAttackOrderVariableParams orderVariableParams) :base(orderVariableParams)
         {
-            this.destination = destination;
+            this.destination = orderVariableParams.destination;
         }
 
         public override void StartOrder()

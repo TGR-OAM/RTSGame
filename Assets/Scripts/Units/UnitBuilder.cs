@@ -16,12 +16,12 @@ namespace Units
 
             List<GameOrderInitParams> initParams = new List<GameOrderInitParams>
             {
-                new MoveOrderInitParams(GameOrderType.Move),
+                new MoveOrderInitParams(),
             };
 
             foreach (Building building in buildings)
             {
-                initParams.Add(new BuildOrderInitParams(building,GameOrderType.Build));
+                initParams.Add(new BuildOrderInitParams(building));
             }
             
             orderableObject.SetPossibleOrderTypes(initParams);

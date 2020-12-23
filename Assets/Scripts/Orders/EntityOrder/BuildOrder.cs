@@ -9,11 +9,22 @@ namespace Orders.EntityOrder
     {
         public Building building;
 
-        public BuildOrderInitParams(Building building,GameOrderType type) : base(type)
+        public BuildOrderInitParams(Building building)
         {
             this.building = building;
         }
     }
+
+    public class BuildOrderVariableParams : GameOrderVariableParams
+    {
+        public Building buildingOnMapToBuild;
+        
+        public BuildOrderVariableParams(Building buildingOnMapToBuild,GameObject objectToOrder) : base(objectToOrder)
+        {
+            this.buildingOnMapToBuild = buildingOnMapToBuild;
+        }
+    }
+    
     public class BuildOrder : GameOrder
     {
         private DamageSystem buildingDamageSystem;
@@ -24,11 +35,11 @@ namespace Orders.EntityOrder
         
         private Unit unitToOrder;
         
-        public BuildOrder(Building buildingToBuild)
+        public BuildOrder(BuildOrderVariableParams buildOrderVariableParams) : base (buildOrderVariableParams)
         {
-            this.BuildingToBuild = buildingToBuild;
-            this.buildingDamageSystem = buildingToBuild.damageSystem;
-            this.TimeUntilFullConstruction = buildingToBuild.TimeUntilFullConstruction;
+            this.BuildingToBuild = buildOrderVariableParams.buildingOnMapToBuild;
+            this.buildingDamageSystem = BuildingToBuild.damageSystem;
+            this.TimeUntilFullConstruction = BuildingToBuild.TimeUntilFullConstruction;
         }
 
         public override void StartOrder()

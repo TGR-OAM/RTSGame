@@ -7,9 +7,15 @@ namespace Orders.EntityOrder
 {
     public class MoveOrderInitParams : GameOrderInitParams
     {
+    }
+    
+    public class MoveOrderVariableParams : GameOrderVariableParams
+    {
         public Vector3 destination;
-        public MoveOrderInitParams(GameOrderType type) : base(type)
+        
+        public MoveOrderVariableParams(Vector3 destination, GameObject objectToOrder) : base(objectToOrder)
         {
+            this.destination = destination;
         }
     }
     
@@ -18,9 +24,9 @@ namespace Orders.EntityOrder
         private Vector3 destination;
         private Unit UnitToOrder;
 
-        public MoveOrder(Vector3 destination)
+        public MoveOrder(MoveOrderVariableParams orderVariableParams) :base(orderVariableParams)
         {
-            this.destination = destination;
+            this.destination = orderVariableParams.destination;
         }
 
         public override void StartOrder()

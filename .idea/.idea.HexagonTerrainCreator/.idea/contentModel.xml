@@ -81,7 +81,6 @@
               <e p="GameOrder.cs" t="Include" />
               <e p="MoveAttackOrder.cs" t="Include" />
               <e p="MoveOrder.cs" t="Include" />
-              <e p="SpellOrder.cs" t="Include" />
               <e p="UnitCreationTask.cs" t="Include" />
             </e>
             <e p="OrderableObject.cs" t="Include" />

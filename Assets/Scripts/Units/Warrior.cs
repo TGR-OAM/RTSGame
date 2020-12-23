@@ -26,9 +26,9 @@ namespace Units
             
             orderableObject.SetPossibleOrderTypes(new List<GameOrderInitParams>
             {
-                new MoveOrderInitParams(GameOrderType.Move),
-                new AttackOrderInitParams(GameOrderType.Attack),
-                new MoveAttackOrderInitParams(GameOrderType.MoveAttack)
+                new MoveOrderInitParams(),
+                new AttackOrderInitParams(),
+                new MoveAttackOrderInitParams()
             });
         }
         

@@ -102,7 +102,7 @@ namespace Buildings
             return true;
         }
 
-        public bool TryPlaceFlyingBuilding()
+        public bool CanPlaceFlyingBuilding()
         {
             if (isAvailable)
             {
@@ -110,11 +110,15 @@ namespace Buildings
                 flyingBuilding.gameObject.GetComponentInChildren<Renderer>().material = flyingBuilding.Materials;
                 hexGrid.MapData.ConstructedBuildings.Add(flyingBuilding);
                 flyingBuilding.gameObject.layer = 10;
-                flyingBuilding = null;
-                StopPlacingBuilding();
             }
 
             return isAvailable;
+        }
+
+        public void PlaceFlyingBuilding()
+        {
+            flyingBuilding = null;
+            StopPlacingBuilding();
         }
     }
 }

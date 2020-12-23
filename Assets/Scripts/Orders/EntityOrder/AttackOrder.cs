@@ -1,4 +1,5 @@
-﻿using Units;
+﻿using ErrorReport;
+using Units;
 using UnitsControlScripts;
 using UnityEngine;
 
@@ -6,10 +7,15 @@ namespace Orders.EntityOrder
 {
     public class AttackOrderInitParams : GameOrderInitParams
     {
+    }
+    
+    public class AttackOrderVariableParams : GameOrderVariableParams
+    {
         public GameObject target;
-
-        public AttackOrderInitParams(GameOrderType type) : base(type)
+        
+        public AttackOrderVariableParams(GameObject target, GameObject objectToOrder) : base(objectToOrder)
         {
+            this.target = target;
         }
     }
     
@@ -17,9 +23,9 @@ namespace Orders.EntityOrder
     {
         public GameObject target;
         private Warrior WarriorToOrder;
-        public AttackOrder (GameObject t)
+        public AttackOrder (AttackOrderVariableParams orderVariableParams) :base(orderVariableParams)
         {
-            target = t;
+            target = orderVariableParams.target;
         }
 
         public override void StartOrder()

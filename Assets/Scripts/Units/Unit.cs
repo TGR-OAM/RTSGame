@@ -29,7 +29,7 @@ namespace Units
             
             orderableObject.SetPossibleOrderTypes(new List<GameOrderInitParams>
                 {
-                    new MoveOrderInitParams(GameOrderType.Move),
+                    new MoveOrderInitParams(),
                 }
             );
         }
@@ -40,7 +40,7 @@ namespace Units
             fractionMember = GetComponent<FractionMember>();
             agent = GetComponent<NavMeshAgent>();
             damageSystem = GetComponent<DamageSystem>();
-            damageSystem.SetMaxHpd(MaxHp);
+            damageSystem.SetMaxHp(MaxHp);
             damageSystem.SetHpToMax();
         }
 

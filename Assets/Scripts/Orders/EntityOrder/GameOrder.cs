@@ -7,10 +7,15 @@ namespace Orders.EntityOrder
     [Serializable]
     public class GameOrderInitParams
     {
-        public GameOrderType OrderType;
-        public GameOrderInitParams(GameOrderType type)
+    }
+    
+    public class GameOrderVariableParams
+    {
+        public GameObject ObjectToOrder;
+
+        public GameOrderVariableParams(GameObject objectToOrder)
         {
-            OrderType = type;
+            ObjectToOrder = objectToOrder;
         }
     }
 
@@ -19,8 +24,12 @@ namespace Orders.EntityOrder
         public bool isPefrorming { get; private set; } = false;
         public GameObject ObjectToOrder;
         public bool isAvailable { get; set; } = true;
-        public List<GameOrderType> orderType { get; protected set; }
 
+        public GameOrder(GameOrderVariableParams gameOrderVariableParams)
+        {
+            ObjectToOrder = gameOrderVariableParams.ObjectToOrder;
+        }
+        
         public virtual void StartOrder()
         {
             isPefrorming = true;

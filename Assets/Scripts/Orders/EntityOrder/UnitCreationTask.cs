@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Orders.EntityOrder
 {
-    public class UnitCreationTask:GameOrder
+    /*public class UnitCreationTask:GameOrder
     {
         private List<GameObject> unitPartsToCreate;
         private List<Transform> unitPartsTransform;
@@ -38,5 +38,5 @@ namespace Orders.EntityOrder
         {
             //create unit from part
         }
-    }
+    }*/
 }
