@@ -1,5 +1,6 @@
 ﻿using HexWorldinterpretation;
-using Orders.Units;
+using Orders;
+using Orders.EntityOrder;
 using UnitsControlScripts;
 using UnityEngine;
 
@@ -30,9 +31,8 @@ namespace AIScripts
         private void AttackPlayer()
         {
             print("Go go go");
-            MoveOrderInitParams moveOrderInitParams = new MoveOrderInitParams();
+            MoveAttackOrderInitParams moveOrderInitParams = new MoveAttackOrderInitParams(GameOrderType.MoveAttack);
             moveOrderInitParams.destination = enemyBasePosition;
-            moveOrderInitParams.isForMoveAttackOrder = true;
             foreach(GameObject gameObject in unitLister.enteties)
             {
                 if (gameObject.GetComponent<FractionMember>().fraction == Fraction.Enemy)

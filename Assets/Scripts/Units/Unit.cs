@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Orders;
-using Orders.Units;
+using Orders.EntityOrder;
 using UnitsControlScripts;
 using UnityEngine;
 using UnityEngine.AI;
@@ -27,7 +27,11 @@ namespace Units
 
             BaseUnitInitialization();
             
-            orderableObject.SetPossibleOrderTypes(new List<GameOrderType> {GameOrderType.Move});
+            orderableObject.SetPossibleOrderTypes(new List<GameOrderInitParams>
+                {
+                    new MoveOrderInitParams(GameOrderType.Move),
+                }
+            );
         }
 
         protected void BaseUnitInitialization()

@@ -3,14 +3,16 @@ using Units;
 using UnityEngine;
 using Component = UnityEngine.Component;
 
-namespace Orders.Units
+namespace Orders.EntityOrder
 {
     public class MoveOrderInitParams : GameOrderInitParams
     {
-        public bool isForMoveAttackOrder;
         public Vector3 destination;
+        public MoveOrderInitParams(GameOrderType type) : base(type)
+        {
+        }
     }
-    [Description("some text")]
+    
     public class MoveOrder : GameOrder
     {
         private Vector3 destination;

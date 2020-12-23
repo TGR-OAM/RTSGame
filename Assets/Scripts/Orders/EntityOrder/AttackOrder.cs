@@ -2,11 +2,15 @@
 using UnitsControlScripts;
 using UnityEngine;
 
-namespace Orders.Units
+namespace Orders.EntityOrder
 {
     public class AttackOrderInitParams : GameOrderInitParams
     {
         public GameObject target;
+
+        public AttackOrderInitParams(GameOrderType type) : base(type)
+        {
+        }
     }
     
     public class AttackOrder : GameOrder

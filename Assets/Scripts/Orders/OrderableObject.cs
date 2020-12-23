@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using Orders;
+using Orders.EntityOrder;
 using UnityEngine;
 
 namespace UnitsControlScripts
@@ -9,23 +10,12 @@ namespace UnitsControlScripts
     public class OrderableObject : MonoBehaviour
     {
         public GameOrder currentOrder { get; set; }
-        public List<GameOrderType> orderTypes { get; protected set; }
         private GameOrder[] ourOrders;// для списка приказов, забить до 26.12 числа точно
         [SerializeField] public GameOrderInitParams[] GameOrderInitParamsArray;
 
-        private void Start()
+        public void SetPossibleOrderTypes(List<GameOrderInitParams> orderTypes)
         {
-            InitOrdersArray(GameOrderInitParamsArray);
-        }
-
-        private void InitOrdersArray(GameOrderInitParams[] gameOrderInitParamsArray)
-        {
-            ourOrders = gameOrderInitParamsArray.Select(x => x.CreateOrder()).ToArray();
-        }
-
-        public void SetPossibleOrderTypes(List<GameOrderType> orderTypes)
-        {
-            this.orderTypes = orderTypes;
+            GameOrderInitParamsArray = orderTypes.ToArray();
         }
 
         public void GiveOrder(GameOrder order)

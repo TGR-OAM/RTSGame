@@ -2,8 +2,18 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Orders
+namespace Orders.EntityOrder
 {
+    [Serializable]
+    public class GameOrderInitParams
+    {
+        public GameOrderType OrderType;
+        public GameOrderInitParams(GameOrderType type)
+        {
+            OrderType = type;
+        }
+    }
+
     [Serializable]
     public class GameOrder{
         public bool isPefrorming { get; private set; } = false;

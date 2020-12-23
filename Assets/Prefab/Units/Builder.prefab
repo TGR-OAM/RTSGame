@@ -135,6 +135,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7cbdbc3daee30ed499a06de295269c9f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  GameOrderInitParamsArray: []
 --- !u!114 &4969961956634415533
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -162,8 +163,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 691116507f273d54db89105a9ffce2bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Hp: 0
-  MaxHp: 0
 --- !u!114 &8757334258195730617
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -177,6 +176,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MaxHp: 100
+  buildings:
+  - {fileID: 8205979929494484361, guid: d80e758dcddce1f489ef0f6a754cdb7a, type: 3}
+  - {fileID: 7781565261085879258, guid: 112265c1b89c4b145ba9d3cd5bbcad49, type: 3}
 --- !u!1 &8256918423714483678
 GameObject:
   m_ObjectHideFlags: 0

@@ -2,8 +2,17 @@
 using UnitsControlScripts;
 using UnityEngine;
 
-namespace Orders.Units
+namespace Orders.EntityOrder
 {
+    public class MoveAttackOrderInitParams : GameOrderInitParams
+    {
+        public Vector3 destination;
+
+        public MoveAttackOrderInitParams(GameOrderType type) : base(type)
+        {
+        }
+    }
+    
     public class MoveAttackOrder : GameOrder
     {
         private Vector3 destination;

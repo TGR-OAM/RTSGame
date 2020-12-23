@@ -2,7 +2,7 @@
 using Buildings;
 using HexWorldinterpretation;
 using Orders;
-using Orders.Units;
+using Orders.EntityOrder;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using Random = UnityEngine.Random;
@@ -21,7 +21,7 @@ namespace UnitsControlScripts
             this.inputHandler = inputHandler;
         }
 
-        public void GiveOrder(OrderableObject[] EntetiesToOrder, GameOrderType orderType, bool isIdleState = false)
+        public void GiveOrder(OrderableObject[] EntetiesToOrder, GameOrderInitParams orderType, bool isIdleState = false)
         {
             Vector2 mousePos = Mouse.current.position.ReadValue();
             if (isIdleState)
@@ -35,7 +35,7 @@ namespace UnitsControlScripts
                     {
                         foreach (OrderableObject entety in EntetiesToOrder)
                         {
-                            MoveOrderInitParams moveOrderInitParams = new MoveOrderInitParams();
+                            MoveOrderInitParams moveOrderInitParams = new MoveOrderInitParams(GameOrderType.Move);
                             moveOrderInitParams.destination = GetDestinationWithOffset(hit.point, EntetiesToOrder.Length);
                             GiveOrderToUnits(entety, moveOrderInitParams);
                         }
@@ -45,7 +45,7 @@ namespace UnitsControlScripts
 
                         if (fraction != raycastHitGameObjectFraction.fraction)
                         {
-                            AttackOrderInitParams attackOrderInitParams = new AttackOrderInitParams();
+                            AttackOrderInitParams attackOrderInitParams = new AttackOrderInitParams(GameOrderType.Attack);
                             attackOrderInitParams.target = raycastHitGameObject;
                             GiveOrderToUnits(EntetiesToOrder, attackOrderInitParams);
                         }
@@ -56,22 +56,11 @@ namespace UnitsControlScripts
                     GameObject enemyObject = hit.collider.gameObject;
                     FractionMember victimFraction = enemyObject.GetComponent<FractionMember>();
 
-                    Building building = enemyObject.GetComponent<Building>();
-
-                    if (EntetiesToOrder.Length == 1 && EntetiesToOrder[0].orderTypes.Contains(GameOrderType.Build))//if we selected one builder
-                    {
-                        BuildOrderInitParams buildOrderInitParams = new BuildOrderInitParams();
-                        buildOrderInitParams.building = building;
-                        GameOrder buildOrder = buildOrderInitParams.CreateOrder();
-                        EntetiesToOrder[0].GiveOrder(buildOrder);
-                        buildOrder.ObjectToOrder = EntetiesToOrder[0].gameObject;
-                    }
-
-                    if (inputHandler.PossibleOrders.Contains(GameOrderType.Attack))
+                    if (inputHandler.PossibleOrders.Any(x => x is AttackOrderInitParams))
                     {
                         if (victimFraction.fraction != fraction)
                         {
-                            AttackOrderInitParams attackOrderInitParams = new AttackOrderInitParams();
+                            AttackOrderInitParams attackOrderInitParams = new AttackOrderInitParams(GameOrderType.Attack);
                             attackOrderInitParams.target = enemyObject;
                             GiveOrderToUnits(EntetiesToOrder, attackOrderInitParams);
                         }
@@ -84,7 +73,7 @@ namespace UnitsControlScripts
                     {
                         foreach (OrderableObject EntetyToOrder in EntetiesToOrder)
                         {
-                            MoveOrderInitParams moveOrderInitParams = new MoveOrderInitParams();
+                            MoveOrderInitParams moveOrderInitParams = new MoveOrderInitParams(GameOrderType.Move);
                             moveOrderInitParams.destination = GetDestinationWithOffset(output, EntetiesToOrder.Length);
                             GiveOrderToUnits(EntetyToOrder, moveOrderInitParams);
                         }
@@ -93,16 +82,15 @@ namespace UnitsControlScripts
             }
             else
             {
-                if (orderType == GameOrderType.MoveAttack)
+                if (orderType is MoveAttackOrderInitParams)
                 {
                     RaycastHit hit;
                     if (Physics.Raycast(Camera.main.ScreenPointToRay(mousePos), out hit, 100f, 1 << 8))
                     {
                         foreach (OrderableObject EntetyToOrder in EntetiesToOrder)
                         {
-                            MoveOrderInitParams moveAttackOrderInitParams = new MoveOrderInitParams();
+                            MoveAttackOrderInitParams moveAttackOrderInitParams = new MoveAttackOrderInitParams(GameOrderType.MoveAttack);
                             moveAttackOrderInitParams.destination = GetDestinationWithOffset(hit.point, EntetiesToOrder.Length);
-                            moveAttackOrderInitParams.isForMoveAttackOrder = true;
                             GiveOrderToUnits(EntetyToOrder, moveAttackOrderInitParams);
                         }
                     }
@@ -112,22 +100,21 @@ namespace UnitsControlScripts
                         {
                             foreach (OrderableObject EntetyToOrder in EntetiesToOrder)
                             {
-                                MoveOrderInitParams moveAttackOrderInitParams = new MoveOrderInitParams();
+                                MoveAttackOrderInitParams moveAttackOrderInitParams = new MoveAttackOrderInitParams(GameOrderType.MoveAttack);
                                 moveAttackOrderInitParams.destination = GetDestinationWithOffset(output, EntetiesToOrder.Length);
-                                moveAttackOrderInitParams.isForMoveAttackOrder = true;
                                 GiveOrderToUnits(EntetyToOrder, moveAttackOrderInitParams);
                             }
                         }
                     }
                 }
 
-                if (orderType == GameOrderType.Move)
+                if (orderType is MoveOrderInitParams)
                 {
                     if (hexGrid.TryRaycastHexGrid(Camera.main.ScreenPointToRay(mousePos), out Vector3 output))
                     {
                         foreach (OrderableObject EntetyToOrder in EntetiesToOrder)
                         {
-                            MoveOrderInitParams moveOrderInitParams = new MoveOrderInitParams();
+                            MoveOrderInitParams moveOrderInitParams = new MoveOrderInitParams(GameOrderType.Move);
                             moveOrderInitParams.destination = GetDestinationWithOffset(output, EntetiesToOrder.Length);
                             GiveOrderToUnits(EntetyToOrder, moveOrderInitParams);
                             return;
@@ -135,7 +122,7 @@ namespace UnitsControlScripts
                     }
                 }
 
-                if (orderType == GameOrderType.Attack)
+                if (orderType is AttackOrderInitParams)
                 {
                     if (Physics.Raycast(Camera.main.ScreenPointToRay(mousePos), out RaycastHit hit, 100f, 1 << 8))
                     {
@@ -145,7 +132,7 @@ namespace UnitsControlScripts
                         {
                             if (fraction != victimFraction.fraction)
                             {
-                                AttackOrderInitParams currentParameters = new AttackOrderInitParams();
+                                AttackOrderInitParams currentParameters = new AttackOrderInitParams(GameOrderType.MoveAttack);
                                 currentParameters.target = victim;
                                 GiveOrderToUnits(EntetiesToOrder, currentParameters);
                             }

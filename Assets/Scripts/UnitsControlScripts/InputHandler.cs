@@ -6,7 +6,7 @@ using Buildings;
 using CameraMovement;
 using HexWorldinterpretation;
 using Orders;
-using Orders.Units;
+using Orders.EntityOrder;
 using UIScripts;
 using Units;
 using UnityEngine;
@@ -36,7 +36,7 @@ namespace UnitsControlScripts
 
         [Header("Unit control properties")] 
         [SerializeField] private List<OrderableObject> SelectedEnteties = new List<OrderableObject>();
-        public List<GameOrderType> PossibleOrders = new List<GameOrderType>();
+        public List<GameOrderInitParams> PossibleOrders = new List<GameOrderInitParams>();
 
         private Fraction fraction = Fraction.Player;
         [SerializeField] private EntetiesLister lister;
@@ -46,13 +46,13 @@ namespace UnitsControlScripts
         private Builder builder;
 
         [SerializeField] private bool isBuilding = false;
-        [SerializeField] private Building TestPrefab;
+        //[SerializeField] private Building TestPrefab;
 
         [Header("Input property")]
         [SerializeField] private PlayerInput playerInput;
 
         [Header("Ordering")]
-        [SerializeField] private GameOrderType CurrentOrder;
+        [SerializeField] private GameOrderInitParams CurrentOrder;
         
         [Header("General references")]
         [SerializeField] private OrderGiver orderGiver;
@@ -102,12 +102,12 @@ namespace UnitsControlScripts
             }
         }
 
-        public void SetOrder(GameOrderType orderType)
+        public void SetOrder(GameOrderInitParams orderType)
         {
-            if (orderType == GameOrderType.Build)
+            if (orderType is BuildOrderInitParams)
             {
                 currentState = HandlerState.Building;
-                builder.StartPlacingBuilding(TestPrefab);
+                builder.StartPlacingBuilding((orderType as BuildOrderInitParams).building);
             }
             else
             {
@@ -140,11 +140,11 @@ namespace UnitsControlScripts
             {
                 if (playerInput.actions.FindActionMap("Player").FindAction("APressed").ReadValue<float>() >= .5f)
                 {
-                    orderGiver.GiveOrder(SelectedEnteties.ToArray(), GameOrderType.MoveAttack);
+                    orderGiver.GiveOrder(SelectedEnteties.ToArray(), new MoveAttackOrderInitParams(GameOrderType.MoveAttack));
                 }
                 else
                 {
-                    orderGiver.GiveOrder(SelectedEnteties.ToArray(), GameOrderType.None, true);
+                    orderGiver.GiveOrder(SelectedEnteties.ToArray(), new GameOrderInitParams(GameOrderType.None), true);
                 }
             }
             else if (currentState == HandlerState.Ordering)
@@ -245,34 +245,23 @@ namespace UnitsControlScripts
             camera.TryMoveByDirection(direction);       
         }
         
-        private List<GameOrderType> GetPossibleOrdersFromUnits(List<OrderableObject> orderableObjects)
+        private List<GameOrderInitParams> GetPossibleOrdersFromUnits(List<OrderableObject> orderableObjects)
         {
             if (orderableObjects.Count != 0 && orderableObjects != null)
             {
-                List<GameOrderType> ordersType = new List<GameOrderType>();
-                ordersType.AddRange(orderableObjects[0].orderTypes);
+                List<GameOrderInitParams> ordersType = new List<GameOrderInitParams>();
+                ordersType.AddRange(orderableObjects[0].GameOrderInitParamsArray);
                 foreach (OrderableObject orderableObject in orderableObjects)
                 {
-                    for (int i = 0; i < ordersType.Count; i++)
-                    {
-                        if (!orderableObject.orderTypes.Contains(ordersType[i]))
-                        {
-                            ordersType.RemoveAt(i);
-                            i--;
-                        }
-
-                    }
-                    Debug.Log(ordersType.Count);
+                    ordersType =
+                        new List<GameOrderInitParams>(
+                            orderableObject.GameOrderInitParamsArray.Where(x => ordersType.Select(y => y.OrderType).Contains(x.OrderType)).Select(x=>x));
                 }
-
-                if (ordersType.Contains(GameOrderType.Build) && orderableObjects.Count != 1)
-                    ordersType.Remove(GameOrderType.Build);
-                
                 return ordersType;
             }
             else
             {
-                return new List<GameOrderType>();
+                return new List<GameOrderInitParams>();
             }
         }
     }

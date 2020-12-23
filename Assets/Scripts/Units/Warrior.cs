@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Orders;
-using Orders.Units;
+using Orders.EntityOrder;
 
 
 namespace Units
@@ -24,7 +24,12 @@ namespace Units
             
             BaseUnitInitialization();
             
-            orderableObject.SetPossibleOrderTypes(new List<GameOrderType> {GameOrderType.Move,GameOrderType.Attack,GameOrderType.MoveAttack});
+            orderableObject.SetPossibleOrderTypes(new List<GameOrderInitParams>
+            {
+                new MoveOrderInitParams(GameOrderType.Move),
+                new AttackOrderInitParams(GameOrderType.Attack),
+                new MoveAttackOrderInitParams(GameOrderType.MoveAttack)
+            });
         }
         
     }

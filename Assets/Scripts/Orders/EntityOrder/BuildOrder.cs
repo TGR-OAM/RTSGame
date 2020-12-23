@@ -3,11 +3,16 @@ using Units;
 using UnitsControlScripts;
 using UnityEngine;
 
-namespace Orders.Units
+namespace Orders.EntityOrder
 {
     public class BuildOrderInitParams : GameOrderInitParams
     {
         public Building building;
+
+        public BuildOrderInitParams(Building building,GameOrderType type) : base(type)
+        {
+            this.building = building;
+        }
     }
     public class BuildOrder : GameOrder
     {
