@@ -8,10 +8,12 @@ using HexWorldinterpretation;
 using Orders;
 using Orders.EntityOrder;
 using UIScripts;
+using GameResources;
 using Units;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 namespace UnitsControlScripts
 {
@@ -60,6 +62,13 @@ namespace UnitsControlScripts
         [SerializeField] private MovementByKeyBoard camera;         
 
         private Vector2 mousePosition;
+        [Header ("Resources properties")]
+
+        [SerializeField]
+        private GameResourceStruct resources;
+
+        [SerializeField]
+        private Text[] resourcesTexts;
 
         private void Start()
         {
@@ -73,7 +82,7 @@ namespace UnitsControlScripts
             PlayerActionMap.FindAction("SelectUnit").canceled += _ => ReleaseSelectionBox();
             PlayerActionMap.FindAction("GiveOrderToUnit").performed += _ => GiveOrderToUnits();
             PlayerActionMap.FindAction("SetIdleState").performed += _ => ReturnToIdleState();
-            
+            DisplayResourcesTexts();
         }
 
         private void Update()
@@ -101,6 +110,14 @@ namespace UnitsControlScripts
                     break;
             }
         }
+
+        private void DisplayResourcesTexts()
+        {
+            resourcesTexts[0].text = resources.neoSteel.ToString();
+            resourcesTexts[1].text = resources.titanium.ToString();
+            resourcesTexts[2].text = resources.unobtanium.ToString();
+        }
+
 
         public void SetStateFromOrderType(GameOrderInitParams orderType)
         {
