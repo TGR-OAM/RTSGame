@@ -12,7 +12,7 @@ namespace Orders.EntityOrder
     {
         public Unit unitPrefabToCreate;
         public float TimeToCreateUnit;
-        public UnitCreationOrderInitParams(Unit unitPrefabToCreate, float TimeToCreateUnit)
+        public UnitCreationOrderInitParams(Unit unitPrefabToCreate, float TimeToCreateUnit, string orderName) : base(orderName)
         {
             this.unitPrefabToCreate = unitPrefabToCreate;
             this.TimeToCreateUnit = TimeToCreateUnit;

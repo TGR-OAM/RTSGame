@@ -7,6 +7,13 @@ namespace Orders.EntityOrder
     [Serializable]
     public class GameOrderInitParams
     {
+        public string OrderName;
+
+        public GameOrderInitParams(string orderName)
+        {
+            OrderName = orderName;
+        }
+        
     }
     
     public class GameOrderVariableParams

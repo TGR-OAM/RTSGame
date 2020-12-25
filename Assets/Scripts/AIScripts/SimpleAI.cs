@@ -23,7 +23,7 @@ namespace AIScripts
             currentTimeFromAttack += Time.deltaTime;
             if (currentTimeFromAttack >= attackInterval)
             {
-                AttackPlayer();
+                //AttackPlayer();
                 currentTimeFromAttack = 0;
             }
         }
@@ -31,7 +31,16 @@ namespace AIScripts
         private void AttackPlayer()
         {
             print("Go go go");
-            SetMoveAttackOrderToUnits(EntitiesLister.enteties.Where(x => x.GetComponent<FractionMember>().fraction == Fraction.Enemy)
+            SetMoveAttackOrderToUnits(EntitiesLister.enteties.Where(x =>
+                    {
+                        if (x == null)
+                        {
+                            return false;
+                        }
+                        x.TryGetComponent(typeof(FractionMember), out Component component);
+                        return (component as FractionMember).fraction == Fraction.Enemy;
+                    }
+                )
                 .Select(x => x.GetComponent<Warrior>()).ToArray(), enemyBasePosition);
             
         }

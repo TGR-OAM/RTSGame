@@ -35,7 +35,7 @@ namespace UnitsControlScripts
                     {
                         foreach (OrderableObject entety in EntetiesToOrder)
                         {
-                            MoveOrderInitParams moveOrderInitParams = new MoveOrderInitParams();
+                            MoveOrderInitParams moveOrderInitParams = new MoveOrderInitParams("");
                             MoveOrderVariableParams moveOrderVariableParams = new MoveOrderVariableParams(GetDestinationWithOffset(hit.point, EntetiesToOrder.Length), null);
                             GiveOrderToUnits(entety, moveOrderInitParams,moveOrderVariableParams);
                         }
@@ -44,7 +44,7 @@ namespace UnitsControlScripts
                     {
                         if (fraction != raycastHitGameObjectFraction.fraction)
                         {
-                            AttackOrderInitParams attackOrderInitParams = new AttackOrderInitParams();
+                            AttackOrderInitParams attackOrderInitParams = new AttackOrderInitParams("");
                             AttackOrderVariableParams attackOrderVariableParams = new AttackOrderVariableParams(raycastHitGameObject, null);
                             GiveOrderToUnits(EntetiesToOrder, attackOrderInitParams, attackOrderVariableParams);
                         }
@@ -55,13 +55,26 @@ namespace UnitsControlScripts
                     GameObject enemyObject = hit.collider.gameObject;
                     FractionMember victimFraction = enemyObject.GetComponent<FractionMember>();
 
-                    if (inputHandler.PossibleOrders.Any(x => x is AttackOrderInitParams))
+
+                    if (victimFraction.fraction != fraction)
                     {
-                        if (victimFraction.fraction != fraction)
+                        if (inputHandler.PossibleOrders.Any(x => x is AttackOrderInitParams))
                         {
-                            AttackOrderInitParams attackOrderInitParams = new AttackOrderInitParams();
-                            AttackOrderVariableParams attackOrderVariableParams = new AttackOrderVariableParams(enemyObject, null);
+                            AttackOrderInitParams attackOrderInitParams = new AttackOrderInitParams("");
+                            AttackOrderVariableParams attackOrderVariableParams =
+                                new AttackOrderVariableParams(enemyObject, null);
                             GiveOrderToUnits(EntetiesToOrder, attackOrderInitParams, attackOrderVariableParams);
+                        }
+                    }
+                    else
+                    {
+                        if (inputHandler.PossibleOrders.Any(x => x is BuildOrderInitParams) && hit.transform.TryGetComponent(typeof(Building), out Component building))
+                        {
+                            foreach (OrderableObject entity in inputHandler.SelectedEnteties)
+                            {
+                                BuildOrderVariableParams buildOrderVariableParams = new BuildOrderVariableParams(building as Building, entity.gameObject);
+                                entity.GiveOrder(new BuildOrder(buildOrderVariableParams));
+                            }
                         }
                     }
                 }
@@ -72,7 +85,7 @@ namespace UnitsControlScripts
                     {
                         foreach (OrderableObject EntetyToOrder in EntetiesToOrder)
                         {
-                            MoveOrderInitParams moveOrderInitParams = new MoveOrderInitParams();
+                            MoveOrderInitParams moveOrderInitParams = new MoveOrderInitParams("");
                             MoveOrderVariableParams moveOrderVariableParams = new MoveOrderVariableParams(GetDestinationWithOffset(output, EntetiesToOrder.Length), EntetyToOrder.gameObject);
                             GiveOrderToUnits(EntetyToOrder, moveOrderInitParams, moveOrderVariableParams);
                         }
@@ -88,7 +101,7 @@ namespace UnitsControlScripts
                     {
                         foreach (OrderableObject EntetyToOrder in EntetiesToOrder)
                         {
-                            MoveAttackOrderInitParams moveAttackOrderInitParams = new MoveAttackOrderInitParams();
+                            MoveAttackOrderInitParams moveAttackOrderInitParams = new MoveAttackOrderInitParams("");
                             MoveAttackOrderVariableParams moveAttackOrderVariableParams =
                                 new MoveAttackOrderVariableParams(GetDestinationWithOffset(hit.point, EntetiesToOrder.Length), EntetyToOrder.gameObject);
                             GiveOrderToUnits(EntetyToOrder, moveAttackOrderInitParams, moveAttackOrderVariableParams);
@@ -100,7 +113,7 @@ namespace UnitsControlScripts
                         {
                             foreach (OrderableObject EntetyToOrder in EntetiesToOrder)
                             {
-                                MoveAttackOrderInitParams moveAttackOrderInitParams = new MoveAttackOrderInitParams();
+                                MoveAttackOrderInitParams moveAttackOrderInitParams = new MoveAttackOrderInitParams("");
                                 MoveAttackOrderVariableParams moveAttackOrderVariableParams =
                                     new MoveAttackOrderVariableParams(GetDestinationWithOffset(output, EntetiesToOrder.Length), EntetyToOrder.gameObject);
                                 GiveOrderToUnits(EntetyToOrder, moveAttackOrderInitParams, moveAttackOrderVariableParams);
@@ -115,7 +128,7 @@ namespace UnitsControlScripts
                     {
                         foreach (OrderableObject EntetyToOrder in EntetiesToOrder)
                         {
-                            MoveOrderInitParams moveOrderInitParams = new MoveOrderInitParams();
+                            MoveOrderInitParams moveOrderInitParams = new MoveOrderInitParams("");
                             MoveOrderVariableParams moveOrderVariableParams = new MoveOrderVariableParams(GetDestinationWithOffset(output, EntetiesToOrder.Length),EntetyToOrder.gameObject);
                             GiveOrderToUnits(EntetyToOrder, moveOrderInitParams, moveOrderVariableParams);
                             return;
@@ -133,7 +146,7 @@ namespace UnitsControlScripts
                         {
                             if (fraction != victimFraction.fraction)
                             {
-                                AttackOrderInitParams currentParameters = new AttackOrderInitParams();
+                                AttackOrderInitParams currentParameters = new AttackOrderInitParams("");
                                 AttackOrderVariableParams attackOrderVariableParams =
                                     new AttackOrderVariableParams(victim, null);
                                 GiveOrderToUnits(EntetiesToOrder, currentParameters, attackOrderVariableParams);

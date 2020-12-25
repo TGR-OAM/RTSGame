@@ -7,6 +7,9 @@ namespace Orders.EntityOrder
 {
     public class MoveOrderInitParams : GameOrderInitParams
     {
+        public MoveOrderInitParams(string orderName) : base(orderName)
+        {
+        }
     }
     
     public class MoveOrderVariableParams : GameOrderVariableParams

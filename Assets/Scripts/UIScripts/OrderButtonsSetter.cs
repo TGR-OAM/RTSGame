@@ -25,7 +25,7 @@ namespace UIScripts
             foreach (GameOrderInitParams type in possibleOrders)
             {
                 Button ButtonToAdd = Instantiate(ButtonPrefab, this.transform);
-                ButtonToAdd.GetComponentInChildren<Text>().text = type.ToString();
+                ButtonToAdd.GetComponentInChildren<Text>().text = type.OrderName;
                 ButtonToAdd.onClick.AddListener(delegate
                 {
                     SetOrder(type);

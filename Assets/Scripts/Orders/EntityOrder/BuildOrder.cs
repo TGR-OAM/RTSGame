@@ -9,7 +9,7 @@ namespace Orders.EntityOrder
     {
         public Building building;
 
-        public BuildOrderInitParams(Building building)
+        public BuildOrderInitParams(Building building, string orderName) : base(orderName)
         {
             this.building = building;
         }
@@ -44,7 +44,7 @@ namespace Orders.EntityOrder
 
         public override void StartOrder()
         {
-            if (ObjectToOrder.TryGetComponent(typeof(Unit), out Component component))
+            if (BuildingToBuild!= null && ObjectToOrder.TryGetComponent(typeof(Unit), out Component component))
             {
                 base.StartOrder();
                 

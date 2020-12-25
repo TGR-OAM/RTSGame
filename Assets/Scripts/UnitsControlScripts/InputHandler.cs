@@ -37,7 +37,7 @@ namespace UnitsControlScripts
         private Vector2 startPos;
 
         [Header("Unit control properties")] 
-        [SerializeField] private List<OrderableObject> SelectedEnteties = new List<OrderableObject>();
+        [SerializeField] public List<OrderableObject> SelectedEnteties = new List<OrderableObject>();
         public List<GameOrderInitParams> PossibleOrders = new List<GameOrderInitParams>();
 
         private Fraction fraction = Fraction.Player;
@@ -143,11 +143,11 @@ namespace UnitsControlScripts
             {
                 if (playerInput.actions.FindActionMap("Player").FindAction("APressed").ReadValue<float>() >= .5f)
                 {
-                    orderGiver.GiveOrderWithNonFixedParams(SelectedEnteties.ToArray(), new MoveAttackOrderInitParams());
+                    orderGiver.GiveOrderWithNonFixedParams(SelectedEnteties.ToArray(), new MoveAttackOrderInitParams(""));
                 }
                 else
                 {
-                    orderGiver.GiveOrderWithNonFixedParams(SelectedEnteties.ToArray(), new GameOrderInitParams(), true);
+                    orderGiver.GiveOrderWithNonFixedParams(SelectedEnteties.ToArray(), new GameOrderInitParams(""), true);
                 }
             }
             else if (currentState == HandlerState.Ordering)
@@ -205,15 +205,17 @@ namespace UnitsControlScripts
                 else
                 {
                     List<GameObject> AllUnits = EntitiesLister.enteties;
-                    foreach (GameObject Entety in AllUnits)
+                    foreach (GameObject entity in AllUnits)
                     {
-                        Vector3 screenPos = Camera.main.WorldToScreenPoint(Entety.transform.position);
+                        if(entity == null) continue;
+
+                        Vector3 screenPos = Camera.main.WorldToScreenPoint(entity.transform.position);
 
                         if (screenPos.x > min.x && screenPos.x < max.x && screenPos.y > min.y && screenPos.y < max.y &&
-                            Entety.GetComponent<FractionMember>().fraction == fraction &&
-                            Entety.TryGetComponent(typeof(Unit), out _))
+                            entity.GetComponent<FractionMember>().fraction == fraction &&
+                            entity.TryGetComponent(typeof(Unit), out _))
                         {
-                            SelectedEnteties.Add(Entety.GetComponent<OrderableObject>());
+                            SelectedEnteties.Add(entity.GetComponent<OrderableObject>());
                         }
 
                         
@@ -264,16 +266,12 @@ namespace UnitsControlScripts
                 {
                     ordersType =
                         new List<GameOrderInitParams>(
-                            orderableObject.GameOrderInitParamsArray.Where(x => ordersType
-                                .Select(y => x.GetType() == y.GetType()).Any())
-                            );
+                            orderableObject.GameOrderInitParamsArray.Where(x => ordersType.Contains(x)));
                 }
                 return ordersType;
             }
-            else
-            {
-                return new List<GameOrderInitParams>();
-            }
+
+            return new List<GameOrderInitParams>();
         }
     }
 }

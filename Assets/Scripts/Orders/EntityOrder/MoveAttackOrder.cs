@@ -6,6 +6,9 @@ namespace Orders.EntityOrder
 {
     public class MoveAttackOrderInitParams : GameOrderInitParams
     {
+        public MoveAttackOrderInitParams(string orderName) : base(orderName)
+        {
+        }
     }
 
     public class MoveAttackOrderVariableParams : GameOrderVariableParams
@@ -58,7 +61,6 @@ namespace Orders.EntityOrder
                     {
                         target = bestTarget;
                         UnitToOrder.agent.SetDestination(bestTarget.transform.position);
-                        
                     }
                     else
                     {
@@ -94,7 +96,7 @@ namespace Orders.EntityOrder
             GameObject o = null;
             foreach (GameObject g in EntitiesLister.enteties)
             {
-                if (g == null) break;
+                if (g == null) continue;
                 float d = Vector3.Distance(thisUnit.transform.position, g.transform.position);
                 if (g.GetComponent<FractionMember>().fraction != thisUnit.fractionMember.fraction && d < smallestDst &&
                     d < thisUnit.visionDistance)

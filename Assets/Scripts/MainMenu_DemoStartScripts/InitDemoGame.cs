@@ -20,15 +20,16 @@ public class InitDemoGame : MonoBehaviour
     {
         #region OrdersExamples
 
-        MoveOrderInitParams MoveExample = new MoveOrderInitParams();
-        AttackOrderInitParams AttackExample = new AttackOrderInitParams();
-        MoveAttackOrderInitParams MoveAttackExample = new MoveAttackOrderInitParams();
+        MoveOrderInitParams MoveExample = new MoveOrderInitParams("Move");
+        AttackOrderInitParams AttackExample = new AttackOrderInitParams("Attack");
+        MoveAttackOrderInitParams MoveAttackExample = new MoveAttackOrderInitParams("Move and attack");
 
         Dictionary<string,BuildOrderInitParams> BuildExamples = new Dictionary<string,BuildOrderInitParams>();
 
         foreach (Building var in BuildingsToLoad)
         {
-            BuildExamples.Add(typeof(BuildOrderInitParams).FullName + "."+ var.name,new BuildOrderInitParams(var));
+            if (var is MainHub) continue;
+            BuildExamples.Add(typeof(BuildOrderInitParams).FullName + "."+ var.name,new BuildOrderInitParams(var, "Build "+var.name));
         }
 
         Dictionary<string, UnitCreationOrderInitParams> UnitCreationExamples =
@@ -36,7 +37,7 @@ public class InitDemoGame : MonoBehaviour
 
         foreach (Unit unit in UnitsToLoad)
         {
-            UnitCreationExamples.Add(typeof(UnitCreationOrderInitParams).FullName + "." + unit.name, new UnitCreationOrderInitParams(unit, 1f));
+            UnitCreationExamples.Add(typeof(UnitCreationOrderInitParams).FullName + "." + unit.name, new UnitCreationOrderInitParams(unit, 1f, "Create unit " + unit.name));
         }
 
         #endregion
