@@ -60,19 +60,26 @@ namespace Orders.EntityOrder
                     if (bestTarget != null)
                     {
                         target = bestTarget;
+                        UnitToOrder.agent.isStopped = false;
                         UnitToOrder.agent.SetDestination(bestTarget.transform.position);
                     }
                     else
                     {
                         if (UnitToOrder.agent.destination != destination)
                         {
+                            UnitToOrder.agent.isStopped = false;
                             UnitToOrder.agent.SetDestination(destination);
                         }
                     }
                 }
                 else if (UnitToOrder.isNearToDestination(target.transform.position,UnitToOrder.attackDistance))
                 {
+                    UnitToOrder.agent.isStopped = true;
                     TryAttack(UnitToOrder);
+                }
+                else
+                {
+                    UnitToOrder.agent.isStopped = false;
                 }
                 
             }

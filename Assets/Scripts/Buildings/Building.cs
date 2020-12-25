@@ -31,6 +31,8 @@ namespace Buildings
 
         public GameResourceStruct BuildingCost;
 
+        public bool isPlaced = false;
+
         protected void Start()
         {
             BaseBuildingInitialization();
@@ -66,7 +68,8 @@ namespace Buildings
             CreationOutput = this.transform.position;
             damageSystem.TrySetActiveHealthBar(true);
             damageSystem.TryUpdateHealthBar();
-            
+            isPlaced = true;
+
         }
         private void OnDrawGizmos()
         {
