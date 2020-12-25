@@ -477,6 +477,8 @@ MonoBehaviour:
   PossibleOrders: []
   isBuilding: 0
   playerInput: {fileID: 181414837}
+  CurrentOrder:
+    OrderName: 
   camera: {fileID: 963194229}
 --- !u!1001 &187690612
 PrefabInstance:

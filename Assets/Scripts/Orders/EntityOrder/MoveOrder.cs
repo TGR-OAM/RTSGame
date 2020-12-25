@@ -39,8 +39,9 @@ namespace Orders.EntityOrder
                 base.StartOrder();
                 Unit thisUnit = component as Unit;
                 UnitToOrder = thisUnit;
+                Debug.Log(UnitToOrder);
                 UnitToOrder.agent.isStopped = false;
-                thisUnit.agent.SetDestination(destination);
+                UnitToOrder.agent.SetDestination(destination);
             }
         }
 

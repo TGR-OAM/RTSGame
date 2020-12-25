@@ -210,8 +210,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2985059719f0ff648adef6b048decc7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  unitListerTag: MainCamera
-  lister: {fileID: 0}
   fraction: 0
 --- !u!114 &1878667225513565802
 MonoBehaviour:
@@ -225,10 +223,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99ce49e6b05b5ec4c9e1ab14cf93f1fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  unitCreatingInterval: 7.08
+  unitCreatingInterval: 5
   positionToSpawnUnits: {fileID: 5096741126385341250}
-  WarriorToCreate: {fileID: 814608776215377280, guid: bf09aa5a0bec137469aa42ee8e6219c4, type: 3}
-  BuilderToCreate: {fileID: 8256918423322789251, guid: 2276cdc9f06cde44293b0226012c14d2, type: 3}
+  WarriorToCreate: {fileID: 2950137227168048108, guid: 477732ada98154a43a0d3b1b2605a2cf, type: 3}
+  BuilderToCreate: {fileID: 2950137227168048108, guid: 477732ada98154a43a0d3b1b2605a2cf, type: 3}
 --- !u!1 &8912244106557957250
 GameObject:
   m_ObjectHideFlags: 0
