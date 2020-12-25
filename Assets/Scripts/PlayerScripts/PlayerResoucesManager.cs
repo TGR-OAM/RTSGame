@@ -3,9 +3,11 @@ using GameResources;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.PlayerLoop;
 using UnityEngine.UI;
 namespace PLayerScripts {
 
+    [RequireComponent(typeof(PlayerManager), typeof(InputHandler))]
     public class PlayerResoucesManager : MonoBehaviour
     {
 

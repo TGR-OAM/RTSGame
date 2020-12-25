@@ -533,6 +533,7 @@ GameObject:
   - component: {fileID: 181414841}
   - component: {fileID: 181414837}
   - component: {fileID: 181414838}
+  - component: {fileID: 181414840}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -650,8 +651,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65384883f5ea0524e8db2048a0e4e1a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerResources:
-    neoSteel: 10
 --- !u!4 &181414839
 Transform:
   m_ObjectHideFlags: 0
@@ -666,6 +665,24 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &181414840
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 181414836}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ccb7598a70c7394db1640b96f1e7c56, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  camera: {fileID: 963194229}
+  hexGrid: {fileID: 221974592}
+  uiManager: {fileID: 439065677}
+  InputHandler: {fileID: 181414841}
+  fraction: 0
+  PlayerResoucesManager: {fileID: 181414838}
 --- !u!114 &181414841
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -679,16 +696,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentState: 0
-  hexGrid: {fileID: 221974592}
   selectionBox: {fileID: 1266521373}
-  uiManager: {fileID: 439065677}
   SelectedEnteties: []
   PossibleOrders: []
-  isBuilding: 0
   playerInput: {fileID: 181414837}
   CurrentOrder:
     OrderName: 
-  camera: {fileID: 963194229}
 --- !u!1001 &187690612
 PrefabInstance:
   m_ObjectHideFlags: 0

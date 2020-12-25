@@ -18,6 +18,7 @@ using Debug = UnityEngine.Debug;
 
 namespace PLayerScripts
 {
+    [RequireComponent(typeof(PlayerManager), typeof(PlayerResoucesManager))]
     public class InputHandler : MonoBehaviour
     {
         private enum HandlerState
@@ -27,44 +28,32 @@ namespace PLayerScripts
             Ordering
         }
 
+        [Header("Input state properties")]
         [SerializeField] private HandlerState currentState = HandlerState.Idle;
-        [SerializeField] private HexGrid hexGrid;
+        
+        [Header("UI properties")] 
+        [SerializeField] private RectTransform selectionBox;
 
-        [Header("UI properties")] [SerializeField]
-        private RectTransform selectionBox;
-
-        [SerializeField] private UIManager uiManager;
-
-        private Vector2 startPos;
-
-        [Header("Unit control properties")] 
+        [Header("Unit selection properties")] 
         [SerializeField] public List<OrderableObject> SelectedEnteties = new List<OrderableObject>();
         public List<GameOrderInitParams> PossibleOrders = new List<GameOrderInitParams>();
-
-        private Fraction fraction = Fraction.Player;
-        private bool isSelecting = false;
-
-        [Header("Building")] [Description("If state is building")]
-        public Builder builder;
 
         [Header("Input property")]
         [SerializeField] private PlayerInput playerInput;
 
         [Header("Ordering")]
         [SerializeField] private GameOrderInitParams CurrentOrder;
-        
-        [Header("General references")]
-        [SerializeField] private OrderGiver orderGiver;
 
-        [SerializeField] private MovementByKeyBoard camera;         
-
+        #region Private properties
+        private PlayerManager PlayerManager;
         private Vector2 mousePosition;
-
+        private Vector2 startPos;
+        private bool isSelecting = false;
+        #endregion
+        
         private void Start()
         {
-            orderGiver = new OrderGiver(hexGrid,this);
-            builder = new Builder(hexGrid);
-
+            PlayerManager = this.GetComponent<PlayerManager>();
             
             InputActionMap PlayerActionMap = playerInput.actions.FindActionMap("Player");
             
@@ -72,7 +61,6 @@ namespace PLayerScripts
             PlayerActionMap.FindAction("SelectUnit").canceled += _ => ReleaseSelectionBox();
             PlayerActionMap.FindAction("GiveOrderToUnit").performed += _ => GiveOrderToUnits();
             PlayerActionMap.FindAction("SetIdleState").performed += _ => ReturnToIdleState();
-            
         }
 
         private void Update()
@@ -107,7 +95,7 @@ namespace PLayerScripts
             {
                 case BuildOrderInitParams buildOrderInitParams:
                     currentState = HandlerState.Building;
-                    builder.StartPlacingBuilding((orderType as BuildOrderInitParams).building);
+                    PlayerManager.Builder.StartPlacingBuilding((orderType as BuildOrderInitParams).building);
                     break;
                 case UnitCreationOrderInitParams unitCreationOrderInitParams:
                     foreach (Building building in SelectedEnteties.Where(x => x.TryGetComponent(typeof(Building), out _)).Select(x => x.GetComponent<Building>()))
@@ -126,12 +114,12 @@ namespace PLayerScripts
 
         private void OperateBuildingPlacing()
         {
-            builder.Update();
+            PlayerManager.Builder.Update();
         }
 
         public void ReturnToIdleState()
         {
-            builder.StopPlacingBuilding();
+            PlayerManager.Builder.StopPlacingBuilding();
             currentState = HandlerState.Idle;
         }
 
@@ -141,29 +129,29 @@ namespace PLayerScripts
             {
                 if (playerInput.actions.FindActionMap("Player").FindAction("APressed").ReadValue<float>() >= .5f)
                 {
-                    orderGiver.GiveOrderWithNonFixedParams(SelectedEnteties.ToArray(), new MoveAttackOrderInitParams(""));
+                    PlayerManager.OrderGiver.GiveOrderWithNonFixedParams(SelectedEnteties.ToArray(), new MoveAttackOrderInitParams(""));
                 }
                 else
                 {
-                    orderGiver.GiveOrderWithNonFixedParams(SelectedEnteties.ToArray(), new GameOrderInitParams(""), true);
+                    PlayerManager.OrderGiver.GiveOrderWithNonFixedParams(SelectedEnteties.ToArray(), new GameOrderInitParams(""), true);
                 }
             }
             else if (currentState == HandlerState.Ordering)
             {
-                orderGiver.GiveOrderWithNonFixedParams(SelectedEnteties.ToArray(), CurrentOrder);
+                PlayerManager.OrderGiver.GiveOrderWithNonFixedParams(SelectedEnteties.ToArray(), CurrentOrder);
                 ReturnToIdleState();
             }
             else if (currentState == HandlerState.Building)
             {
-                if (builder.CanPlaceFlyingBuilding())
+                if (PlayerManager.Builder.CanPlaceFlyingBuilding())
                 {
                     BuildOrderVariableParams buildOrderVariableParams =
-                        new BuildOrderVariableParams(builder.flyingBuilding, SelectedEnteties[0].gameObject);
+                        new BuildOrderVariableParams(PlayerManager.Builder.flyingBuilding, SelectedEnteties[0].gameObject);
                     BuildOrder buildOrder = new BuildOrder(buildOrderVariableParams);
                     
                     SelectedEnteties[0].GiveOrder(buildOrder);
                     
-                    builder.PlaceFlyingBuilding();
+                    PlayerManager.Builder.PlaceFlyingBuilding();
                     
                     ReturnToIdleState();
                 }
@@ -194,7 +182,7 @@ namespace PLayerScripts
                 {
                     if (Physics.Raycast(Camera.main.ScreenPointToRay(mousePosition), out RaycastHit hitBuilding, 100f, 1<<8 | 1 << 10))
                     {
-                        if (hitBuilding.transform.gameObject.GetComponent<FractionMember>().fraction == fraction)
+                        if (hitBuilding.transform.gameObject.GetComponent<FractionMember>().fraction == PlayerManager.fraction)
                         {
                             SelectedEnteties.Add(hitBuilding.transform.GetComponent<OrderableObject>());
                         }
@@ -210,7 +198,7 @@ namespace PLayerScripts
                         Vector3 screenPos = Camera.main.WorldToScreenPoint(entity.transform.position);
 
                         if (screenPos.x > min.x && screenPos.x < max.x && screenPos.y > min.y && screenPos.y < max.y &&
-                            entity.GetComponent<FractionMember>().fraction == fraction &&
+                            entity.GetComponent<FractionMember>().fraction == PlayerManager.fraction &&
                             entity.TryGetComponent(typeof(Unit), out _))
                         {
                             SelectedEnteties.Add(entity.GetComponent<OrderableObject>());
@@ -224,7 +212,7 @@ namespace PLayerScripts
                 selectionBox.sizeDelta = new Vector2();
                 
                 PossibleOrders = GetPossibleOrdersFromUnits(SelectedEnteties.ToList());
-                uiManager.UpdateOrderButtonsInUI(PossibleOrders);
+                PlayerManager.uiManager.UpdateOrderButtonsInUI(PossibleOrders);
                 
             }
         }
@@ -246,12 +234,12 @@ namespace PLayerScripts
         public void Build(Building building)
         {
             if (currentState == HandlerState.Building && !EventSystem.current.IsPointerOverGameObject())
-                builder.StartPlacingBuilding(building);
+                PlayerManager.Builder.StartPlacingBuilding(building);
         }
         
         public void CameraMovement(Vector2 direction)
         {
-            camera.TryMoveByDirection(direction);       
+            PlayerManager.camera.TryMoveByDirection(direction);       
         }
         
         private List<GameOrderInitParams> GetPossibleOrdersFromUnits(List<OrderableObject> orderableObjects)
