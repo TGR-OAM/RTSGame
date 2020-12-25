@@ -1,1 +1,1 @@
-This is simple building System. You need to make a map with a centr in lower left angle(just empty object which is in lower left angle of map) with coordinates 1,1 from it. Then you need to put script "building grid" on it and set size. On all objects, which you will build script "building". On button you need to add your map with grid add function "Start placing building" add a prefab of building
+POSHLI VI VSE NAHUI BLYAT
