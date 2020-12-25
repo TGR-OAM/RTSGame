@@ -10,12 +10,13 @@ using Orders;
 using Orders.EntityOrder;
 using UIScripts;
 using Units;
+using UnitsControlScripts;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 using Debug = UnityEngine.Debug;
 
-namespace UnitsControlScripts
+namespace PLayerScripts
 {
     public class InputHandler : MonoBehaviour
     {
@@ -44,10 +45,7 @@ namespace UnitsControlScripts
         private bool isSelecting = false;
 
         [Header("Building")] [Description("If state is building")]
-        private Builder builder;
-
-        [SerializeField] private bool isBuilding = false;
-        //[SerializeField] private Building TestPrefab;
+        public Builder builder;
 
         [Header("Input property")]
         [SerializeField] private PlayerInput playerInput;

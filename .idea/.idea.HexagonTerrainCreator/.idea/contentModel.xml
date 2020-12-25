@@ -61,7 +61,6 @@
           </e>
           <e p="GameResources" t="Include">
             <e p="GameResourceStruct.cs" t="Include" />
-            <e p="PlayerResoucesManager.cs" t="Include" />
           </e>
           <e p="HexWordEditor" t="Include">
             <e p="TestEditorScript.cs" t="Include" />
@@ -92,6 +91,11 @@
             <e p="OrderableObject.cs" t="Include" />
             <e p="OrderFactory.cs" t="Include" />
           </e>
+          <e p="PlayerScripts" t="Include">
+            <e p="InputHandler.cs" t="Include" />
+            <e p="PlayerManager.cs" t="Include" />
+            <e p="PlayerResoucesManager.cs" t="Include" />
+          </e>
           <e p="UIScripts" t="Include">
             <e p="LogScript.cs" t="Include" />
             <e p="LookTowardMainCamera.cs" t="Include" />
@@ -99,6 +103,7 @@
             <e p="MinimapObjectScript.cs" t="Include" />
             <e p="OrderButtonsSetter.cs" t="Include" />
             <e p="ProccessBar.cs" t="Include" />
+            <e p="ResourcesDisplayUI.cs" t="Include" />
             <e p="UIManager.cs" t="Include" />
           </e>
           <e p="Units" t="Include">
@@ -110,7 +115,6 @@
             <e p="DamageSystem.cs" t="Include" />
             <e p="EntitiesLister.cs" t="Include" />
             <e p="FractionMember.cs" t="Include" />
-            <e p="InputHandler.cs" t="Include" />
             <e p="OrderGiver.cs" t="Include" />
           </e>
           <e p="Worker" t="Include">

@@ -2,12 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="17ebf66f-4afe-4731-9078-d61fb3995c9d" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/PlayerScripts/PlayerResoucesManager.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.HexagonTerrainCreator/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.HexagonTerrainCreator/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.HexagonTerrainCreator/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.HexagonTerrainCreator/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefab.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/PrototypePolygon.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/PrototypePolygon.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/AIScripts/UnitsCreator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/AIScripts/UnitsCreator.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/GameResources/PlayerResoucesManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GameResources/PlayerResoucesManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Packages/packages-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/packages-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/GameResources/GameResourceStruct.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GameResources/GameResourceStruct.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/GameResources/PlayerResoucesManager.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/GameResources/PlayerResoucesManager.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PlayerScripts/PlayerResoucesManager.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UIScripts/UIManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UIScripts/UIManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UnitsControlScripts/InputHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PlayerScripts/InputHandler.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UnitsControlScripts/InputHandler.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PlayerScripts/InputHandler.cs.meta" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -20,11 +25,12 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.inputsystem@1.0.1/InputSystem/Plugins/PlayerInput/PlayerInput.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Buildings/MainHub.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/UIScripts/ProccessBar.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/MainMenu_DemoStartScripts/InitDemoGame.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/FE84F4A7-54DA-4A6B-B64F-CA409D40938A/1b/4e304764/Component.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/UIScripts/ProccessBar.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/UIScripts/LookTowardMainCamera.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/UIScripts/OrderButtonsSetter.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/UIScripts/ResourcesDisplayUI.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/FE84F4A7-54DA-4A6B-B64F-CA409D40938A/45/c272d3b7/GameObject.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../Multiplayer_OrderSystem/Assets/Scripts/FractionSelectionManager.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.inputsystem@1.0.1/InputSystem/NativeInputRuntime.cs" root0="SKIP_HIGHLIGHTING" />
@@ -33,10 +39,6 @@
   </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
-      <option value="$PROJECT_DIR$/Assets/Scripts/Orders/Units/BuildOrder.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Orders/Units/AttackOrder.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/UnitsControlScripts/EntetiesLister.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/UIScripts/MessageScript.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/UIScripts/LogScript.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/HexWorldinterpretation/XMLMapLoader.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/HexWorldinterpretation/HexMetrics.cs" />
@@ -54,7 +56,6 @@
       <option value="$PROJECT_DIR$/Assets/Scripts/UIScripts/MinimapObjectScript.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Orders/GameOrderInitParams.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Orders/GameOrder.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/UIScripts/UIManager.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Orders/EntityOrder/SpellOrder.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Buildings/Builder.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Orders/OrderableObject.cs" />
@@ -73,7 +74,6 @@
       <option value="$PROJECT_DIR$/Assets/Scripts/UIScripts/OrderButtonsSetter.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/MainMenu_DemoStartScripts/InitDemoGame.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/UnitsControlScripts/OrderGiver.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/UnitsControlScripts/InputHandler.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Orders/EntityOrder/BuildOrder.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Orders/EntityOrder/MoveAttackOrder.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/UIScripts/ProccessBar.cs" />
@@ -83,7 +83,13 @@
       <option value="$PROJECT_DIR$/Assets/Scripts/Buildings/Building.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/UnitsControlScripts/DamageSystem.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/AIScripts/UnitsCreator.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/UIScripts/ResourcesUI.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/UIScripts/ResourcesDisplayUI.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/GameResources/PlayerResoucesManager.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/GameResources/GameResourceStruct.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/UnitsControlScripts/InputHandler.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/PlayerScripts/PlayerResoucesManager.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/UIScripts/UIManager.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1lIISIM12q3GC48Z5aO5fthc7Rz" />

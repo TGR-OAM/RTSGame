@@ -8,11 +8,11 @@ namespace GameResources
     public struct GameResourceStruct
     {
         [SerializeField]
-        public int neoSteel { get; set; }
+        public int neoSteel { get; private set; }
         [SerializeField]
-        public int titanium { get; set; }
+        public int titanium { get; private set; }
         [SerializeField]
-        public int unobtanium { get; set; }
+        public int unobtanium { get; private set; }
         public static GameResourceStruct operator +(GameResourceStruct a, GameResourceStruct b)
         {
             GameResourceStruct result = new GameResourceStruct();
@@ -30,4 +30,6 @@ namespace GameResources
             return result;
         }
     }
+
+    public delegate void VoidWithGameResourceStruct(GameResourceStruct gameResourceStruct);
 }

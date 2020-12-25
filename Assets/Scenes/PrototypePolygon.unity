@@ -650,7 +650,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65384883f5ea0524e8db2048a0e4e1a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  resourcesTexts: []
+  playerResources:
+    neoSteel: 10
 --- !u!4 &181414839
 Transform:
   m_ObjectHideFlags: 0
@@ -1028,7 +1029,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inputHandler: {fileID: 181414841}
   hexGrid: {fileID: 221974592}
+  playerResoucesManager: {fileID: 181414838}
   orderButtonsSetter: {fileID: 2128461858}
+  resourcesDisplayUI: {fileID: 1237045265}
 --- !u!114 &439065678
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2427,6 +2430,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1237045264}
+  - component: {fileID: 1237045265}
   m_Layer: 5
   m_Name: ResourcesDisplay
   m_TagString: Untagged
@@ -2456,6 +2460,22 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 200, y: 120}
   m_Pivot: {x: 0, y: 1}
+--- !u!114 &1237045265
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1237045263}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbae4362961bfd5408caeaa6621878a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  resourcesTexts:
+  - {fileID: 1666399941}
+  - {fileID: 176877085}
+  - {fileID: 1460723984}
 --- !u!1 &1266521372
 GameObject:
   m_ObjectHideFlags: 0
