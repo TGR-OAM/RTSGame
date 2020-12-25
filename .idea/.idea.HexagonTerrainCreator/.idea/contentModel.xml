@@ -97,6 +97,7 @@
             <e p="UIManager.cs" t="Include" />
           </e>
           <e p="Units" t="Include">
+            <e p="Robot.cs" t="Include" />
             <e p="Unit.cs" t="Include" />
             <e p="UnitBuilder.cs" t="Include" />
             <e p="Warrior.cs" t="Include" />

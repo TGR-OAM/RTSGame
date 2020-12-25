@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 6870742778385736620}
   - component: {fileID: 6275899145084228320}
   - component: {fileID: 2245678453955195856}
+  - component: {fileID: 7422483065822030407}
   m_Layer: 0
   m_Name: Tank
   m_TagString: Untagged
@@ -99,7 +100,7 @@ NavMeshAgent:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2950137227168048108}
   m_Enabled: 1
-  m_AgentTypeID: -1372625422
+  m_AgentTypeID: 0
   m_Radius: 0.5
   m_Speed: 9
   m_Acceleration: 45
@@ -113,6 +114,19 @@ NavMeshAgent:
   m_BaseOffset: 0.5
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 1
+--- !u!65 &7422483065822030407
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2950137227168048108}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 7.75, y: 2.53, z: 12.68}
+  m_Center: {x: 0, y: 1.04, z: 0}
 --- !u!1 &6160139020734208821
 GameObject:
   m_ObjectHideFlags: 0
@@ -139,7 +153,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6160139020734208821}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -0.94, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2574702747361327446}
