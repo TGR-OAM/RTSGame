@@ -18,12 +18,7 @@ namespace Units
         void Start()
         {
             base.Start();
-            foreach (var w in Weapons)
-            {
-                w.OrderableObject = orderableObject;
-            }
         }
-
         protected override void BaseOrderListInitialization()
         {
             if (EntityLoader.Contain(GetType()))
@@ -34,7 +29,7 @@ namespace Units
                 {
                     foreach (var w in Weapons)
                     {
-                        if ((AttackOrderInitParams) g != null)
+                        if (g is AttackOrderInitParams)
                             ((AttackOrderInitParams) g).whoAttacking += shooting => w.Shoot(shooting);
                     }
                     

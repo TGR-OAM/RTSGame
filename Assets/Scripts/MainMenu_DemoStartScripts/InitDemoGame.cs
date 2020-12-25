@@ -59,6 +59,18 @@ public class InitDemoGame : MonoBehaviour
                 
                 EntityLoader.AddNewEntetyTypeToDictionary(unit.GetType(), warrioEntetyData);
             }
+            else if (unit is Robot)
+            {
+                Debug.Log(unit);
+                LoadEntetyData warrioEntetyData = new LoadEntetyData(unit.gameObject,new Dictionary<string, GameOrderInitParams>
+                {
+                    {MoveExample.ToString() ,MoveExample},
+                    {AttackExample.ToString() ,AttackExample},
+                    {MoveAttackExample.ToString() ,MoveAttackExample},
+                });
+                
+                EntityLoader.AddNewEntetyTypeToDictionary(unit.GetType(), warrioEntetyData);
+            }
             else if (unit is UnitBuilder)
             {
                 Dictionary<string, GameOrderInitParams> AllOrdersExamples = new Dictionary<string, GameOrderInitParams>();

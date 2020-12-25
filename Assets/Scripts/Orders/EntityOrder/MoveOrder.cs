@@ -39,7 +39,7 @@ namespace Orders.EntityOrder
                 base.StartOrder();
                 Unit thisUnit = component as Unit;
                 UnitToOrder = thisUnit;
-                Debug.Log(UnitToOrder.agent.isOnNavMesh);
+//                Debug.Log(UnitToOrder.agent.isOnNavMesh);
                 UnitToOrder.agent.isStopped = false;
                 UnitToOrder.agent.SetDestination(destination);
             }
