@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Diagnostics;
 using System.Linq;
 using Buildings;
 using CameraMovement;
@@ -12,6 +13,7 @@ using Units;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
+using Debug = UnityEngine.Debug;
 
 namespace UnitsControlScripts
 {
@@ -104,16 +106,25 @@ namespace UnitsControlScripts
 
         public void SetStateFromOrderType(GameOrderInitParams orderType)
         {
-            if (orderType is BuildOrderInitParams)
+            switch(orderType)
             {
-                currentState = HandlerState.Building;
-                builder.StartPlacingBuilding((orderType as BuildOrderInitParams).building);
+                case BuildOrderInitParams buildOrderInitParams:
+                    currentState = HandlerState.Building;
+                    builder.StartPlacingBuilding((orderType as BuildOrderInitParams).building);
+                    break;
+                case UnitCreationOrderInitParams unitCreationOrderInitParams:
+                    foreach (Building building in SelectedEnteties.Where(x => x.TryGetComponent(typeof(Building), out _)).Select(x => x.GetComponent<Building>()))
+                    {
+                        UnitCreationOrder unitCreationOrder = unitCreationOrderInitParams.CreateOrder(new UnitCreationOrderVariableParams(building.CreationOutput, building.gameObject)) as UnitCreationOrder;
+                        building.orderableObject.GiveOrder(unitCreationOrder);
+                    }
+                    break;
+                default:
+                    CurrentOrder = orderType;
+                    currentState = HandlerState.Ordering;
+                    break;
             }
-            else
-            {
-                CurrentOrder = orderType;
-                currentState = HandlerState.Ordering;
-            }
+            
         }
 
         private void OperateBuildingPlacing()
@@ -133,23 +144,22 @@ namespace UnitsControlScripts
             {
                 if (playerInput.actions.FindActionMap("Player").FindAction("APressed").ReadValue<float>() >= .5f)
                 {
-                    orderGiver.GiveOrder(SelectedEnteties.ToArray(), new MoveAttackOrderInitParams());
+                    orderGiver.GiveOrderWithNonFixedParams(SelectedEnteties.ToArray(), new MoveAttackOrderInitParams());
                 }
                 else
                 {
-                    orderGiver.GiveOrder(SelectedEnteties.ToArray(), new GameOrderInitParams(), true);
+                    orderGiver.GiveOrderWithNonFixedParams(SelectedEnteties.ToArray(), new GameOrderInitParams(), true);
                 }
             }
             else if (currentState == HandlerState.Ordering)
             {
-                orderGiver.GiveOrder(SelectedEnteties.ToArray(), CurrentOrder);
+                orderGiver.GiveOrderWithNonFixedParams(SelectedEnteties.ToArray(), CurrentOrder);
                 ReturnToIdleState();
             }
             else if (currentState == HandlerState.Building)
             {
                 if (builder.CanPlaceFlyingBuilding())
                 {
-                    Debug.Log(builder.flyingBuilding);
                     BuildOrderVariableParams buildOrderVariableParams =
                         new BuildOrderVariableParams(builder.flyingBuilding, SelectedEnteties[0].gameObject);
                     BuildOrder buildOrder = new BuildOrder(buildOrderVariableParams);

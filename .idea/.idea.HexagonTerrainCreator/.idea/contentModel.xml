@@ -48,6 +48,7 @@
           <e p="Buildings" t="Include">
             <e p="Builder.cs" t="Include" />
             <e p="Building.cs" t="Include" />
+            <e p="MainHub.cs" t="Include" />
           </e>
           <e p="CameraMovement" t="Include">
             <e p="MouseLook.cs" t="Include" />
@@ -72,6 +73,7 @@
             <e p="XMLMapLoader.cs" t="Include" />
           </e>
           <e p="MainMenu_DemoStartScripts" t="Include">
+            <e p="EntityLoader.cs" t="Include" />
             <e p="InitDemoGame.cs" t="Include" />
           </e>
           <e p="Orders" t="Include">
@@ -88,6 +90,7 @@
           </e>
           <e p="UIScripts" t="Include">
             <e p="LogScript.cs" t="Include" />
+            <e p="LookTowardMainCamera.cs" t="Include" />
             <e p="MessageScript.cs" t="Include" />
             <e p="MinimapObjectScript.cs" t="Include" />
             <e p="OrderButtonsSetter.cs" t="Include" />

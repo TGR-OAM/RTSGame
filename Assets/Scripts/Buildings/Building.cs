@@ -1,6 +1,8 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using HexWorldinterpretation;
+using MainMenu_DemoStartScripts;
 using UnitsControlScripts;
 using UnityEngine;
 using Orders;
@@ -17,16 +19,20 @@ namespace Buildings
         public float TimeUntilFullConstruction;
         public Vector2Int Size;
         public Vector3 HexCoords;
-        public Collider ObjectCollider;
+        
         public bool isStartWithFullHp = false;
-        public float timeUntilConstruction;
 
-        public OrderableObject orderableObject { get; private set; }
-        public DamageSystem damageSystem { get; private set; }
 
-        private void Start()
+        public Vector3 CreationOutput;
+
+        public Collider ObjectCollider;
+        public OrderableObject orderableObject;
+        public DamageSystem damageSystem;
+
+        protected void Start()
         {
             BaseBuildingInitialization();
+            BaseBuildingOrderInitialization();
         }
 
         public void SetTransparent(bool available)
@@ -48,7 +54,6 @@ namespace Buildings
             }
 
         }
-
         public void SetNormal()
         {
             foreach (var VARIABLE in MainRenderers)
@@ -56,7 +61,6 @@ namespace Buildings
                 VARIABLE.material.color = Color.white;
             }
         }
-
         private void OnDrawGizmos()
         {
            if(!Application.isPlaying) return;
@@ -81,11 +85,19 @@ namespace Buildings
 
         protected void BaseBuildingInitialization()
         {
-            orderableObject = this.GetComponent<OrderableObject>();
-            damageSystem = this.GetComponent<DamageSystem>();
-            ObjectCollider = this.GetComponent<Collider>();
             damageSystem.SetMaxHp(MaxHp);
             if(isStartWithFullHp) damageSystem.Heal(MaxHp);
+            CreationOutput = this.transform.position;
+        }
+
+        protected void BaseBuildingOrderInitialization()
+        {
+            if (EntityLoader.Contain(this.GetType()))
+            {
+                orderableObject.SetPossibleOrderTypes(EntityLoader.GetOrderInitParamsFromDictionary(this.GetType())
+                    .OrderInitParams.Values.ToList());
+            }
+            
         }
     }
 }

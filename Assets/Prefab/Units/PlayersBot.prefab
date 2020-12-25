@@ -163,7 +163,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 422ecfd57ab44269a3432bcf99a68972, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  reachDistance: 0
   MaxHp: 100000
+  agent: {fileID: 814608776215377282}
+  fractionMember: {fileID: 814608776215377287}
+  orderableObject: {fileID: 5886744827755816414}
 --- !u!114 &3126975373417331743
 MonoBehaviour:
   m_ObjectHideFlags: 0

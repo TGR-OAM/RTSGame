@@ -21,7 +21,7 @@ namespace UnitsControlScripts
             this.inputHandler = inputHandler;
         }
 
-        public void GiveOrder(OrderableObject[] EntetiesToOrder, GameOrderInitParams orderType, bool isIdleState = false)
+        public void GiveOrderWithNonFixedParams(OrderableObject[] EntetiesToOrder, GameOrderInitParams orderType, bool isIdleState = false)
         {
             Vector2 mousePos = Mouse.current.position.ReadValue();
             if (isIdleState)
@@ -102,7 +102,7 @@ namespace UnitsControlScripts
                             {
                                 MoveAttackOrderInitParams moveAttackOrderInitParams = new MoveAttackOrderInitParams();
                                 MoveAttackOrderVariableParams moveAttackOrderVariableParams =
-                                    new MoveAttackOrderVariableParams(GetDestinationWithOffset(hit.point, EntetiesToOrder.Length), EntetyToOrder.gameObject);
+                                    new MoveAttackOrderVariableParams(GetDestinationWithOffset(output, EntetiesToOrder.Length), EntetyToOrder.gameObject);
                                 GiveOrderToUnits(EntetyToOrder, moveAttackOrderInitParams, moveAttackOrderVariableParams);
                             }
                         }

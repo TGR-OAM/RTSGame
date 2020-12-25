@@ -12,24 +12,17 @@ namespace Units
         public float visionDistance { get; protected set; }
         public float damagePerSecond { get; protected set; }
 
-        private void Start()
+        protected void Start()
         {
+            base.Start();
+            
             #region Part-time data
             
             attackDistance = 20f;
-            visionDistance = 10f;
+            visionDistance = 30f;
             damagePerSecond = 10f;
 
             #endregion
-            
-            BaseUnitInitialization();
-            
-            orderableObject.SetPossibleOrderTypes(new List<GameOrderInitParams>
-            {
-                new MoveOrderInitParams(),
-                new AttackOrderInitParams(),
-                new MoveAttackOrderInitParams()
-            });
         }
         
     }

@@ -37,7 +37,6 @@ namespace UIScripts
         public void SetOrder(GameOrderInitParams orderType)
         {
             uiManager.inputHandler.SetStateFromOrderType(orderType);
-            Debug.Log(orderType);
         }
     }
 }

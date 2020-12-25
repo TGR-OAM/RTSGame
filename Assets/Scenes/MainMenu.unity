@@ -323,8 +323,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 443e39c13f120464883ae03c23d731b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DemoScene:
-    m_Handle: 0
+  DemoSceneIndex: 0
+  UnitsToLoad:
+  - {fileID: 8757334258195730617, guid: 2276cdc9f06cde44293b0226012c14d2, type: 3}
+  - {fileID: 2586034527180965024, guid: bf09aa5a0bec137469aa42ee8e6219c4, type: 3}
+  BuildingsToLoad:
+  - {fileID: 8205979929494484361, guid: d80e758dcddce1f489ef0f6a754cdb7a, type: 3}
+  - {fileID: 7781565261085879258, guid: 112265c1b89c4b145ba9d3cd5bbcad49, type: 3}
+  - {fileID: 1513049481762636935, guid: 34758492df9b4864183b3e1dea84064b, type: 3}
 --- !u!4 &1447613945
 Transform:
   m_ObjectHideFlags: 0

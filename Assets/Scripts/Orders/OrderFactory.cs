@@ -30,6 +30,9 @@ namespace Orders
                     return new MoveOrder(orderVariableParams as MoveOrderVariableParams);
                 case MoveAttackOrderInitParams moveAtackParams:
                     return new MoveAttackOrder(orderVariableParams as MoveAttackOrderVariableParams);
+                case UnitCreationOrderInitParams unitCreationOrderInitParams:
+                    return new UnitCreationOrder(unitCreationOrderInitParams,
+                        orderVariableParams as UnitCreationOrderVariableParams);
                 default:
                     throw new ArgumentOutOfRangeException(paramName: "orderInitParams");
             }

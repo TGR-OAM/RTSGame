@@ -139,9 +139,11 @@ MonoBehaviour:
   TimeUntilFullConstruction: 5
   Size: {x: 2, y: 2}
   HexCoords: {x: 0, y: 0, z: 0}
-  ObjectCollider: {fileID: 0}
   isStartWithFullHp: 0
-  timeUntilConstruction: 15
+  CreationOutput: {x: 0, y: 0, z: 0}
+  ObjectCollider: {fileID: 7893316468862192133}
+  orderableObject: {fileID: 9201007050984811661}
+  damageSystem: {fileID: 3371817007554099333}
 --- !u!65 &7893316468862192133
 BoxCollider:
   m_ObjectHideFlags: 0

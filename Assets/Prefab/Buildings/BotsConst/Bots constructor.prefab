@@ -137,8 +137,11 @@ MonoBehaviour:
   TimeUntilFullConstruction: 5
   Size: {x: 2, y: 5}
   HexCoords: {x: 0, y: 0, z: 0}
-  ObjectCollider: {fileID: 0}
-  timeUntilConstruction: 0
+  isStartWithFullHp: 0
+  CreationOutput: {x: 0, y: 0, z: 0}
+  ObjectCollider: {fileID: 1231594590266577920}
+  orderableObject: {fileID: 2978106879045718431}
+  damageSystem: {fileID: 8505359684180654833}
 --- !u!65 &1231594590266577920
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -180,6 +183,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7cbdbc3daee30ed499a06de295269c9f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  GameOrderInitParamsArray: []
 --- !u!114 &8505359684180654833
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -192,8 +196,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 691116507f273d54db89105a9ffce2bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Hp: 0
-  MaxHp: 0
 --- !u!114 &-3579613254884548647
 MonoBehaviour:
   m_ObjectHideFlags: 0
