@@ -1,41 +1,41 @@
-﻿using UnityEngine;
+﻿using System;
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 using Random = UnityEngine.Random;
 
-namespace AIScripts
+public class UnitsCreator : MonoBehaviour
 {
-    public class UnitsCreator : MonoBehaviour
+    [SerializeField]
+    private float unitCreatingInterval;
+    private float timeFromPreviousCreation;
+    [SerializeField]
+    private Vector3 creatingPos;
+    [SerializeField]
+    private GameObject WarriorToCreate;
+    [SerializeField]
+    private GameObject BuilderToCreate;
+
+    private void Start()
     {
-        [SerializeField]
-        private float unitCreatingInterval;
-        private float timeFromPreviousCreation;
-        [SerializeField]
-        private Transform positionToSpawnUnits;
-        [SerializeField]
-        private GameObject WarriorToCreate;
-        [SerializeField]
-        private GameObject BuilderToCreate;
+        Instantiate(BuilderToCreate, creatingPos, Quaternion.identity);
+    }
 
-        private void Start()
+    void Update()
+    {
+        timeFromPreviousCreation += Time.deltaTime;
+        if (timeFromPreviousCreation >= unitCreatingInterval)
         {
-            Instantiate(BuilderToCreate, positionToSpawnUnits.position, Quaternion.identity);
-        }
-
-        void Update()
-        {
-            timeFromPreviousCreation += Time.deltaTime;
-            if (timeFromPreviousCreation >= unitCreatingInterval)
+            if (Random.value <= .2f)
             {
-                if (Random.value <= .2f)
-                {
-                    Instantiate(BuilderToCreate, positionToSpawnUnits.position, Quaternion.identity);
-                }
-                else
-                {
-                    Instantiate(WarriorToCreate, positionToSpawnUnits.position, Quaternion.identity);
-                }
-            
-                timeFromPreviousCreation = 0;
+                Instantiate(BuilderToCreate, creatingPos, Quaternion.identity);
             }
+            else
+            {
+                Instantiate(WarriorToCreate, creatingPos, Quaternion.identity);
+            }
+            
+            timeFromPreviousCreation = 0;
         }
     }
 }
