@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using GameResources;
 using HexWorldinterpretation;
 using MainMenu_DemoStartScripts;
 using UnitsControlScripts;
@@ -27,6 +28,8 @@ namespace Buildings
         public Collider ObjectCollider;
         public OrderableObject orderableObject;
         public DamageSystem damageSystem;
+
+        public GameResourceStruct BuildingCost;
 
         protected void Start()
         {

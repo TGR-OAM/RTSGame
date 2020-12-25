@@ -56,9 +56,6 @@
             <e p="MovementByMinimap.cs" t="Include" />
             <e p="MoveNearEdge.cs" t="Include" />
           </e>
-          <e p="ErrorReport" t="Include">
-            <e p="LogReport.cs" t="Include" />
-          </e>
           <e p="GameResources" t="Include">
             <e p="GameResourceStruct.cs" t="Include" />
           </e>
@@ -116,12 +113,6 @@
             <e p="EntitiesLister.cs" t="Include" />
             <e p="FractionMember.cs" t="Include" />
             <e p="OrderGiver.cs" t="Include" />
-          </e>
-          <e p="Worker" t="Include">
-            <e p="Ui" t="Include">
-              <e p="WorkerUI.cs" t="Include" />
-            </e>
-            <e p="WorkerUIEnable.cs" t="Include" />
           </e>
         </e>
         <e p="Shaders" t="Include">

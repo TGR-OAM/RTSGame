@@ -84,7 +84,6 @@ namespace PLayerScripts
                     break;
                 case HandlerState.Building:
                     OperateBuildingPlacing();
-
                     break;
             }
         }
@@ -100,8 +99,18 @@ namespace PLayerScripts
                 case UnitCreationOrderInitParams unitCreationOrderInitParams:
                     foreach (Building building in SelectedEnteties.Where(x => x.TryGetComponent(typeof(Building), out _)).Select(x => x.GetComponent<Building>()))
                     {
-                        UnitCreationOrder unitCreationOrder = unitCreationOrderInitParams.CreateOrder(new UnitCreationOrderVariableParams(building.CreationOutput, building.gameObject)) as UnitCreationOrder;
-                        building.orderableObject.GiveOrder(unitCreationOrder);
+                        if (PlayerManager.PlayerResoucesManager.playerResources >=
+                            unitCreationOrderInitParams.unitPrefabToCreate.UnitCost)
+                        {
+                            UnitCreationOrder unitCreationOrder =
+                                unitCreationOrderInitParams.CreateOrder(
+                                        new UnitCreationOrderVariableParams(building.CreationOutput,
+                                            building.gameObject))
+                                    as UnitCreationOrder;
+                            building.orderableObject.GiveOrder(unitCreationOrder);
+                            PlayerManager.PlayerResoucesManager.playerResources -=
+                                unitCreationOrderInitParams.unitPrefabToCreate.UnitCost;
+                        }
                     }
                     break;
                 default:

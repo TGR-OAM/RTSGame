@@ -243,6 +243,10 @@ MonoBehaviour:
   ObjectCollider: {fileID: 7893316468862192133}
   orderableObject: {fileID: 9201007050984811661}
   damageSystem: {fileID: 3371817007554099333}
+  BuildingCost:
+    neoSteel: 50
+    titanium: 0
+    unobtanium: 0
 --- !u!65 &7893316468862192133
 BoxCollider:
   m_ObjectHideFlags: 0

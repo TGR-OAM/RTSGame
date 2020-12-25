@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Security.Cryptography;
+using GameResources;
 using MainMenu_DemoStartScripts;
 using Orders;
 using Orders.EntityOrder;
@@ -22,6 +23,8 @@ namespace Units
         public NavMeshAgent agent;
         public FractionMember fractionMember;
         public OrderableObject orderableObject;
+
+        public GameResourceStruct UnitCost;
         
         public DamageSystem damageSystem { get; private set; }
 

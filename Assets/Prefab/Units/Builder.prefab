@@ -329,6 +329,10 @@ MonoBehaviour:
   agent: {fileID: 8256918423322789252}
   fractionMember: {fileID: 4969961956634415533}
   orderableObject: {fileID: 4917924276413628275}
+  UnitCost:
+    neoSteel: 20
+    titanium: 10
+    unobtanium: 0
 --- !u!1 &8256918423714483678
 GameObject:
   m_ObjectHideFlags: 0

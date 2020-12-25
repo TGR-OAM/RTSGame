@@ -1,5 +1,4 @@
-﻿using ErrorReport;
-using Units;
+﻿using Units;
 using UnitsControlScripts;
 using UnityEngine;
 
