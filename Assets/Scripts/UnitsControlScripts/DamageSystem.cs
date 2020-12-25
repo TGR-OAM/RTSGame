@@ -15,6 +15,7 @@ namespace UnitsControlScripts
             Hp -= value;
             if (Hp < 0)
             {
+                EntitiesLister.UpdateAllEnteties();
                 Destroy(gameObject);
             }
         }

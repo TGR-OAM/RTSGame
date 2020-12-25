@@ -13,8 +13,6 @@ namespace AIScripts
         [SerializeField]
         private HexGrid hexGrid;
         [SerializeField]
-        private EntetiesLister unitLister;
-        [SerializeField]
         private float attackInterval;
         private float currentTimeFromAttack;
         [SerializeField]
@@ -33,7 +31,7 @@ namespace AIScripts
         private void AttackPlayer()
         {
             print("Go go go");
-            SetMoveAttackOrderToUnits(unitLister.enteties.Where(x => x.GetComponent<FractionMember>().fraction == Fraction.Enemy)
+            SetMoveAttackOrderToUnits(EntitiesLister.enteties.Where(x => x.GetComponent<FractionMember>().fraction == Fraction.Enemy)
                 .Select(x => x.GetComponent<Warrior>()).ToArray(), enemyBasePosition);
             
         }

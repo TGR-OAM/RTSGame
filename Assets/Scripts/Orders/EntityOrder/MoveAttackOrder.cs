@@ -70,7 +70,7 @@ namespace Orders.EntityOrder
                 }
                 else if (UnitToOrder.isNearToDestination(target.transform.position,UnitToOrder.attackDistance))
                 {
-                    Attack(UnitToOrder);
+                    TryAttack(UnitToOrder);
                 }
                 
             }
@@ -92,8 +92,9 @@ namespace Orders.EntityOrder
         {
             float smallestDst = float.MaxValue;
             GameObject o = null;
-            foreach (GameObject g in thisUnit.fractionMember.lister.enteties)
+            foreach (GameObject g in EntitiesLister.enteties)
             {
+                if (g == null) break;
                 float d = Vector3.Distance(thisUnit.transform.position, g.transform.position);
                 if (g.GetComponent<FractionMember>().fraction != thisUnit.fractionMember.fraction && d < smallestDst &&
                     d < thisUnit.visionDistance)
@@ -106,8 +107,9 @@ namespace Orders.EntityOrder
             return o;
         }
 
-        private void Attack(Warrior thisUnit)
+        private void TryAttack(Warrior thisUnit)
         {
+            if(thisUnit == null) return;
             thisUnit.transform.LookAt(target.transform.position);
             thisUnit.agent.SetDestination(thisUnit.gameObject.transform.position);
             target.GetComponent<DamageSystem>().TakeDamage(thisUnit.damagePerSecond * Time.deltaTime);

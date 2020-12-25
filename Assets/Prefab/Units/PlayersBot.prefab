@@ -164,7 +164,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   reachDistance: 0
-  MaxHp: 100000
+  MaxHp: 100
   agent: {fileID: 814608776215377282}
   fractionMember: {fileID: 814608776215377287}
   orderableObject: {fileID: 5886744827755816414}

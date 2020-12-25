@@ -74,6 +74,7 @@ namespace Orders.EntityOrder
     
         private void Attack(Warrior thisUnit)
         {
+            if(thisUnit == null) return;
             thisUnit.transform.LookAt(target.transform.position);
             target.GetComponent<DamageSystem>().TakeDamage(thisUnit.damagePerSecond * Time.deltaTime);
         }

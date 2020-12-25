@@ -103,7 +103,7 @@
           </e>
           <e p="UnitsControlScripts" t="Include">
             <e p="DamageSystem.cs" t="Include" />
-            <e p="EntetiesLister.cs" t="Include" />
+            <e p="EntitiesLister.cs" t="Include" />
             <e p="FractionMember.cs" t="Include" />
             <e p="InputHandler.cs" t="Include" />
             <e p="OrderGiver.cs" t="Include" />

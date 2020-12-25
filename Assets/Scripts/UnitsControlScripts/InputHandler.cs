@@ -41,7 +41,6 @@ namespace UnitsControlScripts
         public List<GameOrderInitParams> PossibleOrders = new List<GameOrderInitParams>();
 
         private Fraction fraction = Fraction.Player;
-        [SerializeField] private EntetiesLister lister;
         private bool isSelecting = false;
 
         [Header("Building")] [Description("If state is building")]
@@ -205,7 +204,7 @@ namespace UnitsControlScripts
                 }
                 else
                 {
-                    List<GameObject> AllUnits = lister.enteties;
+                    List<GameObject> AllUnits = EntitiesLister.enteties;
                     foreach (GameObject Entety in AllUnits)
                     {
                         Vector3 screenPos = Camera.main.WorldToScreenPoint(Entety.transform.position);
