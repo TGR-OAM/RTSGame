@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -23,8 +24,13 @@ namespace HexWorldinterpretation
             {
                 InitColumn(x, hexGrid, MeshPart.transform);
             }
-
-            MeshPart.GetComponent<NavMeshSurface>().BuildNavMesh();
+            
+            NavMeshSurface[] navMeshSurfaces = MeshPart.GetComponents(typeof(NavMeshSurface)).Select(x => x as NavMeshSurface).ToArray();
+            
+            foreach (NavMeshSurface navMeshSurface in navMeshSurfaces)
+            {
+                navMeshSurface.BuildNavMesh();
+            }
         }
 
         public void UpdateHexGridMesh(List<Vector3> HexagonsToUpdate)

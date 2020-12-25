@@ -60,6 +60,8 @@ namespace Buildings
             {
                 VARIABLE.material.color = Color.white;
             }
+            
+            CreationOutput = this.transform.position;
         }
         private void OnDrawGizmos()
         {

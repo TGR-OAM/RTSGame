@@ -2,11 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="17ebf66f-4afe-4731-9078-d61fb3995c9d" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.HexagonTerrainCreator/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.HexagonTerrainCreator/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.HexagonTerrainCreator/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.HexagonTerrainCreator/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefab/Buildings/Barraks/Barraks.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefab/Buildings/Barraks/Barraks.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefab/Units/Builder.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefab/Units/Builder.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UnitsControlScripts/DamageSystem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UnitsControlScripts/DamageSystem.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefab/Units/EnemyBot 1.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefab/Units/EnemyBot 1.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefab/Units/EnemyBot.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefab/Units/EnemyBot.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefab/Units/PlayersBot.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefab/Units/PlayersBot.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/MainScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/MainScene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/PrototypePolygon.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/PrototypePolygon.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/AIScripts/UnitsCreator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/AIScripts/UnitsCreator.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Buildings/Building.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Buildings/Building.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/HexWorldinterpretation/HexGridRenderer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/HexWorldinterpretation/HexGridRenderer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Orders/EntityOrder/UnitCreationTask.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Orders/EntityOrder/UnitCreationTask.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Packages/packages-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/packages-lock.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,9 +28,9 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Buildings/MainHub.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/MainMenu_DemoStartScripts/InitDemoGame.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/FE84F4A7-54DA-4A6B-B64F-CA409D40938A/1b/4e304764/Component.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/UIScripts/ProccessBar.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/UIScripts/LookTowardMainCamera.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/UIScripts/OrderButtonsSetter.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/UIScripts/ProccessBar.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/FE84F4A7-54DA-4A6B-B64F-CA409D40938A/45/c272d3b7/GameObject.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../Multiplayer_OrderSystem/Assets/Scripts/FractionSelectionManager.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.inputsystem@1.0.1/InputSystem/NativeInputRuntime.cs" root0="SKIP_HIGHLIGHTING" />
@@ -40,14 +47,12 @@
       <option value="$PROJECT_DIR$/Assets/Scripts/UIScripts/LogScript.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/HexWorldinterpretation/XMLMapLoader.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/HexWorldinterpretation/HexMetrics.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/HexWorldinterpretation/HexGridRenderer.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/HexWorldinterpretation/HexGridColiderer.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/HexWorldinterpretation/HexColumnRenderer.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/ErrorReport/LogReport.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/CameraMovement/MouseLook.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/CameraMovement/MovementByKeyBoard.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/CameraMovement/MoveNearEdge.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/AIScripts/UnitsCreator.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/CameraMovement/MovementByMinimap.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/HexWordEditor/WorldEditor.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/HexWordEditor/TestEditorScript.cs" />
@@ -65,13 +70,11 @@
       <option value="$PROJECT_DIR$/Assets/Scripts/Orders/OrderFactory.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Units/Unit.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Units/UnitBuilder.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Buildings/Building.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Units/Warrior.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/UIScripts/LookTowardMainCamera.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/UnitsControlScripts/FractionMember.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/UnitsControlScripts/EntitiesLister.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Orders/EntityOrder/GameOrder.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Orders/EntityOrder/UnitCreationTask.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Orders/EntityOrder/MoveOrder.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Orders/EntityOrder/AttackOrder.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/UIScripts/OrderButtonsSetter.cs" />
@@ -83,6 +86,10 @@
       <option value="$PROJECT_DIR$/Assets/Scripts/UnitsControlScripts/DamageSystem.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/UIScripts/ProccessBar.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/AIScripts/SimpleAI.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Orders/EntityOrder/UnitCreationTask.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Buildings/Building.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/AIScripts/UnitsCreator.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/HexWorldinterpretation/HexGridRenderer.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1lIISIM12q3GC48Z5aO5fthc7Rz" />
