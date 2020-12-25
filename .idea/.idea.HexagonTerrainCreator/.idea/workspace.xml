@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="17ebf66f-4afe-4731-9078-d61fb3995c9d" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.HexagonTerrainCreator/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.HexagonTerrainCreator/.idea/contentModel.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/HexWorldinterpretation/HexGridRenderer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/HexWorldinterpretation/HexGridRenderer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.HexagonTerrainCreator/.idea/riderModule.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.HexagonTerrainCreator/.idea/riderModule.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Units/Robot.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Units/Robot.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Packages/packages-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/packages-lock.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -29,7 +29,6 @@
   </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
-      <option value="$PROJECT_DIR$/Assets/Scripts/Orders/Units/AttackTask.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Orders/Units/BuildTask.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Orders/Units/BuildOrder.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Orders/Units/AttackOrder.cs" />
@@ -80,6 +79,7 @@
       <option value="$PROJECT_DIR$/Assets/Scripts/Orders/EntityOrder/MoveOrder.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Orders/EntityOrder/UnitCreationTask.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/HexWorldinterpretation/HexGridRenderer.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Units/Robot.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1lIISIM12q3GC48Z5aO5fthc7Rz" />

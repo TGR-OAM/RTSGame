@@ -34,6 +34,7 @@ namespace Units
                     }
                     
                 }
+                orderableObject.SetPossibleOrderTypes(gameOrderInitParams);
             }
         }
 
