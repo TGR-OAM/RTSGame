@@ -18,9 +18,8 @@ namespace AIScripts
             timeFromPreviousCreation += Time.deltaTime;
             if (timeFromPreviousCreation >= unitCreatingInterval)
             {
+                Instantiate(WarriorToCreate, positionToSpawnUnits.position, Quaternion.identity);
                 
-                    Instantiate(WarriorToCreate, positionToSpawnUnits.position, Quaternion.identity);
-            
                 timeFromPreviousCreation = 0;
             }
         }

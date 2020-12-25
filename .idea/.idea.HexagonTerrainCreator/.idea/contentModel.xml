@@ -59,6 +59,10 @@
           <e p="ErrorReport" t="Include">
             <e p="LogReport.cs" t="Include" />
           </e>
+          <e p="GameResources" t="Include">
+            <e p="GameResourceStruct.cs" t="Include" />
+            <e p="PlayerResoucesManager.cs" t="Include" />
+          </e>
           <e p="HexWordEditor" t="Include">
             <e p="TestEditorScript.cs" t="Include" />
             <e p="WorldEditor.cs" t="Include" />
