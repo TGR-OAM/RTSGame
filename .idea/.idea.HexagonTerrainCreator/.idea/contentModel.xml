@@ -94,6 +94,7 @@
             <e p="MessageScript.cs" t="Include" />
             <e p="MinimapObjectScript.cs" t="Include" />
             <e p="OrderButtonsSetter.cs" t="Include" />
+            <e p="ProccessBar.cs" t="Include" />
             <e p="UIManager.cs" t="Include" />
           </e>
           <e p="Units" t="Include">

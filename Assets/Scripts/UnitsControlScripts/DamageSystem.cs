@@ -5,6 +5,8 @@ namespace UnitsControlScripts
 {
     public class DamageSystem : MonoBehaviour
     {
+        [SerializeField] private ProccessBar HealthBar;
+        
         [SerializeField]
         public float Hp { get; private set; }
         [SerializeField]
@@ -18,11 +20,13 @@ namespace UnitsControlScripts
                 EntitiesLister.UpdateAllEnteties();
                 Destroy(gameObject);
             }
+            if(HealthBar != null) HealthBar.SetBarValue(Hp/MaxHp);
         }
         
         public void Heal(float value)
         {
             Hp = Mathf.Clamp(Hp + value, 0, MaxHp);
+            if(HealthBar != null) HealthBar.SetBarValue(Hp/MaxHp);
         }
 
         public void SetMaxHp(float MaxHp)
@@ -33,6 +37,7 @@ namespace UnitsControlScripts
         public void SetHpToMax()
         {
             Hp = MaxHp;
+            if(HealthBar != null) HealthBar.SetBarValue(1f);
         }
         
     }
