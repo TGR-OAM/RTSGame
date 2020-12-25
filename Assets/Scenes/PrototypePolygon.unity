@@ -570,6 +570,7 @@ GameObject:
   - component: {fileID: 221974592}
   - component: {fileID: 221974595}
   - component: {fileID: 221974594}
+  - component: {fileID: 221974596}
   m_Layer: 0
   m_Name: HexGrid
   m_TagString: HexGrid
@@ -666,6 +667,35 @@ MonoBehaviour:
   m_TileSize: 256
   m_OverrideVoxelSize: 0
   m_VoxelSize: 0.16666667
+  m_BuildHeightMesh: 0
+  m_NavMeshData: {fileID: 0}
+--- !u!114 &221974596
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 221974591}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a5ac11cc976e418e8d13136b07e1f52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_AgentTypeID: -334000983
+  m_CollectObjects: 0
+  m_Size: {x: 10, y: 10, z: 10}
+  m_Center: {x: 0, y: 2, z: 0}
+  m_LayerMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_UseGeometry: 0
+  m_DefaultArea: 0
+  m_IgnoreNavMeshAgent: 1
+  m_IgnoreNavMeshObstacle: 1
+  m_OverrideTileSize: 0
+  m_TileSize: 256
+  m_OverrideVoxelSize: 0
+  m_VoxelSize: 1.8333334
   m_BuildHeightMesh: 0
   m_NavMeshData: {fileID: 0}
 --- !u!1001 &362523893
@@ -1486,7 +1516,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 819103275}
   m_LocalRotation: {x: -0, y: -0.70710576, z: -0, w: 0.7071079}
-  m_LocalPosition: {x: -74.42458, y: -9.107801, z: 37.415134}
+  m_LocalPosition: {x: -74.42458, y: -9.107801, z: 36.7}
   m_LocalScale: {x: 200.12741, y: 22, z: 0.7034388}
   m_Children: []
   m_Father: {fileID: 132525349}
@@ -1651,7 +1681,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   m_LocalRotation: {x: 0.50603676, y: -0, z: -0, w: 0.8625119}
-  m_LocalPosition: {x: 98.8, y: 80.8, z: -16}
+  m_LocalPosition: {x: 98.8, y: 80, z: -16}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1669,7 +1699,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 899e494fe4622fb42880b400d6eb854b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 30
+  speed: 500
 --- !u!114 &963194230
 MonoBehaviour:
   m_ObjectHideFlags: 0

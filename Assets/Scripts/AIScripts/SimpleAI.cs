@@ -44,16 +44,16 @@ namespace AIScripts
                 .Select(x => x.GetComponent<Warrior>()).ToArray(), enemyBasePosition);
             
         }
-
+/*
         public void SetAttackOrderToUnits(Warrior[] warriors, GameObject target)
         {
             foreach (Warrior warrior in warriors)
             {
                 AttackOrderVariableParams attackOrderVariableParams = new AttackOrderVariableParams(target, warrior.gameObject);
-                warrior.orderableObject.GiveOrder(new AttackOrder(attackOrderVariableParams));
+                warrior.orderableObject.GiveOrder(new AttackOrder(, attackOrderVariableParams));
             }
         }
-        
+  */      
         public void SetMoveAttackOrderToUnits(Warrior[] warriors, Vector3 destination)
         {
             foreach (Warrior warrior in warriors)

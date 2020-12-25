@@ -31,8 +31,9 @@ namespace Units
 
             BaseUnitInitialization();
             BaseOrderListInitialization();
+            
         }
-
+        
         protected void BaseUnitInitialization()
         {
             orderableObject = GetComponent<OrderableObject>();
@@ -43,21 +44,20 @@ namespace Units
             damageSystem.SetHpToMax();
         }
 
-        protected void BaseOrderListInitialization()
+        protected virtual void BaseOrderListInitialization()
         {
-            if (EntityLoader.Contain(this.GetType()))
+            if (EntityLoader.Contain(GetType()))
             {
-                orderableObject.SetPossibleOrderTypes(EntityLoader.GetOrderInitParamsFromDictionary(this.GetType())
+                orderableObject.SetPossibleOrderTypes(EntityLoader.GetOrderInitParamsFromDictionary(GetType())
                     .OrderInitParams.Values.ToList());
             }
         }
 
         public bool isNearToDestination(Vector3 destination, float distance)
         {
-            if (Vector3.Distance(this.transform.position, destination) <= distance)
+            if (Vector3.Distance(transform.position, destination) <= distance)
                 return true;
-            else
-                return false;
+            return false;
         }
     }
 }

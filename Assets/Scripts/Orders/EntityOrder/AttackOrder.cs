@@ -1,4 +1,5 @@
-﻿using ErrorReport;
+﻿using System;
+using ErrorReport;
 using Units;
 using UnitsControlScripts;
 using UnityEngine;
@@ -7,6 +8,7 @@ namespace Orders.EntityOrder
 {
     public class AttackOrderInitParams : GameOrderInitParams
     {
+        public WhoAttacking whoAttacking;
         public AttackOrderInitParams(string orderName) : base(orderName)
         {
         }
@@ -26,8 +28,10 @@ namespace Orders.EntityOrder
     {
         public GameObject target;
         private Warrior WarriorToOrder;
-        public AttackOrder (AttackOrderVariableParams orderVariableParams) :base(orderVariableParams)
+        private AttackOrderInitParams attackOrderInitParams;
+        public AttackOrder (AttackOrderInitParams attackOrderInitParams, AttackOrderVariableParams orderVariableParams) :base(orderVariableParams)
         {
+            this.attackOrderInitParams = attackOrderInitParams;
             target = orderVariableParams.target;
         }
 
@@ -72,16 +76,22 @@ namespace Orders.EntityOrder
                 WarriorToOrder.agent.isStopped = true;
             }
         }
-    
+        
         #region Additional methods
-    
         private void Attack(Warrior thisUnit)
         {
             if(thisUnit == null) return;
             thisUnit.transform.LookAt(target.transform.position);
+            attackOrderInitParams.whoAttacking(new WhoAttakingDelegate());
             target.GetComponent<DamageSystem>().TakeDamage(thisUnit.damagePerSecond * Time.deltaTime);
         }
     
         #endregion
+    }
+    public delegate void WhoAttacking(WhoAttakingDelegate whoAttakingDelegate);
+
+    public class WhoAttakingDelegate : EventArgs
+    {
+        
     }
 }

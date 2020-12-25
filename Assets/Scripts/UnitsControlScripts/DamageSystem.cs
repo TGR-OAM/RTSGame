@@ -5,9 +5,7 @@ namespace UnitsControlScripts
 {
     public class DamageSystem : MonoBehaviour
     {
-        [SerializeField]
         public float Hp { get; private set; }
-        [SerializeField]
         public float MaxHp{ get; private set; }
 
         public void TakeDamage(float value)

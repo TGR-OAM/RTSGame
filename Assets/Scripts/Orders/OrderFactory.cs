@@ -25,7 +25,7 @@ namespace Orders
                 case BuildOrderInitParams buildParams:
                     return new BuildOrder(orderVariableParams as BuildOrderVariableParams);
                 case AttackOrderInitParams attackParams:
-                    return new AttackOrder(orderVariableParams as AttackOrderVariableParams);
+                    return new AttackOrder(attackParams, orderVariableParams as AttackOrderVariableParams);
                 case MoveOrderInitParams moveParams:
                     return new MoveOrder(orderVariableParams as MoveOrderVariableParams);
                 case MoveAttackOrderInitParams moveAtackParams:

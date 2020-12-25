@@ -118,6 +118,11 @@
             <e p="Robot.cs" t="Include" />
             <e p="Unit.cs" t="Include" />
             <e p="UnitBuilder.cs" t="Include" />
+            <e p="UnitsParts" t="Include">
+              <e p="Body.cs" t="Include" />
+              <e p="Weapon.cs" t="Include" />
+              <e p="Wheels.cs" t="Include" />
+            </e>
             <e p="Warrior.cs" t="Include" />
           </e>
           <e p="UnitsControlScripts" t="Include">
@@ -126,12 +131,6 @@
             <e p="FractionMember.cs" t="Include" />
             <e p="InputHandler.cs" t="Include" />
             <e p="OrderGiver.cs" t="Include" />
-          </e>
-          <e p="Worker" t="Include">
-            <e p="Ui" t="Include">
-              <e p="WorkerUI.cs" t="Include" />
-            </e>
-            <e p="WorkerUIEnable.cs" t="Include" />
           </e>
         </e>
         <e p="Shaders" t="Include">
