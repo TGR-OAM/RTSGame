@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -15,7 +16,10 @@ namespace HexWorldinterpretation
             this.MapData = hexGrid.MapData;
             hexColumnRenderers = new HexColumnRenderer[MapData.width];
 
-            GameObject MeshPart = new GameObject("Mesh Part", typeof(NavMeshSurface));
+            GameObject MeshPart = new GameObject("Mesh Part");
+
+            ((NavMeshSurface)MeshPart.AddComponent(typeof(NavMeshSurface))).agentTypeID = 0;
+            ((NavMeshSurface)MeshPart.AddComponent(typeof(NavMeshSurface))).agentTypeID = 1;
 
             MeshPart.transform.parent = hexGrid.transform;
 
@@ -23,7 +27,12 @@ namespace HexWorldinterpretation
             {
                 InitColumn(x, hexGrid, MeshPart.transform);
             }
+            NavMeshSurface[] navMeshSurfaces = MeshPart.GetComponents(typeof(NavMeshSurface)).Select(x => x as NavMeshSurface).ToArray();
 
+            foreach (NavMeshSurface navMeshSurface in navMeshSurfaces)
+            {
+                navMeshSurface.BuildNavMesh();
+            }
             MeshPart.GetComponent<NavMeshSurface>().BuildNavMesh();
         }
 

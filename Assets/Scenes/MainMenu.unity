@@ -327,6 +327,7 @@ MonoBehaviour:
   UnitsToLoad:
   - {fileID: 8757334258195730617, guid: 2276cdc9f06cde44293b0226012c14d2, type: 3}
   - {fileID: 2586034527180965024, guid: bf09aa5a0bec137469aa42ee8e6219c4, type: 3}
+  - {fileID: 6275899145084228320, guid: 477732ada98154a43a0d3b1b2605a2cf, type: 3}
   BuildingsToLoad:
   - {fileID: 8205979929494484361, guid: d80e758dcddce1f489ef0f6a754cdb7a, type: 3}
   - {fileID: 7781565261085879258, guid: 112265c1b89c4b145ba9d3cd5bbcad49, type: 3}
