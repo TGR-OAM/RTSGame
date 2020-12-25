@@ -6,7 +6,7 @@ namespace UnitsControlScripts
     public class DamageSystem : MonoBehaviour
     {
         [SerializeField] private ProccessBar HealthBar;
-        
+
         [SerializeField]
         public float Hp { get; private set; }
         [SerializeField]
@@ -39,6 +39,19 @@ namespace UnitsControlScripts
             Hp = MaxHp;
             if(HealthBar != null) HealthBar.SetBarValue(1f);
         }
+
+        public void TrySetActiveHealthBar(bool isActive)
+        {
+            if(HealthBar != null)
+                HealthBar.gameObject.SetActive(isActive);
+        }
+
+        public void TryUpdateHealthBar()
+        {
+            if(HealthBar != null)
+                HealthBar.SetBarValue(0);
+        }
         
+
     }
 }

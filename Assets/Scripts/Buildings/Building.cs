@@ -22,7 +22,6 @@ namespace Buildings
         
         public bool isStartWithFullHp = false;
 
-
         public Vector3 CreationOutput;
 
         public Collider ObjectCollider;
@@ -62,6 +61,9 @@ namespace Buildings
             }
             
             CreationOutput = this.transform.position;
+            damageSystem.TrySetActiveHealthBar(true);
+            damageSystem.TryUpdateHealthBar();
+            
         }
         private void OnDrawGizmos()
         {
@@ -88,8 +90,10 @@ namespace Buildings
         protected void BaseBuildingInitialization()
         {
             damageSystem.SetMaxHp(MaxHp);
+            damageSystem.TrySetActiveHealthBar(false);
             if(isStartWithFullHp) damageSystem.Heal(MaxHp);
             CreationOutput = this.transform.position;
+            
         }
 
         protected void BaseBuildingOrderInitialization()

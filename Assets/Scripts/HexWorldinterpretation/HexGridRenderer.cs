@@ -16,7 +16,9 @@ namespace HexWorldinterpretation
             this.MapData = hexGrid.MapData;
             hexColumnRenderers = new HexColumnRenderer[MapData.width];
 
-            GameObject MeshPart = new GameObject("Mesh Part", typeof(NavMeshSurface));
+            GameObject MeshPart = new GameObject("Mesh Part");
+
+            ((NavMeshSurface) MeshPart.AddComponent(typeof(NavMeshSurface))).agentTypeID = 0;
 
             MeshPart.transform.parent = hexGrid.transform;
 
