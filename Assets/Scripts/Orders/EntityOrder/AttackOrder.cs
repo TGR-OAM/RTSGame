@@ -8,7 +8,6 @@ namespace Orders.EntityOrder
 {
     public class AttackOrderInitParams : GameOrderInitParams
     {
-        public WhoAttacking whoAttacking;
         public AttackOrderInitParams(string orderName) : base(orderName)
         {
         }
@@ -18,7 +17,7 @@ namespace Orders.EntityOrder
     {
         public GameObject target;
         
-        public AttackOrderVariableParams(GameObject target, GameObject objectToOrder) : base(objectToOrder)
+        public AttackOrderVariableParams(GameObject target,GameObject objectToOrder) : base(objectToOrder)
         {
             this.target = target;
         }
@@ -28,10 +27,11 @@ namespace Orders.EntityOrder
     {
         public GameObject target;
         private Warrior WarriorToOrder;
-        private AttackOrderInitParams attackOrderInitParams;
+        private AttackOrderVariableParams orderVariableParams;
+
         public AttackOrder (AttackOrderInitParams attackOrderInitParams, AttackOrderVariableParams orderVariableParams) :base(orderVariableParams)
         {
-            this.attackOrderInitParams = attackOrderInitParams;
+            this.orderVariableParams = orderVariableParams;
             target = orderVariableParams.target;
         }
 
@@ -82,7 +82,8 @@ namespace Orders.EntityOrder
         {
             if(thisUnit == null) return;
             thisUnit.transform.LookAt(target.transform.position);
-            attackOrderInitParams.whoAttacking(new WhoAttakingDelegate());
+            if(WarriorToOrder is Robot)
+                (WarriorToOrder as Robot).WhoAttacking(new WhoAttakingDelegate());
             target.GetComponent<DamageSystem>().TakeDamage(thisUnit.damagePerSecond * Time.deltaTime);
         }
     

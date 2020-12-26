@@ -217,8 +217,6 @@ namespace UnitsControlScripts
                         {
                             SelectedEnteties.Add(entity.GetComponent<OrderableObject>());
                         }
-
-                        
                     }
                 }
 
