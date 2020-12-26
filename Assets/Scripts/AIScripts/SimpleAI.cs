@@ -82,7 +82,10 @@ public class SimpleAI : MonoBehaviour
         }
         else
         {
-            DoDefenseAction(warrior, EnemiesCounter / FriendCounter);
+            if(FriendCounter != 0)
+                DoDefenseAction(warrior, EnemiesCounter / FriendCounter);
+            else
+                DoDefenseAction(warrior, Mathf.Infinity);
         }
 
     }
@@ -93,6 +96,7 @@ public class SimpleAI : MonoBehaviour
     {
         foreach(Unit unit in units)
         {
+            if(unit == null || warrior == null) continue;
             float distance = (unit.transform.position - warrior.transform.position).magnitude;
             if (distance < warrior.visionDistance) counter += 1;
         }
@@ -102,6 +106,7 @@ public class SimpleAI : MonoBehaviour
 
     private void DoDefenseAction(Warrior warrior,float enemiesMajorityValue)
     {
+        if(warrior == null) return;
         CurrentState = SimpleAIStates.Defending;
         GetGroupByUnit(warrior).ResetGroupCenter();
         Vector3 destination = GetGroupByUnit(warrior).GroupCenter;
@@ -179,7 +184,7 @@ public class SimpleAI : MonoBehaviour
         foreach (Warrior warrior in warriors)
         {
             AttackOrderVariableParams attackOrderVariableParams = new AttackOrderVariableParams(target, warrior.gameObject);
-            warrior.orderableObject.GiveOrder(new AttackOrder(attackOrderVariableParams));
+            warrior.orderableObject.GiveOrder(new AttackOrder(new AttackOrderInitParams(""),attackOrderVariableParams));
         }
     }
 
@@ -214,9 +219,9 @@ public class SimpleAI : MonoBehaviour
          SetMoveAttackOrderToUnits(UnitsGroups[0].Members, TargetForward);
          SetMoveAttackOrderToUnits(UnitsGroups[1].Members, TarggetLeft);
          SetMoveAttackOrderToUnits(UnitsGroups[2].Members, TargetRight);*/
-        UnitsGroups[0].FollowTheWay(TriangleAtackPlan.transform.FindChild("LeftWay").gameObject);
-        UnitsGroups[1].FollowTheWay(TriangleAtackPlan.transform.FindChild("CenterWay").gameObject);
-        UnitsGroups[2].FollowTheWay(TriangleAtackPlan.transform.FindChild("RightWay").gameObject);
+        UnitsGroups[0].FollowTheWay(TriangleAtackPlan.transform.Find("LeftWay").gameObject);
+        UnitsGroups[1].FollowTheWay(TriangleAtackPlan.transform.Find("CenterWay").gameObject);
+        UnitsGroups[2].FollowTheWay(TriangleAtackPlan.transform.Find("RightWay").gameObject);
 
 
     }

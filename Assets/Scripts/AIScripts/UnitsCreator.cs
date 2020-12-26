@@ -18,7 +18,7 @@ public class UnitsCreator : MonoBehaviour
 
     private void Start()
     {
-        Instantiate(BuilderToCreate, creatingPos, Quaternion.identity);
+        //Instantiate(BuilderToCreate, creatingPos, Quaternion.identity);
     }
 
     void Update()
@@ -26,15 +26,9 @@ public class UnitsCreator : MonoBehaviour
         timeFromPreviousCreation += Time.deltaTime;
         if (timeFromPreviousCreation >= unitCreatingInterval)
         {
-            if (Random.value <= .2f)
-            {
-                Instantiate(BuilderToCreate, creatingPos, Quaternion.identity);
-            }
-            else
-            {
-                Instantiate(WarriorToCreate, creatingPos, Quaternion.identity);
-            }
-            
+
+            Instantiate(WarriorToCreate, creatingPos, Quaternion.identity);
+
             timeFromPreviousCreation = 0;
         }
     }

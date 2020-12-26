@@ -7,22 +7,10 @@
     <list default="true" id="17ebf66f-4afe-4731-9078-d61fb3995c9d" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.HexagonTerrainCreator/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.HexagonTerrainCreator/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.HexagonTerrainCreator/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.HexagonTerrainCreator/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefab/Units/EnemyBot.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefab/Units/EnemyBot.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefab/Units/PlayersBot.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefab/Units/PlayersBot.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefab/Units/Tank.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefab/Units/Tank.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/MainMenu.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/MainMenu.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/PrototypePolygon.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/PrototypePolygon.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Buildings/Builder.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Buildings/Builder.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Buildings/Building.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Buildings/Building.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/HexWorldinterpretation/HexGrid.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/HexWorldinterpretation/HexGrid.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/HexWorldinterpretation/HexMetrics.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/HexWorldinterpretation/HexMetrics.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Orders/EntityOrder/AttackOrder.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Orders/EntityOrder/AttackOrder.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Orders/EntityOrder/BuildOrder.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Orders/EntityOrder/BuildOrder.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Orders/EntityOrder/MoveAttackOrder.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Orders/EntityOrder/MoveAttackOrder.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PlayerScripts/InputHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PlayerScripts/InputHandler.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Units/Unit.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Units/Unit.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UnitsControlScripts/EntitiesLister.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UnitsControlScripts/EntitiesLister.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UnitsControlScripts/FractionMember.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UnitsControlScripts/FractionMember.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/AIScripts/SimpleAI.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/AIScripts/SimpleAI.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/AIScripts/UnitsCreator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/AIScripts/UnitsCreator.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/AIScripts/UnitsGroup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/AIScripts/UnitsGroup.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,7 +37,6 @@
   </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
-      <option value="$PROJECT_DIR$/Assets/Scripts/ErrorReport/LogReport.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/CameraMovement/MouseLook.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/CameraMovement/MovementByKeyBoard.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/CameraMovement/MoveNearEdge.cs" />
@@ -73,7 +60,6 @@
       <option value="$PROJECT_DIR$/Assets/Scripts/UIScripts/ProccessBar.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/HexWorldinterpretation/HexGridRenderer.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/UnitsControlScripts/DamageSystem.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/AIScripts/UnitsCreator.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/UIScripts/ResourcesUI.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/UIScripts/ResourcesDisplayUI.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/GameResources/PlayerResoucesManager.cs" />
@@ -84,7 +70,6 @@
       <option value="$PROJECT_DIR$/Assets/Scripts/PlayerScripts/PlayerManager.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/GameResources/GameResourceStruct.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Orders/EntityOrder/UnitCreationTask.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/AIScripts/SimpleAI.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/UnitsControlScripts/OrderGiver.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Orders/EntityOrder/ResourceProductionOrder.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Buildings/NeoSteelExtractor.cs" />
@@ -100,6 +85,9 @@
       <option value="$PROJECT_DIR$/Assets/Scripts/Units/Unit.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Orders/EntityOrder/BuildOrder.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/PlayerScripts/InputHandler.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/AIScripts/UnitsCreator.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/AIScripts/SimpleAI.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/AIScripts/UnitsGroup.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1lIISIM12q3GC48Z5aO5fthc7Rz" />

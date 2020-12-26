@@ -30,6 +30,7 @@ public class UnitsGroup
         GroupCenter = Members[0].transform.position;
         for(int i = 1;i < Members.Count; i++)
         {
+            if(Members[i] == null) continue;
             GroupCenter = (Members[i].transform.position - GroupCenter) / 2;
         }
     }
@@ -48,6 +49,7 @@ public class UnitsGroup
     {
         foreach(Unit unit in Members)
         {
+            if(unit == null) continue;
             if((Destination.Position - unit.transform.position).magnitude < 5)
             {
                 GoToNextCheckPoint();
@@ -62,7 +64,7 @@ public class UnitsGroup
         string NextName = Destination.Name.Substring(0, 5);
         string PlusSubstring = (Destination.CheckPointNumber + 1).ToString();
         NextName += PlusSubstring;
-        GameObject NextDestinationObject = Destination.Way.transform.FindChild(NextName).gameObject; 
+        GameObject NextDestinationObject = Destination.Way.transform.Find(NextName).gameObject; 
         if(NextDestinationObject != null)
         {
             Destination = new CheckPoint(NextName, NextDestinationObject.transform.position, Destination.CheckPointNumber + 1, Destination.Way);
@@ -77,6 +79,7 @@ public class UnitsGroup
             if (warrior.orderableObject.currentOrder is AttackOrder) return;
             foreach (Unit unit in Members)
             {
+                if(unit == null) continue;
                 if (unit.agent.destination == Destination.Position) continue;
                 MoveAttackOrderVariableParams variableParams = new MoveAttackOrderVariableParams(Destination.Position, unit.gameObject);
                 unit.orderableObject.GiveOrder(new MoveAttackOrder(variableParams));
@@ -87,7 +90,7 @@ public class UnitsGroup
     public void FollowTheWay(GameObject way)
     {
         string Name = "Point1";
-        Vector3 pointPosition = way.transform.FindChild(Name).transform.position;
+        Vector3 pointPosition = way.transform.Find(Name).transform.position;
         Destination = new CheckPoint(Name, pointPosition,1,way);
     }
 }
