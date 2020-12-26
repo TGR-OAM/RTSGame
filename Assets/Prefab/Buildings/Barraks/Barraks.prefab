@@ -189,12 +189,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1958735090773738573}
-  - component: {fileID: 8205979929494484361}
   - component: {fileID: 7893316468862192133}
   - component: {fileID: 5077300615314828940}
   - component: {fileID: 9201007050984811661}
   - component: {fileID: 3371817007554099333}
   - component: {fileID: -739048075195411871}
+  - component: {fileID: -8421094402330343062}
   m_Layer: 10
   m_Name: Barraks
   m_TagString: Untagged
@@ -219,30 +219,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8205979929494484361
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5735925306961837886}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8d91abaaf08310444b0d892b1d5aad6e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hexGrid: {fileID: 0}
-  Materials: {fileID: 2100000, guid: 7162051ff053a874cacc5eae8177684d, type: 2}
-  MainRenderers: []
-  MaxHp: 100
-  TimeUntilFullConstruction: 5
-  Size: {x: 2, y: 2}
-  HexCoords: {x: 0, y: 0, z: 0}
-  isStartWithFullHp: 0
-  CreationOutput: {x: 0, y: 0, z: 0}
-  ObjectCollider: {fileID: 7893316468862192133}
-  orderableObject: {fileID: 9201007050984811661}
-  damageSystem: {fileID: 3371817007554099333}
 --- !u!65 &7893316468862192133
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -311,6 +287,35 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fraction: 0
+--- !u!114 &-8421094402330343062
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5735925306961837886}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 22fce6a066a79904889f7e6f2df1c1e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hexGrid: {fileID: 0}
+  Materials: {fileID: 2100000, guid: 7162051ff053a874cacc5eae8177684d, type: 2}
+  MainRenderers: []
+  MaxHp: 100
+  TimeUntilFullConstruction: 5
+  Size: {x: 2, y: 2}
+  HexCoords: {x: 0, y: 0, z: 0}
+  isStartWithFullHp: 0
+  CreationOutput: {x: 0, y: 0, z: 0}
+  ObjectCollider: {fileID: 7893316468862192133}
+  orderableObject: {fileID: 9201007050984811661}
+  damageSystem: {fileID: 3371817007554099333}
+  BuildingCost:
+    neoSteel: 0
+    titanium: 0
+    unobtanium: 0
+  isPlaced: 0
 --- !u!1 &6558095177761213582
 GameObject:
   m_ObjectHideFlags: 0

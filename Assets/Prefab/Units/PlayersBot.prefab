@@ -169,6 +169,10 @@ MonoBehaviour:
   orderableObject: {fileID: 5886744827755816414}
   attackrecharge: 0
   damagePerSecond: 10
+  UnitCost:
+    neoSteel: 30
+    titanium: 0
+    unobtanium: 0
 --- !u!114 &3126975373417331743
 MonoBehaviour:
   m_ObjectHideFlags: 0

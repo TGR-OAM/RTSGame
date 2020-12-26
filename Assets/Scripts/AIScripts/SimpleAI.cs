@@ -23,7 +23,7 @@ namespace AIScripts
             currentTimeFromAttack += Time.deltaTime;
             if (currentTimeFromAttack >= attackInterval)
             {
-                //AttackPlayer();
+                AttackPlayer();
                 currentTimeFromAttack = 0;
             }
         }

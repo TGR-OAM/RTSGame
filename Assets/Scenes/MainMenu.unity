@@ -324,15 +324,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DemoSceneIndex: 0
-  UnitsToLoad:
+  UnitsToLoadHub:
   - {fileID: 8757334258195730617, guid: 2276cdc9f06cde44293b0226012c14d2, type: 3}
+  UnitsToLoadBarracks:
+  - {fileID: 8913066266962825134, guid: e6781644ed9a9644b942dd2e3c8d2dc5, type: 3}
+  UnitsToLoadConstructor:
   - {fileID: 2586034527180965024, guid: bf09aa5a0bec137469aa42ee8e6219c4, type: 3}
   - {fileID: -1262674980115270764, guid: 477732ada98154a43a0d3b1b2605a2cf, type: 3}
   - {fileID: 3053504344312695965, guid: e678989df84ac01458a15a10b55aa0d8, type: 3}
   BuildingsToLoad:
-  - {fileID: 8205979929494484361, guid: d80e758dcddce1f489ef0f6a754cdb7a, type: 3}
+  - {fileID: -8421094402330343062, guid: d80e758dcddce1f489ef0f6a754cdb7a, type: 3}
   - {fileID: 7781565261085879258, guid: 112265c1b89c4b145ba9d3cd5bbcad49, type: 3}
   - {fileID: 1513049481762636935, guid: 34758492df9b4864183b3e1dea84064b, type: 3}
+  - {fileID: 7698720637927374219, guid: 6a0f1c05e9337c642abf03d1d03ec15b, type: 3}
 --- !u!4 &1447613945
 Transform:
   m_ObjectHideFlags: 0
@@ -612,6 +616,18 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1363548520312724743, guid: 21e624142a8e3a74592fdc713b5b70d3, type: 3}
+      propertyPath: m_Colors.m_DisabledColor.b
+      value: 0.6132076
+      objectReference: {fileID: 0}
+    - target: {fileID: 1363548520312724743, guid: 21e624142a8e3a74592fdc713b5b70d3, type: 3}
+      propertyPath: m_Colors.m_DisabledColor.g
+      value: 0.6132076
+      objectReference: {fileID: 0}
+    - target: {fileID: 1363548520312724743, guid: 21e624142a8e3a74592fdc713b5b70d3, type: 3}
+      propertyPath: m_Colors.m_DisabledColor.r
+      value: 0.6132076
+      objectReference: {fileID: 0}
     - target: {fileID: 1363548520312724744, guid: 21e624142a8e3a74592fdc713b5b70d3, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -723,6 +739,18 @@ PrefabInstance:
     - target: {fileID: 1363548520885586659, guid: 21e624142a8e3a74592fdc713b5b70d3, type: 3}
       propertyPath: m_Name
       value: MainMenu
+      objectReference: {fileID: 0}
+    - target: {fileID: 1363548521535499351, guid: 21e624142a8e3a74592fdc713b5b70d3, type: 3}
+      propertyPath: m_Colors.m_DisabledColor.b
+      value: 0.6132076
+      objectReference: {fileID: 0}
+    - target: {fileID: 1363548521535499351, guid: 21e624142a8e3a74592fdc713b5b70d3, type: 3}
+      propertyPath: m_Colors.m_DisabledColor.g
+      value: 0.6132076
+      objectReference: {fileID: 0}
+    - target: {fileID: 1363548521535499351, guid: 21e624142a8e3a74592fdc713b5b70d3, type: 3}
+      propertyPath: m_Colors.m_DisabledColor.r
+      value: 0.6132076
       objectReference: {fileID: 0}
     - target: {fileID: 1363548521535499352, guid: 21e624142a8e3a74592fdc713b5b70d3, type: 3}
       propertyPath: m_AnchorMax.y

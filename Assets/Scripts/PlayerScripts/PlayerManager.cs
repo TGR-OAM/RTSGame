@@ -37,6 +37,6 @@ public class PlayerManager : MonoBehaviour
     private void Start()
     {
         OrderGiver = new OrderGiver(hexGrid,InputHandler);
-        Builder = new Builder(hexGrid);
+        Builder = new Builder(hexGrid, this);
     }
 }

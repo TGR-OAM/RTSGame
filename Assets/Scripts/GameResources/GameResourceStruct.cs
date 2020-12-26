@@ -4,15 +4,14 @@ using System.Collections.Generic;
 using UnityEngine;
 namespace GameResources
 {
-    [System.Serializable]
+    [Serializable]
     public struct GameResourceStruct
     {
-        [SerializeField]
-        public int neoSteel { get; private set; }
-        [SerializeField]
-        public int titanium { get; private set; }
-        [SerializeField]
-        public int unobtanium { get; private set; }
+        [SerializeField] public int neoSteel;
+
+        [SerializeField] public int titanium;
+
+        [SerializeField] public int unobtanium;
         public static GameResourceStruct operator +(GameResourceStruct a, GameResourceStruct b)
         {
             GameResourceStruct result = new GameResourceStruct();
@@ -28,6 +27,25 @@ namespace GameResources
             result.titanium = a.titanium - b.titanium;
             result.unobtanium = a.unobtanium - b.unobtanium;
             return result;
+        }
+
+        public static bool operator >=(GameResourceStruct a, GameResourceStruct b)
+        {
+            if (a.neoSteel >= b.neoSteel && a.titanium >= b.titanium && a.unobtanium >= b.unobtanium) return true;
+            return false;
+        }
+        
+        public static bool operator <=(GameResourceStruct a, GameResourceStruct b)
+        {
+            if (a.neoSteel <= b.neoSteel && a.titanium <= b.titanium && a.unobtanium <= b.unobtanium) return true;
+            return false;
+        }
+
+        public GameResourceStruct(int neoSteel,int titanium, int unobtanium)
+        {
+            this.neoSteel = neoSteel;
+            this.titanium = titanium;
+            this.unobtanium = unobtanium;
         }
     }
 

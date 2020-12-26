@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using GameResources;
 using HexWorldinterpretation;
 using MainMenu_DemoStartScripts;
 using UnitsControlScripts;
@@ -27,6 +28,10 @@ namespace Buildings
         public Collider ObjectCollider;
         public OrderableObject orderableObject;
         public DamageSystem damageSystem;
+
+        public GameResourceStruct BuildingCost;
+
+        public bool isPlaced = false;
 
         protected void Start()
         {
@@ -63,7 +68,8 @@ namespace Buildings
             CreationOutput = this.transform.position;
             damageSystem.TrySetActiveHealthBar(true);
             damageSystem.TryUpdateHealthBar();
-            
+            isPlaced = true;
+
         }
         private void OnDrawGizmos()
         {

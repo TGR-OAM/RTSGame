@@ -63,12 +63,14 @@ namespace Orders.EntityOrder
                     if (bestTarget != null)
                     {
                         target = bestTarget;
+                        UnitToOrder.agent.isStopped = false;
                         UnitToOrder.agent.SetDestination(bestTarget.transform.position);
                     }
                     else
                     {
                         if (UnitToOrder.agent.destination != destination)
                         {
+                            UnitToOrder.agent.isStopped = false;
                             UnitToOrder.agent.SetDestination(destination);
                         }
                     }
@@ -85,9 +87,15 @@ namespace Orders.EntityOrder
                         currenttime = Time.time;
                     }
                     
+                    UnitToOrder.agent.isStopped = true;
                 }
 
                 currenttime = Time.time;
+                else
+                {
+                    UnitToOrder.agent.isStopped = false;
+                }
+                
             }
         }
 

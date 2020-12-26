@@ -651,6 +651,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65384883f5ea0524e8db2048a0e4e1a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerResources:
+    neoSteel: 200
+    titanium: 100
+    unobtanium: 0
 --- !u!4 &181414839
 Transform:
   m_ObjectHideFlags: 0
@@ -3636,6 +3640,11 @@ MonoBehaviour:
   ObjectCollider: {fileID: 1994272562}
   orderableObject: {fileID: 1994272567}
   damageSystem: {fileID: 1994272559}
+  BuildingCost:
+    neoSteel: 0
+    titanium: 0
+    unobtanium: 0
+  isPlaced: 0
 --- !u!114 &1994272567
 MonoBehaviour:
   m_ObjectHideFlags: 0

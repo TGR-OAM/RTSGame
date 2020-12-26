@@ -7,14 +7,16 @@ namespace Buildings
     public class Builder 
     {
         public  HexGrid hexGrid;
+        private PlayerManager PlayerManager;
 
         public Building flyingBuilding;
 
         public bool isAvailable = false;
 
-        public Builder(HexGrid hexGrid)
+        public Builder(HexGrid hexGrid, PlayerManager playerManager)
         {
             this.hexGrid = hexGrid;
+            PlayerManager = playerManager;
         }
         public void StartPlacingBuilding(Building buildingPrefab)
         {
@@ -60,7 +62,8 @@ namespace Buildings
                 return false;
             if (!IsStayingOnSurface(thisBuilding, HexCoord))
                 return false;
-
+            if (PlayerManager.PlayerResoucesManager.playerResources <= thisBuilding.BuildingCost)
+                return false;
 
             return true;
         }
@@ -117,6 +120,8 @@ namespace Buildings
 
         public void PlaceFlyingBuilding()
         {
+            PlayerManager.PlayerResoucesManager.playerResources -= flyingBuilding.BuildingCost;
+            hexGrid.MapData.ConstructedBuildings.Add(flyingBuilding);
             flyingBuilding = null;
             StopPlacingBuilding();
         }

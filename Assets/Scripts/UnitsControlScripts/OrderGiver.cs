@@ -88,11 +88,12 @@ namespace UnitsControlScripts
                     if (hexGrid.TryRaycastHexGrid(Camera.main.ScreenPointToRay(mousePos),
                         out Vector3 output))
                     {
-                        foreach (OrderableObject EntetyToOrder in EntetiesToOrder)
+                        foreach (OrderableObject EntityToOrder in EntetiesToOrder)
                         {
+                            if(EntityToOrder == null) continue;
                             MoveOrderInitParams moveOrderInitParams = new MoveOrderInitParams("");
-                            MoveOrderVariableParams moveOrderVariableParams = new MoveOrderVariableParams(GetDestinationWithOffset(output, EntetiesToOrder.Length), EntetyToOrder.gameObject);
-                            GiveOrderToUnits(EntetyToOrder, moveOrderInitParams, moveOrderVariableParams);
+                            MoveOrderVariableParams moveOrderVariableParams = new MoveOrderVariableParams(GetDestinationWithOffset(output, EntetiesToOrder.Length), EntityToOrder.gameObject);
+                            GiveOrderToUnits(EntityToOrder, moveOrderInitParams, moveOrderVariableParams);
                         }
                     }
                 }

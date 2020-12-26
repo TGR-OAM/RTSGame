@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-using Buildings;
-using ErrorReport;
+﻿using GameResources;
 using MainMenu_DemoStartScripts;
 using Units;
 using UnitsControlScripts;
@@ -12,7 +10,9 @@ namespace Orders.EntityOrder
     {
         public Unit unitPrefabToCreate;
         public float TimeToCreateUnit;
-        public UnitCreationOrderInitParams(Unit unitPrefabToCreate, float TimeToCreateUnit, string orderName) : base(orderName)
+        
+        
+        public UnitCreationOrderInitParams(Unit unitPrefabToCreate, float TimeToCreateUnit ,string orderName) : base(orderName)
         {
             this.unitPrefabToCreate = unitPrefabToCreate;
             this.TimeToCreateUnit = TimeToCreateUnit;
@@ -35,7 +35,6 @@ namespace Orders.EntityOrder
         private float TimeUntilConstruction;
         private Vector3 positionToMoveAfterCreation;
         private GameObject ObjectToCreate;
-
         public UnitCreationOrder(UnitCreationOrderInitParams unitCreationOrderInitParams ,UnitCreationOrderVariableParams unitCreationOrderVariableParams) : base(unitCreationOrderVariableParams)
         {
             unitPrefabToCreate = unitCreationOrderInitParams.unitPrefabToCreate;
