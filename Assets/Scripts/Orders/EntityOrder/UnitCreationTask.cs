@@ -77,6 +77,7 @@ namespace Orders.EntityOrder
             MoveOrderInitParams moveOrderInitParams = EntityLoader
                 .GetOrderInitParamsFromDictionary(createdUnit.GetType()).GetOrderInitParamsFromType(MoveOrderKeyValue) as MoveOrderInitParams;
             createdUnit.orderableObject.GiveOrder(moveOrderInitParams.CreateOrder(new MoveOrderVariableParams(positionToMoveAfterCreation,createdUnit.gameObject)));
+            Debug.Log(positionToMoveAfterCreation);
         }
     }
 }

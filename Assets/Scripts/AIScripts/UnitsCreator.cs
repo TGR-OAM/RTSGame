@@ -12,28 +12,14 @@ namespace AIScripts
         private Transform positionToSpawnUnits;
         [SerializeField]
         private GameObject WarriorToCreate;
-        [SerializeField]
-        private GameObject BuilderToCreate;
-
-        private void Start()
-        {
-            Instantiate(BuilderToCreate, positionToSpawnUnits.position, Quaternion.identity);
-        }
 
         void Update()
         {
             timeFromPreviousCreation += Time.deltaTime;
             if (timeFromPreviousCreation >= unitCreatingInterval)
             {
-                if (Random.value <= .2f)
-                {
-                    Instantiate(BuilderToCreate, positionToSpawnUnits.position, Quaternion.identity);
-                }
-                else
-                {
-                    Instantiate(WarriorToCreate, positionToSpawnUnits.position, Quaternion.identity);
-                }
-            
+                Instantiate(WarriorToCreate, positionToSpawnUnits.position, Quaternion.identity);
+                
                 timeFromPreviousCreation = 0;
             }
         }
