@@ -5,21 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="17ebf66f-4afe-4731-9078-d61fb3995c9d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Orders/EntityOrder/DefendOrder.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Orders/EntityOrder/DefendOrder.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.HexagonTerrainCreator/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.HexagonTerrainCreator/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.HexagonTerrainCreator/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.HexagonTerrainCreator/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefab/Units/1/defaultMat.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefab/Units/1/defaultMat.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefab/Units/Tank.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefab/Units/Tank.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/PrototypePolygon.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/PrototypePolygon.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/AIScripts/UnitsCreator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/AIScripts/UnitsCreator.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/MainMenu_DemoStartScripts/InitDemoGame.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/MainMenu_DemoStartScripts/InitDemoGame.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Orders/EntityOrder/AttackOrder.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Orders/EntityOrder/AttackOrder.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Orders/EntityOrder/MoveAttackOrder.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Orders/EntityOrder/MoveAttackOrder.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Orders/OrderFactory.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Orders/OrderFactory.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Units/Robot.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Units/Robot.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Units/UnitsParts/Body.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Units/UnitsParts/Body.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UnitsControlScripts/OrderGiver.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UnitsControlScripts/OrderGiver.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Xml/MapExample.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Xml/MapExample.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/HexWorldinterpretation/HexColumnRenderer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/HexWorldinterpretation/HexColumnRenderer.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,9 +34,6 @@
   </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
-      <option value="$PROJECT_DIR$/Assets/Scripts/CameraMovement/MovementByMinimap.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/HexWordEditor/WorldEditor.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/HexWordEditor/TestEditorScript.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/HexWordEditor/XMLMapSaver.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/UIScripts/MinimapObjectScript.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Orders/GameOrderInitParams.cs" />
@@ -97,6 +82,9 @@
       <option value="$PROJECT_DIR$/Assets/Scripts/Units/UnitsParts/Body.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/UnitsControlScripts/OrderGiver.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Units/Robot.cs" />
+      <option value="$PROJECT_DIR$/Assets/Resources/SavedMaps/MapExample.xml" />
+      <option value="$PROJECT_DIR$/Assets/Resources/Xml/MapExample.xml" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/HexWorldinterpretation/HexColumnRenderer.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1lIISIM12q3GC48Z5aO5fthc7Rz" />
@@ -111,7 +99,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="XThreadsFramesViewSplitterKey" value="0.28082633" />
+    <property name="XThreadsFramesViewSplitterKey" value="0.28496733" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
