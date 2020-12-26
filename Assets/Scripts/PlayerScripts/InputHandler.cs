@@ -67,6 +67,13 @@ namespace PLayerScripts
         {
             CameraMovement(playerInput.actions.FindActionMap("Player").FindAction("MoveCamera").ReadValue<Vector2>());
 
+            if (SelectedEnteties != null && SelectedEnteties != SelectedEnteties.Where(x => x != null).ToList())
+            {
+                SelectedEnteties = SelectedEnteties.Where(x => x != null).ToList();
+                PossibleOrders = GetPossibleOrdersFromUnits(SelectedEnteties);
+            }
+
+
             mousePosition = Mouse.current.position.ReadValue();
             switch (currentState)
 
@@ -152,7 +159,7 @@ namespace PLayerScripts
             }
             else if (currentState == HandlerState.Building)
             {
-                if (PlayerManager.Builder.CanPlaceFlyingBuilding())
+                if (PlayerManager.Builder.CanPlaceFlyingBuilding() && SelectedEnteties.Where(x => x!= null).Any())
                 {
                     BuildOrderVariableParams buildOrderVariableParams =
                         new BuildOrderVariableParams(PlayerManager.Builder.flyingBuilding, SelectedEnteties[0].gameObject);
@@ -203,13 +210,14 @@ namespace PLayerScripts
                     foreach (GameObject entity in AllUnits)
                     {
                         if(entity == null) continue;
-
+                        
                         Vector3 screenPos = Camera.main.WorldToScreenPoint(entity.transform.position);
-
+                        
                         if (screenPos.x > min.x && screenPos.x < max.x && screenPos.y > min.y && screenPos.y < max.y &&
                             entity.GetComponent<FractionMember>().fraction == PlayerManager.fraction &&
                             entity.TryGetComponent(typeof(Unit), out _))
                         {
+                            
                             SelectedEnteties.Add(entity.GetComponent<OrderableObject>());
                         }
                     }

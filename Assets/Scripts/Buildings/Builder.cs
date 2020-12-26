@@ -1,3 +1,4 @@
+using System;
 using HexWorldinterpretation;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -73,7 +74,8 @@ namespace Buildings
             Collider thisColider = thisBuilding.GetComponent<Collider>();
             foreach (Building AlreadyBuilded in hexGrid.MapData.ConstructedBuildings)
             {
-                if (thisColider.bounds.Intersects(AlreadyBuilded.GetComponent<Collider>().bounds))
+                if (AlreadyBuilded == null) continue;
+                    if (thisColider.bounds.Intersects(AlreadyBuilded.GetComponent<Collider>().bounds))
                     return true;
             }
             return false;
@@ -85,20 +87,33 @@ namespace Buildings
             {
                 for (int z = 0; z < thisBuilding.Size.y; z++)
                 {
-                    if (HexCoord.z % 2 == 0)
+                    try
                     {
-                        if (thisBuilding.transform.position.y != hexGrid.MapData.HeightMap[(int)(HexCoord.z + z) * hexGrid.MapData.width + (int)(HexCoord.x + x)])
-                        { 
-                            return false;
+                        if (HexCoord.z % 2 == 0)
+                        {
+                            if (thisBuilding.transform.position.y !=
+                                hexGrid.MapData.HeightMap[
+                                    (int) (HexCoord.z + z) * hexGrid.MapData.width + (int) (HexCoord.x + x)])
+                            {
+                                return false;
+                            }
+                        }
+                        else
+                        {
+                            if (thisBuilding.transform.position.y !=
+                                hexGrid.MapData.HeightMap[
+                                    (int) (HexCoord.z + z) * hexGrid.MapData.width + (int) (HexCoord.x + x)])
+                            {
+                                Debug.Log(hexGrid.MapData.HeightMap[
+                                    (int) (HexCoord.z + z) * hexGrid.MapData.width + (int) (HexCoord.x + x + z % 2)]);
+                                return false;
+                            }
                         }
                     }
-                    else
+                    catch (Exception e)
                     {
-                        if (thisBuilding.transform.position.y != hexGrid.MapData.HeightMap[(int)(HexCoord.z + z) * hexGrid.MapData.width + (int)(HexCoord.x + x)])
-                        {
-                            Debug.Log(hexGrid.MapData.HeightMap[(int)(HexCoord.z + z) * hexGrid.MapData.width + (int)(HexCoord.x + x + z % 2)]);
-                            return false;
-                        }
+                        Debug.Log(e.Message);
+                        return false;
                     }
                 }
             }
@@ -107,19 +122,14 @@ namespace Buildings
 
         public bool CanPlaceFlyingBuilding()
         {
-            if (isAvailable)
-            {
-                flyingBuilding.SetNormal();
-                flyingBuilding.gameObject.GetComponentInChildren<Renderer>().material = flyingBuilding.Materials;
-                hexGrid.MapData.ConstructedBuildings.Add(flyingBuilding);
-                flyingBuilding.gameObject.layer = 10;
-            }
-
             return isAvailable;
         }
 
         public void PlaceFlyingBuilding()
         {
+            flyingBuilding.SetNormal();
+            flyingBuilding.gameObject.GetComponentInChildren<Renderer>().material = flyingBuilding.Materials;
+            flyingBuilding.gameObject.layer = 10;
             PlayerManager.PlayerResoucesManager.playerResources -= flyingBuilding.BuildingCost;
             hexGrid.MapData.ConstructedBuildings.Add(flyingBuilding);
             flyingBuilding = null;

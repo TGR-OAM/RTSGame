@@ -44,7 +44,7 @@ namespace Orders.EntityOrder
 
         public override void StartOrder()
         {
-            if (BuildingToBuild!= null && ObjectToOrder.TryGetComponent(typeof(Unit), out Component component))
+            if (BuildingToBuild != null && ObjectToOrder.TryGetComponent(typeof(Unit), out Component component))
             {
                 base.StartOrder();
                 
@@ -61,7 +61,7 @@ namespace Orders.EntityOrder
             if (unitToOrder != null)
             {
                 if (buildingDamageSystem == null) StopOrder();
-                if (unitToOrder.isNearToDestination(BuildingToBuild.ObjectCollider.bounds.center,NearestDistance))
+                if (BuildingToBuild!= null && unitToOrder.isNearToDestination(BuildingToBuild.ObjectCollider.bounds.center,NearestDistance))
                 {
                     buildingDamageSystem.Heal(buildingDamageSystem.MaxHp/TimeUntilFullConstruction * Time.deltaTime);
                     unitToOrder.agent.SetDestination(unitToOrder.transform.position);

@@ -89,13 +89,11 @@ namespace Orders.EntityOrder
                     
                     UnitToOrder.agent.isStopped = true;
                 }
-
-                currenttime = Time.time;
                 else
                 {
                     UnitToOrder.agent.isStopped = false;
                 }
-                
+                currenttime = Time.time;
             }
         }
 

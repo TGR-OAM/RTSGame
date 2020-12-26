@@ -38,6 +38,7 @@ namespace Units
         
         protected void BaseUnitInitialization()
         {
+            EntitiesLister.enteties.Add(this.gameObject);
             orderableObject = GetComponent<OrderableObject>();
             fractionMember = GetComponent<FractionMember>();
             agent = GetComponent<NavMeshAgent>();

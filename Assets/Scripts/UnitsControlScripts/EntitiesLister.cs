@@ -8,7 +8,7 @@ namespace UnitsControlScripts
 {
     public static class EntitiesLister
     {
-        public static List<GameObject> enteties = new List<GameObject>();
+        public static List<GameObject> enteties { get; set; } = new List<GameObject>();
 
         public static void UpdateAllEnteties()
         {

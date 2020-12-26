@@ -209,7 +209,14 @@ MonoBehaviour:
   agent: {fileID: 2245678453955195856}
   fractionMember: {fileID: -1737426908471612016}
   orderableObject: {fileID: 2945660508729779442}
+  UnitCost:
+    neoSteel: 100
+    titanium: 50
+    unobtanium: 0
   attackrecharge: 1.5
+  attackDistance: 10
+  visionDistance: 20
+  damagePerSecond: 0
   Body: {fileID: 5497437069015290064}
   Wheels: {fileID: 8367280404559490045}
   Weapons:

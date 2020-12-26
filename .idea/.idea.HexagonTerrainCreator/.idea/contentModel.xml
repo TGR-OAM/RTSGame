@@ -59,6 +59,9 @@
             <e p="MovementByMinimap.cs" t="Include" />
             <e p="MoveNearEdge.cs" t="Include" />
           </e>
+          <e p="Effects" t="Include">
+            <e p="ExplosionEnd.cs" t="Include" />
+          </e>
           <e p="GameResources" t="Include">
             <e p="GameResourceStruct.cs" t="Include" />
           </e>

@@ -162,8 +162,8 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 25
-  m_Acceleration: 0
+  m_Speed: 9
+  m_Acceleration: 45
   avoidancePriority: 50
   m_AngularSpeed: 10000
   m_StoppingDistance: 2
@@ -230,6 +230,14 @@ MonoBehaviour:
   agent: {fileID: 5988925921437548172}
   fractionMember: {fileID: 5988925921437548169}
   orderableObject: {fileID: 712423078328708816}
+  UnitCost:
+    neoSteel: 0
+    titanium: 0
+    unobtanium: 0
+  attackrecharge: 0
+  attackDistance: 5
+  visionDistance: 20
+  damagePerSecond: 1
 --- !u!114 &8302348187234826001
 MonoBehaviour:
   m_ObjectHideFlags: 0

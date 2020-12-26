@@ -35,8 +35,13 @@ namespace Buildings
 
         protected void Start()
         {
-            BaseBuildingInitialization();
-            BaseBuildingOrderInitialization();
+            if (isPlaced)
+            {
+                BaseBuildingInitialization();
+                BaseBuildingOrderInitialization();
+            }
+            
+            damageSystem.TrySetActiveHealthBar(false);
         }
 
         public void SetTransparent(bool available)
@@ -64,6 +69,9 @@ namespace Buildings
             {
                 VARIABLE.material.color = Color.white;
             }
+            
+            BaseBuildingInitialization();
+            BaseBuildingOrderInitialization();
             
             CreationOutput = this.transform.position;
             damageSystem.TrySetActiveHealthBar(true);
@@ -95,8 +103,8 @@ namespace Buildings
 
         protected void BaseBuildingInitialization()
         {
+            EntitiesLister.enteties.Add(this.gameObject);
             damageSystem.SetMaxHp(MaxHp);
-            damageSystem.TrySetActiveHealthBar(false);
             if(isStartWithFullHp) damageSystem.Heal(MaxHp);
             CreationOutput = this.transform.position;
             

@@ -4214,6 +4214,10 @@ PrefabInstance:
       propertyPath: hexGrid
       value: 
       objectReference: {fileID: 221974592}
+    - target: {fileID: 1513049481762636935, guid: 34758492df9b4864183b3e1dea84064b, type: 3}
+      propertyPath: isPlaced
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1513049481762636939, guid: 34758492df9b4864183b3e1dea84064b, type: 3}
       propertyPath: m_RootOrder
       value: 5

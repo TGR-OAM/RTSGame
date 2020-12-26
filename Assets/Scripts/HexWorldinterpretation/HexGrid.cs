@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using Buildings;
 using UnityEngine;
 
@@ -20,6 +22,11 @@ namespace HexWorldinterpretation
             InitWorld();
         }
 
+
+        private void Update()
+        {
+            MapData.ConstructedBuildings = MapData.ConstructedBuildings.Where(x => x != null).ToList();
+        }
 
         void InitWorld()
         {

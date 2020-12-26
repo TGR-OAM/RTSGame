@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 namespace HexWorldinterpretation
 {
@@ -20,8 +21,18 @@ namespace HexWorldinterpretation
 		
 		public static Vector3 CalcCenterCoordXZFromHexCoordXZ(Vector3 hexCoord,HexGridData MapData)
         {
-			Vector3 CenterCoord = new Vector3(hexCoord.x * 2 * innerRadius * MapData.cellSize + hexCoord.z % 2 * innerRadius * MapData.cellSize, MapData.HeightMap[(int)hexCoord.z*MapData.width+(int)hexCoord.x], hexCoord.z * 1.5f * MapData.cellSize * outerRadius);
-			return CenterCoord;
+	        try
+	        {
+		        Vector3 CenterCoord = new Vector3(hexCoord.x * 2 * innerRadius * MapData.cellSize + hexCoord.z % 2 * innerRadius * MapData.cellSize, MapData.HeightMap[(int)hexCoord.z*MapData.width+(int)hexCoord.x], hexCoord.z * 1.5f * MapData.cellSize * outerRadius);
+		        return CenterCoord;
+	        }
+	        catch (Exception e)
+	        {
+		        Vector3 CenterCoord = new Vector3(hexCoord.x * 2 * innerRadius * MapData.cellSize + hexCoord.z % 2 * innerRadius * MapData.cellSize, 0, hexCoord.z * 1.5f * MapData.cellSize * outerRadius);
+		        return CenterCoord;
+	        }
+			
+			
         }
 
 		public static Vector3 CalcHexCoordXZFromDefault(Vector3 position, float cellSize)
