@@ -6,12 +6,11 @@ using UnityEngine;
 public class Body : MonoBehaviour
 {
     public Robot robot;
-    public float reachDistance { get; private set; } = 10;
+    public float reachDistance { get; private set; } = 5;
     public float hp { get; private set; } = 75;
     public float visionDistance { get; private set; } = 30;
     void Start()
     {
-        
         robot.bodyInit();
     }
 

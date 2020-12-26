@@ -27,6 +27,7 @@ public class InitDemoGame : MonoBehaviour
         MoveOrderInitParams MoveExample = new MoveOrderInitParams("Move");
         AttackOrderInitParams AttackExample = new AttackOrderInitParams("Attack");
         MoveAttackOrderInitParams MoveAttackExample = new MoveAttackOrderInitParams("Move and attack");
+        DefendOrderInitParams DefendExample = new DefendOrderInitParams("Defend");
 
         Dictionary<string,BuildOrderInitParams> BuildExamples = new Dictionary<string,BuildOrderInitParams>();
 
@@ -80,6 +81,7 @@ public class InitDemoGame : MonoBehaviour
                     {MoveExample.ToString() ,MoveExample},
                     {AttackExample.ToString() ,AttackExample},
                     {MoveAttackExample.ToString() ,MoveAttackExample},
+                    {DefendExample.ToString() , DefendExample}
                 });
                 
                 EntityLoader.AddNewEntetyTypeToDictionary(unit.GetType(), warrioEntetyData);
@@ -91,6 +93,7 @@ public class InitDemoGame : MonoBehaviour
                     {MoveExample.ToString() ,MoveExample},
                     {AttackExample.ToString() ,AttackExample},
                     {MoveAttackExample.ToString() ,MoveAttackExample},
+                    {DefendExample.ToString() , DefendExample}
                 });
                 
                 EntityLoader.AddNewEntetyTypeToDictionary(unit.GetType(), warrioEntetyData);

@@ -127,6 +127,34 @@ namespace UnitsControlScripts
                         }
                     }
                 }
+                
+                if (orderType is DefendOrderInitParams)
+                {
+                    RaycastHit hit;
+                    if (Physics.Raycast(Camera.main.ScreenPointToRay(mousePos), out hit, 100f, 1 << 8))
+                    {
+                        foreach (OrderableObject EntetyToOrder in EntetiesToOrder)
+                        {
+                            DefendOrderInitParams moveAttackOrderInitParams = new DefendOrderInitParams("");
+                            DefendOrderVariableParams moveAttackOrderVariableParams =
+                                new DefendOrderVariableParams(GetDestinationWithOffset(hit.point, EntetiesToOrder.Length), EntetyToOrder.gameObject);
+                            GiveOrderToUnits(EntetyToOrder, moveAttackOrderInitParams, moveAttackOrderVariableParams);
+                        }
+                    }
+                    else
+                    {
+                        if (hexGrid.TryRaycastHexGrid(Camera.main.ScreenPointToRay(mousePos), out Vector3 output))
+                        {
+                            foreach (OrderableObject EntetyToOrder in EntetiesToOrder)
+                            {
+                                DefendOrderInitParams moveAttackOrderInitParams = new DefendOrderInitParams("");
+                                DefendOrderVariableParams moveAttackOrderVariableParams =
+                                    new DefendOrderVariableParams(GetDestinationWithOffset(output, EntetiesToOrder.Length), EntetyToOrder.gameObject);
+                                GiveOrderToUnits(EntetyToOrder, moveAttackOrderInitParams, moveAttackOrderVariableParams);
+                            }
+                        }
+                    }
+                }
 
                 if (orderType is MoveOrderInitParams)
                 {
@@ -169,6 +197,7 @@ namespace UnitsControlScripts
         {
             foreach (OrderableObject orderableObject in orderableObjects)
             {
+                if(orderableObject == null) continue;
                 gameOrderVariableParams.ObjectToOrder = orderableObject.gameObject;
                 GameOrder order = gameOrderInitParams.CreateOrder(gameOrderVariableParams);
                 orderableObject.GiveOrder(order);
@@ -177,6 +206,7 @@ namespace UnitsControlScripts
 
         public static void GiveOrderToUnits(OrderableObject orderableObject, GameOrderInitParams gameOrderInitParams, GameOrderVariableParams gameOrderVariableParams)
         {
+            if(orderableObject == null) return;
             GameOrder order = gameOrderInitParams.CreateOrder(gameOrderVariableParams);
             orderableObject.GiveOrder(order);
         }

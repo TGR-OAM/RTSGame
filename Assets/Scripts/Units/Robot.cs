@@ -31,6 +31,9 @@ namespace Units
             {
                 VARIABLE.robot = this;
             }
+            damageSystem.SetMaxHp(MaxHp);
+            damageSystem.SetHpToMax();
+            Debug.Log(damageSystem.Hp);
         }
         public void wheelsInit()
         {
@@ -38,6 +41,9 @@ namespace Units
             agent.acceleration = Wheels.acceleration;
             agent.stoppingDistance = Wheels.stopDistance;
             MaxHp += Wheels.hp;
+            damageSystem.SetMaxHp(MaxHp);
+            damageSystem.SetHpToMax();
+            Debug.Log(damageSystem.Hp);
         }
 
         public void bodyInit()
@@ -45,6 +51,9 @@ namespace Units
             MaxHp += Body.hp;
             reachDistance = Body.reachDistance;
             visionDistance = Body.visionDistance;
+            damageSystem.SetMaxHp(MaxHp);
+            damageSystem.SetHpToMax();
+            Debug.Log(damageSystem.Hp);
         }
 
         public void weaponInit()
@@ -59,7 +68,9 @@ namespace Units
 
             attackdist /= Weapons.Length;
             attackDistance = attackdist;
-            
+            damageSystem.SetMaxHp(MaxHp);
+            damageSystem.SetHpToMax();
+            Debug.Log(damageSystem.Hp);
         }
         protected override void BaseOrderListInitialization()
         {
