@@ -2,19 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c400357b-b20a-4479-859d-a1ebe07358be" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.RTSGame/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.RTSGame/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.RTSGame/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.RTSGame/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefab/Fx Explosion Pack/Prefebs/Exploson7.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefab/Fx Explosion Pack/Prefebs/Exploson7.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Prefab/Units/Tank.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefab/Units/Tank.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Effects/ExplosionEnd.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Effects/ExplosionEnd.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/MainMenu_DemoStartScripts/InitDemoGame.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/MainMenu_DemoStartScripts/InitDemoGame.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Orders/EntityOrder/AttackOrder.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Orders/EntityOrder/AttackOrder.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Orders/EntityOrder/MoveAttackOrder.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Orders/EntityOrder/MoveAttackOrder.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Units/Robot.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Units/Robot.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Units/UnitsParts/Body.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Units/UnitsParts/Body.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Units/UnitsParts/Weapon.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Units/UnitsParts/Weapon.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Units/UnitsParts/Wheels.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Units/UnitsParts/Wheels.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Units/Warrior.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Units/Warrior.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UnitsControlScripts/OrderGiver.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UnitsControlScripts/OrderGiver.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/PrototypePolygon.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/PrototypePolygon.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Orders/EntityOrder/MoveOrder.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Orders/EntityOrder/MoveOrder.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/NavMeshAreas.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/NavMeshAreas.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,7 +29,6 @@
       <option value="$PROJECT_DIR$/Assets/Scripts/AIScripts/SimpleAI.cs" />
       <option value="$PROJECT_DIR$/Assets/Prefab/Fx Explosion Pack/Script/csDemoScenceControl.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Effects/gfsjh.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Orders/EntityOrder/MoveOrder.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Units/Unit.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/MainMenu_DemoStartScripts/InitDemoGame.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Units/UnitsParts/Body.cs" />
@@ -45,9 +37,10 @@
       <option value="$PROJECT_DIR$/Assets/Scripts/Units/Robot.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Units/Warrior.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/UnitsControlScripts/OrderGiver.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Orders/EntityOrder/AttackOrder.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Orders/EntityOrder/MoveAttackOrder.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Effects/ExplosionEnd.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Orders/EntityOrder/AttackOrder.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Orders/EntityOrder/MoveOrder.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1kpwPTkZMb5ArpDJhsqxXX2mpE1" />
@@ -93,7 +86,7 @@
       <updated>1606410825270</updated>
       <workItem from="1606410840076" duration="299000" />
       <workItem from="1608913725852" duration="2183000" />
-      <workItem from="1608928354144" duration="18130000" />
+      <workItem from="1608928354144" duration="19685000" />
     </task>
     <servers />
   </component>

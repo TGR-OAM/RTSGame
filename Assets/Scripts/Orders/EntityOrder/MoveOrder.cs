@@ -40,8 +40,11 @@ namespace Orders.EntityOrder
                 Unit thisUnit = component as Unit;
                 UnitToOrder = thisUnit;
 //                Debug.Log(UnitToOrder.agent.isOnNavMesh);
-                UnitToOrder.agent.isStopped = false;
-                UnitToOrder.agent.SetDestination(destination);
+                if (UnitToOrder.agent != null)
+                {
+                    UnitToOrder.agent.isStopped = false;
+                    UnitToOrder.agent.SetDestination(destination);
+                }
             }
         }
 
