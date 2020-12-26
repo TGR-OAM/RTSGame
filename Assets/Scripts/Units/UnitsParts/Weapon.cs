@@ -7,10 +7,13 @@ using UnityEngine;
 public class Weapon : MonoBehaviour
 {
     [SerializeField] private GameObject boom;
-    
-    void Start()
-    {
 
+    public float damage { get; private set; }= 10;
+    public float hp { get; private set; } = 30;
+    public float attackdistance { get; private set; } = 20;
+
+    void Start() 
+    {
     }
     void Update()
     {
@@ -19,6 +22,7 @@ public class Weapon : MonoBehaviour
 
     public void Shoot(WhoAttakingDelegate whoAttakingDelegate)
     {
+        Debug.Log(gameObject);
         Instantiate(boom, transform.GetChild(0).transform);
     }
 }

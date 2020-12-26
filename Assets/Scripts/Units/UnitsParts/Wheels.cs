@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class Wheels : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public float speed { get; private set; } = 50;
+    public float acceleration { get; private set; } = 10;
+    public float hp { get; private set; } = 50;
     void Start()
     {
-        
     }
 
     // Update is called once per frame

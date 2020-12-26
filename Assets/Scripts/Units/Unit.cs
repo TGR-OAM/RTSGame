@@ -27,7 +27,6 @@ namespace Units
 
         protected void Start()
         {
-            reachDistance = .1f;
 
             BaseUnitInitialization();
             BaseOrderListInitialization();

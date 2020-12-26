@@ -15,7 +15,7 @@ public class ExplosionEnd : MonoBehaviour
 
     private void Update()
     {
-        if (currenttime - timer >= 1)
+        if (currenttime - timer >= ps.duration*Time.deltaTime)
             Destroy(gameObject);
         else
             currenttime = Time.time;

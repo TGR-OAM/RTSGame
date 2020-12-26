@@ -16,13 +16,6 @@ namespace Units
         {
             base.Start();
             
-            #region Part-time data
-            
-            attackDistance = 20f;
-            visionDistance = 30f;
-            damagePerSecond = 10f;
-
-            #endregion
         }
         
     }

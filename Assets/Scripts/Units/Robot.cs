@@ -7,7 +7,7 @@ using UnityEngine;
 
 namespace Units
 {
-    public class Robot : Unit
+    public class Robot : Warrior
     {
         [SerializeField]
         private Body Body;
@@ -18,6 +18,41 @@ namespace Units
         void Start()
         {
             base.Start();
+            wheelsInit();
+            bodyInit();
+            weaponsInit();
+        }
+
+        void wheelsInit()
+        {
+            agent.speed = Wheels.speed;
+            agent.acceleration = Wheels.acceleration;
+            MaxHp += Wheels.hp;
+            Debug.Log(MaxHp);
+        }
+
+        void bodyInit()
+        {
+            MaxHp += Body.hp;
+            reachDistance = Body.reachDistance;
+            visionDistance = Body.visionDistance;
+            Debug.Log(MaxHp);
+        }
+
+        void weaponsInit()
+        {
+            float attackdist = 0;
+            foreach (var VARIABLE in Weapons)
+            {
+                MaxHp += VARIABLE.hp;
+                damagePerSecond += VARIABLE.damage;
+                attackdist += VARIABLE.attackdistance;
+                Debug.Log(MaxHp);
+            }
+
+            attackdist /= Weapons.Length;
+            attackDistance = attackdist;
+            
         }
         protected override void BaseOrderListInitialization()
         {
@@ -40,7 +75,7 @@ namespace Units
 
         void Update()
         {
-        
+            
         }
     }
 }
