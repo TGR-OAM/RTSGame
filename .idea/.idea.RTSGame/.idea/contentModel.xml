@@ -46,9 +46,12 @@
             <e p="UnitsCreator.cs" t="Include" />
           </e>
           <e p="Buildings" t="Include">
+            <e p="Barracks.cs" t="Include" />
+            <e p="BotConstructor.cs" t="Include" />
             <e p="Builder.cs" t="Include" />
             <e p="Building.cs" t="Include" />
             <e p="MainHub.cs" t="Include" />
+            <e p="ResourcesExtractor.cs" t="Include" />
           </e>
           <e p="CameraMovement" t="Include">
             <e p="MouseLook.cs" t="Include" />
@@ -58,9 +61,6 @@
           </e>
           <e p="Effects" t="Include">
             <e p="ExplosionEnd.cs" t="Include" />
-          </e>
-          <e p="ErrorReport" t="Include">
-            <e p="LogReport.cs" t="Include" />
           </e>
           <e p="GameResources" t="Include">
             <e p="GameResourceStruct.cs" t="Include" />
@@ -89,6 +89,7 @@
               <e p="GameOrder.cs" t="Include" />
               <e p="MoveAttackOrder.cs" t="Include" />
               <e p="MoveOrder.cs" t="Include" />
+              <e p="ResourceProductionOrder.cs" t="Include" />
               <e p="UnitCreationTask.cs" t="Include" />
             </e>
             <e p="OrderableObject.cs" t="Include" />

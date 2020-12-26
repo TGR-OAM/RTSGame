@@ -66,10 +66,9 @@ namespace Orders.EntityOrder
 
         void CreateUnitFromParts()
         {
-            Unit createdUnit = GameObject.Instantiate(unitPrefabToCreate);
-            createdUnit.agent.Warp(
-                new Vector3(ObjectToOrder.transform.position.x, 0, ObjectToOrder.transform.position.z) +
-                new Vector3(ObjectToOrder.transform.localScale.x/2, 0, 0));
+            var position = ObjectToOrder.transform.position;
+            Unit createdUnit = GameObject.Instantiate(unitPrefabToCreate, new Vector3(position.x+positionToMoveAfterCreation.x, position.y+positionToMoveAfterCreation.y, position.z ), ObjectToOrder.transform.rotation);
+            //createdUnit.agent.Warp( createdUnit.transform.position+positionToMoveAfterCreation);
 
             string MoveOrderKeyValue = typeof(MoveOrderInitParams).FullName;
             
