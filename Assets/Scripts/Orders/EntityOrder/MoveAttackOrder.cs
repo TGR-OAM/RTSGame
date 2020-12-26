@@ -111,9 +111,11 @@ namespace Orders.EntityOrder
 
         private void TryAttack(Warrior thisUnit)
         {
+           
             if(thisUnit == null) return;
             thisUnit.transform.LookAt(target.transform.position);
-            thisUnit.agent.SetDestination(thisUnit.gameObject.transform.position);
+            if(UnitToOrder is Robot)
+                (UnitToOrder as Robot).WhoAttacking(new WhoAttakingDelegate());
             target.GetComponent<DamageSystem>().TakeDamage(thisUnit.damagePerSecond * Time.deltaTime);
         }
 

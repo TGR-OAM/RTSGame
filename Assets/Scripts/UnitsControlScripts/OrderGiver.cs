@@ -7,6 +7,8 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using Random = UnityEngine.Random;
 using System.Linq;
+using MainMenu_DemoStartScripts;
+using Units;
 
 namespace UnitsControlScripts
 {
@@ -44,7 +46,8 @@ namespace UnitsControlScripts
                     {
                         if (fraction != raycastHitGameObjectFraction.fraction)
                         {
-                            AttackOrderInitParams attackOrderInitParams = new AttackOrderInitParams("");
+                            AttackOrderInitParams attackOrderInitParams = EntityLoader.GetOrderInitParamsFromDictionary(hit.transform.GetComponent<Unit>().GetType())
+                                .GetOrderInitParamsFromType(typeof(AttackOrderInitParams).ToString()) as AttackOrderInitParams;
                             AttackOrderVariableParams attackOrderVariableParams = new AttackOrderVariableParams(raycastHitGameObject, null);
                             GiveOrderToUnits(EntetiesToOrder, attackOrderInitParams, attackOrderVariableParams);
                         }
@@ -60,7 +63,8 @@ namespace UnitsControlScripts
                     {
                         if (inputHandler.PossibleOrders.Any(x => x is AttackOrderInitParams))
                         {
-                            AttackOrderInitParams attackOrderInitParams = new AttackOrderInitParams("");
+                            AttackOrderInitParams attackOrderInitParams = EntityLoader.GetOrderInitParamsFromDictionary(hit.transform.GetComponent<Unit>().GetType())
+                                .GetOrderInitParamsFromType(typeof(AttackOrderInitParams).ToString()) as AttackOrderInitParams;
                             AttackOrderVariableParams attackOrderVariableParams =
                                 new AttackOrderVariableParams(enemyObject, null);
                             GiveOrderToUnits(EntetiesToOrder, attackOrderInitParams, attackOrderVariableParams);
@@ -146,9 +150,11 @@ namespace UnitsControlScripts
                         {
                             if (fraction != victimFraction.fraction)
                             {
-                                AttackOrderInitParams currentParameters = new AttackOrderInitParams("");
+                                AttackOrderInitParams currentParameters =
+                                    EntityLoader.GetOrderInitParamsFromDictionary(victim.GetComponent<Unit>().GetType())
+                                        .GetOrderInitParamsFromType(typeof(AttackOrderInitParams).ToString()) as AttackOrderInitParams;
                                 AttackOrderVariableParams attackOrderVariableParams =
-                                    new AttackOrderVariableParams(victim, null);
+                                    new AttackOrderVariableParams(victim,null);
                                 GiveOrderToUnits(EntetiesToOrder, currentParameters, attackOrderVariableParams);
                             }
                         }
@@ -159,7 +165,7 @@ namespace UnitsControlScripts
 
         public static void GiveOrderToUnits(OrderableObject[] orderableObjects, GameOrderInitParams gameOrderInitParams, GameOrderVariableParams gameOrderVariableParams)
         {
-            
+            Debug.Log(gameOrderInitParams);
             foreach (OrderableObject orderableObject in orderableObjects)
             {
                 gameOrderVariableParams.ObjectToOrder = orderableObject.gameObject;

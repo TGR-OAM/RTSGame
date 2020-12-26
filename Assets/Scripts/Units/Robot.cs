@@ -15,6 +15,8 @@ namespace Units
         private Wheels Wheels;
         [SerializeField]
         private Weapon[] Weapons;
+
+        public WhoAttacking WhoAttacking;
         void Start()
         {
             base.Start();
@@ -57,19 +59,9 @@ namespace Units
         protected override void BaseOrderListInitialization()
         {
             if (EntityLoader.Contain(GetType()))
+            foreach (var w in Weapons)
             {
-                List<GameOrderInitParams> gameOrderInitParams =
-                    EntityLoader.GetOrderInitParamsFromDictionary(GetType()).OrderInitParams.Values.ToList();
-                foreach (var g in gameOrderInitParams)
-                {
-                    foreach (var w in Weapons)
-                    {
-                        if (g is AttackOrderInitParams)
-                            ((AttackOrderInitParams) g).whoAttacking += shooting => w.Shoot(shooting);
-                    }
-                    
-                }
-                orderableObject.SetPossibleOrderTypes(gameOrderInitParams);
+                WhoAttacking += shooting => w.Shoot(shooting);
             }
         }
 
