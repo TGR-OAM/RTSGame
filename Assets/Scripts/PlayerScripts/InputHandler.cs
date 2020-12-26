@@ -114,6 +114,7 @@ namespace PLayerScripts
                                         new UnitCreationOrderVariableParams(building.CreationOutput,
                                             building.gameObject))
                                     as UnitCreationOrder;
+                            Debug.Log(building.CreationOutput);
                             building.orderableObject.GiveOrder(unitCreationOrder);
                             PlayerManager.PlayerResoucesManager.playerResources -=
                                 unitCreationOrderInitParams.unitPrefabToCreate.UnitCost;

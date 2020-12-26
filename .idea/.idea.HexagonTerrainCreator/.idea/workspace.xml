@@ -5,9 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="17ebf66f-4afe-4731-9078-d61fb3995c9d" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.HexagonTerrainCreator/.idea/indexLayout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.HexagonTerrainCreator/.idea/indexLayout.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.HexagonTerrainCreator/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.HexagonTerrainCreator/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Xml/MapExample.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Xml/MapExample.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/HexWorldinterpretation/HexColumnRenderer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/HexWorldinterpretation/HexColumnRenderer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefab/Buildings/Barraks/Barraks.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefab/Buildings/Barraks/Barraks.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefab/Buildings/BotsConst/Bots constructor.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefab/Buildings/BotsConst/Bots constructor.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefab/Buildings/Extractor/Extractor.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefab/Buildings/Extractor/Extractor.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefab/Buildings/Hub/Hub.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefab/Buildings/Hub/Hub.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/PrototypePolygon.unity" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/PrototypePolygon.unity.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Buildings/Building.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Buildings/Building.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Orders/EntityOrder/UnitCreationTask.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Orders/EntityOrder/UnitCreationTask.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PlayerScripts/InputHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PlayerScripts/InputHandler.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,7 +68,6 @@
       <option value="$PROJECT_DIR$/Assets/Scripts/MainMenu_DemoStartScripts/EntityLoader.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/PlayerScripts/PlayerManager.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/GameResources/GameResourceStruct.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Orders/EntityOrder/UnitCreationTask.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Orders/EntityOrder/ResourceProductionOrder.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Buildings/NeoSteelExtractor.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/HexWorldinterpretation/HexGrid.cs" />
@@ -67,10 +75,8 @@
       <option value="$PROJECT_DIR$/Assets/Scripts/HexWorldinterpretation/HexMetrics.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/UnitsControlScripts/EntitiesLister.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/UnitsControlScripts/FractionMember.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Buildings/Building.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Units/Unit.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Orders/EntityOrder/BuildOrder.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/PlayerScripts/InputHandler.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/AIScripts/SimpleAI.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/AIScripts/UnitsGroup.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/AIScripts/UnitsCreator.cs" />
@@ -85,6 +91,9 @@
       <option value="$PROJECT_DIR$/Assets/Resources/SavedMaps/MapExample.xml" />
       <option value="$PROJECT_DIR$/Assets/Resources/Xml/MapExample.xml" />
       <option value="$PROJECT_DIR$/Assets/Scripts/HexWorldinterpretation/HexColumnRenderer.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/PlayerScripts/InputHandler.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Buildings/Building.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Orders/EntityOrder/UnitCreationTask.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1lIISIM12q3GC48Z5aO5fthc7Rz" />
@@ -120,10 +129,10 @@
       </option>
       <method v="2" />
     </configuration>
-    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="4584">
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" value="4584" />
+      <option name="pid" />
       <option name="selectedOptions">
         <list />
       </option>
@@ -151,6 +160,7 @@
       <workItem from="1608841364902" duration="5975000" />
       <workItem from="1608887186980" duration="17870000" />
       <workItem from="1608971733553" duration="5065000" />
+      <workItem from="1608989784470" duration="440000" />
     </task>
     <servers />
   </component>

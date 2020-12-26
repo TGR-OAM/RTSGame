@@ -96,7 +96,7 @@ MonoBehaviour:
   Size: {x: 2, y: 3}
   HexCoords: {x: 0.3, y: 0, z: 17.14}
   isStartWithFullHp: 1
-  CreationOutput: {x: 100, y: 0, z: 0}
+  CreationOutput: {x: 10, y: 0, z: 0}
   ObjectCollider: {fileID: 4539721174201614045}
   orderableObject: {fileID: 1513049481762636937}
   damageSystem: {fileID: 1513049481762636929}

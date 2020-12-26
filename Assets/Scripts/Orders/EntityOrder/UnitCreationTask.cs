@@ -67,14 +67,14 @@ namespace Orders.EntityOrder
         void CreateUnitFromParts()
         {
             var position = ObjectToOrder.transform.position;
-            Unit createdUnit = GameObject.Instantiate(unitPrefabToCreate, new Vector3(position.x+positionToMoveAfterCreation.x, position.y+positionToMoveAfterCreation.y, position.z ), ObjectToOrder.transform.rotation);
+            Unit createdUnit = GameObject.Instantiate(unitPrefabToCreate, new Vector3(position.x, position.y, position.z ) + positionToMoveAfterCreation, ObjectToOrder.transform.rotation);
             //createdUnit.agent.Warp( createdUnit.transform.position+positionToMoveAfterCreation);
 
             string MoveOrderKeyValue = typeof(MoveOrderInitParams).FullName;
             
-            MoveOrderInitParams moveOrderInitParams = EntityLoader
-                .GetOrderInitParamsFromDictionary(createdUnit.GetType()).GetOrderInitParamsFromType(MoveOrderKeyValue) as MoveOrderInitParams;
-            createdUnit.orderableObject.GiveOrder(moveOrderInitParams.CreateOrder(new MoveOrderVariableParams(positionToMoveAfterCreation,createdUnit.gameObject)));
+            //MoveOrderInitParams moveOrderInitParams = EntityLoader
+            //    .GetOrderInitParamsFromDictionary(createdUnit.GetType()).GetOrderInitParamsFromType(MoveOrderKeyValue) as MoveOrderInitParams;
+            //createdUnit.orderableObject.GiveOrder(moveOrderInitParams.CreateOrder(new MoveOrderVariableParams(positionToMoveAfterCreation,createdUnit.gameObject)));
             Debug.Log(positionToMoveAfterCreation);
         }
     }

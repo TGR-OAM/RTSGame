@@ -73,7 +73,6 @@ namespace Buildings
             BaseBuildingInitialization();
             BaseBuildingOrderInitialization();
             
-            CreationOutput = this.transform.position;
             damageSystem.TrySetActiveHealthBar(true);
             damageSystem.TryUpdateHealthBar();
             isPlaced = true;
@@ -106,8 +105,7 @@ namespace Buildings
             EntitiesLister.enteties.Add(this.gameObject);
             damageSystem.SetMaxHp(MaxHp);
             if(isStartWithFullHp) damageSystem.Heal(MaxHp);
-            CreationOutput = this.transform.position;
-            
+
         }
 
         protected void BaseBuildingOrderInitialization()

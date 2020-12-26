@@ -226,7 +226,7 @@ MonoBehaviour:
   Size: {x: 6, y: 8}
   HexCoords: {x: 0, y: 0, z: 0}
   isStartWithFullHp: 0
-  CreationOutput: {x: -10, y: 0, z: 0}
+  CreationOutput: {x: 10, y: 0, z: 0}
   ObjectCollider: {fileID: 7893316468862192133}
   orderableObject: {fileID: 9201007050984811661}
   damageSystem: {fileID: 3371817007554099333}
@@ -263,7 +263,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6558095177761213582}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 5.86}
   m_LocalScale: {x: 0.002, y: 0.002, z: 0.002}
   m_Children:
   - {fileID: 1551094643886044901}
@@ -272,7 +272,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 5.76}
+  m_AnchoredPosition: {x: 4.6, y: 5.76}
   m_SizeDelta: {x: 1920, y: 1080}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &7137011461169135183
