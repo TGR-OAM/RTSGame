@@ -94,7 +94,7 @@ public class InitDemoGame : MonoBehaviour
 
         foreach (Building building in BuildingsToLoad)
         {
-            if (building is Building)
+            if (building is Building && !(building is ResourcesExtractor))
             {
                 Dictionary<string, GameOrderInitParams> AllOrdersExamples = new Dictionary<string, GameOrderInitParams>();
                 

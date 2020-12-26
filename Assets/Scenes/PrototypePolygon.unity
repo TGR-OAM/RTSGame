@@ -3554,6 +3554,7 @@ MonoBehaviour:
     neoSteel: 0
     titanium: 0
     unobtanium: 0
+  isPlaced: 0
 --- !u!114 &1994272567
 MonoBehaviour:
   m_ObjectHideFlags: 0
