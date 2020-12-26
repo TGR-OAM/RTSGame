@@ -20,28 +20,34 @@ namespace Units
         void Start()
         {
             base.Start();
-            wheelsInit();
-            bodyInit();
-            weaponsInit();
+            RobotInits();
         }
 
-        void wheelsInit()
+        private void RobotInits()
+        {
+            Body.robot = this;
+            Wheels.robot = this;
+            foreach (var VARIABLE in Weapons)
+            {
+                VARIABLE.robot = this;
+            }
+        }
+        public void wheelsInit()
         {
             agent.speed = Wheels.speed;
             agent.acceleration = Wheels.acceleration;
+            agent.stoppingDistance = Wheels.stopDistance;
             MaxHp += Wheels.hp;
-            Debug.Log(MaxHp);
         }
 
-        void bodyInit()
+        public void bodyInit()
         {
             MaxHp += Body.hp;
             reachDistance = Body.reachDistance;
             visionDistance = Body.visionDistance;
-            Debug.Log(MaxHp);
         }
 
-        void weaponsInit()
+        public void weaponInit()
         {
             float attackdist = 0;
             foreach (var VARIABLE in Weapons)
@@ -49,7 +55,6 @@ namespace Units
                 MaxHp += VARIABLE.hp;
                 damagePerSecond += VARIABLE.damage;
                 attackdist += VARIABLE.attackdistance;
-                Debug.Log(MaxHp);
             }
 
             attackdist /= Weapons.Length;
@@ -58,16 +63,13 @@ namespace Units
         }
         protected override void BaseOrderListInitialization()
         {
-            if (EntityLoader.Contain(GetType()))
+            base.BaseOrderListInitialization();
             foreach (var w in Weapons)
             {
                 WhoAttacking += shooting => w.Shoot(shooting);
             }
         }
 
-        void Update()
-        {
-            
-        }
+
     }
 }

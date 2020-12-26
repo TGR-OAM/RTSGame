@@ -48,8 +48,9 @@ public class InitDemoGame : MonoBehaviour
 
         foreach (Unit unit in UnitsToLoad)
         {
-            if (unit is Warrior)
+            if (unit is Robot)
             {
+                Debug.Log(unit);
                 LoadEntetyData warrioEntetyData = new LoadEntetyData(unit.gameObject,new Dictionary<string, GameOrderInitParams>
                 {
                     {MoveExample.ToString() ,MoveExample},
@@ -59,9 +60,8 @@ public class InitDemoGame : MonoBehaviour
                 
                 EntityLoader.AddNewEntetyTypeToDictionary(unit.GetType(), warrioEntetyData);
             }
-            else if (unit is Robot)
+            else if (unit is Warrior)
             {
-                Debug.Log(unit);
                 LoadEntetyData warrioEntetyData = new LoadEntetyData(unit.gameObject,new Dictionary<string, GameOrderInitParams>
                 {
                     {MoveExample.ToString() ,MoveExample},

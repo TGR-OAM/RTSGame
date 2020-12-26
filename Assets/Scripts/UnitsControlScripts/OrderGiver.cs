@@ -165,7 +165,6 @@ namespace UnitsControlScripts
 
         public static void GiveOrderToUnits(OrderableObject[] orderableObjects, GameOrderInitParams gameOrderInitParams, GameOrderVariableParams gameOrderVariableParams)
         {
-            Debug.Log(gameOrderInitParams);
             foreach (OrderableObject orderableObject in orderableObjects)
             {
                 gameOrderVariableParams.ObjectToOrder = orderableObject.gameObject;

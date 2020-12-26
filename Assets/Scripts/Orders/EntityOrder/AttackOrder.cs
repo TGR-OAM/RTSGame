@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Timers;
 using ErrorReport;
 using Units;
 using UnitsControlScripts;
@@ -25,11 +26,15 @@ namespace Orders.EntityOrder
     
     public class AttackOrder : GameOrder
     {
+        private float timer;
+        private float currenttime = 0;
         public GameObject target;
         private Warrior WarriorToOrder;
         private AttackOrderVariableParams orderVariableParams;
+        private float attackrecharge;
 
-        public AttackOrder (AttackOrderInitParams attackOrderInitParams, AttackOrderVariableParams orderVariableParams) :base(orderVariableParams)
+        public AttackOrder(AttackOrderInitParams attackOrderInitParams, AttackOrderVariableParams orderVariableParams) :
+            base(orderVariableParams)
         {
             this.orderVariableParams = orderVariableParams;
             target = orderVariableParams.target;
@@ -37,12 +42,14 @@ namespace Orders.EntityOrder
 
         public override void StartOrder()
         {
+            timer = Time.time;
             if (ObjectToOrder.TryGetComponent(typeof(Warrior), out Component component))
             {
                 base.StartOrder();
                 WarriorToOrder = component as Warrior;
                 WarriorToOrder.agent.isStopped = false;
                 WarriorToOrder.agent.SetDestination(target.transform.position);
+                attackrecharge = WarriorToOrder.attackrecharge;
             }
         }
 
@@ -58,7 +65,16 @@ namespace Orders.EntityOrder
             {
                 if (WarriorToOrder.isNearToDestination(target.transform.position, WarriorToOrder.attackDistance))
                 {
-                    Attack(WarriorToOrder);
+                    if (currenttime - timer >= attackrecharge)
+                    {
+                        Attack(WarriorToOrder);
+                        timer = Time.time;
+                    }
+                    else
+                    {
+                        currenttime = Time.time;
+                    }
+                        
                     WarriorToOrder.agent.isStopped = true;
                 }
                 else

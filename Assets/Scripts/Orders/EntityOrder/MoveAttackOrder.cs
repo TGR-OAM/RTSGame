@@ -23,10 +23,12 @@ namespace Orders.EntityOrder
     
     public class MoveAttackOrder : GameOrder
     {
+        private float timer;
+        private float currenttime = 0;
         private Vector3 destination;
         private GameObject target;
         private Warrior UnitToOrder;
-
+        private float attackrecharge;
         public MoveAttackOrder(MoveAttackOrderVariableParams orderVariableParams) :base(orderVariableParams)
         {
             this.destination = orderVariableParams.destination;
@@ -34,7 +36,7 @@ namespace Orders.EntityOrder
 
         public override void StartOrder()
         {
-            
+            timer = Time.time;
             if (ObjectToOrder.TryGetComponent(typeof(Warrior), out Component component))
             {
                 base.StartOrder();
@@ -42,6 +44,7 @@ namespace Orders.EntityOrder
                 UnitToOrder = unit;
                 unit.agent.isStopped = false;
                 unit.agent.SetDestination(destination);
+                attackrecharge = unit.attackrecharge;
             }
         }
 
@@ -72,9 +75,21 @@ namespace Orders.EntityOrder
                 }
                 else if (UnitToOrder.isNearToDestination(target.transform.position,UnitToOrder.attackDistance))
                 {
-                    TryAttack(UnitToOrder);
+                    if (currenttime - timer >= attackrecharge)
+                    {
+                        Debug.Log("hui");
+                        TryAttack(UnitToOrder);
+                        timer = Time.time;
+                    }
+                    else
+                    {
+                        Debug.Log("Ne hui"+currenttime);
+                        currenttime = Time.time;
+                    }
+                    
                 }
-                
+
+                currenttime = Time.time;
             }
         }
 
