@@ -652,9 +652,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerResources:
-    neoSteel: 1000000
-    titanium: 1000000
-    unobtanium: 1000000
+    neoSteel: 200
+    titanium: 100
+    unobtanium: 0
 --- !u!4 &181414839
 Transform:
   m_ObjectHideFlags: 0
