@@ -121,6 +121,7 @@ namespace Buildings
         public void PlaceFlyingBuilding()
         {
             PlayerManager.PlayerResoucesManager.playerResources -= flyingBuilding.BuildingCost;
+            hexGrid.MapData.ConstructedBuildings.Add(flyingBuilding);
             flyingBuilding = null;
             StopPlacingBuilding();
         }

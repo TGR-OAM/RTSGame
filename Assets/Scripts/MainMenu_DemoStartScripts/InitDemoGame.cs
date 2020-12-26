@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using Buildings;
 using GameResources;
 using MainMenu_DemoStartScripts;
@@ -12,8 +13,10 @@ using UnityEngine.Serialization;
 public class InitDemoGame : MonoBehaviour
 {
     public int DemoSceneIndex;
-
-    public Unit[] UnitsToLoad;
+    
+    public Unit[] UnitsToLoadHub;
+    public Unit[] UnitsToLoadBarracks;
+    public Unit[] UnitsToLoadConstructor;
 
     public Building[] BuildingsToLoad;
 
@@ -33,12 +36,28 @@ public class InitDemoGame : MonoBehaviour
             BuildExamples.Add(typeof(BuildOrderInitParams).FullName + "."+ var.name,new BuildOrderInitParams(var, "Build "+var.name));
         }
 
-        Dictionary<string, UnitCreationOrderInitParams> UnitCreationExamples =
+        Dictionary<string, UnitCreationOrderInitParams> UnitCreationHubExamples =
             new Dictionary<string, UnitCreationOrderInitParams>();
 
-        foreach (Unit unit in UnitsToLoad)
+        foreach (Unit unit in UnitsToLoadHub)
         {
-            UnitCreationExamples.Add(typeof(UnitCreationOrderInitParams).FullName + "." + unit.name, new UnitCreationOrderInitParams(unit, 1f, "Create unit " + unit.name));
+            UnitCreationHubExamples.Add(typeof(UnitCreationOrderInitParams).FullName + "." + unit.name, new UnitCreationOrderInitParams(unit, 1f, "Create unit " + unit.name));
+        }
+        
+        Dictionary<string, UnitCreationOrderInitParams> UnitCreationBarracksExamples =
+            new Dictionary<string, UnitCreationOrderInitParams>();
+
+        foreach (Unit unit in UnitsToLoadBarracks)
+        {
+            UnitCreationBarracksExamples.Add(typeof(UnitCreationOrderInitParams).FullName + "." + unit.name, new UnitCreationOrderInitParams(unit, 1f, "Create unit " + unit.name));
+        }
+        
+        Dictionary<string, UnitCreationOrderInitParams> UnitCreationConstructorExamples =
+            new Dictionary<string, UnitCreationOrderInitParams>();
+
+        foreach (Unit unit in UnitsToLoadConstructor)
+        {
+            UnitCreationConstructorExamples.Add(typeof(UnitCreationOrderInitParams).FullName + "." + unit.name, new UnitCreationOrderInitParams(unit, 1f, "Create unit " + unit.name));
         }
 
         #endregion
@@ -47,6 +66,10 @@ public class InitDemoGame : MonoBehaviour
 
         #region UnitLoadInitialization
 
+        List<Unit> UnitsToLoad = UnitsToLoadHub.ToList();
+        UnitsToLoad.AddRange(UnitsToLoadBarracks);
+        UnitsToLoad.AddRange(UnitsToLoadConstructor);
+        
         foreach (Unit unit in UnitsToLoad)
         {
             if (unit is Warrior)
@@ -91,23 +114,50 @@ public class InitDemoGame : MonoBehaviour
         #endregion
 
         #region BuildingLoadInitialization
-
-        foreach (Building building in BuildingsToLoad)
+        
+        #region Barracks Load
+        Dictionary<string, GameOrderInitParams> AllOrdersExamplesBarracks = new Dictionary<string, GameOrderInitParams>();
+                
+        foreach (KeyValuePair<string,UnitCreationOrderInitParams> keyValuePair in UnitCreationBarracksExamples)
         {
-            if (building is Building && !(building is ResourcesExtractor))
-            {
-                Dictionary<string, GameOrderInitParams> AllOrdersExamples = new Dictionary<string, GameOrderInitParams>();
-                
-                foreach (KeyValuePair<string,UnitCreationOrderInitParams> keyValuePair in UnitCreationExamples)
-                {
-                    AllOrdersExamples.Add(keyValuePair.Key,keyValuePair.Value);
-                }
-                
-                LoadEntetyData HubLoadData = new LoadEntetyData(building.gameObject, AllOrdersExamples);
-                
-                EntityLoader.AddNewEntetyTypeToDictionary(building.GetType(),HubLoadData);
-            }
+            AllOrdersExamplesBarracks.Add(keyValuePair.Key,keyValuePair.Value);
         }
+                
+        LoadEntetyData BarracksLoadData = new LoadEntetyData(BuildingsToLoad[0].gameObject, AllOrdersExamplesBarracks);
+                
+        EntityLoader.AddNewEntetyTypeToDictionary(BuildingsToLoad[0].GetType(),BarracksLoadData);
+        #endregion
+
+        #region HubLoad
+
+        Dictionary<string, GameOrderInitParams> AllOrdersExamplesHub = new Dictionary<string, GameOrderInitParams>();
+                
+        foreach (KeyValuePair<string,UnitCreationOrderInitParams> keyValuePair in UnitCreationHubExamples)
+        {
+            AllOrdersExamplesHub.Add(keyValuePair.Key,keyValuePair.Value);
+        }
+                
+        LoadEntetyData HubLoadData = new LoadEntetyData(BuildingsToLoad[2].gameObject, AllOrdersExamplesHub);
+                
+        EntityLoader.AddNewEntetyTypeToDictionary(BuildingsToLoad[2].GetType(),HubLoadData);
+
+        #endregion
+        
+        #region Constructor Load
+
+        Dictionary<string, GameOrderInitParams> AllOrdersExamplesConstructor = new Dictionary<string, GameOrderInitParams>();
+                
+        foreach (KeyValuePair<string,UnitCreationOrderInitParams> keyValuePair in UnitCreationConstructorExamples)
+        {
+            AllOrdersExamplesConstructor.Add(keyValuePair.Key,keyValuePair.Value);
+        }
+                
+        LoadEntetyData ConstructorLoadData = new LoadEntetyData(BuildingsToLoad[1].gameObject, AllOrdersExamplesConstructor);
+                
+        EntityLoader.AddNewEntetyTypeToDictionary(BuildingsToLoad[1].GetType(),ConstructorLoadData);
+
+        #endregion
+        
 
         #endregion
         
