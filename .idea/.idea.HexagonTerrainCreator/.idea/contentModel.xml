@@ -46,6 +46,8 @@
             <e p="UnitsCreator.cs" t="Include" />
           </e>
           <e p="Buildings" t="Include">
+            <e p="Barracks.cs" t="Include" />
+            <e p="BotConstructor.cs" t="Include" />
             <e p="Builder.cs" t="Include" />
             <e p="Building.cs" t="Include" />
             <e p="MainHub.cs" t="Include" />

@@ -331,7 +331,7 @@ MonoBehaviour:
   UnitsToLoadConstructor:
   - {fileID: 2586034527180965024, guid: bf09aa5a0bec137469aa42ee8e6219c4, type: 3}
   BuildingsToLoad:
-  - {fileID: 8205979929494484361, guid: d80e758dcddce1f489ef0f6a754cdb7a, type: 3}
+  - {fileID: -8421094402330343062, guid: d80e758dcddce1f489ef0f6a754cdb7a, type: 3}
   - {fileID: 7781565261085879258, guid: 112265c1b89c4b145ba9d3cd5bbcad49, type: 3}
   - {fileID: 1513049481762636935, guid: 34758492df9b4864183b3e1dea84064b, type: 3}
   - {fileID: 7698720637927374219, guid: 6a0f1c05e9337c642abf03d1d03ec15b, type: 3}
