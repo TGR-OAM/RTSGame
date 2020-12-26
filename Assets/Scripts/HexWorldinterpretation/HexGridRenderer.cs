@@ -18,8 +18,6 @@ namespace HexWorldinterpretation
 
             GameObject MeshPart = new GameObject("Mesh Part");
 
-            ((NavMeshSurface) MeshPart.AddComponent(typeof(NavMeshSurface))).agentTypeID = 0;
-
             MeshPart.transform.parent = hexGrid.transform;
 
             for (int x = 0;x < MapData.width;x++)
@@ -27,7 +25,7 @@ namespace HexWorldinterpretation
                 InitColumn(x, hexGrid, MeshPart.transform);
             }
             
-            NavMeshSurface[] navMeshSurfaces = MeshPart.GetComponents(typeof(NavMeshSurface)).Select(x => x as NavMeshSurface).ToArray();
+            NavMeshSurface[] navMeshSurfaces = hexGrid.GetComponents(typeof(NavMeshSurface)).Select(x => x as NavMeshSurface).ToArray();
             
             foreach (NavMeshSurface navMeshSurface in navMeshSurfaces)
             {

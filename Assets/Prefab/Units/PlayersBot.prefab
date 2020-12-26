@@ -167,6 +167,8 @@ MonoBehaviour:
   agent: {fileID: 814608776215377282}
   fractionMember: {fileID: 814608776215377287}
   orderableObject: {fileID: 5886744827755816414}
+  attackrecharge: 0
+  damagePerSecond: 10
 --- !u!114 &3126975373417331743
 MonoBehaviour:
   m_ObjectHideFlags: 0

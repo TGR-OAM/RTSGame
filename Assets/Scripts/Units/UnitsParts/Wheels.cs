@@ -6,8 +6,8 @@ using UnityEngine;
 public class Wheels : MonoBehaviour
 {
     public Robot robot;
-    public float speed { get; private set; } = 50;
-    public float acceleration { get; private set; } = 10;
+    public float speed { get; private set; } = 10;
+    public float acceleration { get; private set; } = 30;
     public float hp { get; private set; } = 50;
     public float stopDistance { get; private set; } = 5;
     void Start()

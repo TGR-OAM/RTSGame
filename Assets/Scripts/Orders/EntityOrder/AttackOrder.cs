@@ -100,7 +100,7 @@ namespace Orders.EntityOrder
             thisUnit.transform.LookAt(target.transform.position);
             if(WarriorToOrder is Robot)
                 (WarriorToOrder as Robot).WhoAttacking(new WhoAttakingDelegate());
-            target.GetComponent<DamageSystem>().TakeDamage(thisUnit.damagePerSecond * Time.deltaTime);
+            target.GetComponent<DamageSystem>().TakeDamage(thisUnit.damagePerSecond);
         }
     
         #endregion

@@ -77,13 +77,11 @@ namespace Orders.EntityOrder
                 {
                     if (currenttime - timer >= attackrecharge)
                     {
-                        Debug.Log("hui");
                         TryAttack(UnitToOrder);
                         timer = Time.time;
                     }
                     else
                     {
-                        Debug.Log("Ne hui"+currenttime);
                         currenttime = Time.time;
                     }
                     
@@ -129,9 +127,9 @@ namespace Orders.EntityOrder
            
             if(thisUnit == null) return;
             thisUnit.transform.LookAt(target.transform.position);
+            target.GetComponent<DamageSystem>().TakeDamage(thisUnit.damagePerSecond);
             if(UnitToOrder is Robot)
                 (UnitToOrder as Robot).WhoAttacking(new WhoAttakingDelegate());
-            target.GetComponent<DamageSystem>().TakeDamage(thisUnit.damagePerSecond * Time.deltaTime);
         }
 
         #endregion

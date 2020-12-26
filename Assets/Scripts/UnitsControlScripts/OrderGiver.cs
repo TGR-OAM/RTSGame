@@ -47,7 +47,7 @@ namespace UnitsControlScripts
                     {
                         if (fraction != raycastHitGameObjectFraction.fraction)
                         {
-                            AttackOrderInitParams attackOrderInitParams = EntityLoader.GetOrderInitParamsFromDictionary(hit.transform.GetComponent<Unit>().GetType())
+                            AttackOrderInitParams attackOrderInitParams = EntityLoader.GetOrderInitParamsFromDictionary(typeof(Warrior))
                                 .GetOrderInitParamsFromType(typeof(AttackOrderInitParams).ToString()) as AttackOrderInitParams;
                             AttackOrderVariableParams attackOrderVariableParams = new AttackOrderVariableParams(raycastHitGameObject, null);
                             GiveOrderToUnits(EntetiesToOrder, attackOrderInitParams, attackOrderVariableParams);
@@ -64,7 +64,7 @@ namespace UnitsControlScripts
                     {
                         if (inputHandler.PossibleOrders.Any(x => x is AttackOrderInitParams))
                         {
-                            AttackOrderInitParams attackOrderInitParams = EntityLoader.GetOrderInitParamsFromDictionary(hit.transform.GetComponent<Unit>().GetType())
+                            AttackOrderInitParams attackOrderInitParams = EntityLoader.GetOrderInitParamsFromDictionary(typeof(Warrior))
                                 .GetOrderInitParamsFromType(typeof(AttackOrderInitParams).ToString()) as AttackOrderInitParams;
                             AttackOrderVariableParams attackOrderVariableParams =
                                 new AttackOrderVariableParams(enemyObject, null);

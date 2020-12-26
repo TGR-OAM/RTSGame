@@ -9,9 +9,9 @@ namespace Units
     public class Warrior: Unit
     {
         public float attackrecharge;
-        public float attackDistance { get; protected set; }
-        public float visionDistance { get; protected set; }
-        public float damagePerSecond { get; protected set; }
+        public float attackDistance = 10f;
+        public float visionDistance = 20f;
+        public float damagePerSecond;
 
         protected void Start()
         {
