@@ -3814,10 +3814,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99ce49e6b05b5ec4c9e1ab14cf93f1fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  unitCreatingInterval: 5
+  unitCreatingInterval: 15
+  FirstunitCreatingInterval: 30
   creatingPos: {x: 0, y: 0, z: 0}
-  WarriorToCreate: {fileID: 5988925921437548174, guid: e6781644ed9a9644b942dd2e3c8d2dc5, type: 3}
-  BuilderToCreate: {fileID: 0}
+  WarriorToCreate: {fileID: 3745139674692224535, guid: 65d360f30fdc15f4684dbb9edcf171a1, type: 3}
+  TargetToAttack: {fileID: 2099031675}
 --- !u!136 &1994272562
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -4459,6 +4460,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bf09aa5a0bec137469aa42ee8e6219c4, type: 3}
+--- !u!1 &2099031675 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1513049481762636928, guid: 34758492df9b4864183b3e1dea84064b, type: 3}
+  m_PrefabInstance: {fileID: 1513049482143195266}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &2128461858 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1310238183647084350, guid: 1987fdb3388969b4da09a381f1ec69d3, type: 3}

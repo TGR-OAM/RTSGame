@@ -33,6 +33,8 @@ namespace Orders
                 case UnitCreationOrderInitParams unitCreationOrderInitParams:
                     return new UnitCreationOrder(unitCreationOrderInitParams,
                         orderVariableParams as UnitCreationOrderVariableParams);
+                case DefendOrderInitParams defendOrderInitParams:
+                    return new DefendOrder(orderVariableParams as DefendOrderVariableParams);
                 default:
                     throw new ArgumentOutOfRangeException(paramName: "orderInitParams");
             }

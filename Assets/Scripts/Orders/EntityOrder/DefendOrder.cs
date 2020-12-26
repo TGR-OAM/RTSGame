@@ -1,27 +1,28 @@
 ﻿using Units;
 using UnitsControlScripts;
 using UnityEngine;
+using UnityEngine.PlayerLoop;
 
 namespace Orders.EntityOrder
 {
-    public class MoveAttackOrderInitParams : GameOrderInitParams
+    public class DefendOrderInitParams:GameOrderInitParams
     {
-        public MoveAttackOrderInitParams(string orderName) : base(orderName)
+        public DefendOrderInitParams(string orderName) : base(orderName)
         {
-        }
-    }
-
-    public class MoveAttackOrderVariableParams : GameOrderVariableParams
-    {
-        public Vector3 destination;
-        
-        public MoveAttackOrderVariableParams(Vector3 destination, GameObject objectToOrder) : base(objectToOrder)
-        {
-            this.destination = destination;
         }
     }
     
-    public class MoveAttackOrder : GameOrder
+    public class DefendOrderVariableParams:GameOrderVariableParams
+    {
+        public Vector3 PositionToDefend;
+        
+        public DefendOrderVariableParams(Vector3 PositionToDefend,GameObject objectToOrder) : base(objectToOrder)
+        {
+            this.PositionToDefend = PositionToDefend;
+        }
+    }
+
+    public class DefendOrder:GameOrder
     {
         private float timer;
         private float currenttime = 0;
@@ -30,9 +31,9 @@ namespace Orders.EntityOrder
         private GameObject target;
         private Warrior UnitToOrder;
 
-        public MoveAttackOrder(MoveAttackOrderVariableParams orderVariableParams) :base(orderVariableParams)
+        public DefendOrder(DefendOrderVariableParams orderVariableParams) :base(orderVariableParams)
         {
-            this.destination = orderVariableParams.destination;
+            this.destination = orderVariableParams.PositionToDefend;
         }
 
         public override void StartOrder()
@@ -53,11 +54,6 @@ namespace Orders.EntityOrder
         {
             if (UnitToOrder != null) 
             {
-                if (UnitToOrder.isNearToDestination(destination,UnitToOrder.reachDistance))
-                {
-                    StopOrder();
-                }
-
                 if (target == null)
                 {
                     GameObject bestTarget = UpdateTarget(UnitToOrder);
@@ -87,7 +83,7 @@ namespace Orders.EntityOrder
                     {
                         currenttime = Time.time;
                     }
-                    UnitToOrder.transform.LookAt(target.transform.position);
+                    
                     UnitToOrder.agent.isStopped = true;
                 }
                 else
@@ -138,7 +134,6 @@ namespace Orders.EntityOrder
             if(UnitToOrder is Robot)
                 (UnitToOrder as Robot).WhoAttacking(new WhoAttakingDelegate());
         }
-
         #endregion
     }
 }

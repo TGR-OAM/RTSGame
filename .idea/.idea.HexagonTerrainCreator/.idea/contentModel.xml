@@ -87,6 +87,7 @@
             <e p="EntityOrder" t="Include">
               <e p="AttackOrder.cs" t="Include" />
               <e p="BuildOrder.cs" t="Include" />
+              <e p="DefendOrder.cs" t="Include" />
               <e p="GameOrder.cs" t="Include" />
               <e p="MoveAttackOrder.cs" t="Include" />
               <e p="MoveOrder.cs" t="Include" />

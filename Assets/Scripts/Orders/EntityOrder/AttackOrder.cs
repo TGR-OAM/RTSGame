@@ -65,6 +65,7 @@ namespace Orders.EntityOrder
             {
                 if (WarriorToOrder.isNearToDestination(target.transform.position, WarriorToOrder.attackDistance))
                 {
+                    
                     if (currenttime - timer >= attackrecharge)
                     {
                         Attack(WarriorToOrder);
@@ -74,7 +75,7 @@ namespace Orders.EntityOrder
                     {
                         currenttime = Time.time;
                     }
-                        
+                    WarriorToOrder.transform.LookAt(target.transform.position);
                     WarriorToOrder.agent.isStopped = true;
                 }
                 else
