@@ -46,10 +46,6 @@ namespace HexWordEditor
 
             switch (saveType)
             {
-                case SaveType.defaultSave:
-                    MapSaverXMLFile_DefaultSave(ref CellsData,ref ColorMap, MapToSave);
-                    break;
-
                 case SaveType.overrideSave:
                     MapSaverXMLFile_OverrideSave(ref CellsData, ref ColorMap, MapToSave);
                     break;
