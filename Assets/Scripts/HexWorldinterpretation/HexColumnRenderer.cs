@@ -21,10 +21,8 @@ namespace HexWorldinterpretation
 
         public void UpdateColumn(int x)
         {
-            Mesh ColumnMesh = new Mesh();
-
             List<Vector3> Vertices = new List<Vector3>();
-            List<Vector2> Uv = new List<Vector2>();
+            List<Vector3> Uv = new List<Vector3>();
             List<int> Tris = new List<int>();
             List<Color> colors = new List<Color>();
 
@@ -39,11 +37,12 @@ namespace HexWorldinterpretation
             {
                 Uv[i] /= 35f;
             }
+            Mesh ColumnMesh = new Mesh();
             
             ColumnMesh.vertices = Vertices.ToArray();
-            ColumnMesh.uv = Uv.ToArray();
-            ColumnMesh.triangles = Tris.ToArray();
-            ColumnMesh.colors = colors.ToArray();
+            //ColumnMesh.SetUVs(2,Uv);
+            ColumnMesh.SetTriangles(Tris,0);
+            //ColumnMesh.colors = colors.ToArray();
 
             ColumnMesh.RecalculateNormals();
             ColumnMesh.Optimize();
@@ -54,7 +53,7 @@ namespace HexWorldinterpretation
         }
 
 
-        void InitCell(List<Vector3> Vertices,List<Vector2> Uv,List<int> Tris, List<Color> colors,int x, int z,float HexSizeWithPadding)
+        void InitCell(List<Vector3> Vertices,List<Vector3> Uv,List<int> Tris, List<Color> colors,int x, int z,float HexSizeWithPadding)
         {
             Vector3 ThisCenter = HexMetrics.CalcCenterCoordXZFromHexCoordXZ(new Vector3(x, 0, z), MapData);
 
@@ -178,22 +177,22 @@ namespace HexWorldinterpretation
         }
 
 
-        void AddSquare( List<Vector3> Vertices, List<Vector2> Uv,List<int> Tris,  List<Color> colors, Vector3 v1, Color color1, Vector3 v2, Color color2, Vector3 v3, Color color3, Vector3 v4, Color color4)
+        void AddSquare( List<Vector3> Vertices, List<Vector3> Uv,List<int> Tris,  List<Color> colors, Vector3 v1, Color color1, Vector3 v2, Color color2, Vector3 v3, Color color3, Vector3 v4, Color color4)
         {
             AddTriangle( Vertices,Uv,  Tris,  colors, v1,  v2,  v3, color1, color2, color3);
             AddTriangle( Vertices,Uv,  Tris,  colors, v3, v4,  v1, color3, color4, color1);
         }
 
-        void AddTriangle( List<Vector3> OutVertices, List<Vector2> Uv, List<int> Tris,  List<Color> colors, Vector3 v1, Vector3 v2, Vector3 v3, Color color1, Color color2, Color color3)
+        void AddTriangle( List<Vector3> OutVertices, List<Vector3> Uv, List<int> Tris,  List<Color> colors, Vector3 v1, Vector3 v2, Vector3 v3, Color color1, Color color2, Color color3)
         {
             int VertCount = OutVertices.Count;
             OutVertices.Add(v1);
             OutVertices.Add(v2);
             OutVertices.Add(v3);
             
-            Uv.Add(new Vector2(v1.x,v1.z));
-            Uv.Add(new Vector2(v2.x,v2.z));
-            Uv.Add(new Vector2(v3.x,v3.z));
+            Uv.Add(new Vector3(0,0,0));
+            Uv.Add(new Vector3(0,0,0));
+            Uv.Add(new Vector3(0,0,0));
 
             colors.Add(color1);
             colors.Add(color2);
@@ -204,16 +203,16 @@ namespace HexWorldinterpretation
             Tris.Add(VertCount + 2);
         }
 
-        void AddTriangle( List<Vector3> Vertices, List<Vector2> Uv,  List<int> Tris,  List<Color> colors, Vector3 v1, Vector3 v2, Vector3 v3, Color color)
+        void AddTriangle( List<Vector3> Vertices, List<Vector3> Uv,  List<int> Tris,  List<Color> colors, Vector3 v1, Vector3 v2, Vector3 v3, Color color)
         {
             int VertCount = Vertices.Count;
             Vertices.Add(v1);
             Vertices.Add(v2);
             Vertices.Add(v3);
 
-            Uv.Add(new Vector2(v1.x,v1.z));
-            Uv.Add(new Vector2(v2.x,v2.z));
-            Uv.Add(new Vector2(v3.x,v3.z));
+            Uv.Add(new Vector3(0,0,0));
+            Uv.Add(new Vector3(0,0,0));
+            Uv.Add(new Vector3(0,0,0));
             
             colors.Add(color);
             colors.Add(color);
