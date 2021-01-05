@@ -13,8 +13,11 @@ public class UnitsCreator : MonoBehaviour
     private float unitCreatingInterval;
     [SerializeField]
     private float FirstunitCreatingInterval;
+    
+    [SerializeField]
+    private float SecondtunitCreatingInterval;
 
-    private bool isFirst = true;
+    private int NumPhase = 0;
     private float timeFromPreviousCreation;
     [SerializeField]
     private Vector3 creatingPos;
@@ -22,6 +25,8 @@ public class UnitsCreator : MonoBehaviour
     private Warrior WarriorToCreate;
     [SerializeField]
     private GameObject TargetToAttack;
+    [SerializeField]
+    private GameObject DefendToAttack;
     
     private void Start()
     {
@@ -31,9 +36,21 @@ public class UnitsCreator : MonoBehaviour
     void Update()
     {
         timeFromPreviousCreation += Time.deltaTime;
-        if (timeFromPreviousCreation >= unitCreatingInterval && !isFirst)
+        if (timeFromPreviousCreation >= FirstunitCreatingInterval && NumPhase < 6)
         {
+            NumPhase++;
+            Warrior warrior = Instantiate(WarriorToCreate, new Vector3(this.transform.position.x,0,transform.position.z), Quaternion.identity);
 
+            if (TargetToAttack != null)
+            {
+                warrior.orderableObject.GiveOrder((new DefendOrderInitParams("")).CreateOrder(new DefendOrderVariableParams(DefendToAttack.transform.position,warrior.gameObject)));
+            }
+            
+            timeFromPreviousCreation = 0;
+        }
+        else if(timeFromPreviousCreation >= unitCreatingInterval && NumPhase >= 6)
+        {
+            NumPhase ++;
             Warrior warrior = Instantiate(WarriorToCreate, new Vector3(this.transform.position.x,0,transform.position.z), Quaternion.identity);
 
             if (TargetToAttack != null)
@@ -43,17 +60,6 @@ public class UnitsCreator : MonoBehaviour
             
             timeFromPreviousCreation = 0;
         }
-        else if(timeFromPreviousCreation >= FirstunitCreatingInterval && isFirst)
-        {
-            isFirst = false;
-            Warrior warrior = Instantiate(WarriorToCreate, new Vector3(this.transform.position.x,0,transform.position.z), Quaternion.identity);
 
-            if (TargetToAttack != null)
-            {
-                warrior.orderableObject.GiveOrder((new MoveAttackOrderInitParams("")).CreateOrder(new MoveAttackOrderVariableParams(TargetToAttack.transform.position,warrior.gameObject)));
-            }
-            
-            timeFromPreviousCreation = 0;
-        }
     }
 }

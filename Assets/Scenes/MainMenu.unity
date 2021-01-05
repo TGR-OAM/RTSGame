@@ -323,7 +323,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 443e39c13f120464883ae03c23d731b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DemoSceneIndex: 0
+  DemoSceneIndex: 1
   UnitsToLoadHub:
   - {fileID: 8757334258195730617, guid: 2276cdc9f06cde44293b0226012c14d2, type: 3}
   UnitsToLoadBarracks:

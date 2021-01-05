@@ -39,7 +39,7 @@ namespace HexWordEditor
 
             MapData.Add(new XElement("materialPath", MapToSave.materialPath));
 
-            XElement HeightMap = new XElement("HeightMap", new XAttribute("type", saveType.ToString()));
+            XElement CellsData = new XElement("CellsData", new XAttribute("type", saveType.ToString()));
             
 
             XElement ColorMap = new XElement("ColorMap", new XAttribute("type", SaveType.overrideSave));
@@ -47,20 +47,20 @@ namespace HexWordEditor
             switch (saveType)
             {
                 case SaveType.defaultSave:
-                    MapSaverXMLFile_DefaultSave(ref HeightMap,ref ColorMap, MapToSave);
+                    MapSaverXMLFile_DefaultSave(ref CellsData,ref ColorMap, MapToSave);
                     break;
 
                 case SaveType.overrideSave:
-                    MapSaverXMLFile_OverrideSave(ref HeightMap, ref ColorMap, MapToSave);
+                    MapSaverXMLFile_OverrideSave(ref CellsData, ref ColorMap, MapToSave);
                     break;
 
             }
-            MapData.Add(HeightMap);
+            MapData.Add(CellsData);
             MapData.Add(ColorMap);
 
             XmlDoc.Save(Application.dataPath+"/"+ "Resources/"+ path + ".xml");
-            // AssetDatabase.SaveAssets();
-            // AssetDatabase.Refresh();
+            AssetDatabase.SaveAssets();
+            AssetDatabase.Refresh();
         }
 
         static void MapSaverXMLFile_DefaultSave(ref XElement HeightMap, ref XElement ColorMap, HexGridData MapData)
@@ -96,13 +96,14 @@ namespace HexWordEditor
             {
                 for (int x = 0; x < MapData.width; x++)
                 {
-                    #region Save color
-                    if (MapData.ColorMap[z * MapData.width + x] != MapData.Default.color)
+                    #region SaveCell
+                    if(MapData.HeightMap[z * MapData.width + x] != 0 || MapData.ColorMap[z * MapData.width + x] != MapData.Default.color)
                     {
                         XElement Cell = new XElement("Cell");
 
                         Cell.Add(new XElement("Xindex", x));
                         Cell.Add(new XElement("Zindex", z));
+                        Cell.Add(new XElement("Y", MapData.HeightMap[z * MapData.width + x].ToString(CInfo)));
 
                         XElement Color = new XElement("Color");
 
@@ -111,19 +112,7 @@ namespace HexWordEditor
                         Color.Add(new XElement("Blue", MapData.ColorMap[z * MapData.width + x].b));
 
                         Cell.Add(Color);
-                        ColorMap.Add(Cell);
-                    }
-                    #endregion
-
-                    #region SaveHeight
-                    if(MapData.HeightMap[z * MapData.width + x] != 0)
-                    {
-                        XElement Cell = new XElement("Cell");
-
-                        Cell.Add(new XElement("Xindex", x));
-                        Cell.Add(new XElement("Zindex", z));
-                        Cell.Add(new XElement("Y", MapData.HeightMap[z * MapData.width + x].ToString(CInfo)));
-
+                        
                         HeightMap.Add(Cell);
                     }
                     #endregion

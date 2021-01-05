@@ -33,7 +33,6 @@ namespace Units
             }
             damageSystem.SetMaxHp(MaxHp);
             damageSystem.SetHpToMax();
-            Debug.Log(damageSystem.Hp);
         }
         public void wheelsInit()
         {
@@ -43,9 +42,8 @@ namespace Units
             MaxHp += Wheels.hp;
             damageSystem.SetMaxHp(MaxHp);
             damageSystem.SetHpToMax();
-            Debug.Log(damageSystem.Hp);
         }
-
+ 
         public void bodyInit()
         {
             MaxHp += Body.hp;
@@ -53,31 +51,29 @@ namespace Units
             visionDistance = Body.visionDistance;
             damageSystem.SetMaxHp(MaxHp);
             damageSystem.SetHpToMax();
-            Debug.Log(damageSystem.Hp);
         }
 
         public void weaponInit()
         {
             float attackdist = 0;
-            foreach (var VARIABLE in Weapons)
+            foreach (Weapon weapon in Weapons)
             {
-                MaxHp += VARIABLE.hp;
-                damagePerSecond += VARIABLE.damage;
-                attackdist += VARIABLE.attackdistance;
+                MaxHp += weapon.hp;
+                damagePerSecond += weapon.damage;
+                attackdist += weapon.attackdistance;
             }
 
             attackdist /= Weapons.Length;
             attackDistance = attackdist;
             damageSystem.SetMaxHp(MaxHp);
             damageSystem.SetHpToMax();
-            Debug.Log(damageSystem.Hp);
         }
         protected override void BaseOrderListInitialization()
         {
             base.BaseOrderListInitialization();
-            foreach (var w in Weapons)
+            foreach (var weapon in Weapons)
             {
-                WhoAttacking += shooting => w.Shoot(shooting);
+                WhoAttacking += shooting => weapon.Shoot(shooting);
             }
         }
 

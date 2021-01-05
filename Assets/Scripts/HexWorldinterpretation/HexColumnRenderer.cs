@@ -48,6 +48,7 @@ namespace HexWorldinterpretation
             ColumnMesh.RecalculateNormals();
             ColumnMesh.Optimize();
 
+            Column.layer = 9;
             Column.GetComponent<MeshFilter>().mesh = ColumnMesh;
             Column.GetComponent<MeshRenderer>().material = MapData.Default;
         }

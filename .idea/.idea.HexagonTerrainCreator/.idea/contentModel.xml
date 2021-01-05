@@ -25,19 +25,9 @@
           </e>
         </e>
         <e p="Resources" t="Include">
-          <e p="SavedMaps" t="Include">
-            <e p="1234.xml" t="Include" />
-            <e p="bad save.xml" t="Include" />
-            <e p="coloredMap.xml" t="Include" />
-            <e p="MapExample.xml" t="Include" />
-            <e p="Prototype map example.xml" t="Include" />
-            <e p="some map.xml" t="Include" />
-            <e p="someName.xml" t="Include" />
-          </e>
           <e p="Xml" t="Include">
-            <e p="example1.xml" t="Include" />
             <e p="MapExample.xml" t="Include" />
-            <e p="MapExampleForEditor.xml" t="Include" />
+            <e p="RigMap.xml" t="Include" />
           </e>
         </e>
         <e p="Scripts" t="Include">
@@ -77,6 +67,7 @@
             <e p="HexGridColiderer.cs" t="Include" />
             <e p="HexGridRenderer.cs" t="Include" />
             <e p="HexMetrics.cs" t="Include" />
+            <e p="TextureArrayWizard.cs" t="Include" />
             <e p="XMLMapLoader.cs" t="Include" />
           </e>
           <e p="MainMenu_DemoStartScripts" t="Include">
@@ -132,6 +123,7 @@
         </e>
         <e p="Shaders" t="Include">
           <e p="BasicMeshColorer.shader" t="Include" />
+          <e p="TextureMeshColorer.shader" t="Include" />
         </e>
       </e>
       <e p="HexagonTerrainCreator.sln" t="IncludeFlat" />

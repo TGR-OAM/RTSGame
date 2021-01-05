@@ -5,18 +5,50 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="17ebf66f-4afe-4731-9078-d61fb3995c9d" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.HexagonTerrainCreator/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.HexagonTerrainCreator/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.HexagonTerrainCreator/.idea/indexLayout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.HexagonTerrainCreator/.idea/indexLayout.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.HexagonTerrainCreator/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.HexagonTerrainCreator/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefab/Buildings/Barraks/Barraks.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefab/Buildings/Barraks/Barraks.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefab/Buildings/BotsConst/Bots constructor.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefab/Buildings/BotsConst/Bots constructor.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefab/Buildings/Extractor/Extractor.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefab/Buildings/Extractor/Extractor.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/InputActions/Actions.inputactions" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/InputActions/Actions.inputactions" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/InputActions/CameraMovement.inputactions" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/InputActions/CameraMovement.inputactions.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Prefab/Buildings/Hub/Hub.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefab/Buildings/Hub/Hub.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/PrototypePolygon.unity" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/PrototypePolygon.unity.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Buildings/Building.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Buildings/Building.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Orders/EntityOrder/UnitCreationTask.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Orders/EntityOrder/UnitCreationTask.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PlayerScripts/InputHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PlayerScripts/InputHandler.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefab/Units/Builder.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefab/Units/Builder.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefab/Units/TankEnemy Variant.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefab/Units/TankEnemy Variant.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/RTS_Scifi_game_assets/Models/Structures/Structure_v1/Source/Structure_1.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/RTS_Scifi_game_assets/Models/Structures/Structure_v1/Source/Structure_1.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Materials/1e6fcc5ab70d3adb6c683867aca5326d.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Materials/1e6fcc5ab70d3adb6c683867aca5326d.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Materials/Images/Materials.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/SavedMaps.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/SavedMaps/1234.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/SavedMaps/1234.xml.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/SavedMaps/MapExample.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/SavedMaps/MapExample.xml.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/SavedMaps/Prototype map example.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/SavedMaps/Prototype map example.xml.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/SavedMaps/bad save.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/SavedMaps/bad save.xml.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/SavedMaps/coloredMap.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/SavedMaps/coloredMap.xml.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/SavedMaps/some map.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/SavedMaps/some map.xml.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/SavedMaps/someName.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/SavedMaps/someName.xml.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Xml/MapExampleForEditor.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Xml/MapExampleForEditor.xml.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Xml/example1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Xml/example1.xml.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/DemoGame.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/DemoGame.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/EditorExample.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/EditorExample.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/MainMenu.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/MainMenu.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/AIScripts/UnitsCreator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/AIScripts/UnitsCreator.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/HexWordEditor/TestEditorScript.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/HexWordEditor/TestEditorScript.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/HexWordEditor/XMLMapSaver.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/HexWordEditor/XMLMapSaver.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/HexWorldinterpretation/HexColumnRenderer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/HexWorldinterpretation/HexColumnRenderer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Units/Robot.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Units/Robot.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Units/Unit.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Units/Unit.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/NavMeshAreas.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/NavMeshAreas.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,23 +63,22 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Buildings/MainHub.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/MainMenu_DemoStartScripts/InitDemoGame.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/FE84F4A7-54DA-4A6B-B64F-CA409D40938A/1b/4e304764/Component.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/507F517A-E786-4F43-9B73-0EED1DBF6793/c5/fae2439e/NavMeshVisualizationSettings.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/UIScripts/LookTowardMainCamera.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/UIScripts/ProccessBar.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/UIScripts/OrderButtonsSetter.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/UIScripts/ResourcesDisplayUI.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/IL/507F517A-E786-4F43-9B73-0EED1DBF6793/d6/772a3013/0200120A.il" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/FE84F4A7-54DA-4A6B-B64F-CA409D40938A/45/c272d3b7/GameObject.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/HexWorldinterpretation/TextureArrayWizard.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../Multiplayer_OrderSystem/Assets/Scripts/FractionSelectionManager.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.inputsystem@1.0.1/InputSystem/NativeInputRuntime.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../Multiplayer_OrderSystem/Assets/Scripts/UnitsControlScripts/FractionMember.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/IL/5D0A9302-6E69-48AC-B3C2-D220BC9BFDC6/9d/872dee51/02000190pdb.il" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.inputsystem@1.0.1/InputSystem/Utilities/DelegateHelpers.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
-      <option value="$PROJECT_DIR$/Assets/Scripts/HexWordEditor/XMLMapSaver.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/UIScripts/MinimapObjectScript.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Orders/GameOrderInitParams.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Orders/GameOrder.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Orders/EntityOrder/SpellOrder.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Orders/OrderableObject.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/MainMenu_DemoStartScripts/EntetyLoader.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Buildings/Hub.cs" />
@@ -75,11 +106,8 @@
       <option value="$PROJECT_DIR$/Assets/Scripts/HexWorldinterpretation/HexMetrics.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/UnitsControlScripts/EntitiesLister.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/UnitsControlScripts/FractionMember.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Units/Unit.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Orders/EntityOrder/BuildOrder.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/AIScripts/SimpleAI.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/AIScripts/UnitsGroup.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/AIScripts/UnitsCreator.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/MainMenu_DemoStartScripts/InitDemoGame.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Orders/OrderFactory.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Orders/EntityOrder/DefendOrder.cs" />
@@ -87,13 +115,21 @@
       <option value="$PROJECT_DIR$/Assets/Scripts/Orders/EntityOrder/MoveAttackOrder.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Units/UnitsParts/Body.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/UnitsControlScripts/OrderGiver.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Units/Robot.cs" />
       <option value="$PROJECT_DIR$/Assets/Resources/SavedMaps/MapExample.xml" />
       <option value="$PROJECT_DIR$/Assets/Resources/Xml/MapExample.xml" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/HexWorldinterpretation/HexColumnRenderer.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/PlayerScripts/InputHandler.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Buildings/Building.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Orders/EntityOrder/UnitCreationTask.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Buildings/Building.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Units/Unit.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/AIScripts/UnitsCreator.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/AIScripts/SimpleAI.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Units/Robot.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/HexWorldinterpretation/HexColumnRenderer.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/HexWordEditor/XMLMapSaver.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/HexWordEditor/TestEditorScript.cs" />
+      <option value="$PROJECT_DIR$/Assets/Shaders/TextureMeshColorer.shader" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/HexWorldinterpretation/TextureArrayWizard.cs" />
+      <option value="$PROJECT_DIR$/Assets/Resources/Xml/RigMap.xml" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1lIISIM12q3GC48Z5aO5fthc7Rz" />
@@ -160,7 +196,12 @@
       <workItem from="1608841364902" duration="5975000" />
       <workItem from="1608887186980" duration="17870000" />
       <workItem from="1608971733553" duration="5065000" />
-      <workItem from="1608989784470" duration="440000" />
+      <workItem from="1608989784470" duration="3423000" />
+      <workItem from="1608993909540" duration="3641000" />
+      <workItem from="1609403786625" duration="26929000" />
+      <workItem from="1609609141645" duration="9568000" />
+      <workItem from="1609684756238" duration="11534000" />
+      <workItem from="1609854889536" duration="6601000" />
     </task>
     <servers />
   </component>

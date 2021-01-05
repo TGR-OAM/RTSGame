@@ -1,5 +1,8 @@
-﻿using HexWorldinterpretation;
+﻿using System;
+using CameraMovement;
+using HexWorldinterpretation;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
 namespace HexWordEditor
@@ -11,10 +14,15 @@ namespace HexWordEditor
 
         public float targetHeight;
         public int radiusToChange;
+        public int deltaHeight;
 
         public InputField inputField;
 
         public Color curColor;
+
+        public MovementByKeyBoard movementScript;
+        public PlayerInput PlayerInput;
+        private InputActionMap editorMap;
 
         // Start is called before the first frame update
         void Start()
@@ -23,9 +31,44 @@ namespace HexWordEditor
 
             inputField.text = hexGrid.MapData.name;
 
+            editorMap = PlayerInput.actions.FindActionMap("EditNewMaps");
+
+            editorMap.FindAction("ChangeHeight").performed += ctx => ChangeHeightByValue(ctx.ReadValue<float>());
         }
 
-        void Update()
+        private void Update()
+        {
+            movementScript.TryMoveByDirection( editorMap.FindAction("MoveCamera").ReadValue<Vector2>());
+        }
+
+        public void ChangeHeightByValue(float value)
+        {
+
+            if (hexGrid.TryRaycastHexGrid(Camera.main.ScreenPointToRay(Mouse.current.position.ReadValue()), out Vector3 center))
+            {
+                if (editorMap.FindAction("Area(no target height)").ReadValue<float>()>.1f)
+                {
+                    worldEditor.TryUpdateCellHeightInRadius(
+                        HexMetrics.CalcHexCoordXZFromDefault(center, hexGrid.MapData.cellSize), deltaHeight*value, radiusToChange);
+                }
+                else if (editorMap.FindAction("Area").ReadValue<float>()>.1f)
+                {
+                    worldEditor.TryUpdateCellHeightInRadius(HexMetrics.CalcHexCoordXZFromDefault(center, hexGrid.MapData.cellSize), deltaHeight, radiusToChange, targetHeight);
+                }
+                else if(editorMap.FindAction("PaintFlag").ReadValue<float>()>.1f)
+                {
+                    worldEditor.TryUpdateCellColor(HexMetrics.CalcHexCoordXZFromDefault(center, hexGrid.MapData.cellSize), curColor);
+                }
+                else
+                {
+                    worldEditor.TryUpdateCellHeight(
+                        HexMetrics.CalcHexCoordXZFromDefault(center, hexGrid.MapData.cellSize), deltaHeight * value);
+                }
+            }
+        }
+        
+        
+        /*void Update()
         {
             if (hexGrid.TryRaycastHexGrid(Camera.main.ScreenPointToRay(Input.mousePosition), out Vector3 center))
             {
@@ -61,8 +104,8 @@ namespace HexWordEditor
                     worldEditor.TryUpdateCellColor(HexMetrics.CalcHexCoordXZFromDefault(center, hexGrid.MapData.cellSize), curColor);
                 }
             }
-
         }
+        */
 
         public void SaveMap()
         {

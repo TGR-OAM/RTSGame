@@ -42,50 +42,68 @@ namespace HexWorldinterpretation
             #endregion
 
             float[] heightMap;
-            if (MapNode.SelectSingleNode("HeightMap") == null)
+            Color[] colorMap;
+            if (MapNode.SelectSingleNode("CellsData") == null)
             {
                 heightMap = new float[width * height];
             }
             else
             {
-                heightMap = LoadHeightMap(MapNode.SelectSingleNode("HeightMap"), width, height);
+                LoadCellsData(MapNode.SelectSingleNode("CellsData"), width, height, out heightMap, out colorMap);
             }
             if(MapNode.SelectSingleNode("ColorMap") == null)
             {
                 return new HexGridData(name, width, height, cellSize, cellPadding, heightMap, accuracyOfApproximation, Default,MaterialPath);
             }
-
-            Color[] colorMap = LoadColorMap(MapNode.SelectSingleNode("ColorMap"), width, height, Default.color);
-
-            return new HexGridData(name, width, height, cellSize, cellPadding, heightMap, colorMap, accuracyOfApproximation, Default, MaterialPath);
-
+            else
+            {
+                colorMap = LoadColorMap(MapNode.SelectSingleNode("ColorMap"), width, height, Default.color);
+                return new HexGridData(name, width, height, cellSize, cellPadding, heightMap, colorMap,
+                    accuracyOfApproximation, Default, MaterialPath);
+            }
         }
 
-        static float[] LoadHeightMap(XmlNode HeightMapXMLNode, int width, int height)
+        static void LoadCellsData(XmlNode HeightMapXMLNode, int width, int height, out float[] heightMap, out Color[] colorMap)
         {
-            float[] heightMap = new float[width * height];
-
+            heightMap = new float[width * height];
+            colorMap = new Color[width * height];
             switch (HeightMapXMLNode.Attributes.GetNamedItem("type").Value)
             {
                 case "overrideSave":
-                    LoadHeightMap_override(ref heightMap, HeightMapXMLNode, width, height);
+                    LoadCellsData_override(HeightMapXMLNode, width, height,ref heightMap,ref colorMap);
                     break;
-
-                case "defaultSave":
-                    LoadHeightMap_default(ref heightMap, HeightMapXMLNode, width, height);
-                    break;
+                // case "defaultSave":
+                //     LoadHeightMap_default(ref heightMap, HeightMapXMLNode, width, height);
+                //     break;
             }
-            return heightMap;
         }
 
-        static void LoadHeightMap_override(ref float[] heightMap, XmlNode HeightMap, int width, int height)
+        static void LoadCellsData_override(XmlNode HeightMap, int width, int height,ref float[] heightMap, ref Color[] colorMap)
         {
             foreach (XmlNode HexCellData in HeightMap.SelectNodes("Cell"))
             {
-                int Xindex = int.Parse(HexCellData.SelectSingleNode("Xindex").InnerText);
-                float Y = float.Parse(HexCellData.SelectSingleNode("Y").InnerText, CInfo);
-                int Zindex = int.Parse(HexCellData.SelectSingleNode("Zindex").InnerText);
+                int Xindex = 0;
+                float Y = 0;
+                int Zindex = 0;
+                int.TryParse(HexCellData.SelectSingleNode("Xindex").InnerText, out Xindex);
+                float.TryParse(HexCellData.SelectSingleNode("Y").InnerText, out Y);
+                int.TryParse(HexCellData.SelectSingleNode("Zindex").InnerText, out Zindex);
                 heightMap[Zindex * width + Xindex] = Y;
+
+                XmlNode colorNode = HexCellData.SelectSingleNode("Color");
+
+                if (colorNode != null)
+                {
+                    float r = float.Parse(colorNode.SelectSingleNode("Red").InnerText, CInfo);
+                    float g = float.Parse(colorNode.SelectSingleNode("Green").InnerText, CInfo);
+                    float b = float.Parse(colorNode.SelectSingleNode("Blue").InnerText, CInfo);
+
+                    colorMap[Zindex * width + Xindex] = new Color(r,g,b);
+                }
+                else
+                {
+                    colorMap[Zindex * width + Xindex] = new Color();
+                }
             }
         }
 
@@ -98,7 +116,7 @@ namespace HexWorldinterpretation
                 string[] CellData_String = HexRowData.InnerText.Split(Separators, StringSplitOptions.RemoveEmptyEntries);
                 for (int x = 0; x < CellData_String.Length; x++)
                 {
-                    heightMap[z * width + x] = float.Parse(CellData_String[x], CInfo);
+                    float.TryParse(CellData_String[x], NumberStyles.Any,CInfo, out heightMap[z * width + x]);
                 }
                 z++;
             }

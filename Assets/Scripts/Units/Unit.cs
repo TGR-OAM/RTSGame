@@ -25,8 +25,8 @@ namespace Units
         public OrderableObject orderableObject;
 
         public GameResourceStruct UnitCost;
-        
-        public DamageSystem damageSystem { get; private set; }
+
+        public DamageSystem damageSystem;
 
         protected void Start()
         {
