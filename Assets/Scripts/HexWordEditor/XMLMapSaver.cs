@@ -2,7 +2,7 @@
 using UnityEngine;
 using UnityEditor;
 using System.Globalization;
-using HexWorldinterpretation;
+using HexWorldInterpretation;
 
 namespace HexWordEditor
 {    

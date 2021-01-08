@@ -1,4 +1,4 @@
-﻿using HexWorldinterpretation;
+﻿using HexWorldInterpretation;
 using UnitsControlScripts;
 using UnitsControlScripts;
 using System;

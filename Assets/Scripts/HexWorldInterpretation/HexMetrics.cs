@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-namespace HexWorldinterpretation
+namespace HexWorldInterpretation
 {
     public static class HexMetrics
     {

@@ -5,7 +5,7 @@ using System.Diagnostics;
 using System.Linq;
 using Buildings;
 using CameraMovement;
-using HexWorldinterpretation;
+using HexWorldInterpretation;
 using Orders;
 using Orders.EntityOrder;
 using UIScripts;

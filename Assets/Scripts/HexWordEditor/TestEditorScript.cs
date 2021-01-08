@@ -1,6 +1,6 @@
 ﻿using System;
 using CameraMovement;
-using HexWorldinterpretation;
+using HexWorldInterpretation;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;

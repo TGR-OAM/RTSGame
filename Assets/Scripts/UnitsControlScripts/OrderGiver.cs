@@ -1,6 +1,6 @@
 ﻿using System;
 using Buildings;
-using HexWorldinterpretation;
+using HexWorldInterpretation;
 using Orders;
 using Orders.EntityOrder;
 using UnityEngine;

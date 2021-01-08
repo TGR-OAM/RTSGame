@@ -4,6 +4,7 @@ using System.Linq;
 using Orders;
 using Orders.EntityOrder;
 using UnityEngine;
+using UnityEngine.AI;
 
 namespace UnitsControlScripts
 {

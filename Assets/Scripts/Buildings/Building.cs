@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using GameResources;
-using HexWorldinterpretation;
+using HexWorldInterpretation;
 using MainMenu_DemoStartScripts;
 using UnitsControlScripts;
 using UnityEngine;

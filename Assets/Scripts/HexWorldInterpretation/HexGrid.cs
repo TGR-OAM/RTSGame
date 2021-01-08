@@ -4,7 +4,7 @@ using System.Linq;
 using Buildings;
 using UnityEngine;
 
-namespace HexWorldinterpretation
+namespace HexWorldInterpretation
 {
     public class HexGrid : MonoBehaviour
     {
@@ -69,6 +69,8 @@ namespace HexWorldinterpretation
 
         public Color[] ColorMap;
 
+        public int[] TerrainTypeMap;
+
         #endregion
 
         #region this isnt permanent solution
@@ -94,11 +96,14 @@ namespace HexWorldinterpretation
             this.HeightMap = new float[width* height];
 
             this.ColorMap = new Color[width * height];
+            
             for(int i =0;i< width * height;i++)
             {
                 ColorMap[i] = Default.color;
             }
 
+            this.TerrainTypeMap = new int[width * height];
+            
             this.Default = Default;
             this.materialPath = materialPath;
 
@@ -128,7 +133,8 @@ namespace HexWorldinterpretation
             {
                 ColorMap[i] = Default.color;
             }
-
+            this.TerrainTypeMap = new int[width * height];
+            
             this.Default = Default;
             this.materialPath = materialPath;
 
@@ -154,7 +160,20 @@ namespace HexWorldinterpretation
             this.HeightMap = HeightMap;
 
             this.ColorMap = ColorMap;
-
+            this.TerrainTypeMap = new int[width * height];
+            TerrainTypeMap[0] = 1;
+            TerrainTypeMap[1] = 1;
+            TerrainTypeMap[2] = 1;
+            TerrainTypeMap[3] = 1;
+            TerrainTypeMap[4] = 1;
+            TerrainTypeMap[5] = 1;
+            TerrainTypeMap[0+width] = 1;
+            TerrainTypeMap[1+width] = 1;
+            TerrainTypeMap[2+width] = 1;
+            TerrainTypeMap[3+width] = 1;
+            TerrainTypeMap[4+width] = 1;
+            TerrainTypeMap[5+width] = 1;
+            
             this.Default = Default;
             this.materialPath = materialPath;
 

@@ -3,7 +3,7 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.AI;
 
-namespace HexWorldinterpretation
+namespace HexWorldInterpretation
 {
     public class HexGridRenderer
     {

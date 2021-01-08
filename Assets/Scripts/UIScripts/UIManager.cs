@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Security.Cryptography;
 using GameResources;
-using HexWorldinterpretation;
+using HexWorldInterpretation;
 using Orders;
 using Orders.EntityOrder;
 using PLayerScripts;

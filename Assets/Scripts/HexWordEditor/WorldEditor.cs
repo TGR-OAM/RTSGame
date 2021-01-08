@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using HexWorldinterpretation;
+using HexWorldInterpretation;
 using UnityEngine;
 
 namespace HexWordEditor

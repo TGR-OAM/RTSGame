@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using Buildings;
 using CameraMovement;
-using HexWorldinterpretation;
+using HexWorldInterpretation;
 using PLayerScripts;
 using UIScripts;
 using UnitsControlScripts;

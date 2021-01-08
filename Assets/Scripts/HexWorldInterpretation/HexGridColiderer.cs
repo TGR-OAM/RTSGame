@@ -4,7 +4,7 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-namespace HexWorldinterpretation
+namespace HexWorldInterpretation
 {
     public class HexGridColiderer
     {

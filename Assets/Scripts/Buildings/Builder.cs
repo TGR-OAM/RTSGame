@@ -1,5 +1,5 @@
 using System;
-using HexWorldinterpretation;
+using HexWorldInterpretation;
 using UnityEngine;
 using UnityEngine.InputSystem;
 

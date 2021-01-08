@@ -4,7 +4,7 @@ using System.Globalization;
 using System.Xml;
 using UnityEngine;
 
-namespace HexWorldinterpretation
+namespace HexWorldInterpretation
 {
     static public class XMLMapLoader
     {
